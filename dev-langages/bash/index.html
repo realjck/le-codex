@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Bash - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Bash";
+        var mkdocs_page_input_path = "dev-langages/bash.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Bash</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#navigation-et-fichiers">Navigation et fichiers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#permissions">Permissions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#processus">Processus</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#find-et-grep">find et grep</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ecrire-un-script">Écrire un script</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variables-et-parametres">Variables et paramètres</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conditions-et-boucles">Conditions et boucles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fonctions">Fonctions</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">Bash</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="bash">Bash</h1>
+<p>Bash (Bourne Again SHell) est le shell Unix par défaut sur la plupart des systèmes Linux et macOS. Il s'utilise de deux façons complémentaires : en mode interactif pour exécuter des commandes dans le terminal, et en mode script pour automatiser des tâches répétitives.</p>
+<h2 id="navigation-et-fichiers">Navigation et fichiers</h2>
+<h3 id="se-reperer-et-se-deplacer">Se repérer et se déplacer</h3>
+<pre><code class="language-bash">pwd                     # affiche le répertoire courant
+ls                      # liste les fichiers
+ls -la                  # liste détaillée avec fichiers cachés
+cd /chemin/vers/dossier # se déplacer
+cd ..                   # remonter d'un niveau
+cd ~                    # aller dans le répertoire home
+cd -                    # revenir au répertoire précédent
+</code></pre>
+<h3 id="creer-copier-deplacer-supprimer">Créer, copier, déplacer, supprimer</h3>
+<pre><code class="language-bash">mkdir mon-dossier           # créer un dossier
+mkdir -p a/b/c              # créer les dossiers intermédiaires si besoin
+touch fichier.txt           # créer un fichier vide
+
+cp source.txt dest.txt      # copier un fichier
+cp -r dossier/ copie/       # copier un dossier récursivement
+mv ancien.txt nouveau.txt   # renommer ou déplacer
+rm fichier.txt              # supprimer un fichier
+rm -rf dossier/             # ⚠️ supprimer un dossier et son contenu
+</code></pre>
+<h3 id="lire-des-fichiers">Lire des fichiers</h3>
+<pre><code class="language-bash">cat fichier.txt             # afficher tout le contenu
+less fichier.txt            # afficher page par page (q pour quitter)
+head -n 20 fichier.txt      # afficher les 20 premières lignes
+tail -n 20 fichier.txt      # afficher les 20 dernières lignes
+tail -f fichier.log         # suivre un fichier en temps réel
+</code></pre>
+<h3 id="redirections-et-pipes">Redirections et pipes</h3>
+<pre><code class="language-bash">commande &gt; fichier.txt      # redirige la sortie (écrase)
+commande &gt;&gt; fichier.txt     # redirige la sortie (ajoute)
+commande 2&gt; erreurs.txt     # redirige les erreurs
+commande &gt; out.txt 2&gt;&amp;1     # redirige sortie ET erreurs
+
+commande1 | commande2       # pipe : envoie la sortie de 1 vers 2
+echo &quot;hello&quot; | tr 'a-z' 'A-Z'  # exemple : convertit en majuscules
+</code></pre>
+<hr />
+<h2 id="permissions">Permissions</h2>
+<h3 id="lire-les-permissions">Lire les permissions</h3>
+<pre><code class="language-bash">ls -la
+# -rwxr-xr-- 1 user group 1234 jan 1 fichier.txt
+#  ↑↑↑↑↑↑↑↑↑
+#  │└──┬───┘└──┬───┘└──┬──┘
+#  │  owner   group   others
+#  └─ type (- fichier, d dossier, l lien)
+</code></pre>
+<p><code>r</code> = lecture (4), <code>w</code> = écriture (2), <code>x</code> = exécution (1)</p>
+<h3 id="modifier-les-permissions">Modifier les permissions</h3>
+<pre><code class="language-bash"># Notation symbolique
+chmod +x script.sh          # ajouter l'exécution
+chmod u+w fichier.txt       # ajouter l'écriture pour le propriétaire
+chmod go-r fichier.txt      # retirer la lecture pour group et others
+
+# Notation octale
+chmod 755 script.sh         # rwxr-xr-x
+chmod 644 fichier.txt       # rw-r--r--
+chmod 600 cle_privee        # rw------- (clé SSH)
+</code></pre>
+<h3 id="changer-le-proprietaire">Changer le propriétaire</h3>
+<pre><code class="language-bash">chown user fichier.txt
+chown user:group fichier.txt
+chown -R user:group dossier/    # récursif
+</code></pre>
+<hr />
+<h2 id="processus">Processus</h2>
+<h3 id="surveiller-les-processus">Surveiller les processus</h3>
+<pre><code class="language-bash">ps aux                      # liste tous les processus
+ps aux | grep nginx         # filtrer par nom
+top                         # vue temps réel (q pour quitter)
+htop                        # vue améliorée (si installé)
+</code></pre>
+<h3 id="controler-les-processus">Contrôler les processus</h3>
+<pre><code class="language-bash">kill 1234                   # envoie SIGTERM au PID 1234
+kill -9 1234                # envoie SIGKILL (force)
+killall nginx               # tue tous les processus nommés nginx
+
+commande &amp;                  # lancer en arrière-plan
+jobs                        # liste les tâches en arrière-plan
+fg %1                       # ramener la tâche 1 au premier plan
+bg %1                       # reprendre la tâche 1 en arrière-plan
+
+nohup commande &amp;            # lancer sans être tué à la fermeture du terminal
+</code></pre>
+<h3 id="variables-de-processus">Variables de processus</h3>
+<pre><code class="language-bash">$$      # PID du script en cours
+$!      # PID du dernier processus lancé en arrière-plan
+$?      # code de retour de la dernière commande (0 = succès)
+</code></pre>
+<hr />
+<h2 id="find-et-grep">find et grep</h2>
+<h3 id="find-rechercher-des-fichiers">find — rechercher des fichiers</h3>
+<pre><code class="language-bash">find . -name &quot;*.log&quot;                    # par nom (récursif depuis .)
+find /var -name &quot;*.log&quot; -type f         # fichiers uniquement (pas dossiers)
+find . -type d -name &quot;node_modules&quot;     # dossiers nommés node_modules
+find . -mtime -7                        # modifiés il y a moins de 7 jours
+find . -size +10M                       # fichiers de plus de 10 Mo
+
+# Exécuter une commande sur chaque résultat
+find . -name &quot;*.tmp&quot; -exec rm {} \;     # supprimer tous les .tmp
+find . -name &quot;*.sh&quot; -exec chmod +x {} \;
+</code></pre>
+<h3 id="grep-rechercher-dans-le-contenu">grep — rechercher dans le contenu</h3>
+<pre><code class="language-bash">grep &quot;motif&quot; fichier.txt                # chercher dans un fichier
+grep -r &quot;motif&quot; ./dossier               # chercher récursivement
+grep -i &quot;motif&quot; fichier.txt             # insensible à la casse
+grep -n &quot;motif&quot; fichier.txt             # affiche les numéros de ligne
+grep -l &quot;motif&quot; *.txt                   # affiche seulement les noms de fichiers
+grep -v &quot;motif&quot; fichier.txt             # lignes ne contenant PAS le motif
+grep -E &quot;erreur|warning&quot; fichier.log    # regex étendue (alternance)
+</code></pre>
+<h3 id="combinaisons-utiles">Combinaisons utiles</h3>
+<pre><code class="language-bash">find . -name &quot;*.js&quot; | xargs grep -l &quot;console.log&quot;   # fichiers JS contenant console.log
+grep -r &quot;TODO&quot; . --include=&quot;*.py&quot;                    # limiter aux .py
+ps aux | grep -v grep | grep nginx                   # exclure la ligne grep elle-même
+</code></pre>
+<hr />
+<h2 id="ecrire-un-script">Écrire un script</h2>
+<h3 id="structure-de-base">Structure de base</h3>
+<pre><code class="language-bash">#!/bin/bash
+# Description courte du script
+
+set -e          # quitter si une commande échoue
+set -u          # erreur si variable non définie
+set -o pipefail # propager les erreurs dans les pipes
+
+echo &quot;Début du script&quot;
+# ... commandes ...
+echo &quot;Terminé&quot;
+</code></pre>
+<h3 id="rendre-un-script-executable-et-le-lancer">Rendre un script exécutable et le lancer</h3>
+<pre><code class="language-bash">chmod +x mon-script.sh
+./mon-script.sh
+
+# ou sans le rendre exécutable :
+bash mon-script.sh
+</code></pre>
+<hr />
+<h2 id="variables-et-parametres">Variables et paramètres</h2>
+<h3 id="variables">Variables</h3>
+<pre><code class="language-bash">NOM=&quot;Alice&quot;                 # affectation (pas d'espaces autour de =)
+echo $NOM                   # utiliser la variable
+echo &quot;${NOM}s&quot;              # délimiter le nom de variable : affiche &quot;Alices&quot;
+echo '$NOM'                 # guillemets simples : pas d'interpolation → $NOM
+
+readonly VERSION=&quot;1.0.0&quot;    # variable en lecture seule
+unset NOM                   # supprimer une variable
+</code></pre>
+<h3 id="parametres-du-script">Paramètres du script</h3>
+<pre><code class="language-bash">$0          # nom du script
+$1, $2 ...  # arguments positionnels
+$@          # tous les arguments (liste)
+$#          # nombre d'arguments
+
+# Exemple :
+./deploy.sh prod v1.2.0
+# $1 = &quot;prod&quot;, $2 = &quot;v1.2.0&quot;, $# = 2
+</code></pre>
+<h3 id="substitution-et-valeurs-par-defaut">Substitution et valeurs par défaut</h3>
+<pre><code class="language-bash">echo ${NOM:-&quot;inconnu&quot;}      # utilise &quot;inconnu&quot; si NOM est vide ou non défini
+echo ${NOM:=&quot;inconnu&quot;}      # assigne &quot;inconnu&quot; si NOM est vide ou non défini
+NOM_UPPER=${NOM^^}          # convertir en majuscules (bash 4+)
+NOM_LOWER=${NOM,,}          # convertir en minuscules (bash 4+)
+</code></pre>
+<hr />
+<h2 id="conditions-et-boucles">Conditions et boucles</h2>
+<h3 id="if-elif-else">if / elif / else</h3>
+<pre><code class="language-bash">if [ condition ]; then
+    echo &quot;vrai&quot;
+elif [ autre_condition ]; then
+    echo &quot;autre&quot;
+else
+    echo &quot;faux&quot;
+fi
+</code></pre>
+<h3 id="operateurs-de-test-courants">Opérateurs de test courants</h3>
+<pre><code class="language-bash"># Fichiers
+[ -f fichier ]      # existe et est un fichier
+[ -d dossier ]      # existe et est un dossier
+[ -e chemin ]       # existe (fichier ou dossier)
+[ -x fichier ]      # est exécutable
+
+# Chaînes
+[ -z &quot;$var&quot; ]       # chaîne vide
+[ -n &quot;$var&quot; ]       # chaîne non vide
+[ &quot;$a&quot; = &quot;$b&quot; ]     # égalité de chaînes
+[ &quot;$a&quot; != &quot;$b&quot; ]    # inégalité
+
+# Nombres
+[ $a -eq $b ]       # égal
+[ $a -ne $b ]       # différent
+[ $a -lt $b ]       # inférieur
+[ $a -gt $b ]       # supérieur
+</code></pre>
+<h3 id="boucle-for">Boucle for</h3>
+<pre><code class="language-bash">for i in 1 2 3 4 5; do
+    echo &quot;Valeur : $i&quot;
+done
+
+# Sur une plage
+for i in {1..10}; do echo $i; done
+
+# Sur des fichiers
+for fichier in *.txt; do
+    echo &quot;Traitement de $fichier&quot;
+done
+
+# Sur les arguments du script
+for arg in &quot;$@&quot;; do
+    echo &quot;$arg&quot;
+done
+</code></pre>
+<h3 id="boucle-while">Boucle while</h3>
+<pre><code class="language-bash">compteur=0
+while [ $compteur -lt 5 ]; do
+    echo &quot;Compteur : $compteur&quot;
+    ((compteur++))
+done
+
+# Lire un fichier ligne par ligne
+while IFS= read -r ligne; do
+    echo &quot;$ligne&quot;
+done &lt; fichier.txt
+</code></pre>
+<h3 id="case">case</h3>
+<pre><code class="language-bash">case &quot;$1&quot; in
+    start)
+        echo &quot;Démarrage...&quot;
+        ;;
+    stop)
+        echo &quot;Arrêt...&quot;
+        ;;
+    restart)
+        echo &quot;Redémarrage...&quot;
+        ;;
+    *)
+        echo &quot;Usage : $0 {start|stop|restart}&quot;
+        exit 1
+        ;;
+esac
+</code></pre>
+<hr />
+<h2 id="fonctions">Fonctions</h2>
+<pre><code class="language-bash"># Déclaration
+ma_fonction() {
+    local param1=&quot;$1&quot;       # variable locale à la fonction
+    local param2=&quot;$2&quot;
+    echo &quot;Paramètres : $param1, $param2&quot;
+    return 0                # code de retour (0 = succès, 1+ = erreur)
+}
+
+# Appel
+ma_fonction &quot;hello&quot; &quot;world&quot;
+
+# Vérifier le code de retour
+if ! ma_fonction &quot;test&quot;; then
+    echo &quot;La fonction a échoué&quot;
+fi
+</code></pre>
+<h3 id="recuperer-une-valeur-de-retour">Récupérer une valeur de retour</h3>
+<p>Bash ne peut retourner que des entiers via <code>return</code>. Pour retourner une chaîne, utiliser <code>echo</code> et capturer avec <code>$()</code> :</p>
+<pre><code class="language-bash">obtenir_date() {
+    echo &quot;$(date +%Y-%m-%d)&quot;
+}
+
+AUJOURD_HUI=$(obtenir_date)
+echo &quot;Nous sommes le $AUJOURD_HUI&quot;
+</code></pre>
+<h3 id="codes-de-retour">Codes de retour</h3>
+<pre><code class="language-bash">commande
+echo $?         # 0 = succès, autre = erreur
+
+# Convention
+exit 0          # fin de script avec succès
+exit 1          # fin de script avec erreur
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../angular/" class="btn btn-neutral float-left" title="Angular"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../css/" class="btn btn-neutral float-right" title="CSS">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../angular/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../css/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

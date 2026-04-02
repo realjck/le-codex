@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>SSH - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SSH";
+        var mkdocs_page_input_path = "dev-ops/ssh.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">SSH</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#connexion-a-un-serveur">Connexion à un serveur</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gestion-des-cles-et-sshconfig">Gestion des clés et ~/.ssh/config</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transfert-de-fichiers">Transfert de fichiers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tunnels-et-port-forwarding">Tunnels et port forwarding</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#securiser-son-serveur-sshd_config">Sécuriser son serveur (sshd_config)</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev ops</li>
+      <li class="breadcrumb-item active">SSH</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ssh">SSH</h1>
+<p>SSH (Secure Shell) est un protocole de communication chiffré permettant d'accéder à distance à des machines, de transférer des fichiers et de créer des tunnels réseau sécurisés. Il remplace les protocoles non chiffrés comme Telnet ou FTP.</p>
+<blockquote>
+<p><strong>Clés SSH pour GitHub/GitLab</strong> : la génération de clés et l'ajout à <code>ssh-agent</code> sont couverts dans la fiche <a href="git.md">Git</a>.</p>
+</blockquote>
+<hr />
+<h2 id="connexion-a-un-serveur">Connexion à un serveur</h2>
+<h3 id="connexion-de-base">Connexion de base</h3>
+<pre><code class="language-bash">ssh utilisateur@adresse-ip
+ssh utilisateur@mon-serveur.com
+ssh -p 2222 utilisateur@mon-serveur.com    # port personnalisé
+</code></pre>
+<h3 id="connexion-avec-une-cle-privee-specifique">Connexion avec une clé privée spécifique</h3>
+<pre><code class="language-bash">ssh -i ~/.ssh/ma_cle_privee utilisateur@mon-serveur.com
+</code></pre>
+<h3 id="premiere-connexion-empreinte-du-serveur">Première connexion — empreinte du serveur</h3>
+<p>Lors de la première connexion, SSH demande de valider l'empreinte du serveur :</p>
+<pre><code>The authenticity of host 'mon-serveur.com' can't be established.
+ED25519 key fingerprint is SHA256:xxxx...
+Are you sure you want to continue connecting? (yes/no)?
+</code></pre>
+<p>Répondre <code>yes</code> ajoute le serveur dans <code>~/.ssh/known_hosts</code>. Si l'empreinte change (réinstallation serveur), supprimer l'ancienne entrée :</p>
+<pre><code class="language-bash">ssh-keygen -R mon-serveur.com
+</code></pre>
+<h3 id="copier-sa-cle-publique-sur-le-serveur">Copier sa clé publique sur le serveur</h3>
+<pre><code class="language-bash">ssh-copy-id utilisateur@mon-serveur.com
+ssh-copy-id -i ~/.ssh/ma_cle.pub utilisateur@mon-serveur.com
+</code></pre>
+<p>Ajoute la clé dans <code>~/.ssh/authorized_keys</code> sur le serveur. Ensuite, la connexion se fait sans mot de passe.</p>
+<hr />
+<h2 id="gestion-des-cles-et-sshconfig">Gestion des clés et ~/.ssh/config</h2>
+<h3 id="generer-une-paire-de-cles">Générer une paire de clés</h3>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;commentaire@exemple.com&quot;   # recommandé
+ssh-keygen -t rsa -b 4096 -C &quot;commentaire@exemple.com&quot;  # compatibilité anciens systèmes
+
+# Les clés sont créées dans ~/.ssh/
+# id_ed25519      → clé privée (ne jamais partager)
+# id_ed25519.pub  → clé publique (à copier sur les serveurs)
+</code></pre>
+<blockquote>
+<p>Nommer les clés par usage plutôt que laisser le nom par défaut : <code>serveur_prod</code>, <code>vps_ovh</code>, <code>github_perso</code>…</p>
+</blockquote>
+<h3 id="le-fichier-sshconfig">Le fichier ~/.ssh/config</h3>
+<p>Ce fichier permet de définir des alias et des paramètres par hôte, évitant de retaper les options à chaque fois.</p>
+<pre><code># ~/.ssh/config
+
+# Serveur de production
+Host prod
+    HostName 192.168.1.100
+    User deploy
+    IdentityFile ~/.ssh/serveur_prod
+    Port 22
+
+# VPS avec port personnalisé
+Host monvps
+    HostName mon-vps.com
+    User ubuntu
+    IdentityFile ~/.ssh/vps_ovh
+    Port 2222
+
+# Paramètres globaux
+Host *
+    ServerAliveInterval 60      # envoie un ping toutes les 60s pour maintenir la connexion
+    ServerAliveCountMax 3
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_ed25519
+</code></pre>
+<p>Avec ce fichier, <code>ssh prod</code> remplace <code>ssh -i ~/.ssh/serveur_prod deploy@192.168.1.100</code>.</p>
+<h3 id="permissions-requises">Permissions requises</h3>
+<p>SSH est strict sur les permissions des fichiers de clés :</p>
+<pre><code class="language-bash">chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_ed25519         # clé privée
+chmod 644 ~/.ssh/id_ed25519.pub     # clé publique
+chmod 600 ~/.ssh/config
+chmod 600 ~/.ssh/authorized_keys
+</code></pre>
+<hr />
+<h2 id="transfert-de-fichiers">Transfert de fichiers</h2>
+<h3 id="scp-copie-simple">scp — copie simple</h3>
+<pre><code class="language-bash"># Local → Serveur
+scp fichier.txt utilisateur@serveur:/chemin/distant/
+scp -r dossier/ utilisateur@serveur:/chemin/distant/
+
+# Serveur → Local
+scp utilisateur@serveur:/chemin/distant/fichier.txt ./
+scp -r utilisateur@serveur:/chemin/distant/dossier/ ./
+
+# Entre deux serveurs distants
+scp utilisateur@serveur1:/fichier utilisateur@serveur2:/destination/
+
+# Avec port personnalisé (attention : -P majuscule pour scp)
+scp -P 2222 fichier.txt utilisateur@serveur:/destination/
+</code></pre>
+<h3 id="rsync-synchronisation-intelligente">rsync — synchronisation intelligente</h3>
+<p><code>rsync</code> ne transfère que les fichiers modifiés, bien plus efficace que <code>scp</code> pour les gros dossiers.</p>
+<pre><code class="language-bash"># Synchroniser un dossier local vers le serveur
+rsync -avz dossier/ utilisateur@serveur:/chemin/distant/
+
+# Avec suppression des fichiers supprimés en local
+rsync -avz --delete dossier/ utilisateur@serveur:/chemin/distant/
+
+# Avec port SSH personnalisé
+rsync -avz -e &quot;ssh -p 2222&quot; dossier/ utilisateur@serveur:/chemin/distant/
+
+# Simulation (dry run) — voir ce qui serait transféré sans l'appliquer
+rsync -avz --dry-run dossier/ utilisateur@serveur:/chemin/distant/
+
+# Options courantes
+# -a : archive (récursif + conserve permissions, timestamps, liens)
+# -v : verbose
+# -z : compression pendant le transfert
+# --progress : afficher la progression
+</code></pre>
+<hr />
+<h2 id="tunnels-et-port-forwarding">Tunnels et port forwarding</h2>
+<p>Les tunnels SSH permettent de faire transiter du trafic chiffré via une connexion SSH.</p>
+<h3 id="local-port-forwarding-l">Local port forwarding (-L)</h3>
+<p>Redirige un port local vers un port distant via le serveur SSH. Utile pour accéder à un service interne non exposé publiquement.</p>
+<pre><code class="language-bash">ssh -L port_local:hôte_cible:port_cible utilisateur@serveur
+
+# Exemples
+ssh -L 8080:localhost:80 utilisateur@serveur      # accéder au port 80 du serveur via localhost:8080
+ssh -L 5432:localhost:5432 utilisateur@serveur    # accéder à PostgreSQL du serveur en local
+ssh -L 8080:serveur-interne:80 utilisateur@bastion  # accéder à un serveur interne via un bastion
+</code></pre>
+<p>Après cette commande, ouvrir <code>http://localhost:8080</code> dans le navigateur accède au service distant.</p>
+<h3 id="remote-port-forwarding-r">Remote port forwarding (-R)</h3>
+<p>Expose un port local sur le serveur distant. Utile pour rendre accessible depuis internet un service tournant en local.</p>
+<pre><code class="language-bash">ssh -R port_distant:localhost:port_local utilisateur@serveur
+
+# Exemple : exposer son serveur local (port 3000) sur le serveur distant (port 9000)
+ssh -R 9000:localhost:3000 utilisateur@serveur
+# → http://serveur:9000 accède à localhost:3000
+</code></pre>
+<h3 id="dynamic-port-forwarding-proxy-socks-d">Dynamic port forwarding / proxy SOCKS (-D)</h3>
+<p>Crée un proxy SOCKS5 local qui fait transiter tout le trafic via le serveur SSH.</p>
+<pre><code class="language-bash">ssh -D 1080 utilisateur@serveur
+# Configurer ensuite le navigateur pour utiliser SOCKS5 sur localhost:1080
+</code></pre>
+<h3 id="tunnel-en-arriere-plan">Tunnel en arrière-plan</h3>
+<pre><code class="language-bash">ssh -f -N -L 5432:localhost:5432 utilisateur@serveur
+# -f : passe en arrière-plan
+# -N : ne pas exécuter de commande (tunnel uniquement)
+</code></pre>
+<h3 id="jump-host-j">Jump host (-J)</h3>
+<p>Se connecter à un serveur cible via un serveur intermédiaire (bastion) :</p>
+<pre><code class="language-bash">ssh -J utilisateur@bastion utilisateur@serveur-cible
+
+# Dans ~/.ssh/config
+Host serveur-cible
+    HostName 10.0.0.50
+    User deploy
+    ProxyJump bastion
+</code></pre>
+<hr />
+<h2 id="securiser-son-serveur-sshd_config">Sécuriser son serveur (sshd_config)</h2>
+<p>Le fichier de configuration du démon SSH se trouve dans <code>/etc/ssh/sshd_config</code>.</p>
+<h3 id="parametres-essentiels">Paramètres essentiels</h3>
+<pre><code class="language-bash"># /etc/ssh/sshd_config
+
+Port 2222                       # changer le port par défaut (évite les scans automatiques)
+PermitRootLogin no              # interdire la connexion directe en root
+PasswordAuthentication no       # n'autoriser que les clés SSH (désactiver les mots de passe)
+PubkeyAuthentication yes        # autoriser l'authentification par clé
+AuthorizedKeysFile .ssh/authorized_keys
+
+MaxAuthTries 3                  # limiter les tentatives d'authentification
+LoginGraceTime 30               # délai maximum pour s'authentifier (secondes)
+
+X11Forwarding no                # désactiver le forwarding X11 si inutilisé
+AllowTcpForwarding yes          # nécessaire pour les tunnels (mettre no si non utilisé)
+
+# Restreindre les utilisateurs autorisés (optionnel mais recommandé)
+AllowUsers deploy ubuntu
+</code></pre>
+<h3 id="appliquer-les-changements">Appliquer les changements</h3>
+<pre><code class="language-bash"># Vérifier la syntaxe avant de redémarrer (évite de se bloquer hors du serveur)
+sshd -t
+
+# Redémarrer le service
+sudo systemctl restart sshd
+sudo systemctl status sshd
+</code></pre>
+<p>⚠️ <strong>Avant de fermer la session en cours</strong>, ouvrir une <strong>nouvelle</strong> connexion pour vérifier que les changements fonctionnent. Si quelque chose ne va pas, la session existante permet de corriger.</p>
+<h3 id="fail2ban-bloquer-les-attaques-par-force-brute">fail2ban — bloquer les attaques par force brute</h3>
+<pre><code class="language-bash"># Installation
+sudo apt install fail2ban
+
+# Configuration de base pour SSH
+# /etc/fail2ban/jail.local
+[sshd]
+enabled  = true
+port     = 2222          # adapter si port personnalisé
+maxretry = 5             # nombre de tentatives avant bannissement
+bantime  = 3600          # durée du bannissement en secondes (1h)
+findtime = 600           # fenêtre de temps pour compter les tentatives
+
+# Démarrer le service
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+
+# Vérifier les IPs bannies
+sudo fail2ban-client status sshd
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../nginx-ssl/" class="btn btn-neutral float-left" title="Configuration d'un serveur web Nginx avec SSL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../winscp/" class="btn btn-neutral float-right" title="Mise en ligne avec WinSCP">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../nginx-ssl/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../winscp/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Gitflow - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Gitflow";
+        var mkdocs_page_input_path = "gestion-de-projet/gitflow.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Gitflow</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#vue-densemble">Vue d'ensemble</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#initialisation">Initialisation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#feature">Feature</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#release">Release</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hotfix">Hotfix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conventional-commits">Conventional Commits</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recapitulatif-des-commandes">Récapitulatif des commandes</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Gestion de projet</li>
+      <li class="breadcrumb-item active">Gitflow</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="gitflow">Gitflow</h1>
+<p>Gitflow est un modèle de branching Git défini par Vincent Driessen. Il organise le développement autour de branches à rôles fixes, adapté aux projets avec des cycles de release planifiés.</p>
+<hr />
+<h2 id="vue-densemble">Vue d'ensemble</h2>
+<pre><code>main       ──●────────────────────────────●──────────────●──→
+              │ tag v1.0                   │ tag v1.1      │ tag v1.1.1
+              │                           │               │
+develop    ──●──────●──────●──────●───────●───────●───────●──→
+              │     │      │      │               │
+feature/   ──●─────●       │      │               │
+  login                    │      │               │
+feature/            ───────●      │               │
+  paiement                        │               │
+release/                    ──────●               │
+  1.1                                             │
+hotfix/                                    ───────●
+  1.1.1
+</code></pre>
+<h3 id="role-de-chaque-branche">Rôle de chaque branche</h3>
+<table>
+<thead>
+<tr>
+<th>Branche</th>
+<th>Durée</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main</code></td>
+<td>Permanente</td>
+<td>Code en production — chaque commit est une version livrée, taguée</td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>Permanente</td>
+<td>Intégration continue — base de toutes les features</td>
+</tr>
+<tr>
+<td><code>feature/*</code></td>
+<td>Temporaire</td>
+<td>Développement d'une fonctionnalité isolée</td>
+</tr>
+<tr>
+<td><code>release/*</code></td>
+<td>Temporaire</td>
+<td>Stabilisation avant livraison (bugfixes, version bump)</td>
+</tr>
+<tr>
+<td><code>hotfix/*</code></td>
+<td>Temporaire</td>
+<td>Correction urgente en production</td>
+</tr>
+</tbody>
+</table>
+<h3 id="regles-fondamentales">Règles fondamentales</h3>
+<pre><code>✅ On ne commite jamais directement sur main
+✅ On ne commite jamais directement sur develop (sauf petits projets solo)
+✅ Les features partent toujours de develop
+✅ Les releases et hotfixes mergent dans main ET develop
+✅ Chaque merge dans main reçoit un tag de version
+</code></pre>
+<hr />
+<h2 id="initialisation">Initialisation</h2>
+<pre><code class="language-bash"># Initialiser gitflow dans un dépôt existant
+git flow init
+
+# → Questions interactives (appuyer sur Entrée pour les valeurs par défaut)
+# Branch name for production releases: [main]
+# Branch name for &quot;next release&quot; development: [develop]
+# Feature branch prefix: [feature/]
+# Release branch prefix: [release/]
+# Hotfix branch prefix: [hotfix/]
+# Version tag prefix: [v]
+</code></pre>
+<pre><code class="language-bash"># Sans git flow CLI — initialisation manuelle
+git checkout -b develop main
+git push -u origin develop
+</code></pre>
+<h3 id="convention-de-nommage">Convention de nommage</h3>
+<pre><code>feature/nom-de-la-feature     feature/authentification-oauth
+release/version               release/2.3.0
+hotfix/description-du-bug     hotfix/correction-login-csrf
+</code></pre>
+<hr />
+<h2 id="feature">Feature</h2>
+<p>Une feature est une fonctionnalité développée en isolation depuis <code>develop</code>.</p>
+<pre><code>develop  ──●──────────────────●──→
+            │                  │
+feature/    ●──●──●──●─────────●
+  auth
+</code></pre>
+<h3 id="avec-git-flow-cli">Avec git flow CLI</h3>
+<pre><code class="language-bash"># Créer une feature
+git flow feature start authentification-oauth
+# → crée feature/authentification-oauth depuis develop
+
+# Travailler normalement
+git add .
+git commit -m &quot;feat(auth): ajouter le flow OAuth2 Google&quot;
+
+# Terminer la feature (merge dans develop, supprime la branche)
+git flow feature finish authentification-oauth
+# → merge dans develop + supprime feature/authentification-oauth
+
+# Partager la feature (travail en équipe)
+git flow feature publish authentification-oauth
+git flow feature pull origin authentification-oauth
+</code></pre>
+<h3 id="equivalent-git-vanilla">Équivalent git vanilla</h3>
+<pre><code class="language-bash"># Créer
+git checkout develop
+git checkout -b feature/authentification-oauth
+
+# Merger
+git checkout develop
+git merge --no-ff feature/authentification-oauth   # --no-ff : préserve l'historique
+git branch -d feature/authentification-oauth
+git push origin develop
+</code></pre>
+<blockquote>
+<p><code>--no-ff</code> (no fast-forward) crée toujours un commit de merge, ce qui préserve le contexte de la feature dans l'historique.</p>
+</blockquote>
+<hr />
+<h2 id="release">Release</h2>
+<p>La branche release sert à stabiliser le code avant livraison : correction de bugs mineurs, mise à jour du numéro de version, documentation. Aucune nouvelle fonctionnalité.</p>
+<pre><code>develop  ──●──────────────────────────●──→
+            │                          │
+release/    ●──●(bugfix)──●(version)───●
+  2.3.0                               │
+main     ────────────────────────────●──→
+                                     tag v2.3.0
+</code></pre>
+<h3 id="avec-git-flow-cli_1">Avec git flow CLI</h3>
+<pre><code class="language-bash"># Créer la release
+git flow release start 2.3.0
+# → crée release/2.3.0 depuis develop
+
+# Corrections de dernière minute, version bump
+git commit -m &quot;chore(release): bump version 2.3.0&quot;
+git commit -m &quot;fix(api): corriger la pagination des résultats&quot;
+
+# Terminer la release
+git flow release finish 2.3.0
+# → merge dans main (avec tag v2.3.0) ET dans develop
+# → supprime release/2.3.0
+
+# Pousser tout
+git push origin main develop --tags
+</code></pre>
+<h3 id="equivalent-git-vanilla_1">Équivalent git vanilla</h3>
+<pre><code class="language-bash"># Créer
+git checkout develop
+git checkout -b release/2.3.0
+
+# Finaliser
+git checkout main
+git merge --no-ff release/2.3.0
+git tag -a v2.3.0 -m &quot;Version 2.3.0&quot;
+
+git checkout develop
+git merge --no-ff release/2.3.0
+
+git branch -d release/2.3.0
+git push origin main develop --tags
+</code></pre>
+<hr />
+<h2 id="hotfix">Hotfix</h2>
+<p>Un hotfix corrige un bug critique directement en production. Il part de <code>main</code> et doit être répercuté dans <code>develop</code>.</p>
+<pre><code>main     ──●─────────────────────────●──→
+            │ tag v2.3.0              │ tag v2.3.1
+            │                        │
+hotfix/     ●──●(fix)─────────────●──●
+  2.3.1                            │
+develop  ──────────────────────────●──→
+</code></pre>
+<h3 id="avec-git-flow-cli_2">Avec git flow CLI</h3>
+<pre><code class="language-bash"># Créer le hotfix depuis main
+git flow hotfix start 2.3.1
+# → crée hotfix/2.3.1 depuis main
+
+# Corriger le bug
+git commit -m &quot;fix(auth): corriger la faille CSRF sur le formulaire de login&quot;
+
+# Terminer le hotfix
+git flow hotfix finish 2.3.1
+# → merge dans main (avec tag v2.3.1) ET dans develop
+# → supprime hotfix/2.3.1
+
+git push origin main develop --tags
+</code></pre>
+<h3 id="equivalent-git-vanilla_2">Équivalent git vanilla</h3>
+<pre><code class="language-bash"># Créer
+git checkout main
+git checkout -b hotfix/2.3.1
+
+# Corriger
+git commit -m &quot;fix(auth): corriger la faille CSRF sur le formulaire de login&quot;
+
+# Merger dans main
+git checkout main
+git merge --no-ff hotfix/2.3.1
+git tag -a v2.3.1 -m &quot;Hotfix 2.3.1&quot;
+
+# Répercuter dans develop
+git checkout develop
+git merge --no-ff hotfix/2.3.1
+
+git branch -d hotfix/2.3.1
+git push origin main develop --tags
+</code></pre>
+<hr />
+<h2 id="conventional-commits">Conventional Commits</h2>
+<p>Les Conventional Commits standardisent les messages de commit pour rendre l'historique lisible et automatiser le versioning.</p>
+<h3 id="format">Format</h3>
+<pre><code>type(scope): description courte
+
+[corps optionnel — explication détaillée]
+
+[footer optionnel — références issues, breaking changes]
+</code></pre>
+<pre><code>feat(auth): ajouter la connexion via Google OAuth
+^    ^       ^
+│    │       └─ description en minuscules, impératif, sans point final
+│    └────────── scope : module ou composant concerné (optionnel)
+└─────────────── type : nature du changement
+</code></pre>
+<h3 id="types">Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Usage</th>
+<th>Impact version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>feat</code></td>
+<td>Nouvelle fonctionnalité</td>
+<td><code>MINOR</code> (1.x.0)</td>
+</tr>
+<tr>
+<td><code>fix</code></td>
+<td>Correction de bug</td>
+<td><code>PATCH</code> (1.0.x)</td>
+</tr>
+<tr>
+<td><code>docs</code></td>
+<td>Documentation uniquement</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>Formatage, espaces (sans changement logique)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>refactor</code></td>
+<td>Refactoring sans nouvelle feature ni bug fix</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>Ajout ou correction de tests</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>chore</code></td>
+<td>Tâches de maintenance (dépendances, config, CI)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>perf</code></td>
+<td>Amélioration de performance</td>
+<td><code>PATCH</code></td>
+</tr>
+<tr>
+<td><code>build</code></td>
+<td>Système de build, scripts</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>ci</code></td>
+<td>Configuration CI/CD</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="exemples-concrets">Exemples concrets</h3>
+<pre><code class="language-bash"># Feature
+git commit -m &quot;feat(panier): ajouter le calcul automatique des frais de port&quot;
+
+# Bug fix
+git commit -m &quot;fix(auth): corriger l'expiration du token après déconnexion&quot;
+
+# Avec scope et corps
+git commit -m &quot;refactor(api): extraire la logique de pagination dans un helper
+
+Déplacé depuis UserController et ProductController vers utils/pagination.js
+pour éviter la duplication.&quot;
+
+# Chore
+git commit -m &quot;chore(deps): mettre à jour express 4.18 → 4.19&quot;
+
+# CI/CD
+git commit -m &quot;ci(github-actions): ajouter le job de tests e2e Playwright&quot;
+
+# Documentation
+git commit -m &quot;docs(readme): ajouter les instructions d'installation Docker&quot;
+</code></pre>
+<h3 id="integration-avec-gitflow">Intégration avec Gitflow</h3>
+<pre><code class="language-bash"># Sur une branche feature — commits granulaires
+git commit -m &quot;feat(facturation): ajouter le formulaire de saisie IBAN&quot;
+git commit -m &quot;feat(facturation): intégrer la validation IBAN côté serveur&quot;
+git commit -m &quot;test(facturation): ajouter les tests du validateur IBAN&quot;
+
+# Sur une branche release — uniquement fix et chore
+git commit -m &quot;fix(facturation): corriger l'affichage du symbole € sur Safari&quot;
+git commit -m &quot;chore(release): bump version 2.4.0&quot;
+
+# Sur une branche hotfix — toujours fix
+git commit -m &quot;fix(securite): corriger l'injection SQL dans la recherche produits&quot;
+</code></pre>
+<hr />
+<h2 id="recapitulatif-des-commandes">Récapitulatif des commandes</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>git flow</th>
+<th>git vanilla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initialiser</td>
+<td><code>git flow init</code></td>
+<td><code>git checkout -b develop main</code></td>
+</tr>
+<tr>
+<td>Créer feature</td>
+<td><code>git flow feature start nom</code></td>
+<td><code>git checkout -b feature/nom develop</code></td>
+</tr>
+<tr>
+<td>Terminer feature</td>
+<td><code>git flow feature finish nom</code></td>
+<td>merge <code>--no-ff</code> dans develop</td>
+</tr>
+<tr>
+<td>Créer release</td>
+<td><code>git flow release start x.x.x</code></td>
+<td><code>git checkout -b release/x.x.x develop</code></td>
+</tr>
+<tr>
+<td>Terminer release</td>
+<td><code>git flow release finish x.x.x</code></td>
+<td>merge <code>--no-ff</code> dans main + develop + tag</td>
+</tr>
+<tr>
+<td>Créer hotfix</td>
+<td><code>git flow hotfix start x.x.x</code></td>
+<td><code>git checkout -b hotfix/x.x.x main</code></td>
+</tr>
+<tr>
+<td>Terminer hotfix</td>
+<td><code>git flow hotfix finish x.x.x</code></td>
+<td>merge <code>--no-ff</code> dans main + develop + tag</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../dev-tests/playwright/" class="btn btn-neutral float-left" title="Playwright"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../guide-scrum/" class="btn btn-neutral float-right" title="Le guide de Référence de Scrum : Les règles du jeu">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../dev-tests/playwright/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../guide-scrum/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

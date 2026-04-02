@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Jest - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Jest";
+        var mkdocs_page_input_path = "dev-tests/jest.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Jest</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation-et-configuration">Installation et configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#structure-dun-test">Structure d'un test</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#matchers-assertions">Matchers (assertions)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lifecycle-hooks">Lifecycle hooks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mocks-et-spies">Mocks et spies</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tests-asynchrones">Tests asynchrones</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#coverage">Coverage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#react-testing-library">React Testing Library</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev tests</li>
+      <li class="breadcrumb-item active">Jest</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="jest">Jest</h1>
+<p>Jest est le framework de test JavaScript le plus utilisé. Il intègre un runner, un système d'assertions, des mocks et la mesure de couverture. Il fonctionne avec JavaScript, TypeScript, React, Node.js et la plupart des stacks JS modernes.</p>
+<hr />
+<h2 id="installation-et-configuration">Installation et configuration</h2>
+<h3 id="projet-javascript">Projet JavaScript</h3>
+<pre><code class="language-bash">npm install --save-dev jest
+</code></pre>
+<pre><code class="language-json">// package.json
+{
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;jest&quot;,
+    &quot;test:watch&quot;: &quot;jest --watch&quot;,
+    &quot;test:coverage&quot;: &quot;jest --coverage&quot;
+  }
+}
+</code></pre>
+<h3 id="projet-typescript">Projet TypeScript</h3>
+<pre><code class="language-bash">npm install --save-dev jest @types/jest ts-jest
+</code></pre>
+<pre><code class="language-js">// jest.config.js
+/** @type {import('jest').Config} */
+const config = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+};
+
+module.exports = config;
+</code></pre>
+<h3 id="projet-react-create-react-app-vite">Projet React (Create React App / Vite)</h3>
+<pre><code class="language-bash">npm install --save-dev jest @types/jest ts-jest \
+  jest-environment-jsdom \
+  @testing-library/react \
+  @testing-library/jest-dom \
+  @testing-library/user-event
+</code></pre>
+<pre><code class="language-js">// jest.config.js
+/** @type {import('jest').Config} */
+const config = {
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',                          // simule le DOM du navigateur
+  setupFilesAfterFramework: ['&lt;rootDir&gt;/jest.setup.ts'],
+};
+
+module.exports = config;
+</code></pre>
+<pre><code class="language-ts">// jest.setup.ts
+import '@testing-library/jest-dom';   // ajoute les matchers DOM (toBeInTheDocument, etc.)
+</code></pre>
+<h3 id="convention-de-nommage-des-fichiers">Convention de nommage des fichiers</h3>
+<p>Jest détecte automatiquement les fichiers de test selon ces patterns :</p>
+<pre><code>src/
+  utils/
+    calcul.ts
+    calcul.test.ts      ✅ détecté
+    calcul.spec.ts      ✅ détecté
+  __tests__/
+    calcul.ts           ✅ détecté (dossier __tests__)
+</code></pre>
+<hr />
+<h2 id="structure-dun-test">Structure d'un test</h2>
+<pre><code class="language-ts">// describe : regroupe des tests liés
+describe('calculateTax', () =&gt; {
+
+  // it / test : un test unitaire (équivalents)
+  it('calcule la TVA à 20%', () =&gt; {
+    expect(calculateTax(100, 0.20)).toBe(20);
+  });
+
+  test('retourne 0 si le prix est 0', () =&gt; {
+    expect(calculateTax(0, 0.20)).toBe(0);
+  });
+
+  // Groupes imbriqués
+  describe('cas limites', () =&gt; {
+    it('gère les nombres négatifs', () =&gt; {
+      expect(calculateTax(-100, 0.20)).toBe(-20);
+    });
+  });
+});
+</code></pre>
+<h3 id="ignorer-ou-isoler-des-tests">Ignorer ou isoler des tests</h3>
+<pre><code class="language-ts">test.skip('ce test est ignoré', () =&gt; { ... });
+test.only('seul ce test s'exécute dans le fichier', () =&gt; { ... });
+
+describe.skip('tout ce groupe est ignoré', () =&gt; { ... });
+describe.only('seul ce groupe s'exécute', () =&gt; { ... });
+</code></pre>
+<hr />
+<h2 id="matchers-assertions">Matchers (assertions)</h2>
+<h3 id="egalite">Égalité</h3>
+<pre><code class="language-ts">expect(value).toBe(42);              // égalité stricte (===)
+expect(value).toEqual({ a: 1 });     // égalité profonde (objets, tableaux)
+expect(value).not.toBe(42);          // négation
+expect(value).toStrictEqual({});     // comme toEqual + vérifie les undefined
+</code></pre>
+<h3 id="valeurs">Valeurs</h3>
+<pre><code class="language-ts">expect(value).toBeTruthy();
+expect(value).toBeFalsy();
+expect(value).toBeNull();
+expect(value).toBeUndefined();
+expect(value).toBeDefined();
+expect(value).toBeNaN();
+</code></pre>
+<h3 id="nombres">Nombres</h3>
+<pre><code class="language-ts">expect(value).toBeGreaterThan(3);
+expect(value).toBeGreaterThanOrEqual(3);
+expect(value).toBeLessThan(10);
+expect(value).toBeLessThanOrEqual(10);
+expect(value).toBeCloseTo(0.3, 5);   // flottants (évite les erreurs de précision)
+</code></pre>
+<h3 id="chaines">Chaînes</h3>
+<pre><code class="language-ts">expect(str).toMatch(/regex/);
+expect(str).toMatch('sous-chaîne');
+expect(str).toContain('mot');
+expect(str).toHaveLength(5);
+</code></pre>
+<h3 id="tableaux-et-objets">Tableaux et objets</h3>
+<pre><code class="language-ts">expect(arr).toContain('valeur');
+expect(arr).toHaveLength(3);
+expect(arr).toEqual(expect.arrayContaining(['a', 'b']));  // contient au moins ces éléments
+
+expect(obj).toHaveProperty('clé');
+expect(obj).toHaveProperty('clé', 'valeur');
+expect(obj).toMatchObject({ a: 1 });  // l'objet contient au moins ces propriétés
+</code></pre>
+<h3 id="erreurs">Erreurs</h3>
+<pre><code class="language-ts">expect(() =&gt; maFonction()).toThrow();
+expect(() =&gt; maFonction()).toThrow('message d\'erreur');
+expect(() =&gt; maFonction()).toThrow(TypeError);
+</code></pre>
+<hr />
+<h2 id="lifecycle-hooks">Lifecycle hooks</h2>
+<pre><code class="language-ts">beforeAll(() =&gt; {
+  // exécuté une fois avant tous les tests du bloc describe
+});
+
+afterAll(() =&gt; {
+  // exécuté une fois après tous les tests du bloc describe
+});
+
+beforeEach(() =&gt; {
+  // exécuté avant chaque test
+});
+
+afterEach(() =&gt; {
+  // exécuté après chaque test
+  jest.clearAllMocks();   // bonne pratique : réinitialiser les mocks
+});
+</code></pre>
+<h3 id="portee">Portée</h3>
+<p>Les hooks s'appliquent au bloc <code>describe</code> dans lequel ils sont définis. Un hook au niveau racine s'applique à tout le fichier.</p>
+<pre><code class="language-ts">describe('groupe A', () =&gt; {
+  beforeEach(() =&gt; { /* s'applique uniquement aux tests de groupe A */ });
+
+  it('test 1', () =&gt; { ... });
+  it('test 2', () =&gt; { ... });
+});
+</code></pre>
+<hr />
+<h2 id="mocks-et-spies">Mocks et spies</h2>
+<h3 id="jestfn-fonction-fictive">jest.fn() — fonction fictive</h3>
+<pre><code class="language-ts">const mockFn = jest.fn();
+mockFn('arg1', 'arg2');
+
+expect(mockFn).toHaveBeenCalled();
+expect(mockFn).toHaveBeenCalledTimes(1);
+expect(mockFn).toHaveBeenCalledWith('arg1', 'arg2');
+expect(mockFn).toHaveBeenLastCalledWith('arg1', 'arg2');
+</code></pre>
+<h3 id="valeur-de-retour">Valeur de retour</h3>
+<pre><code class="language-ts">const mockFn = jest.fn();
+mockFn.mockReturnValue(42);              // retourne toujours 42
+mockFn.mockReturnValueOnce(100);         // retourne 100 une seule fois, puis la valeur par défaut
+mockFn.mockResolvedValue({ data: [] });  // retourne une Promise résolue
+mockFn.mockRejectedValue(new Error());   // retourne une Promise rejetée
+
+// Implémentation personnalisée
+mockFn.mockImplementation((x) =&gt; x * 2);
+</code></pre>
+<h3 id="jestspyon-espionner-une-methode-existante">jest.spyOn() — espionner une méthode existante</h3>
+<pre><code class="language-ts">const spy = jest.spyOn(console, 'log');
+console.log('test');
+
+expect(spy).toHaveBeenCalledWith('test');
+spy.mockRestore();   // restaure l'implémentation originale
+</code></pre>
+<pre><code class="language-ts">// Remplacer temporairement une implémentation
+jest.spyOn(Date, 'now').mockReturnValue(1_700_000_000_000);
+</code></pre>
+<h3 id="jestmock-mocker-un-module-entier">jest.mock() — mocker un module entier</h3>
+<pre><code class="language-ts">// Mocker un module automatiquement
+jest.mock('./monModule');
+
+// Mocker avec une implémentation personnalisée
+jest.mock('./api', () =&gt; ({
+  fetchUser: jest.fn().mockResolvedValue({ id: 1, name: 'Alice' }),
+}));
+
+// Dans le test
+import { fetchUser } from './api';
+const result = await fetchUser(1);
+expect(fetchUser).toHaveBeenCalledWith(1);
+</code></pre>
+<h3 id="reinitialisation-des-mocks">Réinitialisation des mocks</h3>
+<pre><code class="language-ts">jest.clearAllMocks();    // remet les appels et instances à zéro (garde l'implémentation)
+jest.resetAllMocks();    // clearAllMocks + supprime les implémentations mockées
+jest.restoreAllMocks();  // resetAllMocks + restaure les spies (jest.spyOn)
+</code></pre>
+<hr />
+<h2 id="tests-asynchrones">Tests asynchrones</h2>
+<h3 id="async-await">async / await</h3>
+<pre><code class="language-ts">it('récupère un utilisateur', async () =&gt; {
+  const user = await fetchUser(1);
+  expect(user.name).toBe('Alice');
+});
+</code></pre>
+<h3 id="rejets-de-promise">Rejets de Promise</h3>
+<pre><code class="language-ts">it('lance une erreur si l\'id est invalide', async () =&gt; {
+  await expect(fetchUser(-1)).rejects.toThrow('ID invalide');
+});
+</code></pre>
+<h3 id="timers-simules">Timers simulés</h3>
+<pre><code class="language-ts">jest.useFakeTimers();
+
+it('appelle le callback après 1 seconde', () =&gt; {
+  const callback = jest.fn();
+  setTimeout(callback, 1000);
+
+  expect(callback).not.toHaveBeenCalled();
+  jest.advanceTimersByTime(1000);
+  expect(callback).toHaveBeenCalledTimes(1);
+});
+
+afterEach(() =&gt; {
+  jest.useRealTimers();   // toujours restaurer après
+});
+</code></pre>
+<hr />
+<h2 id="coverage">Coverage</h2>
+<pre><code class="language-bash">jest --coverage
+</code></pre>
+<p>Jest génère un rapport dans <code>coverage/</code> avec plusieurs formats (texte, HTML, LCOV).</p>
+<pre><code class="language-js">// jest.config.js — seuils minimaux
+const config = {
+  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.d.ts'],
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
+};
+</code></pre>
+<p>Les 4 métriques :</p>
+<table>
+<thead>
+<tr>
+<th>Métrique</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Statements</strong></td>
+<td>% d'instructions exécutées</td>
+</tr>
+<tr>
+<td><strong>Branches</strong></td>
+<td>% de branches (if/else, ternaire) testées</td>
+</tr>
+<tr>
+<td><strong>Functions</strong></td>
+<td>% de fonctions appelées</td>
+</tr>
+<tr>
+<td><strong>Lines</strong></td>
+<td>% de lignes exécutées</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="react-testing-library">React Testing Library</h2>
+<p>React Testing Library (RTL) encourage à tester le <strong>comportement</strong> visible par l'utilisateur plutôt que les détails d'implémentation.</p>
+<blockquote>
+<p>Principe clé : interroger le DOM comme un utilisateur le ferait (par le texte, le rôle, le label) — pas par les noms de classes ou l'état interne.</p>
+</blockquote>
+<h3 id="render-et-screen">Render et screen</h3>
+<pre><code class="language-tsx">import { render, screen } from '@testing-library/react';
+import MonComposant from './MonComposant';
+
+it('affiche le titre', () =&gt; {
+  render(&lt;MonComposant titre=&quot;Bonjour&quot; /&gt;);
+  expect(screen.getByText('Bonjour')).toBeInTheDocument();
+});
+</code></pre>
+<h3 id="priorite-des-requetes">Priorité des requêtes</h3>
+<p>Utiliser les requêtes dans cet ordre (du plus au moins accessible) :</p>
+<table>
+<thead>
+<tr>
+<th>Requête</th>
+<th>Usage recommandé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getByRole</code></td>
+<td>Boutons, liens, inputs, headings…</td>
+</tr>
+<tr>
+<td><code>getByLabelText</code></td>
+<td>Champs de formulaire avec label</td>
+</tr>
+<tr>
+<td><code>getByPlaceholderText</code></td>
+<td>Champs avec placeholder</td>
+</tr>
+<tr>
+<td><code>getByText</code></td>
+<td>Éléments de contenu textuel</td>
+</tr>
+<tr>
+<td><code>getByDisplayValue</code></td>
+<td>Valeur courante d'un input/select</td>
+</tr>
+<tr>
+<td><code>getByAltText</code></td>
+<td>Images avec alt</td>
+</tr>
+<tr>
+<td><code>getByTitle</code></td>
+<td>Éléments avec attribut title</td>
+</tr>
+<tr>
+<td><code>getByTestId</code></td>
+<td>En dernier recours (<code>data-testid</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="variantes-de-requetes">Variantes de requêtes</h3>
+<pre><code class="language-ts">// getBy* — lance une erreur si l'élément est absent (élément censé exister)
+screen.getByRole('button', { name: /envoyer/i });
+
+// queryBy* — retourne null si absent (tester l'absence)
+expect(screen.queryByText('Erreur')).not.toBeInTheDocument();
+
+// findBy* — attend que l'élément apparaisse (éléments asynchrones)
+const message = await screen.findByText('Chargement terminé');
+</code></pre>
+<h3 id="matchers-jest-dom">Matchers jest-dom</h3>
+<pre><code class="language-ts">expect(element).toBeInTheDocument();
+expect(element).toBeVisible();
+expect(element).toBeDisabled();
+expect(element).toBeEnabled();
+expect(element).toHaveValue('alice@exemple.com');
+expect(element).toHaveTextContent('Bonjour');
+expect(element).toHaveAttribute('href', '/accueil');
+expect(element).toHaveClass('btn-primary');
+expect(element).toBeChecked();          // checkbox / radio
+expect(element).toHaveFocus();
+</code></pre>
+<h3 id="interactions-utilisateur-userevent">Interactions utilisateur (userEvent)</h3>
+<p>Préférer <code>userEvent</code> à <code>fireEvent</code> — il simule les vrais événements navigateur (keydown, keyup, focus…).</p>
+<pre><code class="language-tsx">import userEvent from '@testing-library/user-event';
+
+it('soumet le formulaire', async () =&gt; {
+  const user = userEvent.setup();
+  render(&lt;Formulaire onSubmit={jest.fn()} /&gt;);
+
+  await user.type(screen.getByLabelText('Email'), 'alice@exemple.com');
+  await user.click(screen.getByRole('button', { name: /envoyer/i }));
+
+  expect(screen.getByText('Message envoyé')).toBeInTheDocument();
+});
+</code></pre>
+<h3 id="tester-des-composants-asynchrones">Tester des composants asynchrones</h3>
+<pre><code class="language-tsx">it('affiche les données après chargement', async () =&gt; {
+  render(&lt;ListeUtilisateurs /&gt;);
+
+  // Pendant le chargement
+  expect(screen.getByText('Chargement...')).toBeInTheDocument();
+
+  // Attendre que les données apparaissent
+  const alice = await screen.findByText('Alice');
+  expect(alice).toBeInTheDocument();
+  expect(screen.queryByText('Chargement...')).not.toBeInTheDocument();
+});
+</code></pre>
+<h3 id="exemple-complet">Exemple complet</h3>
+<pre><code class="language-tsx">// Composant
+function Compteur() {
+  const [count, setCount] = useState(0);
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Valeur : {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(c =&gt; c + 1)}&gt;Incrémenter&lt;/button&gt;
+      &lt;button onClick={() =&gt; setCount(0)} disabled={count === 0}&gt;Réinitialiser&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+// Test
+describe('Compteur', () =&gt; {
+  it('affiche la valeur initiale à 0', () =&gt; {
+    render(&lt;Compteur /&gt;);
+    expect(screen.getByText('Valeur : 0')).toBeInTheDocument();
+  });
+
+  it('incrémente la valeur au clic', async () =&gt; {
+    const user = userEvent.setup();
+    render(&lt;Compteur /&gt;);
+
+    await user.click(screen.getByRole('button', { name: /incrémenter/i }));
+    expect(screen.getByText('Valeur : 1')).toBeInTheDocument();
+  });
+
+  it('désactive le bouton réinitialiser quand la valeur est 0', () =&gt; {
+    render(&lt;Compteur /&gt;);
+    expect(screen.getByRole('button', { name: /réinitialiser/i })).toBeDisabled();
+  });
+});
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../concepts/" class="btn btn-neutral float-left" title="Concepts de tests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../playwright/" class="btn btn-neutral float-right" title="Playwright">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../concepts/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../playwright/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

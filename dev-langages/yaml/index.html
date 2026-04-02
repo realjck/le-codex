@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>YAML - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "YAML";
+        var mkdocs_page_input_path = "dev-langages/yaml.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">YAML</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#syntaxe-de-base">Syntaxe de base</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#types-de-donnees">Types de données</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#structures">Structures</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#syntaxe-avancee">Syntaxe avancée</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pieges-courants">Pièges courants</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemples-contextualises">Exemples contextualisés</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">YAML</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="yaml">YAML</h1>
+<p>YAML (YAML Ain't Markup Language) est un format de sérialisation de données lisible par l'humain. Il est omniprésent dans les fichiers de configuration : Docker Compose, CI/CD, Kubernetes, MkDocs, n8n, Ansible…</p>
+<p>Règles fondamentales :
+- <strong>L'indentation est significative</strong> — utiliser des espaces, jamais des tabulations
+- <strong>Sensible à la casse</strong> — <code>True</code> ≠ <code>true</code>
+- Les commentaires commencent par <code>#</code></p>
+<hr />
+<h2 id="syntaxe-de-base">Syntaxe de base</h2>
+<pre><code class="language-yaml"># Ceci est un commentaire
+
+# Paire clé-valeur (mapping)
+nom: Alice
+age: 30
+actif: true
+
+# Séparateur de document (optionnel)
+---
+autre_document: valeur
+</code></pre>
+<p>Un fichier YAML peut contenir plusieurs documents séparés par <code>---</code>.</p>
+<hr />
+<h2 id="types-de-donnees">Types de données</h2>
+<pre><code class="language-yaml"># Chaînes de caractères
+simple: bonjour
+avec_espaces: bonjour le monde        # pas besoin de guillemets
+guillemets_simples: 'texte : avec : deux-points'
+guillemets_doubles: &quot;texte avec\nnewline&quot;
+
+# Nombres
+entier: 42
+négatif: -7
+flottant: 3.14
+scientifique: 1.5e10
+octal: 0o755
+hexadécimal: 0xFF
+
+# Booléens (attention aux variantes reconnues)
+vrai_1: true
+vrai_2: yes      # ⚠️ reconnu comme booléen en YAML 1.1
+faux_1: false
+faux_2: no       # ⚠️ idem
+
+# Valeur nulle
+vide_1: null
+vide_2: ~
+vide_3:          # clé sans valeur = null
+
+# Dates (ISO 8601)
+date: 2024-01-15
+datetime: 2024-01-15T10:30:00Z
+</code></pre>
+<hr />
+<h2 id="structures">Structures</h2>
+<h3 id="listes-sequences">Listes (séquences)</h3>
+<pre><code class="language-yaml"># Syntaxe bloc (recommandée)
+fruits:
+  - pomme
+  - banane
+  - cerise
+
+# Syntaxe inline (flow)
+fruits: [pomme, banane, cerise]
+
+# Liste de mappings
+utilisateurs:
+  - nom: Alice
+    age: 30
+  - nom: Bob
+    age: 25
+</code></pre>
+<h3 id="objets-mappings">Objets (mappings)</h3>
+<pre><code class="language-yaml"># Syntaxe bloc
+adresse:
+  rue: 12 rue des Lilas
+  ville: Lyon
+  code_postal: 69001
+
+# Syntaxe inline (flow)
+adresse: {rue: 12 rue des Lilas, ville: Lyon}
+</code></pre>
+<h3 id="imbrication">Imbrication</h3>
+<pre><code class="language-yaml">application:
+  nom: mon-app
+  version: &quot;1.0.0&quot;
+  serveur:
+    host: localhost
+    port: 8080
+  base_de_données:
+    host: db
+    port: 5432
+    identifiants:
+      utilisateur: admin
+      mot_de_passe: secret
+  tags:
+    - web
+    - api
+    - production
+</code></pre>
+<hr />
+<h2 id="syntaxe-avancee">Syntaxe avancée</h2>
+<h3 id="chaines-multilignes">Chaînes multilignes</h3>
+<pre><code class="language-yaml"># Bloc littéral | — conserve les sauts de ligne
+description: |
+  Première ligne.
+  Deuxième ligne.
+  Troisième ligne.
+# Résultat : &quot;Première ligne.\nDeuxième ligne.\nTroisième ligne.\n&quot;
+
+# Bloc plié &gt; — remplace les sauts de ligne par des espaces
+résumé: &gt;
+  Ceci est une longue
+  phrase sur plusieurs
+  lignes dans le fichier.
+# Résultat : &quot;Ceci est une longue phrase sur plusieurs lignes dans le fichier.\n&quot;
+
+# Modificateurs de fin de bloc
+texte_sans_fin: |−    # supprime le saut de ligne final
+texte_avec_fins: |+   # conserve tous les sauts de ligne finaux
+</code></pre>
+<h3 id="ancres-et-alias-dry">Ancres et alias (DRY)</h3>
+<p>Les ancres (<code>&amp;</code>) permettent de définir un bloc réutilisable, les alias (<code>*</code>) de le référencer.</p>
+<pre><code class="language-yaml"># Définir une ancre
+defaults: &amp;defaults
+  restart: always
+  logging:
+    driver: json-file
+
+# Réutiliser avec fusion (&lt;&lt;)
+service_web:
+  &lt;&lt;: *defaults
+  image: nginx:alpine
+  ports:
+    - &quot;80:80&quot;
+
+service_api:
+  &lt;&lt;: *defaults
+  image: mon-api:latest
+  ports:
+    - &quot;3000:3000&quot;
+</code></pre>
+<h3 id="types-explicites-tags">Types explicites (tags)</h3>
+<p>Forcer l'interprétation d'une valeur :</p>
+<pre><code class="language-yaml">port_texte: !!str 8080          # forcer en chaîne
+valeur_entiere: !!int &quot;42&quot;      # forcer en entier
+flag: !!bool &quot;yes&quot;              # forcer en booléen
+données: !!null &quot;&quot;              # forcer en null
+</code></pre>
+<hr />
+<h2 id="pieges-courants">Pièges courants</h2>
+<h3 id="tabulations-interdites">Tabulations interdites</h3>
+<pre><code class="language-yaml"># ❌ Erreur : tabulation utilisée pour l'indentation
+service:
+    image: nginx    # tab → erreur de parsing
+
+# ✅ Correct : espaces uniquement
+service:
+  image: nginx
+</code></pre>
+<h3 id="chaines-qui-ressemblent-a-dautres-types">Chaînes qui ressemblent à d'autres types</h3>
+<pre><code class="language-yaml"># ❌ Ces valeurs sont interprétées comme booléens en YAML 1.1
+pays: NO        # → false !
+reponse: YES    # → true !
+statut: on      # → true !
+
+# ✅ Mettre entre guillemets pour forcer la chaîne
+pays: &quot;NO&quot;
+reponse: &quot;YES&quot;
+</code></pre>
+<h3 id="deux-points-dans-une-valeur">Deux-points dans une valeur</h3>
+<pre><code class="language-yaml"># ❌ Le deux-points est interprété comme séparateur clé-valeur
+url: http://exemple.com    # peut provoquer une erreur selon le parser
+
+# ✅ Mettre entre guillemets
+url: &quot;http://exemple.com&quot;
+</code></pre>
+<h3 id="nombres-qui-commencent-par-zero">Nombres qui commencent par zéro</h3>
+<pre><code class="language-yaml"># ❌ Interprété comme octal en YAML 1.1
+mode: 0755      # → 493 en décimal !
+
+# ✅ Forcer en chaîne
+mode: &quot;0755&quot;
+</code></pre>
+<h3 id="indentation-incoherente">Indentation incohérente</h3>
+<pre><code class="language-yaml"># ❌ Indentation incohérente (mélange de 2 et 4 espaces)
+parent:
+  enfant1: valeur
+    enfant2: valeur   # 4 espaces → interprété comme sous-élément de enfant1
+
+# ✅ Indentation cohérente (2 espaces partout)
+parent:
+  enfant1: valeur
+  enfant2: valeur
+</code></pre>
+<h3 id="valeur-vide-vs-null">Valeur vide vs null</h3>
+<pre><code class="language-yaml">clé:          # null (pas de valeur)
+clé: &quot;&quot;       # chaîne vide (différent de null !)
+clé: []       # liste vide
+clé: {}       # objet vide
+</code></pre>
+<hr />
+<h2 id="exemples-contextualises">Exemples contextualisés</h2>
+<h3 id="docker-compose">Docker Compose</h3>
+<pre><code class="language-yaml"># docker-compose.yml
+services:
+  web:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - &quot;80:80&quot;
+      - &quot;443:443&quot;
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api
+    environment:
+      - NGINX_HOST=mon-domaine.com
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - &quot;3000:3000&quot;
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://user:password@db:5432/mydb
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    healthcheck:
+      test: [&quot;CMD-SHELL&quot;, &quot;pg_isready -U user&quot;]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+</code></pre>
+<h3 id="github-actions">GitHub Actions</h3>
+<pre><code class="language-yaml"># .github/workflows/deploy.yml
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: &quot;20&quot;
+          cache: &quot;npm&quot;
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /app
+            git pull
+            npm ci --production
+            pm2 restart app
+</code></pre>
+<h3 id="mkdocs">MkDocs</h3>
+<pre><code class="language-yaml"># mkdocs.yml
+site_name: Mon Projet
+site_url: https://docs.mon-projet.com
+
+theme:
+  name: material
+  language: fr
+  palette:
+    - scheme: default
+      primary: indigo
+  features:
+    - navigation.tabs
+    - search.highlight
+
+nav:
+  - Accueil: index.md
+  - Guide:
+    - Installation: guide/installation.md
+    - Configuration: guide/configuration.md
+  - Référence API: api.md
+
+plugins:
+  - search
+  - mermaid2
+
+extra:
+  version:
+    provider: mike
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../typescript/" class="btn btn-neutral float-left" title="TypeScript"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../dev-ops/ci-cd/" class="btn btn-neutral float-right" title="CI/CD">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../typescript/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../dev-ops/ci-cd/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

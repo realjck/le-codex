@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>n8n - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "n8n";
+        var mkdocs_page_input_path = "ia-generative/n8n.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">n8n</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#interface-et-concepts-cles">Interface et concepts clés</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nodes-essentiels">Nodes essentiels</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#triggers-et-webhooks">Triggers et webhooks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#expressions-et-code">Expressions et code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#credentials">Credentials</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#integrations-ia">Intégrations IA</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Ia generative</li>
+      <li class="breadcrumb-item active">n8n</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="n8n">n8n</h1>
+<p>n8n est une plateforme d'automatisation de workflows open-source (fair-code), auto-hébergeable. Elle permet de connecter des applications, d'automatiser des tâches répétitives et de construire des agents IA — le tout via une interface visuelle, avec la possibilité d'écrire du code quand nécessaire.</p>
+<blockquote>
+<p><strong>Alternatives comparables :</strong> Zapier, Make (ex-Integromat) — mais n8n se distingue par l'auto-hébergement, la flexibilité du code, et les intégrations IA natives.</p>
+</blockquote>
+<hr />
+<h2 id="installation">Installation</h2>
+<h3 id="via-npm-usage-local">Via npm (usage local)</h3>
+<pre><code class="language-bash">npm install -g n8n
+n8n start
+# Interface disponible sur http://localhost:5678
+</code></pre>
+<h3 id="via-docker-recommande">Via Docker (recommandé)</h3>
+<pre><code class="language-bash">docker run -it --rm \
+  -p 5678:5678 \
+  -v n8n_data:/home/node/.n8n \
+  n8nio/n8n
+</code></pre>
+<h3 id="via-docker-compose-production">Via Docker Compose (production)</h3>
+<pre><code class="language-yaml">services:
+  n8n:
+    image: n8nio/n8n
+    restart: always
+    ports:
+      - &quot;5678:5678&quot;
+    environment:
+      - N8N_HOST=mon-domaine.com
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - WEBHOOK_URL=https://mon-domaine.com/
+      - N8N_ENCRYPTION_KEY=ma-cle-secrete   # obligatoire en production
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
+</code></pre>
+<h3 id="ai-starter-kit-n8n-ollama-qdrant">AI Starter Kit (n8n + Ollama + Qdrant)</h3>
+<p>n8n propose un kit Docker Compose tout-en-un pour les workflows IA locaux :</p>
+<pre><code class="language-bash">git clone https://github.com/n8n-io/self-hosted-ai-starter-kit.git
+cd self-hosted-ai-starter-kit
+docker compose up
+</code></pre>
+<p>Inclut : n8n + Ollama (LLM local) + Qdrant (base vectorielle) + PostgreSQL.</p>
+<hr />
+<h2 id="interface-et-concepts-cles">Interface et concepts clés</h2>
+<h3 id="vocabulaire">Vocabulaire</h3>
+<table>
+<thead>
+<tr>
+<th>Terme</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Workflow</strong></td>
+<td>Séquence de nodes connectés qui automatise une tâche</td>
+</tr>
+<tr>
+<td><strong>Node</strong></td>
+<td>Brique unitaire : effectue une action ou récupère des données</td>
+</tr>
+<tr>
+<td><strong>Trigger</strong></td>
+<td>Node de départ qui déclenche le workflow (webhook, schedule, event…)</td>
+</tr>
+<tr>
+<td><strong>Connection</strong></td>
+<td>Lien entre deux nodes qui transmet les données</td>
+</tr>
+<tr>
+<td><strong>Execution</strong></td>
+<td>Une instance d'exécution d'un workflow</td>
+</tr>
+<tr>
+<td><strong>Item</strong></td>
+<td>Une unité de données qui circule entre les nodes (objet JSON)</td>
+</tr>
+<tr>
+<td><strong>Credential</strong></td>
+<td>Identifiants stockés de façon sécurisée pour accéder à des services</td>
+</tr>
+</tbody>
+</table>
+<h3 id="structure-dun-workflow">Structure d'un workflow</h3>
+<pre><code>[Trigger] → [Node 1] → [Node 2] → [Node 3]
+                ↓
+           [Branch A] → [Node 4]
+</code></pre>
+<p>Chaque node reçoit des <strong>items</strong> (tableaux d'objets JSON), les transforme, et les transmet au node suivant.</p>
+<h3 id="modes-dexecution">Modes d'exécution</h3>
+<ul>
+<li><strong>Manuel</strong> — déclenché depuis l'interface pour tester</li>
+<li><strong>Actif</strong> — le workflow tourne en production, déclenché par un trigger réel</li>
+<li><strong>Webhook</strong> — déclenché par un appel HTTP externe</li>
+</ul>
+<hr />
+<h2 id="nodes-essentiels">Nodes essentiels</h2>
+<h3 id="nodes-de-donnees">Nodes de données</h3>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HTTP Request</strong></td>
+<td>Appeler n'importe quelle API REST</td>
+</tr>
+<tr>
+<td><strong>Code</strong></td>
+<td>Exécuter du JavaScript ou Python personnalisé</td>
+</tr>
+<tr>
+<td><strong>Set</strong></td>
+<td>Créer ou modifier des champs dans les items</td>
+</tr>
+<tr>
+<td><strong>Edit Fields</strong></td>
+<td>Interface visuelle pour transformer les données</td>
+</tr>
+<tr>
+<td><strong>Function / Function Item</strong></td>
+<td>Transformer les données avec du JS (legacy)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nodes-de-flux">Nodes de flux</h3>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>If</strong></td>
+<td>Condition binaire — sépare le flux en deux branches</td>
+</tr>
+<tr>
+<td><strong>Switch</strong></td>
+<td>Condition multiple — plusieurs branches selon une valeur</td>
+</tr>
+<tr>
+<td><strong>Merge</strong></td>
+<td>Fusionner plusieurs flux en un</td>
+</tr>
+<tr>
+<td><strong>Loop Over Items</strong></td>
+<td>Itérer sur chaque item individuellement</td>
+</tr>
+<tr>
+<td><strong>Wait</strong></td>
+<td>Mettre le workflow en pause (durée fixe ou événement)</td>
+</tr>
+<tr>
+<td><strong>Stop and Error</strong></td>
+<td>Interrompre le workflow avec une erreur personnalisée</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nodes-utilitaires">Nodes utilitaires</h3>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Schedule Trigger</strong></td>
+<td>Déclenchement récurrent (cron)</td>
+</tr>
+<tr>
+<td><strong>Webhook</strong></td>
+<td>Recevoir des requêtes HTTP entrantes</td>
+</tr>
+<tr>
+<td><strong>Email (SMTP/IMAP)</strong></td>
+<td>Envoyer ou lire des emails</td>
+</tr>
+<tr>
+<td><strong>Slack / Discord</strong></td>
+<td>Envoyer des messages</td>
+</tr>
+<tr>
+<td><strong>Google Sheets</strong></td>
+<td>Lire/écrire des données dans un tableur</td>
+</tr>
+<tr>
+<td><strong>Postgres / MySQL</strong></td>
+<td>Requêtes SQL directes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="triggers-et-webhooks">Triggers et webhooks</h2>
+<h3 id="schedule-trigger-cron">Schedule Trigger (cron)</h3>
+<pre><code>Champs : Seconds / Minutes / Hours / Day of Month / Month / Day of Week
+Exemple : &quot;0 9 * * 1-5&quot;  →  tous les jours ouvrés à 9h
+</code></pre>
+<h3 id="webhook">Webhook</h3>
+<p>Le node <strong>Webhook</strong> expose une URL unique pour recevoir des données HTTP :</p>
+<pre><code>URL de test    : http://localhost:5678/webhook-test/&lt;id&gt;
+URL production : http://localhost:5678/webhook/&lt;id&gt;
+</code></pre>
+<p>Méthodes supportées : <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, <code>PATCH</code>.</p>
+<p>Options utiles :
+- <strong>Respond</strong> : <code>Immediately</code> (répond 200 tout de suite) ou <code>Using Respond to Webhook node</code> (contrôle la réponse)
+- <strong>Authentication</strong> : Header Auth, Basic Auth, ou JWT</p>
+<h3 id="respond-to-webhook">Respond to Webhook</h3>
+<p>Pour renvoyer une réponse personnalisée à l'appelant :</p>
+<pre><code class="language-json">// Dans le node &quot;Respond to Webhook&quot;
+{
+  &quot;status&quot;: 200,
+  &quot;body&quot;: {
+    &quot;message&quot;: &quot;{{ $json.result }}&quot;
+  }
+}
+</code></pre>
+<hr />
+<h2 id="expressions-et-code">Expressions et code</h2>
+<h3 id="syntaxe-des-expressions">Syntaxe des expressions</h3>
+<p>Les expressions utilisent <code>{{ }}</code> et permettent d'accéder dynamiquement aux données :</p>
+<pre><code class="language-javascript">// Données du node précédent
+{{ $json.email }}
+{{ $json.user.name }}
+
+// Données d'un node spécifique
+{{ $('HTTP Request').item.json.status }}
+
+// Métadonnées du workflow
+{{ $workflow.name }}
+{{ $execution.id }}
+
+// Variables d'environnement
+{{ $env.API_KEY }}
+
+// Opérations
+{{ $json.price * 1.1 }}
+{{ $json.email.toLowerCase() }}
+{{ $json.status === 'active' ? 'Oui' : 'Non' }}
+{{ new Date().toISOString() }}
+</code></pre>
+<h3 id="variables-built-in">Variables built-in</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$json</code></td>
+<td>Données JSON de l'item courant</td>
+</tr>
+<tr>
+<td><code>$binary</code></td>
+<td>Données binaires de l'item courant</td>
+</tr>
+<tr>
+<td><code>$('NomDuNode').item.json</code></td>
+<td>Données d'un node nommé</td>
+</tr>
+<tr>
+<td><code>$items('NomDuNode')</code></td>
+<td>Tous les items d'un node</td>
+</tr>
+<tr>
+<td><code>$workflow</code></td>
+<td>Métadonnées du workflow (<code>name</code>, <code>id</code>)</td>
+</tr>
+<tr>
+<td><code>$execution</code></td>
+<td>Métadonnées d'exécution (<code>id</code>, <code>mode</code>)</td>
+</tr>
+<tr>
+<td><code>$env</code></td>
+<td>Variables d'environnement</td>
+</tr>
+<tr>
+<td><code>$now</code></td>
+<td>Date/heure actuelle (objet Luxon)</td>
+</tr>
+<tr>
+<td><code>$today</code></td>
+<td>Date du jour (objet Luxon)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="node-code-javascript">Node Code (JavaScript)</h3>
+<pre><code class="language-javascript">// Traiter tous les items
+for (const item of $input.all()) {
+  item.json.fullName = `${item.json.firstName} ${item.json.lastName}`;
+  item.json.timestamp = new Date().toISOString();
+}
+
+return $input.all();
+</code></pre>
+<pre><code class="language-javascript">// Créer de nouveaux items
+const results = [];
+
+for (const item of $input.all()) {
+  if (item.json.active) {
+    results.push({
+      json: {
+        id: item.json.id,
+        name: item.json.name,
+      }
+    });
+  }
+}
+
+return results;
+</code></pre>
+<h3 id="node-code-python">Node Code (Python)</h3>
+<pre><code class="language-python">results = []
+
+for item in _input.all():
+    if item.json.get('active'):
+        results.append({
+            'json': {
+                'id': item.json['id'],
+                'name': item.json['name'],
+            }
+        })
+
+return results
+</code></pre>
+<hr />
+<h2 id="credentials">Credentials</h2>
+<p>Les credentials stockent de façon chiffrée les clés API, tokens et identifiants nécessaires aux nodes.</p>
+<h3 id="creer-des-credentials">Créer des credentials</h3>
+<p><code>Settings → Credentials → Add Credential</code> ou directement depuis un node lors de sa configuration.</p>
+<h3 id="types-courants">Types courants</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>API Key (Header Auth)</strong></td>
+<td>Clé dans l'en-tête <code>Authorization</code> ou <code>X-API-Key</code></td>
+</tr>
+<tr>
+<td><strong>Basic Auth</strong></td>
+<td>Username + Password</td>
+</tr>
+<tr>
+<td><strong>OAuth2</strong></td>
+<td>Flux OAuth (Google, GitHub, Slack…)</td>
+</tr>
+<tr>
+<td><strong>Bearer Token</strong></td>
+<td>Token JWT ou Bearer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="utiliser-en-expression">Utiliser en expression</h3>
+<pre><code class="language-javascript">// Référencer dynamiquement un credential via une expression (cas avancé)
+{{ $json.userCredentials }}
+</code></pre>
+<h3 id="variables-denvironnement-comme-credentials">Variables d'environnement comme credentials</h3>
+<p>Pour éviter de stocker des secrets dans n8n, utiliser des variables d'environnement et les appeler via <code>{{ $env.MA_CLE }}</code>.</p>
+<hr />
+<h2 id="integrations-ia">Intégrations IA</h2>
+<h3 id="connexion-a-un-llm">Connexion à un LLM</h3>
+<p>n8n intègre nativement LangChain. Les nodes IA se trouvent dans la catégorie <strong>AI</strong> de l'éditeur.</p>
+<p><strong>Nodes LLM disponibles :</strong>
+- <code>OpenAI Chat Model</code>
+- <code>Anthropic Chat Model</code> (Claude)
+- <code>Ollama Chat Model</code> (local)
+- <code>Google Gemini Chat Model</code>
+- <code>Azure OpenAI</code></p>
+<p><strong>Exemple de chaîne IA basique :</strong></p>
+<pre><code>[Chat Trigger] → [AI Agent] → [Respond to Webhook]
+                     ↑
+              [OpenAI Chat Model]
+</code></pre>
+<h3 id="ai-agent">AI Agent</h3>
+<p>Le node <strong>AI Agent</strong> orchestre un LLM avec des outils. Il peut :
+- Appeler des outils (HTTP, code, recherche web…)
+- Maintenir une mémoire de conversation
+- Suivre une chaîne de raisonnement (ReAct)</p>
+<pre><code>[AI Agent]
+  ├── LLM : Anthropic Chat Model (Claude)
+  ├── Memory : Window Buffer Memory
+  └── Tools : [HTTP Request Tool] [Code Tool] [Calculator]
+</code></pre>
+<h3 id="memoire-de-conversation">Mémoire de conversation</h3>
+<table>
+<thead>
+<tr>
+<th>Node mémoire</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Window Buffer Memory</strong></td>
+<td>Conserve les N derniers messages</td>
+</tr>
+<tr>
+<td><strong>Postgres Chat Memory</strong></td>
+<td>Persiste la mémoire en base de données</td>
+</tr>
+<tr>
+<td><strong>Redis Chat Memory</strong></td>
+<td>Persiste la mémoire dans Redis</td>
+</tr>
+</tbody>
+</table>
+<h3 id="integration-mcp">Intégration MCP</h3>
+<p>n8n peut agir comme <strong>serveur MCP</strong> (exposer ses workflows à des agents IA externes) ou comme <strong>client MCP</strong> (consommer des outils MCP).</p>
+<p><strong>n8n comme serveur MCP :</strong></p>
+<pre><code>[MCP Server Trigger] → [mes nodes n8n] → [réponse]
+</code></pre>
+<p>Accessible sur <code>http://localhost:5678/mcp-server/http</code> avec un token Bearer.</p>
+<p><strong>n8n comme client MCP :</strong></p>
+<p>Le node <strong>MCP Client Tool</strong> permet à un AI Agent n8n d'appeler des outils exposés par un serveur MCP externe.</p>
+<pre><code>[AI Agent]
+  └── Tools : [MCP Client Tool → serveur MCP externe]
+</code></pre>
+<h3 id="exemple-workflow-ia-avec-webhook">Exemple : workflow IA avec webhook</h3>
+<pre><code>[Webhook POST /chat]
+    ↓
+[AI Agent]
+  ├── LLM : Claude (Anthropic Chat Model)
+  ├── Memory : Window Buffer Memory
+  └── Tools : [HTTP Request Tool]
+    ↓
+[Respond to Webhook → réponse JSON]
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../concepts-fondamentaux/" class="btn btn-neutral float-left" title="Concepts fondamentaux de l'IA générative"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ollama/" class="btn btn-neutral float-right" title="Configurer Ollama">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../concepts-fondamentaux/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ollama/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

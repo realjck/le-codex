@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Node.js - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Node.js";
+        var mkdocs_page_input_path = "dev-langages/node.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Node.js</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#gestion-des-versions-nvm-nvm-windows">Gestion des versions — nvm / nvm-windows</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#npm-commandes-essentielles">npm — Commandes essentielles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#npm-usage-avance">npm — Usage avancé</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#packagejson">package.json</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modules-commonjs-vs-esm">Modules : CommonJS vs ESM</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">Node.js</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="nodejs">Node.js</h1>
+<p>Node.js est un environnement d'exécution JavaScript côté serveur, basé sur le moteur V8 de Chrome. Il permet d'exécuter du JavaScript en dehors du navigateur et est livré avec <strong>npm</strong> (Node Package Manager), le gestionnaire de packages le plus utilisé dans l'écosystème JS.</p>
+<h2 id="gestion-des-versions-nvm-nvm-windows">Gestion des versions — nvm / nvm-windows</h2>
+<p><code>nvm</code> (Node Version Manager) permet d'installer et de basculer entre plusieurs versions de Node.js sur une même machine.</p>
+<ul>
+<li><strong>Linux / macOS</strong> : <a href="https://github.com/nvm-sh/nvm">github.com/nvm-sh/nvm</a></li>
+<li><strong>Windows</strong> : <a href="https://github.com/coreybutler/nvm-windows">github.com/coreybutler/nvm-windows</a></li>
+</ul>
+<h3 id="installer-une-version-de-node">Installer une version de Node</h3>
+<pre><code class="language-bash"># nvm (Linux/macOS)
+nvm install 20
+nvm install --lts       # dernière version LTS
+
+# nvm-windows
+nvm install 20.0.0      # la version doit être complète (major.minor.patch)
+nvm install lts
+</code></pre>
+<h3 id="utiliser-une-version">Utiliser une version</h3>
+<pre><code class="language-bash">nvm use 20              # Linux/macOS (le major suffit)
+nvm use 20.0.0          # Windows (version complète requise)
+</code></pre>
+<h3 id="lister-les-versions-disponibles">Lister les versions disponibles</h3>
+<pre><code class="language-bash">nvm ls                  # versions installées
+nvm ls-remote           # versions disponibles en ligne (Linux/macOS)
+nvm list available      # versions disponibles en ligne (Windows)
+</code></pre>
+<h3 id="definir-une-version-par-defaut">Définir une version par défaut</h3>
+<pre><code class="language-bash">nvm alias default 20    # Linux/macOS
+nvm use 20.0.0          # Windows : la version active au démarrage du shell
+</code></pre>
+<h3 id="version-active">Version active</h3>
+<pre><code class="language-bash">node --version
+nvm current             # Linux/macOS
+</code></pre>
+<hr />
+<h2 id="npm-commandes-essentielles">npm — Commandes essentielles</h2>
+<h3 id="initialiser-un-projet">Initialiser un projet</h3>
+<pre><code class="language-bash">npm init        # assistant interactif
+npm init -y     # accepte tous les défauts, crée package.json directement
+</code></pre>
+<h3 id="installer-des-dependances">Installer des dépendances</h3>
+<pre><code class="language-bash">npm install                   # installe toutes les dépendances du package.json
+npm install express           # ajoute une dépendance de production
+npm install jest --save-dev   # ajoute une dépendance de développement uniquement
+npm install -g typescript     # installation globale (disponible partout sur le système)
+
+# Raccourcis
+npm i express
+npm ci                        # installation propre depuis package-lock.json (CI/CD)
+</code></pre>
+<h3 id="desinstaller">Désinstaller</h3>
+<pre><code class="language-bash">npm uninstall express
+npm uninstall jest --save-dev
+</code></pre>
+<h3 id="mettre-a-jour">Mettre à jour</h3>
+<pre><code class="language-bash">npm update                    # met à jour toutes les dépendances (selon semver)
+npm update express            # met à jour un package spécifique
+npm outdated                  # liste les packages avec une version plus récente disponible
+</code></pre>
+<h3 id="executer-des-scripts">Exécuter des scripts</h3>
+<pre><code class="language-bash">npm run dev         # exécute le script &quot;dev&quot; défini dans package.json
+npm run build
+npm test            # raccourci pour npm run test
+npm start           # raccourci pour npm run start
+</code></pre>
+<h3 id="npx-executer-sans-installer">npx — exécuter sans installer</h3>
+<pre><code class="language-bash">npx create-react-app mon-app   # exécute un package sans l'installer globalement
+npx tsc --init                 # utile pour les outils CLI ponctuels
+</code></pre>
+<h3 id="lister-les-packages-installes">Lister les packages installés</h3>
+<pre><code class="language-bash">npm list                  # arbre complet
+npm list --depth=0        # uniquement les dépendances directes
+npm list -g --depth=0     # packages installés globalement
+</code></pre>
+<hr />
+<h2 id="npm-usage-avance">npm — Usage avancé</h2>
+<h3 id="audit-de-securite">Audit de sécurité</h3>
+<pre><code class="language-bash">npm audit               # liste les vulnérabilités connues
+npm audit fix           # corrige automatiquement les vulnérabilités non-breaking
+npm audit fix --force   # ⚠️ peut inclure des mises à jour majeures (breaking changes)
+</code></pre>
+<h3 id="workspaces-mono-repo">Workspaces (mono-repo)</h3>
+<p>Les workspaces permettent de gérer plusieurs packages dans un seul dépôt.</p>
+<p>Configuration dans le <code>package.json</code> racine :</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;mon-monorepo&quot;,
+  &quot;workspaces&quot;: [
+    &quot;packages/*&quot;
+  ]
+}
+</code></pre>
+<p>Commandes ciblant un workspace spécifique :</p>
+<pre><code class="language-bash">npm install --workspace=packages/api
+npm run build --workspace=packages/ui
+npm run test --workspaces         # exécute dans tous les workspaces
+</code></pre>
+<h3 id="publication-dun-package">Publication d'un package</h3>
+<pre><code class="language-bash">npm login                         # connexion à npmjs.com
+npm version patch                 # incrémente la version (patch / minor / major)
+npm publish                       # publie sur le registry public
+npm publish --access=restricted   # publication privée (compte payant)
+</code></pre>
+<h3 id="packagejson-vs-package-lockjson">package.json vs package-lock.json</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>package.json</code></th>
+<th><code>package-lock.json</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rôle</strong></td>
+<td>Déclare les dépendances et les scripts</td>
+<td>Verrouille les versions exactes installées</td>
+</tr>
+<tr>
+<td><strong>Édité par</strong></td>
+<td>Le développeur</td>
+<td>npm automatiquement</td>
+</tr>
+<tr>
+<td><strong>À commiter</strong></td>
+<td>Oui</td>
+<td>Oui (garantit la reproductibilité)</td>
+</tr>
+<tr>
+<td><strong><code>npm ci</code> utilise</strong></td>
+<td>Non</td>
+<td>Oui (installation stricte)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="packagejson">package.json</h2>
+<p>Exemple annoté d'un <code>package.json</code> complet :</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;mon-projet&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;Description courte du projet&quot;,
+  &quot;type&quot;: &quot;module&quot;,              // &quot;commonjs&quot; (défaut) ou &quot;module&quot; (ESM)
+  &quot;main&quot;: &quot;index.js&quot;,           // point d'entrée du package
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node index.js&quot;,
+    &quot;dev&quot;: &quot;nodemon index.js&quot;,
+    &quot;build&quot;: &quot;tsc&quot;,
+    &quot;test&quot;: &quot;jest&quot;
+  },
+  &quot;engines&quot;: {
+    &quot;node&quot;: &quot;&gt;=18.0.0&quot;           // version minimale de Node requise
+  },
+  &quot;dependencies&quot;: {
+    &quot;express&quot;: &quot;^4.18.2&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;jest&quot;: &quot;~29.5.0&quot;,
+    &quot;nodemon&quot;: &quot;^3.0.0&quot;
+  }
+}
+</code></pre>
+<h3 id="versioning-semantique-semver">Versioning sémantique (semver)</h3>
+<pre><code>MAJOR.MINOR.PATCH    →    1.4.2
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Préfixe</th>
+<th>Signification</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>^1.4.2</code></td>
+<td>Accepte les mises à jour <strong>mineures et patches</strong> (1.x.x)</td>
+<td><code>^1.4.2</code> → accepte <code>1.5.0</code>, refuse <code>2.0.0</code></td>
+</tr>
+<tr>
+<td><code>~1.4.2</code></td>
+<td>Accepte uniquement les <strong>patches</strong> (1.4.x)</td>
+<td><code>~1.4.2</code> → accepte <code>1.4.9</code>, refuse <code>1.5.0</code></td>
+</tr>
+<tr>
+<td><code>1.4.2</code></td>
+<td>Version <strong>exacte</strong> uniquement</td>
+<td>aucune mise à jour automatique</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td><strong>Toute</strong> version</td>
+<td>déconseillé en production</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="modules-commonjs-vs-esm">Modules : CommonJS vs ESM</h2>
+<p>Node.js supporte deux systèmes de modules. Le champ <code>"type"</code> dans <code>package.json</code> détermine le format par défaut des fichiers <code>.js</code>.</p>
+<h3 id="commonjs-format-historique-defaut">CommonJS (format historique, défaut)</h3>
+<pre><code class="language-js">// importer
+const express = require('express');
+const { readFile } = require('fs');
+
+// exporter
+module.exports = maFonction;
+module.exports = { fonctionA, fonctionB };
+</code></pre>
+<h3 id="esm-ecmascript-modules-format-moderne">ESM — ECMAScript Modules (format moderne)</h3>
+<pre><code class="language-js">// importer
+import express from 'express';
+import { readFile } from 'fs/promises';
+
+// exporter
+export default maFonction;
+export { fonctionA, fonctionB };
+</code></pre>
+<h3 id="choisir-son-format">Choisir son format</h3>
+<pre><code class="language-json">// package.json
+{
+  &quot;type&quot;: &quot;module&quot;      // tous les .js sont traités comme ESM
+}
+// sans ce champ : CommonJS par défaut
+</code></pre>
+<h3 id="forcer-le-format-fichier-par-fichier">Forcer le format fichier par fichier</h3>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Format forcé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.cjs</code></td>
+<td>CommonJS (même si <code>"type": "module"</code>)</td>
+</tr>
+<tr>
+<td><code>.mjs</code></td>
+<td>ESM (même si <code>"type": "commonjs"</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interoperabilite">Interopérabilité</h3>
+<pre><code class="language-js">// Importer du CommonJS depuis de l'ESM : fonctionne
+import monModule from './module.cjs';
+
+// Importer de l'ESM depuis du CommonJS : ⚠️ require() ne supporte pas import/export
+// Utiliser import() dynamique à la place :
+const monModule = await import('./module.mjs');
+</code></pre>
+<blockquote>
+<p><strong>Recommandation</strong> : préférer ESM pour les nouveaux projets. CommonJS reste nécessaire pour les packages publiés qui doivent supporter d'anciens environnements.</p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../javascript/" class="btn btn-neutral float-left" title="JavaScript"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../php/" class="btn btn-neutral float-right" title="PHP">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../javascript/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../php/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

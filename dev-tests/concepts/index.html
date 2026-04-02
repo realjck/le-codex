@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Concepts de tests - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Concepts de tests";
+        var mkdocs_page_input_path = "dev-tests/concepts.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Concepts de tests</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pourquoi-tester">Pourquoi tester ?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-types-de-tests">Les types de tests</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#la-pyramide-des-tests">La pyramide des tests</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tdd-test-driven-development">TDD — Test Driven Development</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bdd-behaviour-driven-development">BDD — Behaviour Driven Development</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bonnes-pratiques">Bonnes pratiques</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev tests</li>
+      <li class="breadcrumb-item active">Concepts de tests</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="concepts-de-tests">Concepts de tests</h1>
+<p>Les tests automatisés vérifient que le code se comporte comme attendu, maintenant et après chaque modification. Ils sont l'un des investissements les plus rentables en développement logiciel.</p>
+<hr />
+<h2 id="pourquoi-tester">Pourquoi tester ?</h2>
+<table>
+<thead>
+<tr>
+<th>Sans tests</th>
+<th>Avec tests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Peur de modifier le code existant</td>
+<td>Confiance pour refactorer</td>
+</tr>
+<tr>
+<td>Bugs découverts en production</td>
+<td>Bugs détectés en développement</td>
+</tr>
+<tr>
+<td>Régression silencieuse</td>
+<td>Régression détectée immédiatement</td>
+</tr>
+<tr>
+<td>Documentation obsolète</td>
+<td>Tests = documentation vivante</td>
+</tr>
+<tr>
+<td>Déploiements risqués</td>
+<td>Déploiements continus possibles</td>
+</tr>
+</tbody>
+</table>
+<p>Les tests ne garantissent pas l'absence de bugs — ils garantissent que les comportements testés fonctionnent. Un code non testé est un code dont on ne sait pas s'il fonctionne.</p>
+<hr />
+<h2 id="les-types-de-tests">Les types de tests</h2>
+<h3 id="tests-unitaires">Tests unitaires</h3>
+<p>Testent une <strong>unité isolée</strong> de code (fonction, méthode, classe) sans ses dépendances externes.</p>
+<pre><code>[Fonction] ← [Test unitaire]
+</code></pre>
+<ul>
+<li><strong>Vitesse</strong> : très rapides (millisecondes)</li>
+<li><strong>Isolation</strong> : les dépendances sont remplacées par des mocks/stubs</li>
+<li><strong>Quantité</strong> : la majorité des tests d'un projet</li>
+<li><strong>Exemples</strong> : tester qu'une fonction de calcul retourne le bon résultat, qu'un validateur rejette les entrées invalides</li>
+</ul>
+<h3 id="tests-dintegration">Tests d'intégration</h3>
+<p>Testent l'<strong>interaction entre plusieurs composants</strong> : un service et sa base de données, deux modules qui collaborent, une API et son ORM.</p>
+<pre><code>[Module A] + [Module B] ← [Test d'intégration]
+</code></pre>
+<ul>
+<li><strong>Vitesse</strong> : plus lents (requêtes réelles, I/O)</li>
+<li><strong>Isolation</strong> : partielle — on peut mocker certaines parties mais pas toutes</li>
+<li><strong>Quantité</strong> : moins nombreux que les tests unitaires</li>
+<li><strong>Exemples</strong> : tester qu'un appel à l'API retourne bien les données de la base, qu'un service d'email envoie vraiment un message</li>
+</ul>
+<h3 id="tests-end-to-end-e2e">Tests end-to-end (e2e)</h3>
+<p>Testent <strong>l'application entière</strong> du point de vue de l'utilisateur, via un navigateur ou un client HTTP.</p>
+<pre><code>[Navigateur/Client] → [Frontend] → [API] → [BDD] ← [Test e2e]
+</code></pre>
+<ul>
+<li><strong>Vitesse</strong> : lents (plusieurs secondes par test)</li>
+<li><strong>Isolation</strong> : aucune — l'environnement doit être complet</li>
+<li><strong>Quantité</strong> : peu nombreux, couvrent les parcours critiques</li>
+<li><strong>Exemples</strong> : tester qu'un utilisateur peut s'inscrire, se connecter et passer une commande</li>
+</ul>
+<h3 id="autres-types">Autres types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Déclenchement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Smoke tests</strong></td>
+<td>Vérifications minimales que l'app démarre et répond</td>
+<td>Après chaque déploiement</td>
+</tr>
+<tr>
+<td><strong>Tests de régression</strong></td>
+<td>Vérifient qu'un bug corrigé ne revient pas</td>
+<td>À chaque PR</td>
+</tr>
+<tr>
+<td><strong>Tests de performance</strong></td>
+<td>Mesurent les temps de réponse sous charge</td>
+<td>Périodiquement</td>
+</tr>
+<tr>
+<td><strong>Tests de snapshot</strong></td>
+<td>Comparent le rendu actuel à une référence</td>
+<td>À chaque PR (UI)</td>
+</tr>
+<tr>
+<td><strong>Tests de mutation</strong></td>
+<td>Vérifient la qualité des tests eux-mêmes</td>
+<td>Audit qualité</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="la-pyramide-des-tests">La pyramide des tests</h2>
+<p>La pyramide définit l'<strong>équilibre recommandé</strong> entre les types de tests :</p>
+<pre><code>        /\
+       /e2e\          ← peu nombreux, lents, coûteux
+      /──────\
+     /intégra-\       ← nombre modéré
+    /  tion    \
+   /────────────\
+  /   unitaires  \    ← nombreux, rapides, bon marché
+ /────────────────\
+</code></pre>
+<h3 id="regles-dequilibre">Règles d'équilibre</h3>
+<ul>
+<li><strong>Tests unitaires</strong> : 70-80% — rapides, fiables, faciles à maintenir</li>
+<li><strong>Tests d'intégration</strong> : 15-20% — vérifient les contrats entre composants</li>
+<li><strong>Tests e2e</strong> : 5-10% — couvrent uniquement les parcours critiques</li>
+</ul>
+<h3 id="lanti-pattern-le-cone-de-glace">L'anti-pattern : le cône de glace</h3>
+<pre><code>  /────────────────\
+ /      e2e         \   ← trop nombreux → lents, fragiles, coûteux
+/──────────────────────\
+\    intégration       /
+ \────────────────────/
+  \    unitaires      /
+   \────────────────/    ← trop peu → peu de valeur
+</code></pre>
+<p>Une suite de tests trop orientée e2e est lente, fragile (un changement UI casse tout) et difficile à déboguer.</p>
+<hr />
+<h2 id="tdd-test-driven-development">TDD — Test Driven Development</h2>
+<p>Le TDD inverse l'ordre naturel : <strong>on écrit le test avant le code</strong>.</p>
+<h3 id="le-cycle-red-green-refactor">Le cycle Red / Green / Refactor</h3>
+<pre><code>    ┌─────────────────────────────────────┐
+    │                                     │
+    ▼                                     │
+  RED                                     │
+  Écrire un test qui échoue               │
+  (le code n'existe pas encore)           │
+    │                                     │
+    ▼                                     │
+  GREEN                                   │
+  Écrire le minimum de code               │
+  pour faire passer le test               │
+    │                                     │
+    ▼                                     │
+  REFACTOR ────────────────────────────────┘
+  Améliorer le code sans
+  changer son comportement
+</code></pre>
+<h3 id="exemple-de-workflow-tdd">Exemple de workflow TDD</h3>
+<pre><code>1. Je dois implémenter une fonction calculateTax(price, rate)
+
+2. RED — j'écris d'abord :
+   test('calcule la TVA à 20%', () =&gt; {
+     expect(calculateTax(100, 0.20)).toBe(20)
+   })
+   → Le test échoue car calculateTax n'existe pas
+
+3. GREEN — j'écris le minimum :
+   function calculateTax(price, rate) {
+     return price * rate
+   }
+   → Le test passe
+
+4. REFACTOR — j'améliore si nécessaire :
+   function calculateTax(price, rate) {
+     return Math.round(price * rate * 100) / 100  // arrondi à 2 décimales
+   }
+   → Le test passe toujours
+</code></pre>
+<h3 id="avantages">Avantages</h3>
+<ul>
+<li>Force à réfléchir à l'interface avant l'implémentation</li>
+<li>Garantit que tout le code est couvert par des tests</li>
+<li>Facilite le refactoring en toute confiance</li>
+<li>Documentation automatique du comportement attendu</li>
+</ul>
+<h3 id="quand-lutiliser">Quand l'utiliser</h3>
+<p>✅ Logique métier complexe, algorithmes, validations<br />
+✅ Code qui sera modifié fréquemment<br />
+✅ APIs publiques et contrats d'interface<br />
+❌ Prototypes et explorations rapides<br />
+❌ Code d'infrastructure / configuration<br />
+❌ Interfaces utilisateur (préférer les tests e2e)</p>
+<hr />
+<h2 id="bdd-behaviour-driven-development">BDD — Behaviour Driven Development</h2>
+<p>Le BDD étend le TDD en formulant les tests en <strong>langage naturel</strong>, compréhensible par tous (développeurs, PO, QA, clients).</p>
+<h3 id="la-structure-given-when-then">La structure Given / When / Then</h3>
+<pre><code>Given  [contexte initial — l'état du système]
+When   [action réalisée — l'événement déclencheur]
+Then   [résultat attendu — le comportement observable]
+</code></pre>
+<h3 id="exemple">Exemple</h3>
+<pre><code class="language-gherkin"># Langage Gherkin (utilisé avec Cucumber, Behat…)
+Feature: Authentification utilisateur
+
+  Scenario: Connexion avec des identifiants valides
+    Given un utilisateur avec l'email &quot;alice@exemple.com&quot; et le mot de passe &quot;secret&quot;
+    When il soumet le formulaire de connexion
+    Then il est redirigé vers le tableau de bord
+    And un token JWT est retourné
+
+  Scenario: Connexion avec un mauvais mot de passe
+    Given un utilisateur avec l'email &quot;alice@exemple.com&quot;
+    When il soumet le mot de passe &quot;mauvais&quot;
+    Then il reçoit une erreur &quot;Identifiants invalides&quot;
+    And aucun token n'est retourné
+</code></pre>
+<h3 id="bdd-sans-gherkin">BDD sans Gherkin</h3>
+<p>On peut appliquer la structure Given/When/Then sans outil dédié, directement dans les noms de tests :</p>
+<pre><code class="language-javascript">// Jest / Vitest
+describe('Authentification', () =&gt; {
+  describe('quand les identifiants sont valides', () =&gt; {
+    it('redirige vers le tableau de bord', () =&gt; { ... })
+    it('retourne un token JWT', () =&gt; { ... })
+  })
+
+  describe('quand le mot de passe est incorrect', () =&gt; {
+    it('retourne une erreur 401', () =&gt; { ... })
+    it('ne retourne pas de token', () =&gt; { ... })
+  })
+})
+</code></pre>
+<h3 id="tdd-vs-bdd">TDD vs BDD</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>TDD</th>
+<th>BDD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Focus</strong></td>
+<td>Comment le code fonctionne</td>
+<td>Ce que le système fait</td>
+</tr>
+<tr>
+<td><strong>Langage</strong></td>
+<td>Technique</td>
+<td>Naturel / métier</td>
+</tr>
+<tr>
+<td><strong>Public</strong></td>
+<td>Développeurs</td>
+<td>Développeurs + PO + QA</td>
+</tr>
+<tr>
+<td><strong>Granularité</strong></td>
+<td>Unitaire</td>
+<td>Comportement fonctionnel</td>
+</tr>
+<tr>
+<td><strong>Outils</strong></td>
+<td>Jest, Vitest, pytest…</td>
+<td>Cucumber, Behat, Jest…</td>
+</tr>
+<tr>
+<td><strong>Complémentaires ?</strong></td>
+<td>Oui — BDD s'appuie sur TDD</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="bonnes-pratiques">Bonnes pratiques</h2>
+<h3 id="ecrire-de-bons-tests">Écrire de bons tests</h3>
+<p><strong>F.I.R.S.T.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Lettre</th>
+<th>Principe</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>F</strong></td>
+<td>Fast</td>
+<td>Un test doit s'exécuter en millisecondes</td>
+</tr>
+<tr>
+<td><strong>I</strong></td>
+<td>Independent</td>
+<td>Les tests ne doivent pas dépendre les uns des autres</td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td>Repeatable</td>
+<td>Même résultat à chaque exécution, quel que soit l'environnement</td>
+</tr>
+<tr>
+<td><strong>S</strong></td>
+<td>Self-validating</td>
+<td>Le test dit lui-même s'il passe ou échoue (pas de vérification manuelle)</td>
+</tr>
+<tr>
+<td><strong>T</strong></td>
+<td>Timely</td>
+<td>Écrit au bon moment (idéalement avant ou avec le code)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nommage-des-tests">Nommage des tests</h3>
+<p>Un bon nom de test décrit <strong>le comportement attendu</strong>, pas l'implémentation :</p>
+<pre><code>❌ test('fonction login')
+❌ test('test 1')
+✅ test('retourne une erreur si le mot de passe est vide')
+✅ test('envoie un email de confirmation après inscription')
+</code></pre>
+<h3 id="ce-quil-faut-tester">Ce qu'il faut tester</h3>
+<pre><code>✅ La logique métier (calculs, règles, validations)
+✅ Les cas limites (valeurs nulles, vides, limites max/min)
+✅ Les cas d'erreur (que se passe-t-il quand ça échoue ?)
+✅ Les contrats d'interface (ce que retourne une fonction)
+
+❌ Les détails d'implémentation (comment c'est fait en interne)
+❌ Le code de librairies tierces
+❌ Les getters/setters triviaux
+</code></pre>
+<h3 id="coverage-indicateur-pas-objectif">Coverage : indicateur, pas objectif</h3>
+<p>La couverture de code mesure le pourcentage de code exécuté par les tests. Un taux élevé est rassurant, mais :</p>
+<ul>
+<li>100% de coverage ≠ absence de bugs</li>
+<li>Un test mal écrit peut couvrir sans tester</li>
+<li>Viser 80% est souvent plus pragmatique que 100%</li>
+</ul>
+<blockquote>
+<p>Un bon test qui échoue quand le comportement change vaut mieux que 10 tests qui passent toujours.</p>
+</blockquote>
+<h3 id="mocks-stubs-et-spies">Mocks, stubs et spies</h3>
+<table>
+<thead>
+<tr>
+<th>Terme</th>
+<th>Rôle</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mock</strong></td>
+<td>Remplace une dépendance et vérifie les appels</td>
+<td>Vérifier qu'un service email a bien été appelé</td>
+</tr>
+<tr>
+<td><strong>Stub</strong></td>
+<td>Remplace une dépendance et retourne une valeur fixe</td>
+<td>Simuler une réponse d'API</td>
+</tr>
+<tr>
+<td><strong>Spy</strong></td>
+<td>Observe un vrai objet sans le remplacer</td>
+<td>Vérifier qu'une méthode a été appelée N fois</td>
+</tr>
+<tr>
+<td><strong>Fake</strong></td>
+<td>Implémentation simplifiée (ex. base en mémoire)</td>
+<td>Base de données in-memory pour les tests</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../dev-securite/secrets/" class="btn btn-neutral float-left" title="Gestion des secrets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../jest/" class="btn btn-neutral float-right" title="Jest">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../dev-securite/secrets/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../jest/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

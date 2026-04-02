@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>JWT — Authentification - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "JWT \u2014 Authentification";
+        var mkdocs_page_input_path = "dev-securite/jwt-auth.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">JWT — Authentification</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#anatomie-dun-jwt">Anatomie d'un JWT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generer-un-token-login">Générer un token (login)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#verifier-un-token-middleware">Vérifier un token (middleware)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#refresh-token">Refresh token</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stockage-cote-client">Stockage côté client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#revocation-et-securite">Révocation et sécurité</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#checklist">Checklist</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev securite</li>
+      <li class="breadcrumb-item active">JWT — Authentification</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="jwt-authentification">JWT — Authentification</h1>
+<p>JSON Web Token (JWT) est un standard ouvert (RFC 7519) pour transmettre des informations de façon sécurisée entre deux parties sous forme de token signé. Il est largement utilisé pour l'authentification dans les APIs REST et les SPAs.</p>
+<hr />
+<h2 id="anatomie-dun-jwt">Anatomie d'un JWT</h2>
+<p>Un JWT est une chaîne en trois parties séparées par des points : <code>header.payload.signature</code></p>
+<pre><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+.eyJzdWIiOiIxMjM0NSIsImVtYWlsIjoiYWxpY2VAZXhlbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTcwMDAwMDAwMCwiZXhwIjoxNzAwMDAwOTAwfQ
+.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+</code></pre>
+<p>Chaque partie est encodée en <strong>base64url</strong> (pas chiffrée — lisible par quiconque).</p>
+<h3 id="header">Header</h3>
+<pre><code class="language-json">{
+  &quot;alg&quot;: &quot;HS256&quot;,   // algorithme de signature
+  &quot;typ&quot;: &quot;JWT&quot;
+}
+</code></pre>
+<h3 id="payload-claims">Payload (claims)</h3>
+<pre><code class="language-json">{
+  &quot;sub&quot;: &quot;12345&quot;,                    // subject — identifiant de l'utilisateur
+  &quot;email&quot;: &quot;alice@exemple.com&quot;,
+  &quot;role&quot;: &quot;user&quot;,
+  &quot;iss&quot;: &quot;mon-app&quot;,                  // issuer — émetteur du token
+  &quot;aud&quot;: &quot;mon-api&quot;,                  // audience — destinataire prévu
+  &quot;iat&quot;: 1700000000,                 // issued at — date d'émission (Unix timestamp)
+  &quot;exp&quot;: 1700000900                  // expiration — date d'expiration (Unix timestamp)
+}
+</code></pre>
+<blockquote>
+<p>⚠️ Le payload est <strong>lisible par tous</strong> — ne jamais y stocker de mot de passe, numéro de carte, ou données sensibles.</p>
+</blockquote>
+<h3 id="signature">Signature</h3>
+<pre><code>HMACSHA256(
+  base64url(header) + &quot;.&quot; + base64url(payload),
+  SECRET
+)
+</code></pre>
+<p>La signature garantit que le token n'a pas été altéré. Elle ne chiffre pas le contenu.</p>
+<hr />
+<h2 id="generer-un-token-login">Générer un token (login)</h2>
+<pre><code class="language-bash">npm install jsonwebtoken
+</code></pre>
+<pre><code class="language-js">const jwt = require('jsonwebtoken');
+
+// ❌ Vulnérable : secret hardcodé, pas d'expiration
+const token = jwt.sign({ userId: user.id }, 'secret');
+
+// ✅ Corrigé : secret depuis l'env, durées courtes, claims complets
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
+
+function genererTokens(user) {
+  const accessToken = jwt.sign(
+    { userId: user.id, email: user.email, role: user.role },
+    ACCESS_TOKEN_SECRET,
+    { expiresIn: '15m', issuer: 'mon-app', audience: 'mon-api' }
+  );
+
+  const refreshToken = jwt.sign(
+    { userId: user.id },
+    REFRESH_TOKEN_SECRET,
+    { expiresIn: '7d', issuer: 'mon-app' }
+  );
+
+  return { accessToken, refreshToken };
+}
+</code></pre>
+<pre><code class="language-js">// Endpoint de login
+app.post('/api/login', async (req, res) =&gt; {
+  const user = await verifierIdentifiants(req.body.email, req.body.password);
+  if (!user) return res.status(401).json({ erreur: 'Identifiants invalides' });
+
+  const { accessToken, refreshToken } = genererTokens(user);
+
+  // Stocker le refresh token en base (voir section Révocation)
+  await db.sauvegarderRefreshToken(user.id, refreshToken);
+
+  res.json({ accessToken, refreshToken, tokenType: 'Bearer', expiresIn: '15m' });
+});
+</code></pre>
+<hr />
+<h2 id="verifier-un-token-middleware">Vérifier un token (middleware)</h2>
+<pre><code class="language-js">// middleware/authentifie.js
+const jwt = require('jsonwebtoken');
+
+function authentifie(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader?.split(' ')[1]; // &quot;Bearer &lt;token&gt;&quot;
+
+  if (!token) {
+    return res.status(401).json({ erreur: 'Token manquant' });
+  }
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, { audience: 'mon-api' }, (err, decoded) =&gt; {
+    if (err) {
+      if (err instanceof jwt.TokenExpiredError) {
+        return res.status(401).json({ erreur: 'Token expiré', code: 'TOKEN_EXPIRED' });
+      }
+      if (err instanceof jwt.JsonWebTokenError) {
+        return res.status(403).json({ erreur: 'Token invalide', code: 'TOKEN_INVALID' });
+      }
+      return res.status(500).json({ erreur: 'Erreur de vérification' });
+    }
+
+    req.user = decoded; // { userId, email, role, iat, exp, ... }
+    next();
+  });
+}
+
+module.exports = authentifie;
+</code></pre>
+<pre><code class="language-js">// Utilisation sur les routes protégées
+app.get('/api/profil', authentifie, (req, res) =&gt; {
+  res.json({ userId: req.user.userId, email: req.user.email });
+});
+</code></pre>
+<hr />
+<h2 id="refresh-token">Refresh token</h2>
+<p>L'access token a une courte durée de vie (15 min). Le refresh token (7 jours) permet d'en obtenir un nouveau sans redemander le mot de passe.</p>
+<pre><code>Client                          Serveur
+  │── POST /api/login ─────────────→│  accessToken (15m) + refreshToken (7j)
+  │                                 │
+  │── GET /api/données (Bearer) ───→│  ✅ ok tant que accessToken valide
+  │                                 │
+  │   [accessToken expiré]          │
+  │── GET /api/données (Bearer) ───→│  401 TOKEN_EXPIRED
+  │                                 │
+  │── POST /api/refresh ────────────→│  nouveau accessToken
+  │        { refreshToken }         │
+  │←── { accessToken } ─────────────│
+  │                                 │
+  │── GET /api/données (Bearer) ───→│  ✅ ok avec le nouveau token
+</code></pre>
+<pre><code class="language-js">// Endpoint de refresh
+app.post('/api/refresh', async (req, res) =&gt; {
+  const { refreshToken } = req.body;
+
+  if (!refreshToken) {
+    return res.status(401).json({ erreur: 'Refresh token manquant' });
+  }
+
+  // Vérifier que le token est en base (non révoqué)
+  const tokenEnBase = await db.trouverRefreshToken(refreshToken);
+  if (!tokenEnBase) {
+    return res.status(403).json({ erreur: 'Refresh token invalide ou révoqué' });
+  }
+
+  jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, decoded) =&gt; {
+    if (err) {
+      await db.supprimerRefreshToken(refreshToken); // nettoyer si expiré
+      return res.status(403).json({ erreur: 'Refresh token expiré' });
+    }
+
+    // Rotation : invalider l'ancien, émettre un nouveau
+    await db.supprimerRefreshToken(refreshToken);
+    const user = await db.trouverUtilisateur(decoded.userId);
+    const { accessToken, refreshToken: nouveauRefresh } = genererTokens(user);
+    await db.sauvegarderRefreshToken(user.id, nouveauRefresh);
+
+    res.json({ accessToken, refreshToken: nouveauRefresh });
+  });
+});
+
+// Déconnexion : invalider le refresh token
+app.post('/api/logout', authentifie, async (req, res) =&gt; {
+  const { refreshToken } = req.body;
+  if (refreshToken) await db.supprimerRefreshToken(refreshToken);
+  res.json({ message: 'Déconnecté' });
+});
+</code></pre>
+<hr />
+<h2 id="stockage-cote-client">Stockage côté client</h2>
+<h3 id="comparatif">Comparatif</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>localStorage</code></th>
+<th>Cookie <code>httpOnly</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Accessible par JS</strong></td>
+<td>Oui</td>
+<td>Non</td>
+</tr>
+<tr>
+<td><strong>Risque XSS</strong></td>
+<td>Élevé — script malveillant peut lire le token</td>
+<td>Faible — inaccessible depuis JS</td>
+</tr>
+<tr>
+<td><strong>Risque CSRF</strong></td>
+<td>Faible</td>
+<td>Modéré — mitigé par <code>SameSite=Strict</code></td>
+</tr>
+<tr>
+<td><strong>Persistance</strong></td>
+<td>Jusqu'à effacement</td>
+<td>Configurable (session ou date d'exp.)</td>
+</tr>
+<tr>
+<td><strong>Recommandé pour</strong></td>
+<td>Prototypes / apps sans données sensibles</td>
+<td>Applications en production</td>
+</tr>
+</tbody>
+</table>
+<h3 id="option-a-authorization-header-localstorage-ou-memoire">Option A — Authorization header (localStorage ou mémoire)</h3>
+<pre><code class="language-js">// ❌ localStorage : vulnérable au XSS
+localStorage.setItem('accessToken', token);
+const token = localStorage.getItem('accessToken');
+
+// ✅ Mémoire JS (variable de module) : non persistant mais sécurisé contre XSS
+let accessToken = null;
+
+async function login(email, password) {
+  const res = await fetch('/api/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password }),
+  });
+  const data = await res.json();
+  accessToken = data.accessToken; // stocké en mémoire uniquement
+}
+
+// Requête authentifiée
+async function fetchProfil() {
+  const res = await fetch('/api/profil', {
+    headers: { 'Authorization': `Bearer ${accessToken}` },
+  });
+  return res.json();
+}
+</code></pre>
+<h3 id="option-b-cookie-httponly-recommande-en-production">Option B — Cookie httpOnly (recommandé en production)</h3>
+<pre><code class="language-js">// Serveur : envoyer le token dans un cookie httpOnly
+res.cookie('accessToken', accessToken, {
+  httpOnly: true,     // inaccessible depuis JS
+  secure: true,       // HTTPS uniquement
+  sameSite: 'Strict', // protection CSRF
+  maxAge: 15 * 60 * 1000, // 15 minutes
+});
+
+// Le navigateur envoie automatiquement le cookie — pas de header à gérer côté client
+const res = await fetch('/api/profil', { credentials: 'include' });
+</code></pre>
+<pre><code class="language-js">// Middleware côté serveur : lire depuis le cookie plutôt que le header
+function authentifie(req, res, next) {
+  const token = req.cookies?.accessToken || req.headers['authorization']?.split(' ')[1];
+  // ... vérification identique
+}
+</code></pre>
+<hr />
+<h2 id="revocation-et-securite">Révocation et sécurité</h2>
+<h3 id="pourquoi-les-jwt-sont-difficiles-a-revoquer">Pourquoi les JWT sont difficiles à révoquer</h3>
+<p>Par nature, un JWT est <strong>auto-suffisant</strong> : le serveur n'a pas besoin de consulter une base pour le valider. La contrepartie : il est valide jusqu'à expiration, même après déconnexion.</p>
+<h3 id="strategies">Stratégies</h3>
+<pre><code>1. Access tokens à courte durée (15 min)
+   → La fenêtre de risque est limitée même si un token est volé
+
+2. Rotation des refresh tokens
+   → À chaque refresh, l'ancien token est invalidé
+   → Si un token volé est réutilisé, la rotation détecte la collision
+
+3. Blacklist (pour révocation immédiate)
+   → Stocker les JTI (JWT ID) révoqués dans Redis avec TTL = durée d'expiration
+</code></pre>
+<pre><code class="language-js">// Ajouter un identifiant unique au token
+const accessToken = jwt.sign(
+  { userId: user.id, jti: crypto.randomUUID() },
+  process.env.ACCESS_TOKEN_SECRET,
+  { expiresIn: '15m' }
+);
+
+// Dans le middleware : vérifier que le jti n'est pas blacklisté
+const estRevoque = await redis.get(`blacklist:${decoded.jti}`);
+if (estRevoque) return res.status(401).json({ erreur: 'Token révoqué' });
+
+// À la déconnexion : blacklister le token jusqu'à son expiration
+const ttl = decoded.exp - Math.floor(Date.now() / 1000);
+await redis.set(`blacklist:${decoded.jti}`, '1', { EX: ttl });
+</code></pre>
+<h3 id="algorithmes-hs256-vs-rs256">Algorithmes : HS256 vs RS256</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HS256 (symétrique)</th>
+<th>RS256 (asymétrique)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clé de signature</strong></td>
+<td>Secret partagé</td>
+<td>Clé privée</td>
+</tr>
+<tr>
+<td><strong>Clé de vérification</strong></td>
+<td>Même secret</td>
+<td>Clé publique</td>
+</tr>
+<tr>
+<td><strong>Usage</strong></td>
+<td>Monolithe, microservices de confiance</td>
+<td>Microservices, fournisseur d'identité externe</td>
+</tr>
+<tr>
+<td><strong>Avantage</strong></td>
+<td>Simple, rapide</td>
+<td>La clé publique peut être distribuée sans risque</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-js">// RS256 : signer avec la clé privée, vérifier avec la publique
+const fs = require('fs');
+const privateKey = fs.readFileSync('private.key');
+const publicKey = fs.readFileSync('public.pem');
+
+const token = jwt.sign({ userId: 123 }, privateKey, { algorithm: 'RS256' });
+const decoded = jwt.verify(token, publicKey, { algorithms: ['RS256'] });
+</code></pre>
+<hr />
+<h2 id="checklist">Checklist</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Secrets JWT dans les variables d'environnement (jamais dans le code)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Access token : durée ≤ 15 minutes</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Refresh token : stocké en base, invalidé à la déconnexion</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Rotation des refresh tokens activée</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Payload ne contient pas de données sensibles</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Token stocké en mémoire JS ou cookie <code>httpOnly</code> (pas <code>localStorage</code>)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Cookie avec <code>Secure</code>, <code>httpOnly</code>, <code>SameSite=Strict</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Middleware vérifie <code>aud</code> et <code>iss</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Erreurs JWT : messages génériques côté client, détails en log serveur</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Algorithme explicitement spécifié (<code>algorithms: ['HS256']</code>)</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../dev-ops/winscp/" class="btn btn-neutral float-left" title="Mise en ligne avec WinSCP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../owasp/" class="btn btn-neutral float-right" title="OWASP Top 10">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../dev-ops/winscp/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../owasp/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

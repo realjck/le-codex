@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Kanban - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Kanban";
+        var mkdocs_page_input_path = "gestion-de-projet/kanban.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Kanban</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#principes-fondamentaux">Principes fondamentaux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#le-tableau-kanban">Le tableau Kanban</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limites-wip">Limites WIP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#le-flux-de-travail">Le flux de travail</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#metriques">Métriques</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kanban-vs-scrum">Kanban vs Scrum</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Gestion de projet</li>
+      <li class="breadcrumb-item active">Kanban</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="kanban">Kanban</h1>
+<p>Kanban est une méthode de gestion du flux de travail issue du système de production Toyota (années 1950). Adaptée au développement logiciel par David Anderson dans les années 2000, elle repose sur la visualisation du travail, la limitation des tâches en cours et l'amélioration continue du flux.</p>
+<p>Contrairement à Scrum, Kanban n'impose pas d'itérations fixes ni de rôles définis : c'est une méthode évolutive qui s'adapte aux processus existants.</p>
+<hr />
+<h2 id="principes-fondamentaux">Principes fondamentaux</h2>
+<p>Kanban repose sur <strong>4 principes de base</strong> et <strong>6 pratiques fondamentales</strong>.</p>
+<h3 id="les-4-principes">Les 4 principes</h3>
+<table>
+<thead>
+<tr>
+<th>Principe</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Commencer avec ce qui existe</strong></td>
+<td>Ne pas tout réorganiser — appliquer Kanban sur le processus en place</td>
+</tr>
+<tr>
+<td><strong>Accepter le changement évolutif</strong></td>
+<td>Progresser par petites améliorations continues, pas de transformation radicale</td>
+</tr>
+<tr>
+<td><strong>Respecter les rôles existants</strong></td>
+<td>Ne pas imposer de nouveaux titres ou responsabilités au départ</td>
+</tr>
+<tr>
+<td><strong>Encourager le leadership à tous niveaux</strong></td>
+<td>L'amélioration du flux est l'affaire de toute l'équipe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="les-6-pratiques-fondamentales">Les 6 pratiques fondamentales</h3>
+<ol>
+<li><strong>Visualiser le flux de travail</strong> — rendre visible l'état de chaque tâche</li>
+<li><strong>Limiter le travail en cours (WIP)</strong> — ne pas démarrer plus que ce qu'on peut finir</li>
+<li><strong>Gérer le flux</strong> — surveiller et optimiser la progression des tâches</li>
+<li><strong>Rendre les règles explicites</strong> — formaliser les critères de passage entre étapes</li>
+<li><strong>Mettre en place des boucles de feedback</strong> — réunions régulières pour inspecter le flux</li>
+<li><strong>Améliorer de façon collaborative</strong> — identifier les blocages et expérimenter des solutions</li>
+</ol>
+<hr />
+<h2 id="le-tableau-kanban">Le tableau Kanban</h2>
+<p>Le tableau Kanban est l'outil central : il rend visible l'ensemble du flux de travail.</p>
+<h3 id="structure-type">Structure type</h3>
+<pre><code>┌──────────────┬──────────────┬──────────────┬──────────────┐
+│   Backlog    │  En cours    │   En revue   │   Terminé    │
+│              │   (WIP: 3)   │   (WIP: 2)   │              │
+├──────────────┼──────────────┼──────────────┼──────────────┤
+│  [ Tâche A ] │  [ Tâche C ] │  [ Tâche E ] │  [ Tâche F ] │
+│  [ Tâche B ] │  [ Tâche D ] │              │  [ Tâche G ] │
+│  [ Tâche H ] │  [ Tâche I ] │              │              │
+└──────────────┴──────────────┴──────────────┴──────────────┘
+</code></pre>
+<h3 id="les-colonnes">Les colonnes</h3>
+<p>Chaque colonne représente une étape du processus. Les colonnes courantes :</p>
+<table>
+<thead>
+<tr>
+<th>Colonne</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Backlog</strong></td>
+<td>Tâches à faire, non encore démarrées</td>
+</tr>
+<tr>
+<td><strong>À faire (prêt)</strong></td>
+<td>Tâches priorisées, prêtes à être prises</td>
+</tr>
+<tr>
+<td><strong>En cours</strong></td>
+<td>Tâches activement travaillées</td>
+</tr>
+<tr>
+<td><strong>En revue / Test</strong></td>
+<td>Tâches terminées en attente de validation</td>
+</tr>
+<tr>
+<td><strong>Terminé</strong></td>
+<td>Tâches livrées</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Les colonnes sont personnalisables selon le processus de l'équipe. Une équipe dev peut avoir : <code>Backlog → Spécification → Développement → Review → Test → Déployé</code>.</p>
+</blockquote>
+<h3 id="les-cartes">Les cartes</h3>
+<p>Chaque tâche est représentée par une carte contenant :
+- Titre et description courte
+- Responsable
+- Date d'entrée dans la colonne
+- Priorité ou classe de service (optionnel)</p>
+<hr />
+<h2 id="limites-wip">Limites WIP</h2>
+<p>Le <strong>WIP (Work In Progress)</strong> est le nombre maximum de tâches autorisées simultanément dans une colonne. C'est le mécanisme le plus puissant de Kanban.</p>
+<h3 id="pourquoi-limiter-le-wip">Pourquoi limiter le WIP ?</h3>
+<ul>
+<li>Réduit le multitâche et les changements de contexte</li>
+<li>Révèle les goulots d'étranglement (une colonne qui se remplit)</li>
+<li>Accélère le débit global (loi de Little : <code>Cycle Time = WIP / Throughput</code>)</li>
+<li>Force à terminer avant de commencer</li>
+</ul>
+<h3 id="exemple">Exemple</h3>
+<pre><code>En cours (WIP: 3) → si 3 tâches sont déjà en cours,
+personne ne peut en démarrer une nouvelle.
+L'équipe doit d'abord en terminer une.
+</code></pre>
+<h3 id="comment-choisir-les-limites-wip">Comment choisir les limites WIP ?</h3>
+<p>Il n'y a pas de règle absolue. Un point de départ courant : <strong>nombre de membres de l'équipe − 1</strong>. Ajuster ensuite selon l'observation du flux réel.</p>
+<hr />
+<h2 id="le-flux-de-travail">Le flux de travail</h2>
+<h3 id="reunions-kanban">Réunions Kanban</h3>
+<p>Kanban propose des cérémonies légères, toutes optionnelles et adaptables :</p>
+<table>
+<thead>
+<tr>
+<th>Réunion</th>
+<th>Fréquence</th>
+<th>Objectif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Standup / Daily</strong></td>
+<td>Quotidien</td>
+<td>Parcourir le tableau de droite à gauche, identifier les blocages</td>
+</tr>
+<tr>
+<td><strong>Replenishment</strong></td>
+<td>Hebdomadaire</td>
+<td>Alimenter le backlog avec de nouvelles tâches priorisées</td>
+</tr>
+<tr>
+<td><strong>Review / Demo</strong></td>
+<td>À la livraison</td>
+<td>Présenter ce qui a été livré</td>
+</tr>
+<tr>
+<td><strong>Retrospective</strong></td>
+<td>Régulière</td>
+<td>Améliorer le processus</td>
+</tr>
+<tr>
+<td><strong>Service Delivery Review</strong></td>
+<td>Mensuel</td>
+<td>Analyser les métriques de flux</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Astuce Daily Kanban</strong> : parcourir le tableau de <strong>droite à gauche</strong> (des tâches les plus avancées vers le backlog) pour prioriser ce qui est proche de la livraison.</p>
+</blockquote>
+<h3 id="classes-de-service">Classes de service</h3>
+<p>Les classes de service permettent de différencier les tâches selon leur urgence :</p>
+<table>
+<thead>
+<tr>
+<th>Classe</th>
+<th>Description</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Urgence</strong></td>
+<td>Traitement immédiat, bypass du WIP</td>
+<td>Bug critique en production</td>
+</tr>
+<tr>
+<td><strong>Date fixe</strong></td>
+<td>Deadline connue</td>
+<td>Livraison client le 15</td>
+</tr>
+<tr>
+<td><strong>Standard</strong></td>
+<td>Flux normal</td>
+<td>Développement de fonctionnalité</td>
+</tr>
+<tr>
+<td><strong>Intangible</strong></td>
+<td>Faible urgence, fort ROI à long terme</td>
+<td>Dette technique</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="metriques">Métriques</h2>
+<h3 id="lead-time">Lead Time</h3>
+<blockquote>
+<p>Temps total entre la <strong>création</strong> d'une tâche et sa <strong>livraison</strong>.</p>
+</blockquote>
+<pre><code>Lead Time = date de livraison − date de création
+</code></pre>
+<p>Inclut le temps d'attente dans le backlog. Représente la durée perçue par le client.</p>
+<h3 id="cycle-time">Cycle Time</h3>
+<blockquote>
+<p>Temps entre le <strong>début actif</strong> d'une tâche et sa <strong>livraison</strong>.</p>
+</blockquote>
+<pre><code>Cycle Time = date de livraison − date de démarrage
+</code></pre>
+<p>Mesure l'efficacité réelle de l'équipe. Un cycle time stable et prévisible est l'objectif principal.</p>
+<h3 id="throughput">Throughput</h3>
+<blockquote>
+<p>Nombre de tâches <strong>livrées par unité de temps</strong> (ex. par semaine).</p>
+</blockquote>
+<p>Mesure la capacité de livraison de l'équipe. Utile pour les prévisions :</p>
+<pre><code>Combien de tâches peut-on livrer en 4 semaines ?
+→ Si throughput moyen = 8 tâches/semaine → ~32 tâches
+</code></pre>
+<h3 id="loi-de-little">Loi de Little</h3>
+<p>Relation fondamentale entre les trois métriques :</p>
+<pre><code>Cycle Time = WIP / Throughput
+</code></pre>
+<p>Réduire le WIP ou augmenter le throughput réduit le cycle time.</p>
+<h3 id="diagramme-de-flux-cumulatif-cfd">Diagramme de flux cumulatif (CFD)</h3>
+<p>Le CFD (Cumulative Flow Diagram) trace le nombre de tâches dans chaque colonne au fil du temps.</p>
+<pre><code>Tâches
+  │    ████████████████  Terminé
+  │   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  En revue
+  │  ░░░░░░░░░░░░░░░░░░  En cours
+  │ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  Backlog
+  └──────────────────────────── Temps
+</code></pre>
+<p>Ce qu'on cherche :
+- <strong>Bandes parallèles et régulières</strong> → flux sain
+- <strong>Bande qui s'élargit</strong> → accumulation, goulot d'étranglement
+- <strong>Bande qui rétrécit</strong> → la colonne se vide, risque de sous-charge</p>
+<hr />
+<h2 id="kanban-vs-scrum">Kanban vs Scrum</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Kanban</strong></th>
+<th><strong>Scrum</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cadence</strong></td>
+<td>Flux continu</td>
+<td>Sprints fixes (1-4 semaines)</td>
+</tr>
+<tr>
+<td><strong>Rôles</strong></td>
+<td>Aucun imposé</td>
+<td>Product Owner, Scrum Master, Developers</td>
+</tr>
+<tr>
+<td><strong>Planification</strong></td>
+<td>En continu (replenishment)</td>
+<td>Sprint Planning</td>
+</tr>
+<tr>
+<td><strong>Livraison</strong></td>
+<td>Dès qu'une tâche est prête</td>
+<td>À la fin du Sprint</td>
+</tr>
+<tr>
+<td><strong>Changements</strong></td>
+<td>Acceptés à tout moment</td>
+<td>Protégés pendant le Sprint</td>
+</tr>
+<tr>
+<td><strong>Métriques clés</strong></td>
+<td>Cycle time, throughput, CFD</td>
+<td>Velocity, burndown</td>
+</tr>
+<tr>
+<td><strong>Adapté à</strong></td>
+<td>Support, maintenance, flux imprévisible</td>
+<td>Produit avec roadmap, équipe stable</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Scrumban</strong> : hybride qui combine les itérations de Scrum avec la gestion du flux et les limites WIP de Kanban. Courant dans les équipes qui souhaitent plus de flexibilité que Scrum sans abandonner les Sprints.</p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../guide-scrum/" class="btn btn-neutral float-left" title="Le guide de Référence de Scrum : Les règles du jeu"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../ia-generative/claude-code/" class="btn btn-neutral float-right" title="Claude Code — Protocoles &amp; méthodes avancées">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../guide-scrum/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../ia-generative/claude-code/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
