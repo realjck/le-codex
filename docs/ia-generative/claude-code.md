@@ -39,11 +39,12 @@ Disponibles dans la session interactive en tapant `/`.
 | Commande | Description |
 |---|---|
 | `/help` | Affiche l'aide |
-| `/clear` | Efface l'historique de conversation |
+| `/context` | Affiche l'utilisation du contexte : tokens utilisés/disponibles par catégorie (system prompt, outils, MCP, agents, mémoire, skills, messages), outils MCP chargés, agents et skills actifs |
 | `/compact` | Compresse l'historique avec un résumé |
-| `/exit` ou `/quit` | Quitte Claude Code |
+| `/clear` | Efface l'historique de conversation |
 | `/status` | Statut du compte et du système |
 | `/cost` | Affiche la consommation de tokens |
+| `/exit` ou `/quit` | Quitte Claude Code |
 
 ### Configuration
 
@@ -61,6 +62,7 @@ Disponibles dans la session interactive en tapant `/`.
 | Commande | Description |
 |---|---|
 | `/init` | Initialise un fichier `CLAUDE.md` dans le projet |
+| `/plugin` | Gérer les plugins |
 | `/mcp` | Gérer les serveurs MCP |
 | `/doctor` | Diagnostiquer l'installation Claude Code |
 | `/review` | Demander une revue de code |
@@ -106,6 +108,7 @@ done
 ```
 
 ---
+
 
 ## MCP — Model Context Protocol
 
