@@ -4,4 +4,7 @@ Un espace personnel dédié au développement informatique, construit au fil des
 
 Le Codex rassemble des aide-mémoires, des synthèses claires et des exemples pratiques autour du développement logiciel, du DevOps et des outils IA.
 
-### 👉 [Accéder au Codex](realjck.github.io/le-codex/)
+### 👉 [Accéder au Codex](https://realjck.github.io/le-codex/)
+
+
+*Réalisé avec MKDocs et le thème ReadTheDocs*
