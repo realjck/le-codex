@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
+
+* {
+  font-family: "Fira Mono", monospace !important;
+}
+
+
+.wy-side-nav-search, .wy-nav-top  {
+  background-color: #343131;
+}
+
+@media screen and (min-width: 1100px) {
+  .wy-nav-content-wrap {
+    background: inherit;
+  }
+}
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+  color: white;
+}
+
+.wy-menu-vertical a:active {
+  background-color: #808080;
+}
+
+.rst-content h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.rst-content h2 {
+  margin-top: 1.5em;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 0.5em;
+}
+
+.rst-content h1 {
+  margin-top: 1.5em;
+  font-size: 2em;
+}
+
+.wy-side-nav-search>a:hover {
+    background: inherit;
+}
+
+.rst-content .section ul li>p:only-child, .rst-content .section ul li>p:only-child:last-child {
+  margin-bottom: 0.5em
+}
+
+td, th {
+  white-space: normal !important;
+}

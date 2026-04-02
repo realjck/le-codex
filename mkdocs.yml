@@ -1,0 +1,8 @@
+site_name: Le Codex
+theme:
+  name: readthedocs
+  locale: fr
+  logo: logo.png
+  navigation_depth: 2
+extra_css:
+    - extra.css
