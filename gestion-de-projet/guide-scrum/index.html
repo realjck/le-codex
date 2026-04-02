@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Le guide de Référence de Scrum : Les règles du jeu - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Le guide de R\u00e9f\u00e9rence de Scrum : Les r\u00e8gles du jeu";
+        var mkdocs_page_input_path = "gestion-de-projet/guide-scrum.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Le guide de Référence de Scrum : Les règles du jeu</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#but-du-guide-scrum">But du guide Scrum</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#definition-de-scrum">Définition de Scrum</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#theorie-scrum">Théorie Scrum</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#valeurs-scrum">Valeurs Scrum</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scrum-team">Scrum Team</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#evenements-scrum">Événements Scrum</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-artefacts-de-scrum">Les Artefacts de Scrum</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Gestion de projet</li>
+      <li class="breadcrumb-item active">Le guide de Référence de Scrum : Les règles du jeu</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="le-guide-de-reference-de-scrum-les-regles-du-jeu">Le guide de Référence de Scrum : Les règles du jeu</h1>
+<p><em>Traduit de l'anglais par Kamel Kaouech</em></p>
+<h2 id="but-du-guide-scrum">But du guide Scrum</h2>
+<p>Nous avons développé Scrum au début des années 1990. Nous avons écrit la première version du Guide Scrum en 2010 pour aider les gens du monde entier à comprendre Scrum. Depuis, nous avons fait évoluer ce Guide en y apportant de petites mises à jour fonctionnelles. C’est ensemble que nous continuons à le faire évoluer.</p>
+<p>Le Guide Scrum contient la définition du cadre de travail Scrum. Chaque élément du cadre contribue à un objectif précis qui est essentiel à la valeur globale et aux résultats obtenus avec Scrum. Changer la conception ou les idées de base de Scrum, omettre des éléments, ou ne pas suivre les règles de Scrum, contribue à dissimuler les problèmes et limite les avantages de Scrum, le rendant même potentiellement inutile.</p>
+<p>Nous constatons l'utilisation croissante de Scrum dans un monde de plus en plus complexe. Nous sommes honorés de voir Scrum adopté dans de nombreux domaines comportant des activités complexes, au‐delà du développement de produits logiciels où Scrum trouve ses racines. Au fur et à mesure que l’usage de Scrum se répand, les Developers, les chercheurs, les analystes, les scientifiques et d'autres spécialistes y contribuent. Nous utilisons le terme «Developers» dans Scrum non pas pour exclure, mais pour simplifier. Si vous obtenez de la valeur de Scrum, considérez‐vous comme en faisant partie.</p>
+<p>Au fur et à mesure que Scrum est utilisé, des modèles, des processus et des idées qui correspondent au cadre de travail Scrum, tel que décrit dans ce document, pourront être trouvés, appliqués et conçus. Leur description dépasse le but du Guide Scrum car ils sont liés à leur contexte et diffèrent largement en fonction de l’usage de Scrum. De telles approches applicables avec le cadre de travail Scrum varient considérablement et sont décrites ailleurs.</p>
+<p>Ken Schwaber &amp; Jeff Sutherland Novembre 2020</p>
+<p>© 2020 Ken Schwaber and Jeff Sutherland</p>
+<p>This publication is offered for license under the Attribution Share‐Alike license of Creative Commons,    accessible at http://creativecommons.org/licenses/by‐sa/4.0/legalcode and also described in summary form at http://creativecommons.org/licenses/by‐sa/4.0/. By utilizing this Scrum Guide, you acknowledge and agree that you have read and agree to be bound by the terms of the Attribution Share‐Alike license of Creative Commons.</p>
+<h2 id="definition-de-scrum">Définition de Scrum</h2>
+<p>Scrum est un cadre de travail léger qui aide les personnes, les équipes et les organisations à générer de la valeur grâce à des solutions adaptatives pour des problèmes complexes.</p>
+<p>En bref, Scrum a besoin d'un Scrum Master pour favoriser un environnement où :</p>
+<ol>
+<li>Un Product Owner ordonne le travail à faire pour résoudre un problème complexe dans le Product Backlog.</li>
+<li>La Scrum Team transforme une sélection de ce travail en un Increment de valeur lors d'un Sprint.</li>
+<li>La Scrum Team et ses parties prenantes inspectent les résultats et s'adaptent pour le prochain Sprint.</li>
+<li><em>Répéter</em></li>
+</ol>
+<p>Scrum est simple. Essayez‐le tel qu'il est et, déterminez si sa philosophie, sa théorie et sa structure aident à atteindre les objectifs et à créer de la valeur. Le cadre de travail Scrum est volontairement incomplet, ne définissant que les parties nécessaires pour mettre en œuvre la théorie Scrum. Scrum repose sur l'intelligence collective des personnes qui l'utilisent. Plutôt que de fournir aux gens des instructions détaillées, les règles de Scrum guident leurs relations et leurs interactions.</p>
+<p>Divers processus, techniques et méthodes peuvent être employés dans ce cadre de travail. Scrum englobe des pratiques existantes ou les rend inutiles. Scrum rend visible l'efficacité relative du management existant, de l'environnement et des techniques de travail, afin que des améliorations puissent être apportées.</p>
+<h2 id="theorie-scrum">Théorie Scrum</h2>
+<p>Scrum est fondé sur l'empirisme et la pensée Lean. L'empirisme affirme que la connaissance provient de l'expérience et que la prise de décision s’appuie sur l’observation de faits. La pensée Lean réduit le gaspillage et se focalise sur l'essentiel.</p>
+<p>Scrum utilise une approche itérative et incrémentale pour optimiser la prédictibilité et le contrôle de risque. Scrum engage des groupes de personnes qui ont collectivement toutes les compétences et l'expertise requises pour faire le travail et partager ou acquérir de telles compétences selon les besoins.</p>
+<p>Scrum combine quatre événements formels pour l'inspection et l'adaptation dans un événement conteneur, le Sprint. Ces événements fonctionnent parce qu'ils mettent en œuvre les piliers empiriques de Scrum de transparence, d'inspection et d'adaptation.</p>
+<h3 id="transparence">Transparence</h3>
+<p>Le processus et le travail émergents doivent être visibles pour ceux qui effectuent le travail ainsi que pour ceux qui le reçoivent. Avec Scrum, les décisions importantes sont fondées sur l'état perçu de ses trois artefacts formels. Des artefacts peu transparents peuvent mener à des décisions qui diminuent la valeur et augmentent le risque.</p>
+<p>La transparence permet l'inspection. Une inspection sans transparence est trompeuse et source de gaspillage.</p>
+<h3 id="inspection">Inspection</h3>
+<p>Les artefacts Scrum et les progrès vers les objectifs convenus doivent être inspectés fréquemment et avec diligence pour détecter des écarts ou des problèmes potentiellement indésirables. Pour faciliter l'inspection, Scrum fournit une cadence sous la forme de ses cinq événements.</p>
+<p>L'inspection permet l'adaptation. Une inspection sans adaptation est considérée comme infructueuse. Les événements Scrum sont conçus pour provoquer le changement.</p>
+<h3 id="adaptation">Adaptation</h3>
+<p>Si certains aspects d'un processus s'écartent des limites acceptables ou si le produit résultant est inacceptable, alors le processus appliqué ou les éléments produits doivent être adaptés. L'adaptation doit être effectuée le plus rapidement possible afin de minimiser tout écart supplémentaire.</p>
+<p>L'adaptation devient plus difficile lorsque les personnes impliquées ne sont pas en possession de tous leurs moyens ou autogérées. Une Scrum Team doit s'adapter dès lors que l’inspection révèle quelque chose de nouveau.</p>
+<h2 id="valeurs-scrum">Valeurs Scrum</h2>
+<p>L'application réussie de Scrum dépend de la capacité des personnes à mieux vivre ces cinq valeurs :
+<strong><em>Engagement, focus, ouverture, respect et courage</em></strong></p>
+<p>La Scrum Team s'engage à atteindre ses objectifs et à se soutenir mutuellement. Son but principal est la réalisation du Sprint pour progresser le plus possible vers ces objectifs. La Scrum Team et ses parties prenantes sont ouvertes sur le travail et les défis à relever. Les membres de la Scrum Team se respectent mutuellement pour être des personnes compétentes et indépendantes et, sont respectés en tant que tels par les personnes avec lesquelles ils travaillent. Les membres de la Scrum Team ont le courage de mener les bonnes actions et de travailler sur des problèmes difficiles.</p>
+<p>Ces valeurs orientent le travail, les actions et l’attitude de la Scrum Team. Les décisions et les mesures prises, ainsi que la façon dont Scrum est utilisé, doivent renforcer ces valeurs, ne pas les diminuer ni les saper. Les membres de la Scrum Team apprennent et explorent ces valeurs tout en travaillant avec les événements et les artefacts Scrum. Lorsque ces valeurs sont incarnées par la Scrum Team et les personnes avec lesquelles elle travaille, alors les piliers empiriques Scrum de transparence, d'inspection et d'adaptation émergent en consolidant la confiance.</p>
+<h2 id="scrum-team">Scrum Team</h2>
+<p>L’unité fondamentale de Scrum est une petite équipe, la Scrum Team. La Scrum Team se compose d'un Scrum Master, d'un Product Owner et de Developers. Il n’y a pas d’équipe dans l’équipe ni de hiérarchies. Il s'agit d’une seule et même unité stable, composée de professionnels focalisés sur un seul objectif à la fois, l'Objectif de Produit.</p>
+<p>Les Scrum Teams sont pluridisciplinaires, leurs membres ont toutes les compétences nécessaires pour créer de la valeur à chaque Sprint. Elles sont également autogérées, elles décident en interne qui fait quoi, quand et comment.</p>
+<p>La Scrum Team doit être suffisamment petite pour rester réactive et assez grande pour accomplir un travail significatif durant le Sprint, habituellement dix personnes au plus. En général, nous avons constaté que les petites équipes communiquent mieux et sont plus productives. Si les Scrum Teams deviennent trop grandes, elles devraient envisager de se réorganiser en plusieurs Scrum Teams cohérentes, chacune axée sur le même produit. Par conséquent, elles doivent partager le même Objectif de Produit, le même Product Backlog et le même Product Owner.</p>
+<p>La Scrum Team est responsable de toutes les activités liées au produit : collaboration des parties prenantes, vérification, maintenance, exploitation, expérimentation, recherche et développement, ainsi que tout ce qui pourrait être nécessaire. Elles sont structurées et habilitées par l'organisation à gérer leur propre travail. Travailler sur des Sprints à un rythme soutenable améliore le focus et la cohérence de la Scrum Team.</p>
+<p>Toute la Scrum Team est responsable de la création d'un Increment qui ait de la valeur et qui soit utile, à chaque Sprint. Scrum définit trois responsabilités spécifiques au sein de la Scrum Team : les Developers, le Product Owner et le Scrum Master.</p>
+<h3 id="developers">Developers</h3>
+<p>Les Developers sont les membres de la Scrum Team qui s'engagent à traiter tout ou partie utile d’un Increment à chaque Sprint.</p>
+<p>Les compétences spécifiques requises pour les Developers sont souvent larges et varient selon le domaine d’activité. Toutefois, les Developers sont toujours redevables de :</p>
+<ul>
+<li>Créer un plan de Sprint, un Sprint Backlog ;</li>
+<li>Inculquer la notion de qualité en adhérant à une Definition of Done ;</li>
+<li>Adapter leur plan chaque jour par rapport à l'Objectif de Sprint ; et</li>
+<li>Se tenir mutuellement responsables en tant que professionnels.</li>
+</ul>
+<h3 id="product-owner">Product Owner</h3>
+<p>Le Product Owner est redevable de maximiser la valeur du produit résultant du travail de la Scrum Team. La manière de procéder peut varier considérablement selon les organisations, les Scrum Teams et les individus.</p>
+<p>Le Product Owner est également redevable de la gestion efficace du Product Backlog. Ce qui inclut :</p>
+<ul>
+<li>Formuler et communiquer explicitement l'Objectif de Produit ;</li>
+<li>Créer et communiquer clairement les éléments du Product Backlog ;</li>
+<li>Ordonner les éléments dans le Product Backlog ; et</li>
+<li>S'assurer que le Product Backlog est transparent, visible et compris.</li>
+</ul>
+<p>Le Product Owner peut effectuer le travail ci‐dessus ou peut déléguer ce travail à d'autres. Quoi qu’il en soit, le Product Owner en demeure redevable.</p>
+<p>Pour que les Product Owners réussissent, toute l'organisation doit respecter leurs décisions. Ces décisions sont visibles dans le contenu et dans l'ordre du Product Backlog et, via un Increment inspectable lors de la Sprint Review.</p>
+<p>Le Product Owner est une personne et non un comité. Le Product Owner peut représenter les besoins de nombreuses parties prenantes dans le Product Backlog. Ceux qui souhaitent modifier le Product Backlog peuvent le faire en essayant de convaincre le Product Owner.</p>
+<h3 id="scrum-master">Scrum Master</h3>
+<p>Le Scrum Master est redevable de la mise en place de Scrum tel que défini dans le Guide Scrum. Pour ce faire, il se doit d’aider tout un chacun, l’équipe et l’organisation à comprendre la théorie et la pratique Scrum.</p>
+<p>Le Scrum Master est redevable de l’efficacité de la Scrum Team. Il permet à la Scrum Team d'améliorer ses pratiques en suivant le cadre de travail Scrum.</p>
+<p>Le Scrum Master est, avant tout, un véritable leader au service de la Scrum Team et de l'ensemble de l'organisation.</p>
+<p>Le Scrum Master rend service à la Scrum Team de plusieurs façons :</p>
+<ul>
+<li>Accompagner les membres de l'équipe en matière d'autogestion et de pluridisciplinarité ;</li>
+<li>Aider la Scrum Team à se focaliser sur la création d'Increments de grande valeur qui répondent à la Definition of Done ;</li>
+<li>Faire en sorte qu’il n’y ait pas d’obstacles pouvant entraver la progression de la Scrum Team ; et</li>
+<li>S'assurer que tous les événements Scrum ont bien lieu et sont efficients, productifs et respectent bien les temps impartis (timeboxés : gardés dans une boîte de temps).</li>
+</ul>
+<p>Le Scrum Master rend service au Product Owner de plusieurs façons :</p>
+<ul>
+<li>L’aider à trouver des techniques pour définir efficacement l'Objectif de Produit et gérer efficacement du Product Backlog ;</li>
+<li>Sensibiliser la Scrum Team à la nécessité de bien comprendre le besoin d’avoir des éléments du Product Backlog clairs et concis ;</li>
+<li>Encourager l’application de la planification produit empirique dans un environnement complexe ; et</li>
+<li>Faciliter la collaboration des parties prenantes, selon les demandes ou les besoins.</li>
+</ul>
+<p>Le Scrum Master rend service à l'organisation de plusieurs façons :</p>
+<ul>
+<li>Accompagner, former et encadrer l'organisation dans son adoption de Scrum ;</li>
+<li>Planifier et apporter conseils sur les implémentations de Scrum au sein de l’organisation ;</li>
+<li>Faciliter la compréhension de l’approche empirique en environnement complexe des employés et des parties prenantes ; et</li>
+<li>Contribuer à lever les obstacles qui peuvent se dresser entre les parties prenantes et les Scrum Teams.</li>
+</ul>
+<h2 id="evenements-scrum">Événements Scrum</h2>
+<p>Le Sprint est un conteneur pour tous les autres événements. Chaque événement dans Scrum est une occasion formelle pour inspecter et adapter les artefacts Scrum. Ces événements sont spécifiquement conçus pour permettre la transparence requise. L’incapacité d’organiser les évènements conformément à leur prescription est une occasion perdue pour inspecter et s’adapter. Les événements sont utilisés dans Scrum dans le but de créer de la régularité, minimisant le besoin d’avoir d’autres réunions non définies par Scrum.</p>
+<p>Idéalement, tous les événements se tiennent à la même heure et au même lieu pour réduire la complexité.</p>
+<h3 id="sprint">Sprint</h3>
+<p>Les Sprints sont au cœur de Scrum, où les idées sont transformées en valeur.</p>
+<p>Ce sont des événements d'une durée fixe, d'un mois ou moins, pour créer une cohérence. Un nouveau Sprint commence immédiatement après la fin du précédent.</p>
+<p>Toutle travail nécessaire pour atteindre l'Objectif de Produit, y compris le Sprint Planning, les Daily Scrums, la Sprint Review et la Sprint Retrospective, se fait dans le cadre des Sprints.</p>
+<p>Durant le Sprint :</p>
+<ul>
+<li>Aucun changement n’est permis, qui pourrait remettre en cause l’Objectif de Sprint ;</li>
+<li>Les objectifs de qualité ne sont jamais revus à la baisse ;</li>
+<li>Le Product Backlog est affiné si nécessaire ; et</li>
+<li>Le périmètre peut être clarifié et renégocié avec le Product Owner selon ce qu'on en apprend.</li>
+</ul>
+<p>Les Sprints permettent la prédictibilité en assurant l'inspection et l'adaptation de la progression vers l'Objectif de Produit, une fois par mois calendaire au moins. Lorsque l’horizon d’un Sprint est trop lointain, l’Objectif de Sprint risque de ne plus être le bon, la complexité augmente et, avec elle, le risque. Les Sprints plus courts raccourcissent le cycle de l’apprentissage, limitant ainsi les risques liés aux coûts et à l’effort. Chaque Sprint peut être considéré comme un projet court.</p>
+<p>Diverses pratiques existent pour évaluer la progression, telles que les courbes du « burn‐down », ou celles du « burn‐up » ou les diagrammes de flux cumulatifs. Bien que leur utilité soit prouvée, ces courbes ne remplacent pas l'importance de l'empirisme. Dans des environnements complexes, une grande part est laissée à l’inconnu. Seul ce qui s'est déjà passé peut être utilisé pour une prise de décision à venir.</p>
+<p>Un Sprint peut être annulé si l'Objectif de Sprint devient obsolète. Seul le Product Owner a le pouvoir d'annuler le Sprint.</p>
+<h3 id="sprint-planning">Sprint Planning</h3>
+<p>Le Sprint Planning lance le Sprint en présentant le travail à effectuer durant le Sprint. Le plan qui en résulte est créé par le travail collaboratif de toute la Scrum Team.</p>
+<p>Le Product Owner veille à ce que les participants soient prêts à discuter les éléments les plus importants du Product Backlog et de comment ces éléments représentent l'Objectif de Produit. La Scrum Team peut également inviter d'autres personnes à participer au Sprint Planning pour donner des conseils.</p>
+<p>Le Sprint Planning aborde les thèmes suivants :</p>
+<p><strong>Thème 1 : Pourquoi ce Sprint est‐il important ?</strong></p>
+<p>Le Product Owner explique comment augmenter la valeur du produit et son utilité pour le Sprint en cours. L'ensemble de la Scrum Team collabore ensuite à définir un Objectif de Sprint qui énonce clairement aux parties prenantes l’utilité du Sprint. L'Objectif de Sprint doit être finalisé avant la fin du Sprint Planning.</p>
+<p><strong>Thème 2 : Que peut‐on faire durant ce Sprint ?</strong></p>
+<p>En discutant avec le Product Owner, les Developers sélectionnent les éléments du Product Backlog à inclure dans le Sprint en cours. Au fur et à mesure de la discussion, la Scrum Team affine ces éléments, améliorant ainsi leur compréhension et leur confiance dans leur capacité à les développer.</p>
+<p>Devoir sélectionner ce qui peut ou ne peut pas être accompli durant un Sprint est une tâche difficile. Plus les Developers connaissent leurs performances passées, leur capacité à venir et leur Definition of Done, mieux ils sont à mêmes de faire de prévisions pour le Sprint en cours.</p>
+<p><strong>Thème 3 : Comment le travail choisi sera‐t‐il réalisé ?</strong></p>
+<p>Pour chaque élément sélectionné du Product Backlog, les Developers planifient le travail nécessaire pour créer un Increment qui réponde à la Definition of Done. Cela se fait souvent en décomposant les éléments du Product Backlog en éléments de travail d'une journée ou moins. La façon de procéder est laissée à la seule discrétion des Developers. Personne d'autre ne leur dit comment transformer les éléments du Product Backlog en Increments de valeur.</p>
+<p>L'Objectif de Sprint, les éléments du Product Backlog sélectionnés pour le Sprint, ainsi que le plan pour les livrer, correspondent à un ensemble appelé le Sprint Backlog.</p>
+<p>Le Sprint Planning est limité dans le temps à un maximum de huit heures pour un Sprint d'un mois. Pour les Sprints plus courts, l'événement est généralement plus court.</p>
+<h3 id="daily-scrum">Daily Scrum</h3>
+<p>L'objectif du Daily Scrum est d'inspecter la progression vers l'Objectif de Sprint et d'adapter le Sprint Backlog si nécessaire, en ajustant les futurs travaux planifiés.</p>
+<p>Le Daily Scrum est un événement de 15 minutes, pour les Developers de la Scrum Team. Pour réduire la complexité, il est tenu à la même heure et au même lieu, chaque jour ouvré du Sprint. Si le Product Owner et / ou le Scrum Master travaillent activement sur des éléments du Sprint Backlog, ils participent en tant que Developers.</p>
+<p>Les Developers peuvent choisir la structure et les techniques qu’ils souhaitent, à condition que leur Daily Scrum se focalise sur la progression vers l'Objectif de Sprint et produise un plan d'action pour la prochaine journée de travail. Cela leur permet de se focaliser et d'améliorer l'autogestion.</p>
+<p>Les Daily Scrums améliorent la communication, aident à identifier les obstacles, favorisent la prise de décision rapide et, par conséquent, éliminent la nécessité de faire d'autres réunions.</p>
+<p>Le Daily Scrum n'est pas le seul moment où les Developers sont autorisés à ajuster leur plan. Ils se réunissent souvent tout au long de la journée pour des discussions plus détaillées sur l’adaptation ou la re‐planification du reste du travail du Sprint.</p>
+<h3 id="sprint-review">Sprint Review</h3>
+<p>L'objectif de la Sprint Review est d'inspecter le résultat du Sprint et de déterminer les adaptations futures. La Scrum Team présente les résultats de son travail aux principales parties prenantes et les progressions vers l'Objectif de Produit sont discutées.</p>
+<p>Pendant l'événement, la Scrum Team et les parties prenantes passent en revue ce qui a été accompli durant le Sprint et ce qui a changé dans leur environnement. Sur la base de ces informations, les participants collaborent sur la marche à suivre et sur les décisions à prendre. Le Product Backlog peut également être ajusté pour répondre à de nouvelles opportunités. La Sprint Review est une session de travail et la Scrum Team doit éviter de la limiter à une session de présentation.</p>
+<p>La Sprint Review est l'avant‐dernier événement du Sprint et se limite dans le temps à un maximum de quatre heures pour un Sprint d'un mois. Pour les Sprints plus courts, l'événement est généralement plus court.</p>
+<h3 id="sprint-retrospective">Sprint Retrospective</h3>
+<p>L'objectif de la Sprint Retrospective consiste à réfléchir à des pistes pour améliorer la qualité et l'efficacité.</p>
+<p>La Scrum Team inspecte le déroulement du dernier Sprint en ce qui concerne les individus, les interactions, les processus, les outils et leur Definition of Done. Les éléments inspectés varient souvent selon le domaine d’activité. Les hypothèses qui les ont fait dévier sont identifiées et leurs origines explorées. La Scrum Team discute de ce qui s'est bien passé durant le Sprint, des problèmes rencontrés et de la manière dont ces problèmes ont été (ou n'ont pas été) résolus.</p>
+<p>La Scrum Team identifie les changements les plus utiles pour améliorer son efficacité. Les améliorations ayant le plus d'impact sont abordées dès que possible. Elles peuvent même être ajoutées au Sprint Backlog pour le prochain Sprint.</p>
+<p>La Sprint Retrospective conclut le Sprint. Elle est limitée dans le temps à un maximum de trois heures pour un Sprint d'un mois. Pour les Sprints plus courts, l'événement est généralement plus court.</p>
+<h2 id="les-artefacts-de-scrum">Les Artefacts de Scrum</h2>
+<p>Les artefacts de Scrum représentent un travail ou une valeur. Ils sont conçus pour maximiser la transparence des informations clés. Ainsi, tous ceux qui les inspectent ont la même base d'adaptation.</p>
+<p>Chaque artefact contient un engagement qui apporte l’information nécessaire à la transparence et au focus rendant possible la mesure de la progression :</p>
+<ul>
+<li>Pour le Product Backlog, il s'agit de l'Objectif de Produit.</li>
+<li>Pour le Sprint Backlog, c'est l'Objectif de Sprint.</li>
+<li>Pour l'Increment, c'est la Definition of Done (définition de Fini).</li>
+</ul>
+<p>Ces engagements existent pour renforcer l'empirisme et les valeurs Scrum au sein de la Scrum Team et ses parties prenantes.</p>
+<h3 id="product-backlog">Product Backlog</h3>
+<p>Le Product Backlog est une liste ordonnée et émergente de ce qui est nécessaire pour améliorer le produit. C'est l’unique source du travail entrepris par la Scrum Team.</p>
+<p>Les éléments du Product Backlog qui sont susceptibles d’être réalisés dans un seul Sprint par la Scrum Team sont considérés comme prêts à être traités en Sprint Planning. Ils acquièrent généralement ce degré de transparence après avoir été affinés. L'affinement du Product Backlog consiste à décomposer et à définir davantage les éléments du Backlog en éléments plus fins et plus précis. Il s'agit d'une activité continue visant à ajouter des détails, tels qu'une description, un ordre et une taille. Les attributs varient souvent en fonction du domaine d’activité.</p>
+<p>Les Developers qui effectueront le travail sont responsables du dimensionnement. Le Product Owner peut influencer les Developers en clarifiant ses explications et les aider à trouver des compromis.</p>
+<p><strong>Engagement : Objectif de Produit</strong></p>
+<p>L'Objectif de Produit décrit un état futur du produit qui peut servir de cible à la Scrum Team pour planifier. L'Objectif de Produit est dans le Product Backlog. Le reste du Product Backlog émerge pour définir « ce qui » permettra d'atteindre l'Objectif de Produit.</p>
+<p><em>Un produit est un vecteur de valeur. Il a une limite claire, des parties prenantes connues, des utilisateurs ou des clients bien définis. Un produit peut être un service, un produit physique ou quelque chose plus abstrait.</em></p>
+<p>L'Objectif de Produit est l'objectif à long terme de la Scrum Team. Ils doivent atteindre (ou abandonner) un objectif avant de s'attaquer au suivant.</p>
+<h3 id="sprint-backlog">Sprint Backlog</h3>
+<p>Le Sprint Backlog est composé de l'Objectif de Sprint (le « pourquoi »), de l'ensemble des éléments du Product Backlog choisis pour le Sprint (le « quoi »), ainsi que d'un plan d'action pour la réalisation de l'Increment (le « comment »).</p>
+<p>Le Sprint Backlog est un plan élaboré par et pour les Developers. Il s'agit d'une image très visible et en temps réel du travail que les Developers prévoient d'accomplir durant le Sprint afin d'atteindre l'Objectif de Sprint. Par conséquent, leSprintBacklogest mis à jour tout au longdu Sprint selonce qu'on enapprend. Il devrait être suffisamment détaillé pour que les Developers puissent inspecter leur progression durant le Daily Scrum.</p>
+<p><strong>Engagement : Objectif de Sprint</strong></p>
+<p>L'Objectif de Sprint est l’unique but du Sprint. Bien que l'Objectif de Sprint soit un engagement fait par les Developers, il offre une certaine flexibilité en termes de travail nécessaire pour atteindre cet objectif. L'Objectif de Sprint crée également de la cohérence et du focus, tout en encourageant la Scrum Team à travailler ensemble plutôt que sur des initiatives séparées.</p>
+<p>L'Objectif de Sprint est créé pendant l'événement de Sprint Planning, puis ajouté au Sprint Backlog. Lorsque les Developers travaillent pendant le Sprint, ils gardent l'Objectif de Sprint à l'esprit. Si le travail s'avère être différent de ce à quoi ils s'attendaient, ils collaborent avec le Product Owner pour négocier le périmètre du Sprint Backlog dans le cadre de ce Sprint, sans que cela n’affecte l'Objectif de Sprint.</p>
+<h3 id="increment">Increment</h3>
+<p>Un Increment est une première étape concrète vers l'Objectif de Produit. Chaque Increment s'ajoute à tous les Increments précédents et fait l'objet d'une vérification approfondie, ce qui garantit que tous les Increments fonctionnent ensemble. Afin de fournir une valeur, l'Increment doit être utilisable.</p>
+<p>Plusieurs Increments peuvent être créés durant un Sprint. La somme des Increments est présentée lors de la Sprint Review, ce qui permet de démontrer l’utilité de l'empirisme. Toutefois, un Increment peut être livré aux parties prenantes avant la fin du Sprint. La Sprint Review ne doit jamais être considérée comme le seul moment pour délivrer de la valeur.</p>
+<p>Un travail qui ne remplirait pas les conditions de la Definition of Done ne peut pas être considéré comme un Increment.</p>
+<p><strong>Engagement : Definition of Done (Définition de Fini)</strong></p>
+<p>La Definition of Done (Définition de Fini) est une description formelle de l'état de l'Increment lorsqu'il satisfait les mesures de qualité requises pour le produit.</p>
+<p>Dès qu’un élément du Product Backlog satisfait à la Definition of Done, il se transforme en Increment.</p>
+<p>La Definition of Done apporte de la transparence en permettant à chacun une compréhension commune du travail Fini dans le cadre de l'Increment. Si un élément du Product Backlog n’est pas conforme à la Definition of Done, il ne peut pas être publié ni même présenté lors de la Sprint Review. Il est alors renvoyé au Product Backlog pour être pris en compte ultérieurement.</p>
+<p>Si la Definition of Done pour un Increment fait partie des standards de l'organisation, toutes les Scrum Teams doivent la suivre au minimum. Si cela ne fait pas partie des standards de l'organisation, la Scrum Team doit créer sa propre Definition of Done qui soit appropriée pour le produit.</p>
+<p>Les Developers sont tenus de se conformer à la Definition of Done. Si plusieurs Scrum Teams travaillent ensemble sur un même produit, elles doivent la définir ensemble et s’y conformer.</p>
+<h1 id="note-de-fin">Note de fin</h1>
+<p>Scrum est gratuit et offert dans ce guide. Le cadre de travail Scrum, tel que décrit ici, est immuable. Bien que la mise en œuvre uniquement de certaines parties de Scrum soit possible, le résultat ne sera pas du Scrum. Scrum n'existe que dans sa totalité et peut fonctionner comme un conteneur pour d'autres techniques, méthodologies et pratiques.</p>
+<h2 id="remerciements">Remerciements</h2>
+<h3 id="personnes">Personnes</h3>
+<p>Parmi les milliers de personnes qui ont contribué à Scrum, nous devons distinguer celles qui ont joué un rôle déterminant dès le début : Jeff Sutherland a travaillé avec Jeff McKenna et John Scumniotales. Ken Schwaber a travaillé avec Mike Smith et Chris Martin. Et tous ont travaillé ensemble. Beaucoup d'autres personnes ont contribué par la suite et, sans leur aide, Scrum ne se serait pas affiné comme il l'est aujourd'hui.</p>
+<h3 id="historique-du-guide-scrum">Historique du guide Scrum</h3>
+<p>Ken Schwaber et Jeff Sutherland ont co‐présenté Scrum pour la première fois à la conférence OOPSLA en 1995. Cette présentation a essentiellement documenté l'apprentissage que Ken et Jeff avaient acquis au cours des années qui précédaient cette conférence et, a permis de rendre publique la première définition formelle de Scrum.</p>
+<p>Le Guide Scrum documente Scrum tel qu'il a été développé, puis tel qu’il a évolué et été soutenu pendant plus de 30 ans par Jeff Sutherland et Ken Schwaber. D'autres sources vous fournissent des modèles, des processus et des idées qui complètent le cadre de travail Scrum. Ceux‐ci optimisent la productivité, la valeur, la créativité et la satisfaction par rapport aux résultats.</p>
+<p>L'histoire complète de Scrum est décrite ailleurs. Pour honorer les premiers endroits où il a été essayé et prouvé, nous reconnaissons Individual Inc., Newspage, Fidelity Investments et IDX (maintenant GE Medical).</p>
+<h3 id="traduction">Traduction</h3>
+<p>Ce guide a été traduit de la version originale anglaise, fournie par <strong>Ken Schwaber</strong> et <strong>Jeff Sutherland</strong>. L’équipe de traduction en langue française est gérée par <strong>Kamel Kaouech</strong>.</p>
+<p>L’équipe de traduction adresse ses plus sincères remerciements à <strong>tous les contributeurs à la traduction du présent Guide Scrum 2020</strong>. Elle tient aussi à remercier <strong>les personnes qui ont participé à la traduction des anciennes versions</strong>.</p>
+<p><strong>Informations Importantes :</strong> l'utilisation du genre masculin et/ou féminin a été adoptée afin de faciliter la lecture et n'a aucune intention discriminatoire. Conformément aux directives de Scrum.org, plusieurs termes (Scrum, Developers, Product Owner, Scrum Master, Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective, Increment, Definition of Done) ne doivent pas être traduits. Afin de faciliter la lecture du présent guide, un <strong>glossaire en français sera fourni à la demande</strong>.</p>
+<h2 id="changements-entre-les-versions-2017-et-2020-du-guide-scrum">Changements entre les versions 2017 et 2020 du Guide Scrum</h2>
+<p><strong>Moins prescriptif</strong></p>
+<p>Au fil du temps, le Guide Scrum commençait à devenir prescriptif. La version 2020 vise à ramener Scrum à un cadre minimal suffisant en supprimant autant que faire se peut le langage prescriptif. Par exemple, la suppression des questions du Daily Scrum, moins de prescription autour des attributs PBI (Product Backlog Items – les éléments du Backlog Produit) ou des éléments de la rétrospective à ajouter au Sprint Backlog, la synthétisation du passage sur l’annulation de Sprint, etc.</p>
+<p><strong>Une seule équipe, focalisée sur un seul produit</strong></p>
+<p>L'objectif était d'éliminer le concept d'équipe dans l’équipe, qui conduit à un comportement « proxy », du « nous et eux » entre le PO et l'équipe de développement. Il n'y a maintenant qu'une seule Scrum Team concentrée sur le même objectif, avec trois différents ensembles de responsabilités : PO, SM et Developers.</p>
+<p><strong>Introduction de l'Objectif de Produit</strong></p>
+<p>Le Guide Scrum 2020 introduit le concept de l’Objectif de Produit pour permettre à la Scrum Team de se focaliser sur un objectif plus important. Chaque Sprint doit rapprocher le produit de son objectif global.</p>
+<p><strong>Un sens pour l'Objectif de Sprint, la Definition of Done et l'Objectif de Produit</strong></p>
+<p>Les précédents guides Scrum décrivaient l'Objectif de Sprint et la Definition of Done sans vraiment leur attribuer d’identité. Ils n'étaient pas tout à fait attachés à des artefacts. Avec l'ajout de l’engagement « Objectif de Produit », la version 2020 apporte plus de clarté. Chacun des trois artefacts est désormais relié à un « engagement ». Pour le Product Backlog, il s'agit de l'Objectif de Produit, le Sprint Backlog a un Objectif de Sprint et l'Increment a une Definition of Done (sans la nécessité des guillemets désormais !). Ces nouveaux engagements existent pour apporter de la transparence et se focaliser sur la progression de chaque artefact.</p>
+<p><strong>Autogérée plutôt qu’auto‐organisée</strong></p>
+<p>Les guides Scrum précédents appelaient les équipes de développement à s’auto‐organiser, choisissant avec qui et comment travailler. En se focalisant davantage sur la Scrum Team, la version 2020 met l'accent sur une Scrum Team autogérée par rapport à un objectif à atteindre, en choisissant avec qui, comment et sur quoi travailler.</p>
+<p><strong>Trois thèmes liés à la Sprint Planning</strong></p>
+<p>En plus des thèmes le « Quoi » et le « Comment » du Sprint Planning, le Guide Scrum 2020 met l'accent sur un troisième thème, le « Pourquoi », faisant référence à l'Objectif de Sprint.</p>
+<p><strong>Simplification globale du langage pour un public plus large</strong></p>
+<p>Le Guide Scrum 2020 s’efforce également d’éliminer les déclarations redondantes et complexes. Toute allusion au monde de l’informatique (par exemple : les tests, les systèmes, la conception, les exigences, etc.) a été supprimée. Le Guide Scrum compte désormais moins de 13 pages.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../dev-ops/winscp/" class="btn btn-neutral float-left" title="Mise en ligne avec WinSCP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../ia-generative/claude-code/" class="btn btn-neutral float-right" title="Claude Code — Protocoles &amp; méthodes avancées">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../dev-ops/winscp/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../ia-generative/claude-code/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

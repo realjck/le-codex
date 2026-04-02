@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Angular - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Angular";
+        var mkdocs_page_input_path = "dev-langages/angular.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Angular</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation-et-configuration">Installation et Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-bases-dangular">Les Bases d'Angular</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gestion-des-etats-avec-ngrx">Gestion des États avec NgRx</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#formulaires">Formulaires</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#httpclient">HttpClient</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deploiement-et-maintenance">Déploiement et Maintenance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#concepts-avances">Concepts Avancés</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">Angular</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="angular">Angular</h1>
+<p>Angular est un framework open-source développé par Google, largement utilisé pour construire des applications web dynamiques. Cette fiche mémo vise à fournir une vue d'ensemble d'Angular, depuis l'installation et la configuration jusqu'aux concepts avancés tels que les zones, les animations et la création de bibliothèques de composants réutilisables.</p>
+<h2 id="installation-et-configuration">Installation et Configuration</h2>
+<p>Angular nécessite d'avoir Node.js et npm (Node Package Manager) d'installés sur votre système.</p>
+<ul>
+<li>Installer Angular CLI globalement sur votre machine en exécutant la commande suivante dans votre terminal : <code>npm install -g @angular/cli</code></li>
+<li>Créer un nouveau projet Angular en exécutant la commande suivante : <code>ng new my-app</code></li>
+</ul>
+<p>Un projet Angular typique a la structure suivante :</p>
+<pre><code>my-app/
+|-- e2e/
+|-- src/
+|   |-- app/
+|   |   |-- core/
+|   |   |-- features/
+|   |   |-- shared/
+|   |   |-- ...
+|   |-- assets/
+|   |-- environments/
+|   |-- index.html
+|   |-- main.ts
+|   |-- styles.css
+|-- .angular-cli.json
+|-- package.json
+|-- tsconfig.json
+</code></pre>
+<h2 id="les-bases-dangular">Les Bases d'Angular</h2>
+<ul>
+<li><strong>Composants</strong> : Un composant est une partie de l'interface utilisateur qui a sa propre logique et son propre template :</li>
+</ul>
+<pre><code class="language-typescript">import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `&lt;h1&gt;{{title}}&lt;/h1&gt;`,
+  styles: [`h1 { font-weight: normal; }`]
+})
+export class AppComponent {
+  title = 'My First Angular App';
+}
+</code></pre>
+<ul>
+<li><strong>Templates</strong> : Les templates sont utilisés pour définir la structure HTML d'un composant. Ils permettent d'afficher des données dynamiques, de réagir aux événements utilisateur et de contrôler le flux d'exécution de l'application :</li>
+</ul>
+<pre><code class="language-html">&lt;div *ngIf=&quot;isLoggedIn&quot;&gt;
+  &lt;h1&gt;Welcome, {{user.name}}!&lt;/h1&gt;
+  &lt;button [disabled]=&quot;isSaving&quot; (click)=&quot;save()&quot;&gt;Save&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li><strong>Services</strong> : Un service est une classe qui fournit une fonctionnalité spécifique à l'application. Il peut être utilisé pour récupérer des données depuis un serveur, valider des entrées utilisateur ou gérer l'état de l'application :</li>
+</ul>
+<pre><code class="language-typescript">import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+  constructor(private http: HttpClient) { }
+
+  getData() {
+    return this.http.get('https://api.example.com/data');
+  }
+}
+</code></pre>
+<ul>
+<li><strong>Routing</strong> : Le routage permet de naviguer entre les composants en fonction de l'URL. Il permet de créer des applications web monopages (Single Page Applications) en chargeant dynamiquement les composants en fonction de l'URL :</li>
+</ul>
+<pre><code class="language-typescript">import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+</code></pre>
+<h2 id="gestion-des-etats-avec-ngrx">Gestion des États avec NgRx</h2>
+<p>La gestion d'état consiste à gérer les données de l'application de manière centralisée et prévisible. Imaginez NgRx comme un magasin où vous stockez toutes les données dont votre application a besoin.</p>
+<ul>
+<li>Installer et configurer NgRx dans un projet Angular : <code>npm install @ngrx/store @ngrx/effects @ngrx/entity @ngrx/store-devtools</code></li>
+<li>Gérer l'état de l'application à l'aide de stores, d'actions et de réducteurs. Voici un exemple :</li>
+</ul>
+<pre><code class="language-typescript">// actions.ts
+import { createAction, props } from '@ngrx/store';
+
+export const loadData = createAction('[Data] Load Data');
+export const loadDataSuccess = createAction('[Data] Load Data Success', props&lt;{ data: any }&gt;());
+export const loadDataFailure = createAction('[Data] Load Data Failure', props&lt;{ error: any }&gt;());
+
+// reducer.ts
+import { createReducer, on } from '@ngrx/store';
+import * as DataActions from './actions';
+
+export interface DataState {
+  data: any;
+  loading: boolean;
+}
+
+const initialState: DataState = {
+  data: null,
+  loading: false
+};
+
+export const dataReducer = createReducer(
+  initialState,
+  on(DataActions.loadData, state =&gt; ({ ...state, loading: true })),
+  on(DataActions.loadDataSuccess, (state, { data }) =&gt; ({ ...state, loading: false, data })),
+  on(DataActions.loadDataFailure, state =&gt; ({ ...state, loading: false }))
+);
+
+// effects.ts
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { of } from 'rxjs';
+import { catchError, map, mergeMap } from 'rxjs/operators';
+import * as DataActions from './actions';
+import { DataService } from './data.service';
+
+@Injectable()
+export class DataEffects {
+  loadData$ = createEffect(() =&gt;
+    this.actions$.pipe(
+      ofType(DataActions.loadData),
+      mergeMap(() =&gt; this.dataService.getData().pipe(
+        map(data =&gt; DataActions.loadDataSuccess({ data })),
+        catchError(error =&gt; of(DataActions.loadDataFailure({ error })))
+      ))
+    )
+  );
+
+  constructor(
+    private actions$: Actions,
+    private dataService: DataService
+  ) {}
+}
+</code></pre>
+<h2 id="formulaires">Formulaires</h2>
+<p>Angular fournit deux approches pour la gestion des formulaires : les formulaires réactifs et les formulaires basés sur les modèles. Les formulaires réactifs permettent de créer des formulaires complexes et personnalisés en utilisant des classes comme <code>FormControl</code>, <code>FormGroup</code> et <code>FormArray</code> :</p>
+<pre><code class="language-typescript">import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-reactive-form',
+  templateUrl: './reactive-form.component.html',
+  styleUrls: ['./reactive-form.component.css']
+})
+export class ReactiveFormComponent {
+  userForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.userForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      address: this.fb.group({
+        street: [''],
+        city: [''],
+        zip: ['']
+      }),
+      hobbies: this.fb.array([
+        this.fb.control('')
+      ])
+    });
+  }
+
+  get name() {
+    return this.userForm.get('name');
+  }
+
+  get email() {
+    return this.userForm.get('email');
+  }
+
+  get address() {
+    return this.userForm.get('address') as FormGroup;
+  }
+
+  get hobbies() {
+    return this.userForm.get('hobbies') as FormArray;
+  }
+
+  addHobby() {
+    this.hobbies.push(this.fb.control(''));
+  }
+
+  onSubmit() {
+    if (this.userForm.valid) {
+      console.log(this.userForm.value);
+    } else {
+      console.log('Form is invalid');
+    }
+  }
+}
+</code></pre>
+<h2 id="httpclient">HttpClient</h2>
+<p>Pour interagir avec des API externes et échanger des données avec un serveur, Angular met à disposition le service HttpClient. Ce service simplifie la réalisation de requêtes HTTP (GET, POST, PUT, DELETE) et gère les réponses de manière asynchrone à l'aide d'observables. Il permet de configurer les en-têtes, les paramètres de requête et de gérer les erreurs de manière centralisée.</p>
+<pre><code class="language-typescript">import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+  private apiUrl = 'https://api.example.com/data';
+
+  constructor(private http: HttpClient) { }
+
+  getData(): Observable&lt;any&gt; {
+    return this.http.get(this.apiUrl)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
+
+  createData(data: any): Observable&lt;any&gt; {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post(this.apiUrl, data, { headers })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateData(id: number, data: any): Observable&lt;any&gt; {
+    const url = `${this.apiUrl}/${id}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put(url, data, { headers })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  deleteData(id: number): Observable&lt;any&gt; {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  private handleError(error: any) {
+    console.error('An error occurred:', error);
+    return throwError(error.message || error);
+  }
+}
+</code></pre>
+<h2 id="deploiement-et-maintenance">Déploiement et Maintenance</h2>
+<ul>
+<li>Générer une version de production de l'application en exécutant la commande suivante : <code>ng build --configuration production</code></li>
+</ul>
+<h2 id="concepts-avances">Concepts Avancés</h2>
+<ul>
+<li>
+<p>Les <strong>zones</strong> sont une abstraction qui permet à Angular de suivre les changements dans l'application et de mettre à jour la vue en conséquence. Le changement de détection est le processus par lequel Angular détermine si la vue doit être mise à jour ou non. Le cycle de vie des composants est une série d'événements qui se produisent lors de la création, de la mise à jour et de la destruction d'un composant.</p>
+</li>
+<li>
+<p>Utiliser les <strong>animations</strong> pour ajouter des transitions et des effets à l'application. Voici un exemple d'animation simple :</p>
+</li>
+</ul>
+<pre><code class="language-typescript">import { trigger, state, style, animate, transition } from '@angular/animations';
+
+@Component({
+  selector: 'my-component',
+  template: `
+    &lt;div [@slideInOut]=&quot;isVisible ? 'in' : 'out'&quot;&gt;
+      &lt;!-- content here --&gt;
+    &lt;/div&gt;
+  `,
+  animations: [
+    trigger('slideInOut', [
+      state('in', style({
+        transform: 'translateX(0)'
+      })),
+      state('out', style({
+        transform: 'translateX(-100%)'
+      })),
+      transition('in =&gt; out', animate('200ms ease-in-out')),
+      transition('out =&gt; in', animate('200ms ease-in-out'))
+    ])
+  ]
+})
+export class MyComponent {
+  isVisible = true;
+}
+</code></pre>
+<ul>
+<li>Créer des bibliothèques de composants réutilisables. Vous pouvez créer une bibliothèque de composants réutilisables en utilisant la commande suivante : <code>ng generate library my-library</code></li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Pour en savoir plus et approfondir vos connaissances, vous pouvez explorer les ressources en ligne disponibles sur le site officiel d'Angular (<a href="https://angular.dev/">angular.dev</a>). Vous pourrez en apprendre davantage sur les meilleures pratiques, les nouvelles fonctionnalités et les mises à jour de ce framework.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../mkdocs/" class="btn btn-neutral float-left" title="Site avec MkDocs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../css/" class="btn btn-neutral float-right" title="CSS">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../mkdocs/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../css/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

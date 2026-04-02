@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Docker - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Docker";
+        var mkdocs_page_input_path = "dev-ops/docker.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Docker</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#images">Images</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conteneurs">Conteneurs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creer-des-conteneurs">Créer des conteneurs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dockerfile">Dockerfile</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#docker-compose">Docker compose</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev ops</li>
+      <li class="breadcrumb-item active">Docker</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="docker">Docker</h1>
+<p>Docker est une plateforme de virtualisation légère permettant de créer, déployer et exécuter des applications dans des conteneurs. Un conteneur regroupe tout le nécessaire pour exécuter une application : code, bibliothèques, dépendances et configurations. Contrairement aux machines virtuelles, les conteneurs partagent le noyau du système hôte, ce qui les rend plus légers et plus rapides.</p>
+<h2 id="images">Images</h2>
+<h3 id="construire-une-image-via-dockerfile">Construire une image (via <code>Dockerfile</code>)</h3>
+<pre><code class="language-Docker">docker build -t &lt;nom-image&gt; .
+</code></pre>
+<h3 id="voir-les-images-disponibles">Voir les images disponibles</h3>
+<pre><code class="language-Docker">docker images
+</code></pre>
+<h3 id="effacer-une-image">Effacer une image</h3>
+<pre><code class="language-Docker">docker rmi -f &lt;nom-image&gt;
+</code></pre>
+<h3 id="lancer-une-image-dans-un-conteneur">Lancer une image dans un conteneur</h3>
+<pre><code class="language-Docker"># exemple pour une app flask:
+docker run -d -p 80:5000 &lt;nom-image&gt;   
+</code></pre>
+<h2 id="conteneurs">Conteneurs</h2>
+<h3 id="voir-les-conteneurs-en-cours">Voir les conteneurs en cours</h3>
+<pre><code class="language-Docker">docker ps
+</code></pre>
+<h3 id="arreter-un-conteneur">Arrêter un conteneur</h3>
+<pre><code class="language-Docker">docker stop &lt;nom-conteneur&gt;
+</code></pre>
+<h3 id="effacer-un-conteneur">Effacer un conteneur</h3>
+<pre><code class="language-Docker">docker rm &lt;nom-conteneur&gt;
+</code></pre>
+<h3 id="remise-a-zero-des-conteneurs-des-images-et-des-volumes">Remise à zéro des conteneurs, des images et des volumes</h3>
+<pre><code class="language-bash">sudo docker system prune -a --volumes
+</code></pre>
+<h2 id="creer-des-conteneurs">Créer des conteneurs</h2>
+<pre><code class="language-Shell">docker pull nom_du_package:tag(version)
+exemple: docker pull nginx:1.22-alpine
+</code></pre>
+<p>ou directement :</p>
+<pre><code class="language-Shell">docker run -d -p 8080:80 nginx:1.22-alpine
+
+-d (option) pour &quot;detached&quot;
+-p (port)
+</code></pre>
+<h2 id="dockerfile">Dockerfile</h2>
+<p>Un Dockerfile est un fichier texte qui contient les instructions nécessaires pour construire une image Docker. Il décrit les étapes de création de l'environnement d'exécution d'une application, comme la base d'image à utiliser, les dépendances à installer et les commandes à exécuter. Une fois le Dockerfile rédigé, la commande <code>docker build</code> permet de générer l'image correspondante.</p>
+<p>"Dockerfile" doit être à la racine du projet,<br />
+- exemple de Dockerfile pour une application node js :  </p>
+<pre><code class="language-Shell">FROM node:19-alpine
+
+COPY package.json /app/
+COPY src /app/
+
+WORKDIR /app
+
+RUN npm install
+
+CMD [&quot;node&quot;, &quot;server.js&quot;]
+</code></pre>
+<ul>
+<li>Build des images docker :</li>
+</ul>
+<pre><code class="language-Shell">docker build -t my-app:1.0 .
+
+-t : titre:tag
+. : path
+</code></pre>
+<h3 id="voir-les-conteneurs-en-cours_1">Voir les conteneurs en cours</h3>
+<pre><code class="language-Shell">docker ps --all
+</code></pre>
+<h3 id="explorer-un-conteneur">Explorer un conteneur</h3>
+<pre><code class="language-Bash">docker exec -it &lt;id_ou_nom_du_conteneur&gt; bash
+</code></pre>
+<h3 id="dockerfile-exemple">Dockerfile exemple</h3>
+<pre><code class="language-Shell">FROM node:12-alpine
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+CMD [&quot;node&quot;, &quot;src/index.js&quot;]
+</code></pre>
+<h3 id="ensuite-lancer-le-build">Ensuite, lancer le build</h3>
+<pre><code class="language-Shell">&gt; docker build -t myApp .
+</code></pre>
+<h3 id="exemple-de-conteneur-avec-volume-de-donnees-hors-conteneur">Exemple de conteneur avec volume de données hors conteneur</h3>
+<pre><code class="language-Shell">docker run --name myMongo -v /my/workdir/data:/data/db -d mongo:
+</code></pre>
+<h2 id="docker-compose">Docker compose</h2>
+<p>Docker Compose est un outil qui facilite la gestion de configurations multi-conteneurs. Grâce à un fichier <code>docker-compose.yml</code>, il permet de définir et d'orchestrer plusieurs services Docker, leurs réseaux et volumes associés. La commande <code>docker-compose up</code> permet de lancer l'ensemble des services définis, simplifiant ainsi le déploiement d'applications complexes.</p>
+<p>(isolation réseau : les conteneurs peuvent se voir entre eux)</p>
+<p>Gérer l’application :</p>
+<pre><code class="language-Shell">docker-compose up
+docker-compose down
+</code></pre>
+<p>Exemple de Docker compose :</p>
+<pre><code class="language-Shell">services:
+    db:
+        build: aci-demo/db
+        images: gtardif/sentences-db
+    service1:
+        container_name: words
+        image: gtardif/sentence-api
+        ports:
+        - &quot;8080:8080&quot;
+    web:
+        image: nginx
+        volumes:
+        - ./static:/usr/share/nginx/html
+    ports:
+        - &quot;80:80&quot;
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../concept-reseau/" class="btn btn-neutral float-left" title="Concepts de réseau essentiels"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../linux-file-system/" class="btn btn-neutral float-right" title="Système de fichiers Linux">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../concept-reseau/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../linux-file-system/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

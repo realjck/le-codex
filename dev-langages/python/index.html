@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Python - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Python";
+        var mkdocs_page_input_path = "dev-langages/python.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Python</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#bases-du-langage">Bases du langage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#syntaxe">Syntaxe</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fonctions">Fonctions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#definition-de-classes">Définition de classes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mise-en-pratique">Mise en pratique</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">Python</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="python">Python</h1>
+<p>Python est un langage de programmation interprété, multi-paradigme et open-source, créé par Guido van Rossum et sorti pour la première fois en 1991. Python favorise un style de codage où le nombre de lignes de code est réduit au minimum, ce qui le rend facile à apprendre et à utiliser. Cette fiche technique vous fournira une compréhension de base de Python et de son utilisation.</p>
+<h2 id="bases-du-langage">Bases du langage</h2>
+<pre><code class="language-Python">&gt;&gt;&gt; print ('abc' 'def')
+# 'abcdef'
+
+&gt;&gt;&gt; a = 123_456_789
+# 123456789
+
+&gt;&gt;&gt; arr1 = [1,2,3]
+&gt;&gt;&gt; arr2 = [4,5,6]
+&gt;&gt;&gt; arr1 + arr2
+# 1,2,3,4,5,6
+
+&gt;&gt;&gt; print(r'no break\n')
+# 'no break\n'
+
+&gt;&gt;&gt; print(&quot;&quot;&quot;\
+&gt;&gt;&gt; one line
+&gt;&gt;&gt; two lines&quot;&quot;&quot;)
+# 'one line'
+# 'two lines'
+
+&gt;&gt;&gt; word = 'python'
+&gt;&gt;&gt; word[-1]
+# 'n'
+&gt;&gt;&gt; word[-2]
+# 'o'
+</code></pre>
+<h2 id="syntaxe">Syntaxe</h2>
+<ul>
+<li>l’Indentation par convention est <strong>quatre espaces</strong></li>
+<li>les commentaires sont avec #</li>
+</ul>
+<p><strong>On rajoute</strong> <strong>deux espaces</strong> en fin de ligne avant un commentaire :</p>
+<pre><code class="language-Python">a = 1 + 2  # this is comment
+</code></pre>
+<ul>
+<li><code>f</code> pour formatter les chaines avec des variables :</li>
+</ul>
+<pre><code class="language-Python">name = 'Lulu'
+hello = f'Salut {name}!'
+# Salut Lulu!
+
+addition = f'somme : {a+b}!'
+</code></pre>
+<h3 id="condition-avec-elif">condition avec <code>elif</code> :</h3>
+<pre><code class="language-Python">if a == 0:
+    print('zero')
+elif a == 1:
+    print('one')
+else:
+    print('two or more')
+</code></pre>
+<h3 id="booleens-conditions-and-or-et-not-en-toutes-lettres">Booléens : conditions <code>and</code>, <code>or</code> et <code>not</code> en toutes lettres</h3>
+<pre><code class="language-Python">if cond1 and cond2: ...
+
+if not cond3: ...
+</code></pre>
+<h3 id="boucles">Boucles</h3>
+<pre><code class="language-Python">for a in (1,2,3):
+    print(a)
+# 1 2 3     
+
+while a &gt; 0:
+    print(a)
+    a = a - 1
+# 3 2 1
+</code></pre>
+<h3 id="listes-et-tuples">Listes et Tuples</h3>
+<pre><code class="language-Python">new_list = ['a', 'b', 2]  # CAN MODIFY
+new_tuple = ('a', 'b', 2)  # CAN NOT MODIFY
+</code></pre>
+<h3 id="dictionnaires">Dictionnaires</h3>
+<pre><code class="language-Python">fruits_color = {
+    &quot;banana&quot; : &quot;yellow&quot;,
+    &quot;kiwi&quot; : &quot;green&quot;
+}
+print(fruit_color[&quot;banana&quot;])  # yellow
+</code></pre>
+<h3 id="sequences">Sequences</h3>
+<pre><code class="language-Python">seq = 'Rocket'
+
+print(seq[0:3])  # roc
+print(seq[3:0:-1])  # kco
+</code></pre>
+<h3 id="iterables">Itérables</h3>
+<pre><code class="language-Python">iterable = 'Rocket'
+
+for i in iterable:
+    print(i)
+</code></pre>
+<h2 id="fonctions">Fonctions</h2>
+<pre><code class="language-Python">def double(number):
+    &quot;&quot;&quot;Retourne nombre donné multiplé par deux.&quot;&quot;&quot;
+    return number * 2
+</code></pre>
+<p>Afficher la documentation :</p>
+<pre><code class="language-Python">help(double)
+</code></pre>
+<p>Valeur par défaut des paramètres :</p>
+<pre><code class="language-Python">def fly(animal=&quot;bird&quot;):
+    print(f&quot;{animal} can fly&quot;)
+
+fly()
+</code></pre>
+<h3 id="technique-pour-trouver-les-nombres-impairs">Technique pour trouver les nombres impairs :</h3>
+<pre><code class="language-Python">l = [i for i in range(10) if i % 2]
+</code></pre>
+<h2 id="definition-de-classes">Définition de classes</h2>
+<pre><code class="language-Python">class Animal:
+    &quot;&quot;&quot;Representation of an animal&quot;&quot;&quot;
+    def __init__(self, name):
+        self.name = name
+
+    def say_hello(self):
+        &quot;&quot;&quot;Print a little presentation of the animal.&quot;&quot;&quot;
+        print(f&quot;Hello, my name is {self.name}.&quot;)
+
+tweety = Animal(&quot;Tweety&quot;)
+tweety.say_hello()
+</code></pre>
+<h3 id="heritage">Héritage</h3>
+<pre><code class="language-Python">class Duck(Animal):
+    &quot;&quot;&quot;Representation of a duck&quot;&quot;&quot;
+    # surcharge :
+    def say_hello(self):
+        print(f&quot;I'm a duck and my name is {self.name}&quot;)
+
+bugs = Duck(&quot;Daffy&quot;)
+bugs.say_hello()
+</code></pre>
+<p>Avec execution de la méthode parent :</p>
+<pre><code class="language-Python">class Bunny(Animal):
+    &quot;&quot;&quot;Representation of a bunny&quot;&quot;&quot;
+    def say_hello(self):
+        super().say_hello()
+        print(&quot;I'm a bunny&quot;)
+
+bugs = Bunny(&quot;Bugs&quot;)
+bugs.say_hello()
+</code></pre>
+<h2 id="mise-en-pratique">Mise en pratique</h2>
+<h3 id="creez-un-environnement-virtuel-venv">Créez un environnement virtuel (<code>.venv/</code>)</h3>
+<pre><code class="language-Bash"># python3 -m venv &lt;folder&gt;
+python3 -m venv .venv
+</code></pre>
+<h3 id="activez-lenvironnement-virtuel-au-lieu-de-lenvironnement-systeme">Activez l'environnement virtuel (au lieu de l’environnement système) :</h3>
+<p>Linux/Mac :</p>
+<pre><code class="language-Shell">source venv/bin/activate
+
+# verifier le chemin
+which python3
+</code></pre>
+<p>(Windows :)</p>
+<pre><code class="language-PowerShell">.venv\Scripts\activate
+</code></pre>
+<h3 id="installez-les-dependances">Installez les dépendances :</h3>
+<pre><code class="language-Shell">pip install &lt;package_foo&gt; &lt;package_bar&gt;
+</code></pre>
+<h3 id="generer-le-fichier-de-requirementstxt">Générer le fichier de requirements.txt</h3>
+<pre><code class="language-Bash">pip freeze &gt; requirements.txt
+</code></pre>
+<h3 id="installer-les-dependances-depuis-requirementstxt">Installer les dépendances depuis requirements.txt</h3>
+<pre><code class="language-Bash">pip install -r requirements.txt
+</code></pre>
+<h3 id="desactiver-lenvironnement-virtuel">Désactiver l’environnement virtuel</h3>
+<pre><code class="language-Bash">deactivate
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../pwa/" class="btn btn-neutral float-left" title="PWA"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../react/" class="btn btn-neutral float-right" title="React">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../pwa/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../react/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

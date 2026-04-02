@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>SQL - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SQL";
+        var mkdocs_page_input_path = "dev-langages/sql.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">SQL</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#operations-crud">Opérations CRUD</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#filtrer-avec-where">Filtrer avec WHERE</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#trier-et-grouper">Trier et Grouper</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#jointures-join">Jointures (JOIN)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sous-requetes">Sous-requêtes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creer-et-modifier-des-tables-ddl">Créer et Modifier des Tables (DDL)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#index">Index</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transactions">Transactions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fonctions-utiles">Fonctions utiles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">SQL</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sql">SQL</h1>
+<p>SQL (Structured Query Language) est le langage standard pour interagir avec les bases de données relationnelles (MySQL, PostgreSQL, SQLite, SQL Server…). Il permet de créer des structures de données, d'y insérer des enregistrements, de les interroger et de les modifier.</p>
+<h2 id="operations-crud">Opérations CRUD</h2>
+<h3 id="select-lire-des-donnees">SELECT — Lire des données</h3>
+<pre><code class="language-sql">-- Toutes les colonnes
+SELECT * FROM utilisateurs;
+
+-- Colonnes spécifiques
+SELECT nom, email FROM utilisateurs;
+
+-- Avec alias
+SELECT nom AS &quot;Nom complet&quot;, email AS &quot;Adresse mail&quot; FROM utilisateurs;
+
+-- Valeurs distinctes
+SELECT DISTINCT pays FROM utilisateurs;
+
+-- Limiter les résultats
+SELECT * FROM produits LIMIT 10;
+SELECT * FROM produits LIMIT 10 OFFSET 20; -- pagination
+</code></pre>
+<h3 id="insert-inserer-des-donnees">INSERT — Insérer des données</h3>
+<pre><code class="language-sql">-- Insérer une ligne
+INSERT INTO utilisateurs (nom, email, age)
+VALUES ('Alice Martin', 'alice@example.com', 28);
+
+-- Insérer plusieurs lignes
+INSERT INTO utilisateurs (nom, email, age) VALUES
+  ('Bob Dupont', 'bob@example.com', 34),
+  ('Clara Petit', 'clara@example.com', 22);
+</code></pre>
+<h3 id="update-modifier-des-donnees">UPDATE — Modifier des données</h3>
+<pre><code class="language-sql">-- Toujours utiliser WHERE pour éviter de modifier toute la table
+UPDATE utilisateurs
+SET email = 'alice.martin@example.com', age = 29
+WHERE id = 1;
+</code></pre>
+<h3 id="delete-supprimer-des-donnees">DELETE — Supprimer des données</h3>
+<pre><code class="language-sql">-- Supprimer des lignes ciblées
+DELETE FROM utilisateurs WHERE id = 5;
+
+-- Vider une table (plus rapide que DELETE sans WHERE)
+TRUNCATE TABLE logs;
+</code></pre>
+<h2 id="filtrer-avec-where">Filtrer avec WHERE</h2>
+<pre><code class="language-sql">-- Comparaisons
+SELECT * FROM produits WHERE prix &gt; 50;
+SELECT * FROM commandes WHERE statut = 'en cours';
+SELECT * FROM produits WHERE stock IS NULL;
+
+-- Opérateurs logiques
+SELECT * FROM produits WHERE prix &gt; 20 AND stock &gt; 0;
+SELECT * FROM produits WHERE categorie = 'livre' OR categorie = 'jeu';
+SELECT * FROM utilisateurs WHERE pays NOT IN ('FR', 'BE');
+
+-- Plage de valeurs
+SELECT * FROM produits WHERE prix BETWEEN 10 AND 50;
+
+-- Recherche de texte (LIKE)
+SELECT * FROM utilisateurs WHERE nom LIKE 'Mar%';   -- commence par &quot;Mar&quot;
+SELECT * FROM produits WHERE description LIKE '%bio%'; -- contient &quot;bio&quot;
+</code></pre>
+<h2 id="trier-et-grouper">Trier et Grouper</h2>
+<h3 id="order-by">ORDER BY</h3>
+<pre><code class="language-sql">SELECT * FROM produits ORDER BY prix ASC;   -- croissant
+SELECT * FROM produits ORDER BY prix DESC;  -- décroissant
+SELECT * FROM commandes ORDER BY date DESC, montant ASC; -- tri multiple
+</code></pre>
+<h3 id="group-by-et-fonctions-dagregation">GROUP BY et fonctions d'agrégation</h3>
+<pre><code class="language-sql">-- Fonctions d'agrégation courantes : COUNT, SUM, AVG, MIN, MAX
+SELECT pays, COUNT(*) AS nb_utilisateurs
+FROM utilisateurs
+GROUP BY pays;
+
+SELECT categorie, AVG(prix) AS prix_moyen, MAX(prix) AS prix_max
+FROM produits
+GROUP BY categorie;
+
+-- HAVING : filtrer après le GROUP BY (contrairement à WHERE)
+SELECT pays, COUNT(*) AS nb
+FROM utilisateurs
+GROUP BY pays
+HAVING COUNT(*) &gt; 10;
+</code></pre>
+<h2 id="jointures-join">Jointures (JOIN)</h2>
+<p>Les jointures combinent des données de plusieurs tables.</p>
+<pre><code class="language-sql">-- INNER JOIN : uniquement les lignes qui correspondent dans les deux tables
+SELECT c.id, u.nom, c.montant
+FROM commandes c
+INNER JOIN utilisateurs u ON c.utilisateur_id = u.id;
+
+-- LEFT JOIN : toutes les lignes de gauche + correspondances de droite (NULL si aucune)
+SELECT u.nom, c.montant
+FROM utilisateurs u
+LEFT JOIN commandes c ON u.id = c.utilisateur_id;
+
+-- RIGHT JOIN : toutes les lignes de droite + correspondances de gauche
+SELECT u.nom, c.montant
+FROM utilisateurs u
+RIGHT JOIN commandes c ON u.id = c.utilisateur_id;
+
+-- FULL OUTER JOIN : toutes les lignes des deux tables (non supporté en MySQL, utiliser UNION)
+SELECT u.nom, c.montant
+FROM utilisateurs u
+LEFT JOIN commandes c ON u.id = c.utilisateur_id
+UNION
+SELECT u.nom, c.montant
+FROM utilisateurs u
+RIGHT JOIN commandes c ON u.id = c.utilisateur_id;
+</code></pre>
+<h2 id="sous-requetes">Sous-requêtes</h2>
+<p>Une sous-requête est une requête imbriquée dans une autre.</p>
+<pre><code class="language-sql">-- Dans un WHERE
+SELECT nom FROM utilisateurs
+WHERE id IN (
+  SELECT utilisateur_id FROM commandes WHERE montant &gt; 100
+);
+
+-- Dans un FROM (table dérivée)
+SELECT pays, total
+FROM (
+  SELECT pays, COUNT(*) AS total FROM utilisateurs GROUP BY pays
+) AS stats
+WHERE total &gt; 5;
+
+-- Sous-requête corrélée (fait référence à la requête externe)
+SELECT nom, salaire
+FROM employes e
+WHERE salaire &gt; (
+  SELECT AVG(salaire) FROM employes WHERE departement = e.departement
+);
+</code></pre>
+<h2 id="creer-et-modifier-des-tables-ddl">Créer et Modifier des Tables (DDL)</h2>
+<pre><code class="language-sql">-- Créer une table
+CREATE TABLE produits (
+  id        INT PRIMARY KEY AUTO_INCREMENT,
+  nom       VARCHAR(100) NOT NULL,
+  prix      DECIMAL(10, 2) NOT NULL,
+  stock     INT DEFAULT 0,
+  categorie VARCHAR(50),
+  cree_le   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Ajouter une colonne
+ALTER TABLE produits ADD COLUMN description TEXT;
+
+-- Modifier une colonne
+ALTER TABLE produits MODIFY COLUMN nom VARCHAR(200) NOT NULL;
+
+-- Supprimer une colonne
+ALTER TABLE produits DROP COLUMN description;
+
+-- Supprimer une table
+DROP TABLE IF EXISTS produits;
+</code></pre>
+<h2 id="index">Index</h2>
+<p>Les index accélèrent les recherches mais ralentissent les écritures. À utiliser sur les colonnes fréquemment utilisées dans les <code>WHERE</code> et les <code>JOIN</code>.</p>
+<pre><code class="language-sql">-- Créer un index simple
+CREATE INDEX idx_email ON utilisateurs (email);
+
+-- Index unique (contrainte d'unicité)
+CREATE UNIQUE INDEX idx_email_unique ON utilisateurs (email);
+
+-- Index composé (plusieurs colonnes)
+CREATE INDEX idx_nom_pays ON utilisateurs (nom, pays);
+
+-- Voir les index d'une table (MySQL)
+SHOW INDEX FROM utilisateurs;
+
+-- Supprimer un index
+DROP INDEX idx_email ON utilisateurs;
+</code></pre>
+<h2 id="transactions">Transactions</h2>
+<p>Les transactions garantissent que plusieurs opérations s'exécutent entièrement ou pas du tout (principe ACID).</p>
+<pre><code class="language-sql">START TRANSACTION;
+
+UPDATE comptes SET solde = solde - 100 WHERE id = 1;
+UPDATE comptes SET solde = solde + 100 WHERE id = 2;
+
+-- Si tout s'est bien passé
+COMMIT;
+
+-- En cas d'erreur, annuler toutes les opérations
+ROLLBACK;
+</code></pre>
+<h2 id="fonctions-utiles">Fonctions utiles</h2>
+<pre><code class="language-sql">-- Chaînes
+SELECT UPPER(nom), LOWER(email) FROM utilisateurs;
+SELECT CONCAT(prenom, ' ', nom) AS nom_complet FROM utilisateurs;
+SELECT LENGTH(nom) AS longueur FROM utilisateurs;
+SELECT TRIM('  bonjour  '); -- supprime les espaces
+SELECT SUBSTRING(email, 1, 5); -- 5 premiers caractères
+
+-- Dates
+SELECT NOW();                        -- date et heure actuelles
+SELECT CURDATE();                    -- date du jour
+SELECT DATE_FORMAT(cree_le, '%d/%m/%Y') FROM commandes;
+SELECT DATEDIFF(NOW(), cree_le) AS jours_depuis FROM commandes;
+
+-- Numériques
+SELECT ROUND(prix, 2) FROM produits;
+SELECT CEIL(4.1);   -- 5
+SELECT FLOOR(4.9);  -- 4
+
+-- Valeur par défaut si NULL
+SELECT COALESCE(telephone, 'Non renseigné') FROM utilisateurs;
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Pour aller plus loin, se référer à la documentation officielle de votre SGBD :
+<a href="https://www.postgresql.org/docs/">PostgreSQL</a> · <a href="https://dev.mysql.com/doc/">MySQL</a> · <a href="https://www.sqlite.org/docs.html">SQLite</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../regex/" class="btn btn-neutral float-left" title="RegEx"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../typescript/" class="btn btn-neutral float-right" title="TypeScript">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../regex/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../typescript/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

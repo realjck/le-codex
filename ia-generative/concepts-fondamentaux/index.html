@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Concepts fondamentaux de l'IA générative - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Concepts fondamentaux de l\u0027IA g\u00e9n\u00e9rative";
+        var mkdocs_page_input_path = "ia-generative/concepts-fondamentaux.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Concepts fondamentaux de l'IA générative</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#les-modeles-de-langage-llm">Les modèles de langage (LLM)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tokens-lunite-de-base">Tokens — l'unité de base</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#la-fenetre-de-contexte-context-window">La fenêtre de contexte (Context Window)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-roles-dans-un-echange">Les rôles dans un échange</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#temperature-et-parametres-de-generation">Température et paramètres de génération</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#types-de-modeles-selon-la-tache">Types de modèles selon la tâche</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inference-locale-vs-api-cloud">Inférence locale vs API cloud</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rag-retrieval-augmented-generation">RAG — Retrieval-Augmented Generation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fine-tuning-vs-prompt-engineering-vs-rag">Fine-tuning vs Prompt Engineering vs RAG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hallucinations">Hallucinations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#glossaire-rapide">Glossaire rapide</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Ia generative</li>
+      <li class="breadcrumb-item active">Concepts fondamentaux de l'IA générative</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="concepts-fondamentaux-de-lia-generative">Concepts fondamentaux de l'IA générative</h1>
+<p>Ce guide couvre les notions essentielles pour comprendre et utiliser efficacement les outils d'IA générative, que ce soit via une interface comme ChatGPT, un modèle local avec Ollama, ou une API.</p>
+<hr />
+<h2 id="les-modeles-de-langage-llm">Les modèles de langage (LLM)</h2>
+<p>Un <strong>LLM</strong> (Large Language Model) est un modèle entraîné sur d'immenses quantités de texte pour prédire le mot (ou token) suivant. Il ne "comprend" pas au sens humain — il calcule la suite la plus probable.</p>
+<h3 id="familles-de-modeles-courants">Familles de modèles courants</h3>
+<table>
+<thead>
+<tr>
+<th>Éditeur</th>
+<th>Modèles</th>
+<th>Accès</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anthropic</td>
+<td>Claude (Haiku, Sonnet, Opus)</td>
+<td>API / claude.ai</td>
+</tr>
+<tr>
+<td>OpenAI</td>
+<td>GPT-4o, o1, o3</td>
+<td>API / ChatGPT</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>Gemini Flash, Pro, Ultra</td>
+<td>API / Gemini</td>
+</tr>
+<tr>
+<td>Meta</td>
+<td>Llama 3.x</td>
+<td>Open source / local</td>
+</tr>
+<tr>
+<td>Mistral</td>
+<td>Mistral, Mixtral</td>
+<td>API / open source</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>Phi-3, Phi-4</td>
+<td>Open source / local</td>
+</tr>
+</tbody>
+</table>
+<p>Les modèles <strong>open source</strong> (Llama, Mistral, Phi…) peuvent tourner localement via Ollama. Les modèles propriétaires (Claude, GPT…) nécessitent une API payante.</p>
+<hr />
+<h2 id="tokens-lunite-de-base">Tokens — l'unité de base</h2>
+<p>Les LLM ne lisent pas des mots mais des <strong>tokens</strong> : fragments de texte découpés selon un algorithme. Un token ≈ ¾ d'un mot en anglais, un peu moins en français.</p>
+<pre><code>&quot;Bonjour tout le monde&quot;  →  [&quot;Bon&quot;, &quot;jour&quot;, &quot; tout&quot;, &quot; le&quot;, &quot; monde&quot;]  = 5 tokens
+</code></pre>
+<h3 id="pourquoi-cest-important">Pourquoi c'est important</h3>
+<ul>
+<li><strong>Coût API</strong> : facturé au token (entrée + sortie)</li>
+<li><strong>Limite de contexte</strong> : la fenêtre de contexte est exprimée en tokens</li>
+<li><strong>Vitesse</strong> : plus de tokens = génération plus lente</li>
+</ul>
+<h3 id="estimations-pratiques">Estimations pratiques</h3>
+<table>
+<thead>
+<tr>
+<th>Contenu</th>
+<th>Tokens approximatifs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 page A4 de texte</td>
+<td>~500 tokens</td>
+</tr>
+<tr>
+<td>1 fichier de code (100 lignes)</td>
+<td>~300–600 tokens</td>
+</tr>
+<tr>
+<td>Ce document entier</td>
+<td>~1 500 tokens</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="la-fenetre-de-contexte-context-window">La fenêtre de contexte (Context Window)</h2>
+<p>La fenêtre de contexte est la <strong>quantité totale de texte</strong> qu'un modèle peut traiter en une seule fois : votre historique de conversation + vos fichiers + sa réponse.</p>
+<pre><code>[System prompt] + [Historique] + [Message actuel] + [Réponse] ≤ Context window
+</code></pre>
+<h3 id="tailles-typiques-2025">Tailles typiques (2025)</h3>
+<table>
+<thead>
+<tr>
+<th>Modèle</th>
+<th>Context window</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Sonnet/Opus</td>
+<td>200 000 tokens (~150 000 mots)</td>
+</tr>
+<tr>
+<td>GPT-4o</td>
+<td>128 000 tokens</td>
+</tr>
+<tr>
+<td>Llama 3.3 70B</td>
+<td>128 000 tokens</td>
+</tr>
+<tr>
+<td>Mistral 7B</td>
+<td>32 000 tokens</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ <strong>Important</strong> : le modèle n'a <strong>pas de mémoire entre les sessions</strong>. Chaque nouvelle conversation repart de zéro. Ce qui ressemble à de la mémoire (ChatGPT, Claude) est une injection automatique de résumés dans le contexte.</p>
+<hr />
+<h2 id="les-roles-dans-un-echange">Les rôles dans un échange</h2>
+<p>Un échange avec un LLM est structuré en trois types de messages :</p>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Description</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>system</code></td>
+<td>Instructions permanentes données au modèle</td>
+<td>"Tu es un assistant expert en Python. Réponds toujours en français."</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>Message de l'utilisateur</td>
+<td>"Comment lire un fichier CSV ?"</td>
+</tr>
+<tr>
+<td><code>assistant</code></td>
+<td>Réponse générée par le modèle</td>
+<td>"Voici comment lire un CSV avec pandas…"</td>
+</tr>
+</tbody>
+</table>
+<p>Le <strong>system prompt</strong> est la base du comportement du modèle. C'est là que l'on définit son rôle, ses contraintes, son ton.</p>
+<hr />
+<h2 id="temperature-et-parametres-de-generation">Température et paramètres de génération</h2>
+<p>Ces paramètres contrôlent le comportement du modèle lors de la génération.</p>
+<h3 id="temperature-temperature">Température (<code>temperature</code>)</h3>
+<p>Contrôle la <strong>créativité vs précision</strong> des réponses.</p>
+<table>
+<thead>
+<tr>
+<th>Valeur</th>
+<th>Comportement</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0.0</code></td>
+<td>Déterministe, toujours la même réponse</td>
+<td>Code, données, extraction</td>
+</tr>
+<tr>
+<td><code>0.3–0.7</code></td>
+<td>Équilibre (défaut courant)</td>
+<td>Rédaction, analyse</td>
+</tr>
+<tr>
+<td><code>1.0+</code></td>
+<td>Créatif, varié, imprévisible</td>
+<td>Brainstorming, fiction</td>
+</tr>
+</tbody>
+</table>
+<h3 id="autres-parametres-courants">Autres paramètres courants</h3>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max_tokens</code></td>
+<td>Longueur maximale de la réponse</td>
+</tr>
+<tr>
+<td><code>top_p</code></td>
+<td>Filtrage par probabilité cumulée (alternative à temperature)</td>
+</tr>
+<tr>
+<td><code>stop</code></td>
+<td>Séquences de texte qui stoppent la génération</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="types-de-modeles-selon-la-tache">Types de modèles selon la tâche</h2>
+<p>Les LLM texte ne font pas tout. Il existe des modèles spécialisés :</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Usage</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LLM (texte)</strong></td>
+<td>Conversation, code, analyse, rédaction</td>
+<td>Claude, GPT-4o, Llama</td>
+</tr>
+<tr>
+<td><strong>Embedding</strong></td>
+<td>Transformer du texte en vecteurs numériques (pour la recherche sémantique)</td>
+<td>text-embedding-3, nomic-embed</td>
+</tr>
+<tr>
+<td><strong>Image generation</strong></td>
+<td>Créer des images à partir d'un texte</td>
+<td>DALL-E 3, Stable Diffusion, Flux</td>
+</tr>
+<tr>
+<td><strong>Vision</strong></td>
+<td>Analyser des images</td>
+<td>Claude, GPT-4o, LLaVA</td>
+</tr>
+<tr>
+<td><strong>Speech-to-text</strong></td>
+<td>Transcrire l'audio</td>
+<td>Whisper</td>
+</tr>
+<tr>
+<td><strong>Text-to-speech</strong></td>
+<td>Synthèse vocale</td>
+<td>ElevenLabs, OpenAI TTS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="inference-locale-vs-api-cloud">Inférence locale vs API cloud</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Local (Ollama, LM Studio)</th>
+<th>Cloud (Claude, GPT)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Coût</strong></td>
+<td>Gratuit (hors matériel)</td>
+<td>Payant au token</td>
+</tr>
+<tr>
+<td><strong>Confidentialité</strong></td>
+<td>Données ne quittent pas la machine</td>
+<td>Données envoyées au serveur</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Limitée par votre GPU</td>
+<td>Très haute</td>
+</tr>
+<tr>
+<td><strong>Qualité</strong></td>
+<td>Modèles open source (légèrement inférieurs)</td>
+<td>Meilleurs modèles du marché</td>
+</tr>
+<tr>
+<td><strong>Disponibilité</strong></td>
+<td>Hors ligne possible</td>
+<td>Nécessite Internet</td>
+</tr>
+</tbody>
+</table>
+<h3 id="regle-pratique">Règle pratique</h3>
+<ul>
+<li>Données sensibles ou usage intensif → <strong>local</strong></li>
+<li>Meilleure qualité ou tâche ponctuelle → <strong>cloud</strong></li>
+</ul>
+<hr />
+<h2 id="rag-retrieval-augmented-generation">RAG — Retrieval-Augmented Generation</h2>
+<p>Le RAG permet à un LLM de <strong>répondre en s'appuyant sur vos propres documents</strong>, sans fine-tuning.</p>
+<pre><code>Question utilisateur
+        ↓
+Recherche dans la base de documents (via embeddings)
+        ↓
+Passages pertinents injectés dans le contexte
+        ↓
+LLM génère une réponse basée sur ces passages
+</code></pre>
+<p>C'est ce qui permet à un chatbot de "connaître" votre documentation interne, vos PDF, vos bases de données — sans rien envoyer à l'entraînement du modèle.</p>
+<hr />
+<h2 id="fine-tuning-vs-prompt-engineering-vs-rag">Fine-tuning vs Prompt Engineering vs RAG</h2>
+<p>Trois approches pour adapter un LLM à vos besoins :</p>
+<table>
+<thead>
+<tr>
+<th>Approche</th>
+<th>Principe</th>
+<th>Quand l'utiliser</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prompt Engineering</strong></td>
+<td>Écrire de meilleurs prompts</td>
+<td>Toujours — c'est la base</td>
+</tr>
+<tr>
+<td><strong>RAG</strong></td>
+<td>Injecter vos données dans le contexte</td>
+<td>Quand le LLM doit connaître vos documents</td>
+</tr>
+<tr>
+<td><strong>Fine-tuning</strong></td>
+<td>Ré-entraîner le modèle sur vos données</td>
+<td>Quand vous voulez changer le style/comportement profondément</td>
+</tr>
+</tbody>
+</table>
+<p>Pour 90% des cas, le <strong>prompt engineering</strong> suffit. Le RAG couvre la plupart des 10% restants. Le fine-tuning est rare et coûteux.</p>
+<hr />
+<h2 id="hallucinations">Hallucinations</h2>
+<p>Un LLM peut <strong>inventer des faits</strong> avec une totale assurance. Ce n'est pas un bug : c'est inhérent au fonctionnement (le modèle prédit ce qui est plausible, pas ce qui est vrai).</p>
+<h3 id="comment-les-reduire">Comment les réduire</h3>
+<ul>
+<li>Demander au modèle de citer ses sources</li>
+<li>Lui fournir les documents de référence (RAG)</li>
+<li>Baisser la température pour les tâches factuelles</li>
+<li>Lui demander explicitement : <em>"Si tu n'es pas sûr, dis-le"</em></li>
+<li>Toujours vérifier les informations critiques (dates, chiffres, URLs)</li>
+</ul>
+<hr />
+<h2 id="glossaire-rapide">Glossaire rapide</h2>
+<table>
+<thead>
+<tr>
+<th>Terme</th>
+<th>Définition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LLM</strong></td>
+<td>Large Language Model — modèle de langage de grande taille</td>
+</tr>
+<tr>
+<td><strong>Token</strong></td>
+<td>Unité de traitement du texte (~¾ de mot)</td>
+</tr>
+<tr>
+<td><strong>Context window</strong></td>
+<td>Quantité max de texte traitée en une fois</td>
+</tr>
+<tr>
+<td><strong>System prompt</strong></td>
+<td>Instructions permanentes définissant le comportement du modèle</td>
+</tr>
+<tr>
+<td><strong>Température</strong></td>
+<td>Paramètre de créativité (0 = précis, 1+ = créatif)</td>
+</tr>
+<tr>
+<td><strong>Embedding</strong></td>
+<td>Représentation vectorielle d'un texte pour la recherche sémantique</td>
+</tr>
+<tr>
+<td><strong>RAG</strong></td>
+<td>Retrieval-Augmented Generation — enrichir les réponses avec vos documents</td>
+</tr>
+<tr>
+<td><strong>Fine-tuning</strong></td>
+<td>Ré-entraînement du modèle sur des données spécifiques</td>
+</tr>
+<tr>
+<td><strong>Inférence</strong></td>
+<td>Le fait de faire tourner un modèle pour obtenir une réponse</td>
+</tr>
+<tr>
+<td><strong>Hallucination</strong></td>
+<td>Fait inventé présenté avec assurance par le LLM</td>
+</tr>
+<tr>
+<td><strong>Prompt</strong></td>
+<td>Le texte envoyé au modèle pour obtenir une réponse</td>
+</tr>
+<tr>
+<td><strong>Open source</strong></td>
+<td>Modèle dont les poids sont publics et utilisables localement</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../claude-code/" class="btn btn-neutral float-left" title="Claude Code — Protocoles &amp; méthodes avancées"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ollama/" class="btn btn-neutral float-right" title="Configurer Ollama">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../claude-code/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ollama/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

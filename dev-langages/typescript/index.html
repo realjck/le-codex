@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>TypeScript - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "TypeScript";
+        var mkdocs_page_input_path = "dev-langages/typescript.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">TypeScript</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#exemple-dinterface">Exemple d’interface :</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#definition-dune-propriete-optionnelle">Définition d’une propriété optionnelle :</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#type-vs-interface">Type Vs Interface</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-tableaux">Les tableaux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-fonctions">Les fonctions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-generiques">Les génériques</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">TypeScript</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="typescript">TypeScript</h1>
+<p>TypeScript est un langage de programmation à typage statique qui se compile en JavaScript. Cela signifie que vous devez définir les types de vos variables, fonctions et autres éléments de code, ce qui permet au compilateur de détecter les erreurs potentielles dès le stade de l'écriture du code.</p>
+<p>TypeScript est un sur-ensemble de JavaScript, ce qui signifie que tout code JavaScript valide est également du code TypeScript valide. Cela signifie que vous pouvez utiliser TypeScript pour écrire du code JavaScript plus robuste et plus maintenable.</p>
+<h3 id="exemple-dinterface">Exemple d’interface :</h3>
+<pre><code class="language-TypeScript">interface Article {
+  title: string
+  id: number
+}
+
+const article: Article = {
+  title: &quot;Hayes&quot;,
+  id: 0,
+}
+</code></pre>
+<h3 id="definition-dune-propriete-optionnelle">Définition d’une propriété optionnelle :</h3>
+<pre><code class="language-TypeScript">interface Article {
+  title: string
+  id?: number
+}
+
+const article: Article = {
+  title: &quot;Hayes&quot;,
+}
+</code></pre>
+<h2 id="type-vs-interface">Type Vs Interface</h2>
+<p>La différence entre <code>interface</code> et <code>type</code> est un peu subtile, surtout depuis les dernières versions qui font converger leurs fonctionnalités. Néanmoins, les types sont un peu plus flexibles puisqu'ils peuvent être composés via des unions ou des intersections</p>
+<pre><code class="language-TypeScript">type Article = {
+  title: string
+  id?: number
+}
+</code></pre>
+<h3 id="les-types-peuvent-etre-combines-via-une-intersection">les types peuvent être combinés via <strong>une intersection</strong>  <code>&amp;</code>:</h3>
+<pre><code class="language-TypeScript">type Person = {
+  name: string
+  age: number
+}
+
+type Employee = Person &amp; {
+  id: number
+  department: string
+}
+// Employee: { name: string; age: number; id: number; department: string }
+</code></pre>
+<h3 id="lunion-permet-de-conditionner-un-type-en-enumerant-plusieurs-valeurs-possibles"><strong>l'union</strong> permet de <strong>conditionner</strong> un type en énumérant plusieurs valeurs possibles :</h3>
+<p><code>type Color = "red" | "blue" | "green"</code></p>
+<pre><code class="language-TypeScript">type Filter = {
+  name: string
+  email: string
+  firstname: string
+  lastname: string
+}
+
+type SortOptions = {
+  sortBy: &quot;name&quot; | &quot;email&quot;
+  sortOrder: &quot;asc&quot; | &quot;desc&quot;
+}
+
+function findUser(filter: Filter, sort?: SortOptions) {
+  // ...
+}
+</code></pre>
+<p>l'union est souvent utilisée pour signaler qu'une valeur peut être soit <code>null</code>, soit d'un type donné. Par exemple :</p>
+<pre><code class="language-TypeScript">type Filter = {
+  id: string | number
+  name: string
+  email: string
+  firstname: string | null // Ici firstname peut être SOIT une string, SOIT null
+  lastname: string | null // Idem pour lastname
+}
+</code></pre>
+<h3 id="loperateur-keyof">L'opérateur <code>keyof</code> :</h3>
+<p>Il permet d'extraire les clés (ou propriétés) d'un type sous forme d'une union de chaînes de caractères. Ici, <code>keyof Filter</code> revient donc à écrire <code>'id' | 'name' | 'email' | 'firstname' | 'lastname'</code>.</p>
+<pre><code class="language-TypeScript">type SortOptions = {
+  sortBy: keyof Filter
+  sortOrder: &quot;asc&quot; | &quot;desc&quot;
+}
+</code></pre>
+<p>Il existe un opérateur similaire à <code>keyof</code>, et il s'agit de <code>key</code> :</p>
+<pre><code class="language-TypeScript">type User = {
+  [key: string]: any
+}
+</code></pre>
+<p>Cette notation permet de préciser qu'il peut y avoir une clé de <strong>n'importe quel nom</strong> <em>(à condition que ce soit une chaîne de caractères)</em> sur l'objet <code>User</code>. Le type <code>any</code> permet quant à lui d'indiquer que la valeur associée à cette clé peut être de <strong>n'importe quel type</strong></p>
+<h2 id="les-tableaux"><strong>Les tableaux</strong></h2>
+<pre><code class="language-TypeScript">// tableau d'un seul et unique élément en string
+type oneStringArray = [string]
+// tableau de string sans limitation sur la taille
+type stringArray = string[]
+// ... qui peut également s'écrire ainsi :
+type stringArray = Array&lt;string&gt;
+</code></pre>
+<pre><code class="language-TypeScript">type streamFormat = [string, number, string]
+// tableau de format &quot;stream&quot; contenant une chaîne de caractères,
+// un nombre et une autre chaîne de caractères
+const test: streamFormat = [&quot;Start&quot;, 123, &quot;End&quot;] //on appelle cela un tuple !
+</code></pre>
+<h2 id="les-fonctions"><strong>Les fonctions</strong></h2>
+<pre><code class="language-TypeScript">interface CalculatorInterface {
+  add: (x: number, y: number) =&gt; number
+  subtract: (x: number, y: number) =&gt; number
+}
+
+class Calculator implements CalculatorInterface {
+  add(x: number, y: number) {
+    return x + y
+  }
+
+  subtract(x: number, y: number) {
+    return x - y
+  }
+}
+</code></pre>
+<p>Il est également possible de typer les signatures de fonction de manière indépendante :</p>
+<pre><code class="language-TypeScript">function greet(name: string): void {
+  console.log(`Hello, ${name}!`)
+}
+//Dans cet exemple, la fonction greet prend un argument name de type string 
+// et ne retourne rien (:void)
+</code></pre>
+<h2 id="les-generiques">Les génériques</h2>
+<p>Voici un exemple de fonction générique qui prend un tableau de n'importe quel type et renvoie le premier élément de ce tableau :</p>
+<pre><code class="language-TypeScript">function getFirstElement&lt;T&gt;(arr: T[]): T | undefined {
+  if (arr.length &gt; 0) {
+    return arr[0]
+  }
+  return undefined
+}
+</code></pre>
+<p>Dans cet exemple, le type générique <code>T</code> est utilisé pour représenter le type d'élément contenu dans le tableau. La fonction <code>getFirstElement</code> prend un tableau de type <code>T[]</code> en argument et renvoie le premier élément de ce tableau <em>(qui est donc de type</em> <code>_T_</code><em>)</em> si le tableau n'est pas vide, <code>undefined</code> sinon <em>(d'où le retour</em> <code>_T | undefined_</code><em>)</em>.</p>
+<p>On peut donc utiliser cette fonction avec différents types de tableaux :</p>
+<pre><code class="language-TypeScript">const numbers = [1, 2, 3, 4]
+const firstNumber = getFirstElement(numbers) // renvoie 1
+
+const strings = [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;]
+const firstString = getFirstElement(strings) // renvoie &quot;foo&quot;
+</code></pre>
+<p>Par exemple, <code>Promise&lt;unknown&gt;</code> désigne simplement une promesse qui résoudra sur une valeur de type <code>unknown</code>. Si la promesse se résout avec un <code>number</code>, vous l'aurez devinez, il suffit de l'écrire ainsi : <code>Promise&lt;number&gt;</code>.</p>
+<h3 id="le-type-unknown">Le type Unknown :</h3>
+<p>On peut affecter absolument ce qu'on veut à une variable de type <code>unknown</code> :  </p>
+<pre><code class="language-TypeScript">let value: unknown
+
+value = undefined
+value = null
+value = 123
+value = true
+value = &quot;Hello&quot;
+value = []
+value = {}
+value = () =&gt; {}
+</code></pre>
+<p>Le plus souvent, on va régler le linter de nos projets pour interdire l'usage de <code>any</code> implicites, afin justement d'éviter la confusion entre <code>unknown</code> et <code>any</code> : soit on affirme ne pas savoir (<code>unknown</code>), soit on affirme accepter <em>“n'importe quoi”</em> (<code>any</code>).</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../sql/" class="btn btn-neutral float-left" title="SQL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../dev-ops/ci-cd/" class="btn btn-neutral float-right" title="CI/CD">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../sql/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../dev-ops/ci-cd/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>React - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "React";
+        var mkdocs_page_input_path = "dev-langages/react.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">React</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#bases">🚀 Bases</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hooks-principaux">🎣 Hooks principaux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#organisation-bonnes-pratiques">📐 Organisation &amp; bonnes pratiques</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ecosysteme-react">🌍 Écosystème React</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#performance-optimisation">⚡ Performance &amp; optimisation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#questions-classiques">❓ Questions classiques</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">React</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="react">React</h1>
+<p>Cette fiche rassemble les notions essentielles de React, organisées par thèmes.<br />
+Elle couvre les bases (JSX, composants, state/props), les principaux hooks, les bonnes pratiques d’architecture, l’écosystème courant (React Router, gestion d’état, requêtes API), ainsi que des techniques d’optimisation.  </p>
+<h2 id="bases">🚀 Bases</h2>
+<ul>
+<li>
+<p><strong>JSX</strong> : C’est une syntaxe proche du HTML qui est transformée en <code>React.createElement()</code> par Babel.<br />
+  Exemple : <code>&lt;h1&gt;Hello&lt;/h1&gt;</code> devient <code>React.createElement("h1", null, "Hello")</code>.  </p>
+</li>
+<li>
+<p><strong>Composants</strong> : On peut créer des composants soit en fonction (modernes) soit en classe (anciens).<br />
+  Exemple fonction : <code>function Button() { return &lt;button&gt;OK&lt;/button&gt;; }</code>.  </p>
+</li>
+<li>
+<p><strong>Props / State</strong> : Les <strong>props</strong> sont passées depuis le parent, le <strong>state</strong> est interne au composant (via <code>useState</code>).<br />
+  Exemple : <code>&lt;User name="Alice" /&gt;</code> (prop) et <code>const [count, setCount] = useState(0)</code> (state).  </p>
+</li>
+<li>
+<p><strong>Rendu conditionnel</strong> : On affiche différemment selon une condition avec <code>? :</code> ou <code>&amp;&amp;</code>.<br />
+  Exemple : <code>{isLoggedIn ? &lt;p&gt;Bienvenue&lt;/p&gt; : &lt;p&gt;Connectez-vous&lt;/p&gt;}</code>.  </p>
+</li>
+<li>
+<p><strong>Listes et keys</strong> : Chaque élément d’une liste doit avoir une <strong>key unique et stable</strong> pour aider React au rendu.<br />
+  Exemple : <code>{users.map(u =&gt; &lt;li key={u.id}&gt;{u.name}&lt;/li&gt;)}</code>.  </p>
+</li>
+</ul>
+<hr />
+<h2 id="hooks-principaux">🎣 Hooks principaux</h2>
+<ul>
+<li>
+<p><strong>useState</strong> : Sert à gérer un état local qui déclenche un re-render quand il change.<br />
+  Exemple : <code>const [count, setCount] = useState(0);</code>.  </p>
+</li>
+<li>
+<p><strong>useEffect</strong> : Permet de gérer des effets de bord (API, timers), avec dépendances et nettoyage.<br />
+  Exemple :  </p>
+</li>
+</ul>
+<pre><code class="language-js">  useEffect(() =&gt; {
+    const timer = setInterval(() =&gt; console.log(&quot;tick&quot;), 1000);
+    return () =&gt; clearInterval(timer);
+  }, []);
+</code></pre>
+<ul>
+<li>
+<p><strong>useRef</strong> : Stocke une valeur persistante sans re-render et donne accès au DOM.<br />
+  Exemple : <code>const inputRef = useRef(); &lt;input ref={inputRef} /&gt;</code>.  </p>
+</li>
+<li>
+<p><strong>useContext</strong> : Sert à partager un état global sans props drilling.<br />
+  Exemple : </p>
+</li>
+</ul>
+<pre><code class="language-js">  const ThemeContext = createContext(&quot;light&quot;);
+  const App = () =&gt; &lt;ThemeContext.Provider value=&quot;dark&quot;&gt;&lt;Child /&gt;&lt;/ThemeContext.Provider&gt;;
+</code></pre>
+<ul>
+<li><strong>useReducer</strong> : Alternative à <code>useState</code> pour un état complexe.<br />
+  Exemple : <code>const [state, dispatch] = useReducer(reducer, initialState);</code>.  </li>
+<li><strong>useMemo</strong> : Mémorise un calcul coûteux.<br />
+  Exemple : <code>const value = useMemo(() =&gt; expensiveCalc(data), [data]);</code>.  </li>
+<li><strong>useCallback</strong> : Mémorise une fonction pour éviter de la recréer.<br />
+  Exemple : <code>const handleClick = useCallback(() =&gt; doSomething(), []);</code>.  </li>
+</ul>
+<hr />
+<h2 id="organisation-bonnes-pratiques">📐 Organisation &amp; bonnes pratiques</h2>
+<ul>
+<li>
+<p><strong>Lifting state up</strong> : Remonter l’état dans le parent pour le partager entre enfants.<br />
+  Exemple : un <code>App</code> gère <code>count</code> et le passe à deux composants enfants.  </p>
+</li>
+<li>
+<p><strong>Composants contrôlés vs non contrôlés</strong> : Les contrôlés utilisent <code>value</code> + <code>onChange</code>, les non contrôlés s’appuient sur le DOM (<code>ref</code>).<br />
+  Exemple contrôlé : <code>&lt;input value={text} onChange={e =&gt; setText(e.target.value)} /&gt;</code>.  </p>
+</li>
+<li>
+<p><strong>Éviter le props drilling</strong> : Utiliser <code>Context</code>, Redux ou Zustand pour passer des données globales.<br />
+  Exemple : partager un thème avec <code>useContext</code> au lieu de propager via 10 composants.  </p>
+</li>
+<li>
+<p><strong>Découper les composants</strong> : Favorise la réutilisabilité et la lisibilité.<br />
+  Exemple : au lieu d’un énorme formulaire, créer <code>&lt;InputField /&gt;</code>, <code>&lt;SubmitButton /&gt;</code>, etc.  </p>
+</li>
+</ul>
+<hr />
+<h2 id="ecosysteme-react">🌍 Écosystème React</h2>
+<ul>
+<li>
+<p><strong>React Router</strong> : Sert à gérer la navigation entre pages.<br />
+  Exemple : <code>&lt;Route path="/about" element={&lt;About /&gt;} /&gt;</code>.  </p>
+</li>
+<li>
+<p><strong>Redux / Zustand / Recoil</strong> : Gèrent des états complexes et partagés à grande échelle.<br />
+  Exemple Redux : <code>dispatch({ type: "ADD_TODO", payload: todo })</code>.  </p>
+</li>
+<li>
+<p><strong>Fetch API, Axios, React Query</strong> : Pour récupérer et gérer les données distantes.<br />
+  Exemple : <code>useEffect(() =&gt; { fetch("/api").then(r =&gt; r.json()).then(setData); }, []);</code>.  </p>
+</li>
+</ul>
+<hr />
+<h2 id="performance-optimisation">⚡ Performance &amp; optimisation</h2>
+<ul>
+<li>
+<p><strong>Virtual DOM et réconciliation</strong> : React compare deux arbres virtuels pour n’actualiser que les changements.<br />
+  Exemple : si un seul <code>&lt;li&gt;</code> change, React ne réaffiche pas toute la liste.  </p>
+</li>
+<li>
+<p><strong>React.memo</strong> : Empêche un re-render si les props n’ont pas changé.<br />
+  Exemple : <code>export default React.memo(MyComponent);</code>.  </p>
+</li>
+<li>
+<p><strong>useMemo / useCallback</strong> : Optimisent les calculs et fonctions évitant leur recréation inutile.<br />
+  Exemple : <code>const sorted = useMemo(() =&gt; data.sort(), [data]);</code>.  </p>
+</li>
+<li>
+<p><strong>Lazy loading</strong> : Charger un composant uniquement quand nécessaire avec <code>React.lazy</code> + <code>Suspense</code>.<br />
+  Exemple :  </p>
+</li>
+</ul>
+<pre><code class="language-js">  const About = React.lazy(() =&gt; import(&quot;./About&quot;));
+  &lt;Suspense fallback={&lt;p&gt;Loading...&lt;/p&gt;}&gt;&lt;About /&gt;&lt;/Suspense&gt;
+</code></pre>
+<hr />
+<h2 id="questions-classiques">❓ Questions classiques</h2>
+<ul>
+<li>
+<p>👉 <strong>Différence entre state et props ?</strong><br />
+  Props = données externes immuables, State = données internes modifiables.  </p>
+</li>
+<li>
+<p>👉 <strong>Comment fonctionne le Virtual DOM ?</strong><br />
+  C’est une copie en mémoire du DOM réel, comparée à chaque rendu pour appliquer uniquement les changements nécessaires.  </p>
+</li>
+<li>
+<p>👉 <strong>À quoi sert useEffect et comment éviter les boucles infinies ?</strong><br />
+  Il gère les effets de bord ; on évite les boucles en mettant correctement le tableau de dépendances.  </p>
+</li>
+<li>
+<p>👉 <strong>Différence composant contrôlé / non contrôlé ?</strong><br />
+  Contrôlé = React gère la valeur (<code>value</code>), Non contrôlé = le DOM gère la valeur (<code>ref</code>).  </p>
+</li>
+<li>
+<p>👉 <strong>Comment optimiser les performances React ?</strong><br />
+  Avec <code>React.memo</code>, <code>useMemo</code>, <code>useCallback</code>, lazy loading, et éviter les re-rendus inutiles.  </p>
+</li>
+<li>
+<p>👉 <strong>Qu’est-ce que le lifting state up ?</strong><br />
+  Partager un état entre plusieurs composants en le remontant au parent commun.  </p>
+</li>
+<li>
+<p>👉 <strong>Avantages/inconvénients Redux vs Context ?</strong><br />
+  Redux : puissant pour de gros projets (middlewares, devtools) mais plus complexe ; Context : simple pour des cas légers mais moins adapté aux gros états.  </p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../python/" class="btn btn-neutral float-left" title="Python"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../regex/" class="btn btn-neutral float-right" title="RegEx">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../python/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../regex/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

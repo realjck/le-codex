@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Système de fichiers Linux - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Syst\u00e8me de fichiers Linux";
+        var mkdocs_page_input_path = "dev-ops/linux-file-system.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Système de fichiers Linux</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction-a-la-structure-des-repertoires-sous-linux">Introduction à la structure des répertoires sous Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-principaux-repertoires-sous-linux">Les principaux répertoires sous Linux</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev ops</li>
+      <li class="breadcrumb-item active">Système de fichiers Linux</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="systeme-de-fichiers-linux">Système de fichiers Linux</h1>
+<h2 id="introduction-a-la-structure-des-repertoires-sous-linux">Introduction à la structure des répertoires sous Linux</h2>
+<p>La plupart des utilisateurs de Linux ont déjà vu le répertoire racine (<code>/</code>), mais tous ne comprennent pas nécessairement l'utilité des différents répertoires qu'il contient. Pour un utilisateur venant de Windows, l'exploration du gestionnaire de fichiers sous Linux peut sembler familière au premier abord : on y retrouve des dossiers comme "Documents", "Téléchargements", "Images", et "Vidéos". Cependant, cette familiarité s'estompe rapidement lorsqu'on cherche des répertoires comme "Program Files" ou le lecteur C, omniprésents sous Windows.</p>
+<p>Pour comprendre pourquoi Linux est structuré différemment, il est utile de revenir sur l'histoire des systèmes d'exploitation.</p>
+<ul>
+<li>
+<p><strong>MS-DOS</strong> : Au commencement, il y avait MS-DOS, un système d'exploitation en ligne de commande. On pouvait y exécuter des programmes, des jeux, et des logiciels comme WordPerfect. MS-DOS utilisait des lettres pour désigner les lecteurs : A et B pour les disquettes, et C pour le disque dur principal.</p>
+</li>
+<li>
+<p><strong>Windows</strong> : Windows est venu se greffer par-dessus MS-DOS. Pour démarrer Windows, il fallait taper <code>win</code> dans l'interface en ligne de commande de MS-DOS. Au fil du temps, Microsoft a rendu Windows de plus en plus indépendant de MS-DOS, jusqu'à ce qu'il puisse démarrer sans lui.</p>
+</li>
+</ul>
+<p>Linux, quant à lui, suit les traditions UNIX, ce qui explique plusieurs différences fondamentales avec Windows :</p>
+<ul>
+<li>
+<p><strong>Utilisation du slash (<code>/</code>)</strong> : Contrairement à Windows qui utilise le backslash (<code>\</code>), Linux utilise le slash pour séparer les répertoires.</p>
+</li>
+<li>
+<p><strong>Sensibilité à la casse</strong> : Linux est sensible à la casse, ce qui signifie que "file", "File", et "FILE" sont considérés comme des fichiers différents.</p>
+</li>
+<li>
+<p><strong>Pas de répertoire "Program Files"</strong> : Sous Linux, les applications ne sont pas toutes installées dans un répertoire centralisé comme "Program Files". Elles sont réparties dans divers répertoires en fonction de leur nature et de leur utilisation.</p>
+</li>
+</ul>
+<h2 id="les-principaux-repertoires-sous-linux">Les principaux répertoires sous Linux</h2>
+<p>La structure des répertoires sous Linux est définie par le Filesystem Hierarchy Standard (FHS), bien que toutes les distributions ne suivent pas ce standard à la lettre. Voici une description détaillée des principaux répertoires :</p>
+<ul>
+<li>
+<p><strong><code>/bin</code></strong> : Contient les binaires essentiels au fonctionnement du système, accessibles à tous les utilisateurs. On y trouve des commandes de base comme <code>ls</code>, <code>cat</code>, <code>cp</code>, et <code>mv</code>.</p>
+</li>
+<li>
+<p><strong><code>/sbin</code></strong> : Contient les binaires système, utilisés principalement par l'administrateur pour des tâches de maintenance et de réparation. Par exemple, <code>ifconfig</code> ou <code>reboot</code>.</p>
+</li>
+<li>
+<p><strong><code>/boot</code></strong> : Contient les fichiers nécessaires au démarrage du système, comme les chargeurs de démarrage (GRUB) et le noyau Linux.</p>
+</li>
+<li>
+<p><strong><code>/dev</code></strong> : Contient les fichiers de périphériques. Sous Linux, tout est considéré comme un fichier, y compris les périphériques matériels. Par exemple, <code>/dev/sda</code> représente le premier disque dur.</p>
+</li>
+<li>
+<p><strong><code>/etc</code></strong> : Contient les fichiers de configuration système. Par exemple, les fichiers de configuration des services réseau, les listes de sources pour les gestionnaires de paquets, etc.</p>
+</li>
+<li>
+<p><strong><code>/home</code></strong> : Répertoire personnel des utilisateurs, où chaque utilisateur dispose de son propre sous-répertoire pour stocker ses fichiers et paramètres personnels.</p>
+</li>
+<li>
+<p><strong><code>/lib</code>, <code>/lib32</code>, <code>/lib64</code></strong> : Contiennent les bibliothèques partagées nécessaires aux binaires situés dans <code>/bin</code> et <code>/sbin</code>.</p>
+</li>
+<li>
+<p><strong><code>/media</code> et <code>/mnt</code></strong> : Points de montage pour les périphériques amovibles. <code>/media</code> est souvent utilisé pour le montage automatique des périphériques, tandis que <code>/mnt</code> est utilisé pour les montages manuels.</p>
+</li>
+<li>
+<p><strong><code>/opt</code></strong> : Contient des logiciels optionnels, souvent installés manuellement ou provenant de fournisseurs tiers.</p>
+</li>
+<li>
+<p><strong><code>/proc</code></strong> : Système de fichiers virtuel contenant des informations sur les processus en cours d'exécution et les ressources système. Par exemple, <code>/proc/cpuinfo</code> contient des informations sur le processeur.</p>
+</li>
+<li>
+<p><strong><code>/root</code></strong> : Répertoire personnel de l'utilisateur root, l'administrateur système.</p>
+</li>
+<li>
+<p><strong><code>/run</code></strong> : Répertoire temporaire en RAM, utilisé pour stocker des informations d'exécution pour les processus démarrés tôt dans le processus de démarrage.</p>
+</li>
+<li>
+<p><strong><code>/snap</code></strong> : Contient les paquets Snap, un format de paquet auto-suffisant utilisé principalement par Ubuntu.</p>
+</li>
+<li>
+<p><strong><code>/srv</code></strong> : Contient les données des services, comme les fichiers d'un serveur web ou FTP.</p>
+</li>
+<li>
+<p><strong><code>/sys</code></strong> : Interface avec le noyau pour des informations sur le matériel et les périphériques. Par exemple, des informations sur les périphériques USB connectés.</p>
+</li>
+<li>
+<p><strong><code>/tmp</code></strong> : Répertoire temporaire pour les fichiers utilisés pendant une session. Les fichiers dans <code>/tmp</code> sont généralement supprimés au redémarrage du système.</p>
+</li>
+<li>
+<p><strong><code>/usr</code></strong> : Contient les applications et bibliothèques utilisateur. Par exemple, <code>/usr/bin</code> contient les binaires des applications utilisateur.</p>
+</li>
+<li>
+<p><strong><code>/var</code></strong> : Contient des fichiers variables, comme les logs système, les bases de données, et les files d'attente d'impression.</p>
+</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>Bien que la structure des répertoires sous Linux puisse sembler complexe au premier abord, elle permet une gestion efficace des ressources et des applications. Les gestionnaires de paquets, comme <code>apt</code> pour Debian/Ubuntu ou <code>yum</code> pour Fedora, facilitent l'installation, la mise à jour, et la suppression des logiciels en suivant ces conventions.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../docker/" class="btn btn-neutral float-left" title="Docker"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../nginx-ssl/" class="btn btn-neutral float-right" title="Configuration d'un serveur web Nginx avec SSL">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../docker/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../nginx-ssl/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

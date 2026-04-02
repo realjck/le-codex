@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Prompt Engineering - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Prompt Engineering";
+        var mkdocs_page_input_path = "ia-generative/prompt-engineering.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Prompt Engineering</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#anatomie-dun-bon-prompt">Anatomie d'un bon prompt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#zero-shot-vs-few-shot">Zero-shot vs Few-shot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#chain-of-thought-cot">Chain-of-Thought (CoT)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#roles-et-personnalite-role-prompting">Rôles et personnalité (Role Prompting)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#structurer-les-sorties">Structurer les sorties</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prompts-pour-le-code">Prompts pour le code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recapitulatif-des-techniques">Récapitulatif des techniques</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Ia generative</li>
+      <li class="breadcrumb-item active">Prompt Engineering</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="prompt-engineering">Prompt Engineering</h1>
+<p>Le prompt engineering consiste à formuler les instructions envoyées à un LLM pour obtenir des résultats précis, fiables et reproductibles. C'est la compétence la plus rentable à développer : elle s'applique à tous les modèles et tous les outils.</p>
+<hr />
+<h2 id="anatomie-dun-bon-prompt">Anatomie d'un bon prompt</h2>
+<p>Un prompt peut contenir jusqu'à quatre éléments :</p>
+<pre><code>[Rôle]       Tu es un développeur senior spécialisé en Python.
+[Contexte]   Je travaille sur une API REST avec FastAPI.
+[Tâche]      Écris une fonction qui valide un email.
+[Contrainte] Utilise uniquement la bibliothèque standard. Ajoute des docstrings.
+</code></pre>
+<p>Tous ne sont pas toujours nécessaires — mais plus la tâche est complexe, plus les préciser améliore le résultat.</p>
+<hr />
+<h2 id="zero-shot-vs-few-shot">Zero-shot vs Few-shot</h2>
+<h3 id="zero-shot-aucun-exemple">Zero-shot — aucun exemple</h3>
+<p>On demande directement, sans montrer d'exemple.</p>
+<pre><code>Classifie ce commentaire comme positif, négatif ou neutre :
+&quot;La livraison était rapide mais l'emballage abîmé.&quot;
+</code></pre>
+<p>Suffisant pour les tâches simples ou bien connues du modèle.</p>
+<h3 id="few-shot-avec-exemples">Few-shot — avec exemples</h3>
+<p>On montre des exemples du résultat attendu avant de poser la vraie question.</p>
+<pre><code>Classifie chaque commentaire comme positif, négatif ou neutre.
+
+Commentaire : &quot;Excellent produit, je recommande !&quot;
+Classification : positif
+
+Commentaire : &quot;Délai de livraison beaucoup trop long.&quot;
+Classification : négatif
+
+Commentaire : &quot;Le produit est conforme à la description.&quot;
+Classification : neutre
+
+Commentaire : &quot;La livraison était rapide mais l'emballage abîmé.&quot;
+Classification :
+</code></pre>
+<p>Le few-shot est particulièrement utile pour :
+- Formater des sorties précises
+- Imposer un ton ou un style
+- Guider des tâches de classification</p>
+<hr />
+<h2 id="chain-of-thought-cot">Chain-of-Thought (CoT)</h2>
+<p>Demander au modèle de <strong>raisonner étape par étape</strong> avant de donner une réponse. Améliore significativement les résultats sur les tâches logiques, mathématiques ou multi-étapes.</p>
+<h3 id="sans-cot">Sans CoT</h3>
+<pre><code>Un train part à 9h et roule à 120 km/h. Il doit parcourir 300 km.
+À quelle heure arrive-t-il ?
+</code></pre>
+<h3 id="avec-cot">Avec CoT</h3>
+<pre><code>Un train part à 9h et roule à 120 km/h. Il doit parcourir 300 km.
+Réfléchis étape par étape puis donne l'heure d'arrivée.
+</code></pre>
+<h3 id="cot-force-avec-declencheur">CoT forcé avec déclencheur</h3>
+<p>Ajouter simplement <code>Réfléchis étape par étape.</code> ou <code>Think step by step.</code> à la fin d'un prompt déclenche automatiquement le raisonnement chaîné.</p>
+<hr />
+<h2 id="roles-et-personnalite-role-prompting">Rôles et personnalité (Role Prompting)</h2>
+<p>Donner un rôle au modèle améliore la qualité et le ton des réponses.</p>
+<pre><code>Tu es un architecte logiciel senior avec 15 ans d'expérience en systèmes distribués.
+Revois cette architecture et identifie les points de défaillance potentiels.
+</code></pre>
+<pre><code>Tu es un professeur pédagogue qui explique des concepts complexes
+à des débutants sans jargon technique.
+Explique ce qu'est une API REST.
+</code></pre>
+<p>Le rôle influence :
+- Le niveau de détail
+- Le vocabulaire utilisé
+- Le point de vue adopté (critique, bienveillant, exhaustif…)</p>
+<hr />
+<h2 id="structurer-les-sorties">Structurer les sorties</h2>
+<h3 id="forcer-un-format-json">Forcer un format JSON</h3>
+<pre><code>Extrais les informations de ce texte et retourne-les en JSON.
+N'inclus rien d'autre que le JSON dans ta réponse.
+
+Format attendu :
+{
+  &quot;nom&quot;: &quot;...&quot;,
+  &quot;email&quot;: &quot;...&quot;,
+  &quot;entreprise&quot;: &quot;...&quot;
+}
+
+Texte : &quot;Bonjour, je m'appelle Marie Dupont, développeuse chez Acme Corp.
+Mon email est marie@acme.fr&quot;
+</code></pre>
+<h3 id="forcer-un-format-markdown-structure">Forcer un format Markdown structuré</h3>
+<pre><code>Génère un rapport d'analyse avec exactement cette structure :
+
+## Résumé
+(2-3 phrases)
+
+## Points positifs
+(liste à puces)
+
+## Points d'amélioration
+(liste à puces)
+
+## Recommandation
+(1 paragraphe)
+</code></pre>
+<h3 id="limiter-la-longueur">Limiter la longueur</h3>
+<pre><code>Explique Docker en 3 phrases maximum, sans jargon.
+</code></pre>
+<pre><code>Donne-moi 5 idées de noms pour une app de gestion de tâches.
+Une idée par ligne, sans explication.
+</code></pre>
+<hr />
+<h2 id="prompts-pour-le-code">Prompts pour le code</h2>
+<h3 id="generer-du-code">Générer du code</h3>
+<pre><code>Écris une fonction Python qui :
+- Prend en entrée une liste de dictionnaires avec les clés &quot;nom&quot; et &quot;score&quot;
+- Retourne les 3 meilleurs scores triés par ordre décroissant
+- Gère le cas où la liste est vide
+
+Ajoute des type hints et une docstring.
+</code></pre>
+<h3 id="deboguer">Déboguer</h3>
+<pre><code>Ce code Python lève une KeyError. Identifie le problème et propose une correction.
+Explique pourquoi l'erreur se produit.
+
+```python
+def get_user_name(users, user_id):
+    return users[user_id][&quot;name&quot;]
+
+users = {1: {&quot;username&quot;: &quot;alice&quot;}}
+print(get_user_name(users, 1))
+</code></pre>
+<pre><code>
+### Refactoriser
+
+</code></pre>
+<p>Refactorise ce code pour améliorer la lisibilité.
+Garde exactement le même comportement.
+Explique chaque changement et pourquoi il améliore le code.</p>
+<pre><code>
+### Revue de code
+
+</code></pre>
+<p>Fais une revue de code de la fonction suivante.
+Identifie : les bugs potentiels, les problèmes de performance,
+les violations de bonnes pratiques Python.
+Sois direct et concis.</p>
+<pre><code>
+---
+
+## Techniques avancées
+
+### Décomposition de tâche
+
+Pour les tâches complexes, décomposer explicitement en sous-tâches.
+
+</code></pre>
+<p>Pour créer cette feature, procède dans cet ordre :
+1. D'abord, lis les fichiers concernés et décris l'architecture existante
+2. Ensuite, propose un plan de modification
+3. Attends ma validation avant d'écrire le moindre code
+4. Implémente en commençant par les tests</p>
+<pre><code>
+### Self-consistency (auto-vérification)
+
+Demander au modèle de vérifier son propre travail.
+
+</code></pre>
+<p>Écris une fonction qui calcule le PGCD de deux nombres.
+Ensuite, teste mentalement ta fonction avec les cas : (12, 8), (7, 0), (0, 0).
+Corrige si nécessaire.</p>
+<pre><code>
+### Contrôle de la certitude
+
+</code></pre>
+<p>Réponds à la question suivante. Si tu n'es pas certain,
+dis explicitement "Je ne suis pas sûr" plutôt que d'inventer.</p>
+<p>Quelle est la date de sortie de Python 3.13 ?</p>
+<pre><code>
+### Persona contradictoire (Devil's Advocate)
+
+</code></pre>
+<p>Je vais te présenter mon architecture technique.
+Joue le rôle d'un développeur sceptique et identifie tous les problèmes potentiels.
+Sois critique, pas complaisant.</p>
+<pre><code>
+### Reformulation pour clarifier
+
+Si le modèle donne une réponse trop vague :
+
+</code></pre>
+<p>Ta réponse est trop générale. Donne-moi un exemple concret avec du vrai code.</p>
+<pre><code>
+</code></pre>
+<p>C'est trop long. Résume en 5 points essentiels.</p>
+<pre><code>
+</code></pre>
+<p>Tu n'as pas répondu à ma question. Ma question était : [reformuler]</p>
+<pre><code>
+---
+
+## Itérer un prompt
+
+Un prompt rarement parfait du premier coup. Voici le cycle à suivre :
+
+</code></pre>
+<ol>
+<li>Prompt initial simple
+        ↓</li>
+<li>Analyser ce qui manque ou cloche dans la réponse
+        ↓</li>
+<li>Ajouter une contrainte ou précision ciblée
+        ↓</li>
+<li>Répéter jusqu'au résultat souhaité
+        ↓</li>
+<li>Consolider le prompt final dans un fichier réutilisable</li>
+</ol>
+<pre><code>
+### Exemple d'itération
+
+**V1 — trop vague :**
+</code></pre>
+<p>Écris une description de produit pour des écouteurs.</p>
+<pre><code>
+**V2 — avec contexte :**
+</code></pre>
+<p>Écris une description de produit pour des écouteurs sans fil haut de gamme.
+Cible : audiophiles de 30-45 ans.</p>
+<pre><code>
+**V3 — avec format :**
+</code></pre>
+<p>Écris une description de produit pour des écouteurs sans fil haut de gamme.
+Cible : audiophiles de 30-45 ans.
+Format : accroche (1 phrase) + 3 arguments clés (liste) + call-to-action (1 phrase).
+Ton : expert mais accessible. 120 mots maximum.</p>
+<pre><code>
+---
+
+## Anti-patterns à éviter
+
+| Ce qu'on écrit | Problème | Ce qu'il faut écrire |
+|---|---|---|
+| &quot;Écris un bon code&quot; | Trop vague | &quot;Écris une fonction Python avec type hints, docstring et gestion des erreurs&quot; |
+| &quot;Fais quelque chose sur les tests&quot; | Ambigu | &quot;Écris les tests unitaires de la fonction `calculate_tax()`&quot; |
+| &quot;Explique tout&quot; | Pas de scope | &quot;Explique en 5 points comment fonctionne l'authentification JWT&quot; |
+| &quot;Et si tu pouvais…&quot; | Trop conditionnel | Formuler comme une instruction directe |
+| Question ouverte + tâche complexe | Résultat dilué | Séparer en plusieurs prompts distincts |
+
+---
+
+## Prompts système utiles (réutilisables)
+
+### Assistant développeur
+
+</code></pre>
+<p>Tu es un développeur senior full-stack.
+- Réponds toujours en français
+- Fournis du code fonctionnel et testé
+- Signale les cas limites et erreurs potentielles
+- Si la question est ambiguë, demande une clarification avant de coder
+- Préfère la lisibilité à la concision</p>
+<pre><code>
+### Relecteur de code strict
+
+</code></pre>
+<p>Tu es un relecteur de code exigeant.
+Analyse le code fourni et liste :
+1. Les bugs (critiques en premier)
+2. Les problèmes de sécurité
+3. Les problèmes de performance
+4. Les violations de conventions
+Sois direct. Ne complimente pas. Ne propose des améliorations cosmétiques que si tout le reste est correct.</p>
+<pre><code>
+### Traducteur technique
+
+</code></pre>
+<p>Tu es un traducteur technique expert.
+Traduis le texte de l'anglais vers le français.
+Conserve les termes techniques en anglais quand leur traduction française n'est pas d'usage courant.
+Ne traduis pas les noms de variables, fonctions ou fichiers.
+```</p>
+<hr />
+<h2 id="recapitulatif-des-techniques">Récapitulatif des techniques</h2>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Quand l'utiliser</th>
+<th>Gain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Zero-shot</strong></td>
+<td>Tâches simples et communes</td>
+<td>Rapidité</td>
+</tr>
+<tr>
+<td><strong>Few-shot</strong></td>
+<td>Format précis, ton spécifique</td>
+<td>Cohérence</td>
+</tr>
+<tr>
+<td><strong>Chain-of-Thought</strong></td>
+<td>Logique, maths, multi-étapes</td>
+<td>Précision</td>
+</tr>
+<tr>
+<td><strong>Role prompting</strong></td>
+<td>Adapter ton et expertise</td>
+<td>Qualité</td>
+</tr>
+<tr>
+<td><strong>Décomposition</strong></td>
+<td>Tâches complexes</td>
+<td>Contrôle</td>
+</tr>
+<tr>
+<td><strong>Auto-vérification</strong></td>
+<td>Code, calculs</td>
+<td>Fiabilité</td>
+</tr>
+<tr>
+<td><strong>Contrôle certitude</strong></td>
+<td>Questions factuelles</td>
+<td>Moins d'hallucinations</td>
+</tr>
+<tr>
+<td><strong>Itération</strong></td>
+<td>Tout prompt important</td>
+<td>Amélioration continue</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ollama/" class="btn btn-neutral float-left" title="Configurer Ollama"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../liens-utiles/low-code-no-code/" class="btn btn-neutral float-right" title="Low-code &amp; no-code">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ollama/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../liens-utiles/low-code-no-code/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

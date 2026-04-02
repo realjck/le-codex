@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>CSS - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "CSS";
+        var mkdocs_page_input_path = "dev-langages/css.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">CSS</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#selecteurs">Sélecteurs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#box-model">Box Model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pseudo-classes-et-pseudo-elements">Pseudo-classes et Pseudo-éléments</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variables-css">Variables CSS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#flexbox">Flexbox</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#grid">Grid</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#positionnement">Positionnement</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#media-queries">Media Queries</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transitions-et-animations">Transitions et Animations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#typographie">Typographie</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">CSS</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="css">CSS</h1>
+<p>CSS (Cascading Style Sheets) est le langage de mise en forme des pages web. Il permet de contrôler l'apparence des éléments HTML : couleurs, typographie, espacements, disposition et animations. Cette fiche couvre les concepts fondamentaux et les techniques les plus utilisées.</p>
+<h2 id="selecteurs">Sélecteurs</h2>
+<p>Les sélecteurs permettent de cibler les éléments HTML à styliser.</p>
+<pre><code class="language-css">/* Élément */
+p { color: gray; }
+
+/* Classe */
+.card { border-radius: 8px; }
+
+/* Identifiant */
+#header { background: #333; }
+
+/* Descendant */
+.nav a { text-decoration: none; }
+
+/* Enfant direct */
+ul &gt; li { list-style: none; }
+
+/* Attribut */
+input[type=&quot;text&quot;] { border: 1px solid #ccc; }
+
+/* Combinaison */
+h1, h2, h3 { font-family: sans-serif; }
+</code></pre>
+<h2 id="box-model">Box Model</h2>
+<p>Chaque élément HTML est une boîte composée de quatre couches : <code>content</code>, <code>padding</code>, <code>border</code> et <code>margin</code>. Par défaut, la largeur définie ne comprend pas le padding et la bordure — <code>box-sizing: border-box</code> corrige ce comportement.</p>
+<pre><code class="language-css">* {
+  box-sizing: border-box; /* recommandé globalement */
+}
+
+.box {
+  width: 300px;
+  padding: 16px;
+  border: 2px solid #ddd;
+  margin: 8px auto;
+}
+</code></pre>
+<h2 id="pseudo-classes-et-pseudo-elements">Pseudo-classes et Pseudo-éléments</h2>
+<p>Les pseudo-classes ciblent des états dynamiques, les pseudo-éléments créent des sous-parties d'un élément.</p>
+<pre><code class="language-css">/* Pseudo-classes */
+a:hover { color: blue; }
+input:focus { outline: 2px solid royalblue; }
+li:nth-child(odd) { background: #f5f5f5; }
+p:not(.intro) { font-size: 0.9rem; }
+
+/* Pseudo-éléments */
+h2::before {
+  content: &quot;# &quot;;
+  color: #aaa;
+}
+
+p::first-line {
+  font-weight: bold;
+}
+</code></pre>
+<h2 id="variables-css">Variables CSS</h2>
+<p>Les propriétés personnalisées (custom properties) permettent de centraliser les valeurs réutilisables comme les couleurs ou les tailles.</p>
+<pre><code class="language-css">:root {
+  --color-primary: #3b82f6;
+  --color-text: #1f2937;
+  --border-radius: 8px;
+  --spacing-md: 1rem;
+}
+
+.button {
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+}
+</code></pre>
+<h2 id="flexbox">Flexbox</h2>
+<p>Flexbox est le système de mise en page unidimensionnel (ligne ou colonne) de CSS. Il s'applique sur le conteneur parent.</p>
+<pre><code class="language-css">.container {
+  display: flex;
+  flex-direction: row;        /* row | column */
+  justify-content: center;    /* axe principal : flex-start | flex-end | center | space-between | space-around */
+  align-items: center;        /* axe secondaire : flex-start | flex-end | center | stretch */
+  flex-wrap: wrap;            /* les enfants passent à la ligne si nécessaire */
+  gap: 16px;
+}
+
+/* Sur les enfants */
+.item {
+  flex: 1;          /* grandit pour occuper l'espace disponible */
+  flex-shrink: 0;   /* ne rétrécit pas */
+  align-self: flex-start; /* override de align-items pour cet élément */
+}
+</code></pre>
+<h2 id="grid">Grid</h2>
+<p>CSS Grid est le système de mise en page bidimensionnel (lignes ET colonnes).</p>
+<pre><code class="language-css">.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+  grid-template-rows: auto;
+  gap: 24px;
+}
+
+/* Positionnement d'un élément sur la grille */
+.featured {
+  grid-column: 1 / 3;   /* s'étend de la colonne 1 à 3 */
+  grid-row: 1 / 2;
+}
+
+/* Grille responsive sans media query */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+</code></pre>
+<h2 id="positionnement">Positionnement</h2>
+<pre><code class="language-css">/* static : par défaut, dans le flux normal */
+/* relative : décalé par rapport à sa position normale */
+.tooltip-parent {
+  position: relative;
+}
+
+/* absolute : retiré du flux, positionné par rapport au parent &quot;relative&quot; le plus proche */
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+/* fixed : positionné par rapport à la fenêtre, reste en place au scroll */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* sticky : reste dans le flux jusqu'à atteindre un seuil, puis se fixe */
+.section-header {
+  position: sticky;
+  top: 64px;
+}
+</code></pre>
+<h2 id="media-queries">Media Queries</h2>
+<p>Les media queries permettent d'adapter le style selon la taille de l'écran (approche Mobile First recommandée).</p>
+<pre><code class="language-css">/* Mobile first : styles de base pour petits écrans */
+.container {
+  padding: 16px;
+  flex-direction: column;
+}
+
+/* Tablette et plus */
+@media (min-width: 768px) {
+  .container {
+    padding: 32px;
+    flex-direction: row;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+}
+
+/* Préférence de thème sombre */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111;
+    color: #f5f5f5;
+  }
+}
+</code></pre>
+<h2 id="transitions-et-animations">Transitions et Animations</h2>
+<h3 id="transitions">Transitions</h3>
+<p>Les transitions s'appliquent lors du changement d'un état (ex. <code>:hover</code>).</p>
+<pre><code class="language-css">.button {
+  background-color: #3b82f6;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+</code></pre>
+<h3 id="animations">Animations</h3>
+<p>Les animations permettent des séquences plus complexes via <code>@keyframes</code>.</p>
+<pre><code class="language-css">@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.4s ease forwards;
+}
+</code></pre>
+<h2 id="typographie">Typographie</h2>
+<pre><code class="language-css">body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;       /* base */
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); } /* taille fluide */
+h2 { font-size: 1.75rem; font-weight: 700; }
+
+/* Tronquer le texte sur une ligne */
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Limiter à N lignes */
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Pour aller plus loin, consulter la référence complète sur <a href="https://developer.mozilla.org/fr/docs/Web/CSS">MDN Web Docs</a> et l'outil interactif <a href="https://css-tricks.com/">CSS Tricks</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../angular/" class="btn btn-neutral float-left" title="Angular"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../git/" class="btn btn-neutral float-right" title="Git">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../angular/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../git/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

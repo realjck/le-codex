@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Git - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Git";
+        var mkdocs_page_input_path = "dev-langages/git.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Git</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#commandes-principales">Commandes principales</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-branches">Les branches</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-connexions-aux-depots-distants-remotes-ou-pairs">Les connexions aux dépôts distants (remotes ou pairs)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pull-push">Pull &amp; Push</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-worktrees">Les worktrees</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conflits-tag-stash-et">Conflits, tag, stash et +</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#connexion-par-cles-ssh">Connexion par clés SSH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#redaction-des-commit-prefixes">Rédaction des commit, préfixes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#memo-commandes-utiles-cheat-sheet">Mémo commandes utiles (cheat sheet)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#liens-et">Liens et +</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">Git</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="git">Git</h1>
+<p>Git est un système de contrôle de version distribué, permettant de suivre les modifications apportées à un ensemble de fichiers (un "dépôt"). Il offre un moyen efficace de collaborer sur des projets en équipe et de maintenir un historique complet des modifications.</p>
+<p>Cette fiche recense les principales commandes Git. Il s'agit d'une liste non exhaustive des fonctionnalités de cet outil.</p>
+<p>L'intégralité du livre Pro Git, écrit par Scott Chacon et Ben Straub est disponible à cette adresse <a href="https://git-scm.com/book/fr/v2">https://git-scm.com/book/fr/v2</a></p>
+<h2 id="commandes-principales">Commandes principales</h2>
+<h3 id="initialisation-dun-nouveau-depot">Initialisation d'un nouveau dépôt :</h3>
+<pre><code class="language-Shell">git init
+</code></pre>
+<p>Initialise un nouveau dépôt Git dans le répertoire courant.</p>
+<h3 id="parametrer-ses-informations-utilisateur-name-email">Paramétrer ses informations utilisateur (<code>name,</code> <code>email</code>) :</h3>
+<pre><code class="language-Bash">git config --global user.name &quot;NouveauNom&quot;
+
+# au niveau du dépôt seulement :
+git config user.name &quot;NouveauNom&quot;
+</code></pre>
+<h3 id="clonage-dun-depot-existant-a-linterieur-dun-nouveau-dossier">Clonage d'un dépôt existant à l’intérieur d’un nouveau dossier :</h3>
+<pre><code class="language-Shell">git clone &lt;url&gt;
+</code></pre>
+<h3 id="une-fois-dans-le-dossier-ajout-de-fichiers-au-suivi-de-git">Une fois dans le dossier : ajout de fichiers au suivi de Git :</h3>
+<pre><code class="language-Shell">git add &lt;nom_fichier&gt;
+</code></pre>
+<h3 id="ajoute-tous-les-fichiers-modifies-a-partir-du-dossier-courant-au-suivi-de-git">Ajoute tous les fichiers modifiés à partir du dossier courant au suivi de Git :</h3>
+<pre><code class="language-Shell">git add .
+</code></pre>
+<h3 id="voir-les-fichiers-du-suivi-de-git-prets-a-etre-valides">Voir les fichiers du suivi de Git prêts à être validés :</h3>
+<pre><code class="language-Bash">git status
+</code></pre>
+<p>(Affiche l'état actuel du dépôt, montrant les fichiers modifiés, en attente de commit, etc.)</p>
+<h3 id="valider-les-modifications">Valider les modifications :</h3>
+<pre><code class="language-Shell">git commit -m &quot;message du commit&quot;
+</code></pre>
+<h3 id="voir-lhistorique-des-commits">Voir l'historique des commits :</h3>
+<pre><code class="language-Shell">git log
+</code></pre>
+<p>Affiche l'historique des commits effectués, avec les informations de chaque commit.</p>
+<h3 id="revenir-a-une-version-precedente">Revenir à une version précédente :</h3>
+<blockquote>
+<p>Attention : faire cela passe en mode "tête détachée", pour revenir à l'état initial faire <code>git checkout &lt;nom-branche&gt;</code></p>
+</blockquote>
+<pre><code class="language-Shell">git checkout &lt;identifiant_commit&gt;
+</code></pre>
+<h3 id="pousser-les-mises-a-jour-de-toutes-les-branches-du-depot">Pousser les mises à jour de toutes les branches du dépôt :</h3>
+<pre><code class="language-Bash">git push origin --all
+</code></pre>
+<h2 id="les-branches">Les branches</h2>
+<p>Une branche est essentiellement un pointeur mobile vers une sauvegarde spécifique. Elle permet de travailler sur différentes versions du projet en parallèle.</p>
+<h3 id="voir-les-branches">Voir les branches :</h3>
+<p>(<code>-a</code> : toutes les branches du dépôt, distantes et locales)</p>
+<pre><code class="language-Bash">git branch -a
+</code></pre>
+<h3 id="cree-une-nouvelle-branche">Crée une nouvelle branche :</h3>
+<pre><code class="language-Shell">git branch &lt;nom_branche&gt;
+</code></pre>
+<h3 id="changer-le-nom-de-la-branche-en-cours">Changer le nom de la branche en cours :</h3>
+<pre><code class="language-Bash">git branch -m &lt;new_branch_name&gt;
+
+# renommer dans le dépôt distant :
+git push origin HEAD
+</code></pre>
+<h3 id="verifier-le-nom-de-la-branche-distante-associee-a-votre-branche-locale">Vérifier le nom de la branche distante associée à votre branche locale :</h3>
+<pre><code class="language-Bash">git branch -vv
+</code></pre>
+<h3 id="supprimer-une-branche-locale">Supprimer une branche locale :</h3>
+<pre><code class="language-Shell">git branch -d &lt;nom_branche&gt;
+</code></pre>
+<h3 id="supprimer-la-branche-dans-le-depot-irreversible">Supprimer la branche dans le dépôt (⚠️ irréversible) :</h3>
+<pre><code class="language-Bash">git push origin --delete &lt;nom-de-la-branche&gt;
+</code></pre>
+<h3 id="changer-de-branche">Changer de branche :</h3>
+<pre><code class="language-Shell">git checkout &lt;branche&gt;
+</code></pre>
+<p>Permet de passer à une branche spécifique.</p>
+<h3 id="fusionner-individuellement-des-fichiers-dune-autre-branche">Fusionner individuellement des fichiers d’une autre branche :</h3>
+<pre><code class="language-Bash">git checkout --patch &lt;branche_source&gt; .\path\filename.ext
+</code></pre>
+<h3 id="fusionner-des-branches">Fusionner des branches :</h3>
+<p>⚠️ Avant de fusionner il est utile de faire un git status pour s’assurer être bien à jour sur sa branche actuelle en vue d’accueillir la fusion.  </p>
+<pre><code class="language-Shell">git merge &lt;branche_source&gt;
+</code></pre>
+<p>Fusionne la <code>branche_source</code> dans la branche actuelle.</p>
+<h2 id="les-connexions-aux-depots-distants-remotes-ou-pairs">Les connexions aux dépôts distants (remotes ou pairs)</h2>
+<p>Une remote (pair) est une référence à un autre dépôt Git situé sur un serveur distant. Elle vous permet de connecter votre dépôt local à un dépôt distant, comme GitHub ou GitLab.</p>
+<h3 id="afficher-les-adresses-des-depots-distants">Afficher les adresses des dépôts distants :</h3>
+<pre><code class="language-Shell">git remote -v
+</code></pre>
+<h3 id="ajouter-une-adresse-de-depot-distant">Ajouter une adresse de dépôt distant :</h3>
+<pre><code class="language-Bash">git remote add &lt;remote_name&gt; &lt;url&gt;
+</code></pre>
+<h3 id="activer-le-suivi-du-depot-distant-sur-la-branche-tracking">Activer le suivi du dépôt distant sur la branche (tracking) :</h3>
+<pre><code class="language-Bash">git branch --set-upstream-to=origin/main main
+</code></pre>
+<h3 id="supprimer-une-adresse-de-depot-distant">Supprimer une adresse de dépôt distant :</h3>
+<pre><code class="language-Shell">git remote rm &lt;remote&gt;
+</code></pre>
+<h3 id="changer-ladresse-dorigine-du-depot">Changer l’adresse d’origine du dépôt :</h3>
+<pre><code class="language-Shell">git remote set-url origin https://github.com/votre-nom/votre-fork
+</code></pre>
+<h3 id="renommer-un-pair">Renommer un pair :</h3>
+<pre><code class="language-Bash">git remote rename &lt;ancien-nom&gt; &lt;nouveau-nom&gt;
+</code></pre>
+<h3 id="ajouter-dautres-pairs">Ajouter d’autres pairs :</h3>
+<pre><code class="language-Shell">git remote add my-upstream https://github.com/votre-nom/votre-fork
+</code></pre>
+<h2 id="pull-push">Pull &amp; Push</h2>
+<h3 id="recuperer-les-mises-a-jour-depuis-un-depot-distant">Récupérer les mises à jour depuis un dépôt distant :</h3>
+<pre><code class="language-Shell">git pull &lt;remote&gt; &lt;branche&gt;
+
+# ou
+
+git pull &lt;remote&gt; &lt;branche&gt; --allow-unrelated-histories
+</code></pre>
+<h3 id="pousser-des-modifications-vers-un-depot-distant">Pousser des modifications vers un dépôt distant :</h3>
+<pre><code class="language-Shell">git push &lt;remote&gt; &lt;branche&gt;
+</code></pre>
+<p>Pousse les commits locaux vers le dépôt distant dans la branche spécifiée.</p>
+<h2 id="les-worktrees">Les worktrees</h2>
+<p>Un worktree Git est un répertoire de travail distinct qui pointe vers un dépôt Git. Il vous permet d'avoir plusieurs environnements de travail basés sur le même dépôt, chacun avec son propre historique de modifications et son propre état de travail.</p>
+<h3 id="creer-un-arbre-de-travail-clone-avec-sa-nouvelle-branche">Créer un arbre de travail (clone) avec sa nouvelle branche :</h3>
+<pre><code class="language-Bash">git worktree add -b &lt;new-branch&gt; ../&lt;folder-name&gt;
+</code></pre>
+<h3 id="renommer-le-nom-de-dossier-dun-worktree">Renommer le nom de dossier d’un worktree :</h3>
+<pre><code class="language-Bash">git worktree move ../&lt;folder-name&gt; ../&lt;new-folder-name&gt;
+</code></pre>
+<h3 id="lister-les-worktrees">Lister les worktrees :</h3>
+<pre><code class="language-Bash">git worktree list
+</code></pre>
+<h3 id="supprimer-un-worktree">Supprimer un worktree :</h3>
+<pre><code class="language-Bash">git worktree remove &lt;folder-name&gt;
+</code></pre>
+<h2 id="conflits-tag-stash-et">Conflits, tag, stash et +</h2>
+<h3 id="resoudre-les-conflits-de-fusion">Résoudre les conflits de fusion :</h3>
+<p>Si une fusion provoque des conflits, éditez les fichiers pour résoudre les conflits, puis effectuez un commit pour finaliser la fusion.</p>
+<p>⚠️ Attention, en cas de fusion Git peut ouvrir l'éditeur de texte Vi pour éditer votre commit. Connaissez les raccourcis.</p>
+<h3 id="revenir-a-letat-du-dernier-commit">Revenir à l’état du dernier commit :</h3>
+<pre><code class="language-Bash"># Déposer tous les éléments du stage :
+git reset
+# Restaurer à l'état du dernier commit :
+git restore .
+</code></pre>
+<h3 id="supprimer-un-fichier-du-depot">Supprimer un fichier du dépôt :</h3>
+<pre><code class="language-Shell"># en le gardant en local:
+git rm --cached &lt;file&gt;
+
+# complètement (distant et local);
+git rm &lt;file&gt;
+</code></pre>
+<h3 id="recuperer-la-version-dun-fichier-dune-autre-branche">Récupérer la version d’un fichier d’une autre branche :</h3>
+<pre><code class="language-Bash">git checkout &lt;branche_source&gt; -- &lt;chemin/vers/le/fichier&gt;
+</code></pre>
+<h3 id="creer-des-etiquettes-tags">Créer des étiquettes (tags) :</h3>
+<pre><code class="language-Shell">git tag -a &lt;nom_etiquette&gt; -m &quot;message de l'étiquette&quot;
+</code></pre>
+<p>Crée une étiquette annotée pour marquer un point spécifique dans l'historique.</p>
+<h3 id="reecrire-lhistorique">Réécrire l'historique :</h3>
+<pre><code class="language-Shell">git rebase &lt;branche&gt;
+</code></pre>
+<p>Réécrit l'historique en basant la branche actuelle sur la branche spécifiée.</p>
+<h3 id="mettre-de-cote-les-modifications">Mettre de côté les modifications :</h3>
+<pre><code class="language-Shell">git stash \#mettre de coté
+
+git stash pop \#réappliquer stash
+</code></pre>
+<p>Met de côté temporairement les modifications non validées pour les sauvegarder et les récupérer ultérieurement.</p>
+<pre><code class="language-Shell">git stash list
+
+git stash drop stash@{0}
+
+git stash clear
+</code></pre>
+<h3 id="voir-les-differences">Voir les différences :</h3>
+<pre><code class="language-Shell">git diff &lt;identifiant_commit&gt; &lt;chemin_du_fichier&gt;
+</code></pre>
+<h2 id="connexion-par-cles-ssh">Connexion par clés SSH</h2>
+<h3 id="cree-une-cle-ajoute-la-cle-a-lagent-du-systeme">Crée une clé / Ajoute la clé à l’agent du système</h3>
+<p><em>(NB : Les clés SSH nécessitent un service SSH actif sur votre système.)</em></p>
+<pre><code class="language-Bash">Le répertoire par défaut des clés est `~/.ssh/`, s'y positionner : `cd ~./ssh/`
+
+# Lister les clés actives :
+ssh-add -l
+
+# Désactiver une clé :
+ssh-add -d &lt;chemin-de-la-clé&gt;
+
+# Créer une clé :
+ssh-keygen
+# (la passphrase est optionnelle)
+
+# Ajouter la clé ssh au système :
+ssh-add ~/.ssh/id_rsa
+
+# Tester la connexion au service
+ssh -T git@github.com
+</code></pre>
+<p>Le fichier sans extension (ex. <code>github_rsa</code>) est votre clé privée. elle ne doit pas être partagée.</p>
+<p>Rajouter/coller ensuite le contenu de votre fichier clé publique <code>github_rsa.pub</code> dans les settings du service (<strong>Pour GitHub :</strong> clic icone profil, onglet “SSH and GPG Keys”)</p>
+<p><strong>NB:</strong> Préférez des clés uniques (ex. : <code>gitlab_rsa</code>, <code>workpc_rsa</code>, <code>nas_rsa</code>, etc.)</p>
+<h2 id="redaction-des-commit-prefixes">Rédaction des commit, préfixes</h2>
+<p>Préfixes les plus courants : <code>feat:</code> , ou <code>fix:</code></p>
+<p>autres : <code>build:</code>, <code>chore:</code>, <code>ci:</code>, <code>docs:</code>, <code>style:</code>, <code>refactor:</code>, <code>perf:</code>, <code>test:</code>, …</p>
+<h3 id="exemple-dun-message-complet">Exemple d’un message complet :</h3>
+<pre><code class="language-Markup">fix: prevent racing of requests
+
+Introduce a request id and a reference to latest request. Dismiss
+incoming responses other than from latest request.
+
+Remove timeouts which were used to mitigate the racing issue but are
+obsolete now.
+
+Reviewed-by: Z
+Refs: \#123
+</code></pre>
+<h3 id="exemple-multiligne-en-cli">Exemple multiligne en cli :</h3>
+<pre><code class="language-Shell">git commit -m &quot;Initial Commit
+
+Create new files with npm init
+Add .gitignore&quot;
+</code></pre>
+<h3 id="conventions-de-nommage">Conventions de nommage :</h3>
+<p><strong>Commits Conventionnels</strong> : Une spécification ajoutant une signification lisible pour l'humain et pour la machine dans les messages des commits</p>
+<p><a href="https://www.conventionalcommits.org/fr/v1.0.0/">https://www.conventionalcommits.org/fr/v1.0.0/</a></p>
+<h2 id="memo-commandes-utiles-cheat-sheet">Mémo commandes utiles (cheat sheet)</h2>
+<h3 id="sortir-les-elements-ajoutes-du-plateau-puis-revenir-a-letat-du-dernier-commit">Sortir les éléments ajoutés du plateau, puis revenir à l’état du dernier commit :</h3>
+<pre><code class="language-Shell">git reset
+git restore .
+</code></pre>
+<h3 id="faire-un-nettoyage">Faire un nettoyage :</h3>
+<p>(Réapplique le <code>.gitignore</code>, supprime les fichiers non suivis, …)</p>
+<pre><code class="language-Bash">git clean -dfx
+</code></pre>
+<h3 id="annuler-la-derniere-sauvegarde">Annuler la dernière sauvegarde :</h3>
+<ul>
+<li>Tout en conservant les modifications dans le répertoire de travail :</li>
+</ul>
+<pre><code class="language-Bash">git reset --soft HEAD^
+</code></pre>
+<ul>
+<li>En supprimant toutes les modifications associées :</li>
+</ul>
+<pre><code class="language-Bash">git reset --hard HEAD^
+</code></pre>
+<p>(Faire ensuite un nettoyage avec <code>git clean -df</code> pour bien resynchroniser votre dossier)</p>
+<h2 id="liens-et">Liens et +</h2>
+<h3 id="guide-contributions-sur-github-fr">Guide contributions sur Github [FR] :</h3>
+<p><a href="https://github.com/firstcontributions/first-contributions/blob/main/translations/README.fr.md">https://github.com/firstcontributions/first-contributions/blob/main/translations/README.fr.md</a></p>
+<h3 id="articles-devto-sur-git-en">Articles <a href="http://dev.to">dev.to</a> sur GIT [EN] :</h3>
+<p><a href="https://dev.to/ello/series/23990">https://dev.to/ello/series/23990</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../css/" class="btn btn-neutral float-left" title="CSS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../html/" class="btn btn-neutral float-right" title="HTML5">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../css/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../html/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

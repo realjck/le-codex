@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Concepts de réseau essentiels - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Concepts de r\u00e9seau essentiels";
+        var mkdocs_page_input_path = "dev-ops/concept-reseau.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Concepts de réseau essentiels</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-notation-cidr-classless-inter-domain-routing">1. Notation CIDR (Classless Inter-Domain Routing)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-ips-publiques-vs-ips-privees">2. IPs Publiques vs. IPs Privées</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-dns-domain-name-system">3. DNS (Domain Name System)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-protocoles-de-transport-tcpudpicmp">4. Protocoles de Transport TCP/UDP/ICMP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-http-https-load-balancer">5. HTTP / HTTPS / Load Balancer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-outils-de-debugdiagnostic">6. Outils de Debug/Diagnostic</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev ops</li>
+      <li class="breadcrumb-item active">Concepts de réseau essentiels</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="concepts-de-reseau-essentiels">Concepts de réseau essentiels</h1>
+<h2 id="1-notation-cidr-classless-inter-domain-routing">1. Notation CIDR (Classless Inter-Domain Routing)</h2>
+<p>Cette notation définit une plage d'adresses IP.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Notation</th>
+<th style="text-align: left;">Signification</th>
+<th style="text-align: left;">Plage d'adresses</th>
+<th style="text-align: left;">Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>/32</code></strong></td>
+<td style="text-align: left;">Une seule adresse IP. (Souvent omis, mais requis dans certains outils/formulaires).</td>
+<td style="text-align: left;">L'adresse commence et se termine à la même adresse.</td>
+<td style="text-align: left;"><code>1.2.3.4/32</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>/24</code></strong></td>
+<td style="text-align: left;">Toutes les adresses IP avec les trois premiers octets identiques.</td>
+<td style="text-align: left;">Contient 256 adresses.</td>
+<td style="text-align: left;"><code>10.0.0.0/24</code> (de <code>10.0.0.1</code> à <code>10.0.0.255</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>/16</code></strong></td>
+<td style="text-align: left;">Toutes les adresses IP avec les deux premiers octets identiques.</td>
+<td style="text-align: left;">Contient 65 536 adresses.</td>
+<td style="text-align: left;"><code>10.0.0.0/16</code> (de <code>10.0.0.1</code> à <code>10.0.255.255</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>/8</code></strong></td>
+<td style="text-align: left;">Toutes les adresses IP avec le premier octet identique.</td>
+<td style="text-align: left;">Contient 16 millions d'adresses. (Rarement utilisé)</td>
+<td style="text-align: left;"><code>10.0.0.0/8</code> (de <code>10.0.0.1</code> à <code>10.255.255.255</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Utilité pour le développeur :</strong> Configurer des firewalls ou des <em>Security Groups</em> sur le cloud.</p>
+<h2 id="2-ips-publiques-vs-ips-privees">2. IPs Publiques vs. IPs Privées</h2>
+<ul>
+<li><strong>IP Privée :</strong> Fonctionne uniquement dans un réseau local (téléphone, ordinateur, tablette connectés à la même box). Elles ne sont pas accessibles depuis Internet.</li>
+<li><strong>IP Publique :</strong> Toute autre adresse IP qui est accessible depuis Internet.</li>
+</ul>
+<h3 id="plages-dadresses-ip-privees-a-reconnaitre">Plages d'Adresses IP Privées à Reconnaître</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Plage</th>
+<th style="text-align: left;">Notation CIDR</th>
+<th style="text-align: left;">Utilisé pour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>192.168.0.0/16</code></strong></td>
+<td style="text-align: left;">Débute par <code>192.168.</code></td>
+<td style="text-align: left;">Le plus souvent utilisé par les box Internet.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>10.0.0.0/8</code></strong></td>
+<td style="text-align: left;">Débute par <code>10.</code></td>
+<td style="text-align: left;">Souvent utilisé dans les réseaux d'entreprise.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>172.16.0.0/12</code></strong></td>
+<td style="text-align: left;">Débute par <code>172.16.</code> jusqu'à <code>172.31.</code></td>
+<td style="text-align: left;">Moins fréquent, mais à reconnaître.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="adresses-ip-speciales">Adresses IP Spéciales</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Adresse/Plage</th>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Utilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>127.0.0.1</code></strong> (et tout le <code>/8</code>)</td>
+<td style="text-align: left;"><strong>Localhost</strong></td>
+<td style="text-align: left;">IP interne à la machine, utilisée pour que deux processus sur la même machine communiquent (ex: un serveur web local).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>169.254.0.0/16</code></strong></td>
+<td style="text-align: left;"><strong>APIPA</strong> (Automatic Private IP Addressing)</td>
+<td style="text-align: left;">Adresse que l'ordinateur s'attribue automatiquement s'il ne parvient pas à obtenir d'IP via un routeur (par exemple, si le câble est débranché ou le routeur est défectueux).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>100.64.0.0/10</code></strong></td>
+<td style="text-align: left;"><strong>CGNAT</strong> (Carrier Grade NAT)</td>
+<td style="text-align: left;">Utilisé pour le <em>tethering</em> (partage de connexion mobile) ou par certains VPNs. C'est une IP privée.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-dns-domain-name-system">3. DNS (Domain Name System)</h2>
+<p>Le DNS est l'annuaire d'Internet. Il permet de traduire un nom de domaine facile à mémoriser (ex: <code>google.com</code>) en une adresse IP (ex: <code>142.250.69.78</code>) qui est l'adresse réelle de destination.</p>
+<h3 id="types-denregistrements-dns-les-plus-courants">Types d'Enregistrements DNS les plus courants</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Type d'Enregistrement</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>A</strong></td>
+<td style="text-align: left;"><em>Address</em> : Fait le lien entre un nom de domaine et une adresse <strong>IP V4</strong>.</td>
+<td style="text-align: left;"><code>serveur.com</code> -&gt; <code>1.2.3.4</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AAAA</strong></td>
+<td style="text-align: left;"><em>Address</em> : Fait le lien entre un nom de domaine et une adresse <strong>IP V6</strong>.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CNAME</strong></td>
+<td style="text-align: left;"><em>Canonical Name</em> : Crée un alias d'un nom de domaine vers un <strong>autre nom de domaine</strong>.</td>
+<td style="text-align: left;"><code>www.youtube.com</code> -&gt; <code>youtube.com</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MX</strong></td>
+<td style="text-align: left;"><em>Mail eXchanger</em> : Indique quel serveur doit recevoir les emails pour le nom de domaine.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>TXT</strong></td>
+<td style="text-align: left;"><em>Text</em> : Utilisé pour des informations diverses (Dkim, Dmarc, SPF pour l'email, preuves de propriété de domaine pour les certificats SSL/TLS).</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-protocoles-de-transport-tcpudpicmp">4. Protocoles de Transport TCP/UDP/ICMP</h2>
+<p>Ces protocoles se situent à la <strong>couche 4 (Transport)</strong> du modèle OSI (ou TCP/IP), juste en dessous des protocoles applicatifs (HTTP, SSH, DNS).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Protocole</th>
+<th style="text-align: left;">Caractéristique principale</th>
+<th style="text-align: left;">Exemples d'utilisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>TCP</strong> (Transmission Control Protocol)</td>
+<td style="text-align: left;"><strong>Fiable</strong> (assure la réception de tous les paquets, dans le bon ordre et sans corruption). Plus lourd en <em>overhead</em>.</td>
+<td style="text-align: left;">HTTP, HTTPS, SSH, FTP, POP, IMAP.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>UDP</strong> (User Datagram Protocol)</td>
+<td style="text-align: left;"><strong>Rapide</strong> (optimisé pour la latence). Moins fiable (les paquets peuvent être perdus ou arriver dans le désordre). Moins d'<em>overhead</em>.</td>
+<td style="text-align: left;">VoIP, jeux en ligne (position), DNS (pour les requêtes courtes et rapides).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ICMP</strong> (Internet Control Message Protocol)</td>
+<td style="text-align: left;"><strong>Diagnostic</strong> (ne transporte pas de données applicatives).</td>
+<td style="text-align: left;">Outil <code>ping</code>. Permet de tester la connectivité réseau entre deux machines.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ports-de-communication">Ports de Communication</h3>
+<ul>
+<li>Les ports vont de 1 à 65535.</li>
+<li>Les <strong>1024 premiers ports</strong> sont généralement réservés (sur Linux, il faut être <em>root</em> pour les utiliser) :<ul>
+<li>Port 80 : HTTP</li>
+<li>Port 22 : SSH</li>
+<li>Port 21 : FTP</li>
+<li>Port 53 : DNS</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-http-https-load-balancer">5. HTTP / HTTPS / Load Balancer</h2>
+<h3 id="protocole-http-hypertext-transfer-protocol">Protocole HTTP (Hypertext Transfer Protocol)</h3>
+<p>Le protocole HTTP est textuel et est utilisé par la plupart des applications web et API.</p>
+<p><strong>Structure d'une requête HTTP manuelle (Telnet sur le port 80) :</strong>
+1.  <strong>Verbe :</strong> <code>GET</code>, <code>POST</code>, <code>DELETE</code>, <code>PUT</code>, etc.
+2.  <strong>Ressource :</strong> <code>/</code> (racine) ou <code>/index.html</code>.
+3.  <strong>Version du Protocole :</strong> <code>HTTP/1.1</code> (le plus courant manuellement).
+4.  <strong>Header <code>Host</code> :</strong> Indique le site web demandé (<code>Host: www.google.com</code>). Ceci est crucial car un seul serveur IP peut héberger plusieurs sites web.
+5.  <strong>Corps de la réponse :</strong> Le serveur répond avec des <em>headers</em> (incluant les codes de réponse) et le corps de la page web.</p>
+<p><strong>Codes de Réponse HTTP :</strong>
+* <strong>200 OK :</strong> La requête a réussi.
+* <strong>301 Moved Permanently :</strong> Redirection. Le serveur demande au client de faire une nouvelle requête vers l'URL spécifiée.</p>
+<h3 id="https-hypertext-transfer-protocol-secure">HTTPS (Hypertext Transfer Protocol Secure)</h3>
+<ul>
+<li>C'est le protocole HTTP encapsulé dans une couche de chiffrement : <strong>TLS</strong> (Transport Layer Security). Le terme <strong>SSL</strong> (ancienne version) est souvent conservé par habitude (ex: certificat SSL).</li>
+<li><strong>Objectifs :</strong><ol>
+<li><strong>Chiffrement :</strong> Rendre le trafic illisible aux intermédiaires.</li>
+<li><strong>Authentification :</strong> Le certificat (émis par une Autorité de Certification) prouve que le serveur est bien le propriétaire du nom de domaine, assurant que vous communiquez avec la bonne entité.</li>
+</ol>
+</li>
+</ul>
+<h3 id="load-balancer-repartiteur-de-charge">Load Balancer (Répartiteur de charge)</h3>
+<p>Aussi appelé <em>Reverse Proxy</em> (ou serveur mandataire). Il est le seul point d'accès public à l'infrastructure. Il reçoit les requêtes et les distribue à plusieurs serveurs en arrière-plan (qui sont dans un réseau privé).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Type de Load Balancer</th>
+<th style="text-align: left;">Niveau (Couche OSI)</th>
+<th style="text-align: left;">Comportement</th>
+<th style="text-align: left;">Avantages</th>
+<th style="text-align: left;">Inconvénients</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Niveau 4 (NLB)</strong></td>
+<td style="text-align: left;">Couche Transport (TCP)</td>
+<td style="text-align: left;">Inspecte uniquement les informations TCP (IP source/destination, Port).</td>
+<td style="text-align: left;">Très performant, simple.</td>
+<td style="text-align: left;">Moins "intelligent".</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Niveau 7 (ALB)</strong></td>
+<td style="text-align: left;">Couche Applicative (HTTP)</td>
+<td style="text-align: left;">Inspecte le contenu de la requête (Verbe, Ressource, Header <code>Host</code>).</td>
+<td style="text-align: left;">Peut gérer le <strong>SSL Offloading</strong> et rediriger les requêtes vers des groupes de serveurs différents selon le nom de domaine (<code>Host: fanta.com</code> vs <code>Host: coca-cola.com</code>).</td>
+<td style="text-align: left;">Un peu plus lent qu'un NLB (plus de travail d'inspection).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-outils-de-debugdiagnostic">6. Outils de Debug/Diagnostic</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Outil</th>
+<th style="text-align: left;">Protocole(s) ciblé(s)</th>
+<th style="text-align: left;">Usage principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>nslookup</code> / <code>dig</code></strong></td>
+<td style="text-align: left;">DNS</td>
+<td style="text-align: left;">Tester la résolution de noms de domaine en adresse IP.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>netstat -tpnl</code> / <code>ss</code></strong></td>
+<td style="text-align: left;">TCP/UDP</td>
+<td style="text-align: left;">Lister les connexions réseau actives et les ports en écoute (et par quel programme).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ping</code></strong></td>
+<td style="text-align: left;">ICMP</td>
+<td style="text-align: left;">Tester la connectivité de bas niveau entre deux machines.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>traceroute</code> / <code>tracert</code> / <code>mtr</code></strong></td>
+<td style="text-align: left;">ICMP</td>
+<td style="text-align: left;">Afficher le chemin (les différents "sauts" ou routeurs) que prend un paquet pour atteindre une destination.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>telnet</code> / <code>nc</code> (netcat)</strong></td>
+<td style="text-align: left;">TCP</td>
+<td style="text-align: left;">Client TCP permettant d'établir une connexion manuelle sur un port donné pour tester le protocole applicatif (ex: taper une requête HTTP à la main).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>curl</code> / <code>wget</code></strong></td>
+<td style="text-align: left;">HTTP</td>
+<td style="text-align: left;">Client HTTP/HTTPS pour envoyer des requêtes et voir les détails des en-têtes (headers) et des codes de réponse (utiliser l'option <code>-v</code> pour <em>verbose</em> dans <code>curl</code>).</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ci-cd/" class="btn btn-neutral float-left" title="CI/CD"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../docker/" class="btn btn-neutral float-right" title="Docker">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ci-cd/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../docker/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>CI/CD - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "CI/CD";
+        var mkdocs_page_input_path = "dev-ops/ci-cd.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">CI/CD</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#concepts-cles">Concepts clés</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#github-actions">GitHub Actions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gitlab-ci">GitLab CI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bonnes-pratiques">Bonnes pratiques</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev ops</li>
+      <li class="breadcrumb-item active">CI/CD</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="cicd">CI/CD</h1>
+<p>L'intégration continue (CI) et le déploiement continu (CD) sont des pratiques DevOps qui automatisent la vérification et la livraison du code. La CI garantit que chaque modification est automatiquement testée ; le CD automatise le déploiement vers les environnements cibles.</p>
+<h2 id="concepts-cles">Concepts clés</h2>
+<ul>
+<li><strong>Pipeline</strong> : séquence d'étapes (stages) qui s'exécutent à chaque push ou pull request.</li>
+<li><strong>Job</strong> : unité de travail dans un stage (ex. lancer les tests unitaires).</li>
+<li><strong>Artifact</strong> : fichier produit par un job et transmis aux suivants (ex. un build compilé).</li>
+<li><strong>Runner / Agent</strong> : machine (physique ou virtuelle) qui exécute les jobs.</li>
+<li><strong>Environnement</strong> : cible de déploiement — <code>dev</code>, <code>staging</code>, <code>production</code>.</li>
+</ul>
+<h2 id="github-actions">GitHub Actions</h2>
+<p>GitHub Actions est la solution CI/CD native de GitHub. Les workflows sont définis dans des fichiers YAML placés dans <code>.github/workflows/</code>.</p>
+<h3 id="structure-dun-workflow">Structure d'un workflow</h3>
+<pre><code class="language-yaml">name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Configurer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Lancer les tests
+        run: npm test
+
+      - name: Build de production
+        run: npm run build
+</code></pre>
+<h3 id="variables-denvironnement-et-secrets">Variables d'environnement et Secrets</h3>
+<p>Les secrets sont définis dans <strong>Settings → Secrets and variables → Actions</strong> du dépôt GitHub.</p>
+<pre><code class="language-yaml">steps:
+  - name: Déployer
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
+      NODE_ENV: production
+    run: npm run deploy
+</code></pre>
+<h3 id="workflow-ci-cd-complet-nodejs-vps">Workflow CI + CD complet (Node.js → VPS)</h3>
+<pre><code class="language-yaml">name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  # ── 1. Tests ──────────────────────────────────────
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
+
+  # ── 2. Build ──────────────────────────────────────
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - name: Sauvegarder le build
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  # ── 3. Déploiement ────────────────────────────────
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Récupérer le build
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - name: Déployer par SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/mon-app
+            rm -rf dist/
+      - uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: &quot;dist/&quot;
+          target: &quot;/var/www/mon-app/&quot;
+</code></pre>
+<h3 id="workflow-pour-une-image-docker">Workflow pour une image Docker</h3>
+<pre><code class="language-yaml">name: Build &amp; Push Docker
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Se connecter à Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build et push de l'image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            monuser/mon-app:latest
+            monuser/mon-app:${{ github.sha }}
+</code></pre>
+<h3 id="declencheurs-courants">Déclencheurs courants</h3>
+<pre><code class="language-yaml">on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'          # uniquement si des fichiers src/ sont modifiés
+
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+  schedule:
+    - cron: '0 6 * * 1'  # tous les lundis à 6h UTC
+
+  workflow_dispatch:       # déclenchement manuel depuis l'interface GitHub
+</code></pre>
+<h3 id="matrice-de-tests-plusieurs-versions">Matrice de tests (plusieurs versions)</h3>
+<pre><code class="language-yaml">jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci &amp;&amp; npm test
+</code></pre>
+<h2 id="gitlab-ci">GitLab CI</h2>
+<p>Sur GitLab, le pipeline est défini dans <code>.gitlab-ci.yml</code> à la racine du projet.</p>
+<h3 id="structure-de-base">Structure de base</h3>
+<pre><code class="language-yaml">stages:
+  - install
+  - test
+  - build
+  - deploy
+
+variables:
+  NODE_VERSION: &quot;20&quot;
+
+cache:
+  paths:
+    - node_modules/
+
+install:
+  stage: install
+  image: node:20-alpine
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+
+test:
+  stage: test
+  image: node:20-alpine
+  script:
+    - npm test
+
+build:
+  stage: build
+  image: node:20-alpine
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 hour
+
+deploy-production:
+  stage: deploy
+  image: alpine
+  environment:
+    name: production
+    url: https://mon-site.fr
+  only:
+    - main
+  script:
+    - apk add --no-cache openssh-client rsync
+    - rsync -avz dist/ $SERVER_USER@$SERVER_HOST:/var/www/mon-app/
+</code></pre>
+<h3 id="variables-dans-gitlab">Variables dans GitLab</h3>
+<p>Les variables sont définies dans <strong>Settings → CI/CD → Variables</strong>.</p>
+<pre><code class="language-yaml">deploy:
+  script:
+    - echo &quot;Déploiement vers $CI_ENVIRONMENT_NAME&quot;
+    - echo $DEPLOY_TOKEN | docker login -u $DEPLOY_USER --password-stdin registry.gitlab.com
+</code></pre>
+<h3 id="variables-predefinies-utiles">Variables prédéfinies utiles</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$CI_COMMIT_SHA</code></td>
+<td>Hash complet du commit</td>
+</tr>
+<tr>
+<td><code>$CI_COMMIT_BRANCH</code></td>
+<td>Nom de la branche</td>
+</tr>
+<tr>
+<td><code>$CI_ENVIRONMENT_NAME</code></td>
+<td>Nom de l'environnement</td>
+</tr>
+<tr>
+<td><code>$CI_PROJECT_NAME</code></td>
+<td>Nom du projet</td>
+</tr>
+<tr>
+<td><code>$CI_PIPELINE_ID</code></td>
+<td>ID du pipeline en cours</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bonnes-pratiques">Bonnes pratiques</h2>
+<p><strong>Fail fast</strong> : placer les étapes les plus rapides (lint, tests unitaires) en premier pour échouer tôt sans consommer inutilement des ressources.</p>
+<p><strong>Cache les dépendances</strong> : <code>node_modules</code>, <code>vendor/</code>, <code>.m2/</code> — le cache entre les runs réduit considérablement les temps d'exécution.</p>
+<p><strong>Protéger les branches</strong> : configurer des règles de protection sur <code>main</code> pour exiger que le pipeline CI passe avant tout merge.</p>
+<p><strong>Environnements distincts</strong> : ne jamais déployer directement en production depuis une branche de feature. Utiliser <code>staging</code> comme étape intermédiaire.</p>
+<p><strong>Versionner les actions</strong> : toujours épingler les actions GitHub à une version précise (<code>@v4</code>) plutôt qu'à <code>@latest</code> pour éviter les régressions silencieuses.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Pour aller plus loin :
+<a href="https://docs.github.com/fr/actions">GitHub Actions — Documentation officielle</a> · <a href="https://docs.gitlab.com/ee/ci/">GitLab CI — Documentation officielle</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../dev-langages/typescript/" class="btn btn-neutral float-left" title="TypeScript"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../concept-reseau/" class="btn btn-neutral float-right" title="Concepts de réseau essentiels">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../dev-langages/typescript/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../concept-reseau/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

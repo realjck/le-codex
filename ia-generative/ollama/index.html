@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Configurer Ollama - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Configurer Ollama";
+        var mkdocs_page_input_path = "ia-generative/ollama.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Configurer Ollama</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utilisation-dun-modele-preconstruit">Utilisation d'un modèle préconstruit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bibliotheque-de-modeles">Bibliothèque de modèles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utilisation-dollama-en-python">Utilisation d'OLLaMA en Python</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#commandes-supplementaires">Commandes supplémentaires</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utilisation-via-docker">Utilisation via Docker</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Ia generative</li>
+      <li class="breadcrumb-item active">Configurer Ollama</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="configurer-ollama">Configurer Ollama</h1>
+<p>Dans ce guide, nous allons parcourir les étapes pour installer OLLaMA (Open Large Language Model Assistant) sur macOS, Linux et Windows. OLLaMA est un modèle de langage open-source qui peut être utilisé pour diverses tâches de traitement du langage naturel en mode local. Nous fournirons également un exemple d'utilisation d'OLLaMA en Python.</p>
+<h2 id="installation">Installation</h2>
+<p>L'installation fonctionne sur Linux, macOS et Windows.</p>
+<p><strong>Téléchargement et installation :</strong></p>
+<ul>
+<li>
+<p>Téléchargez l'installeur OLLaMA depuis le <a href="https://ollama.com/">site officiel</a>.</p>
+</li>
+<li>
+<p>Double-cliquez sur le fichier téléchargé et suivez l'assistant d'installation.</p>
+</li>
+</ul>
+<h2 id="utilisation-dun-modele-preconstruit">Utilisation d'un modèle préconstruit</h2>
+<p>Pour exécuter et discuter depuis le terminal avec un modèle préconstruit comme Llama 3.2, suivez ces étapes :</p>
+<ol>
+<li><strong>Télécharger le modèle :</strong></li>
+</ol>
+<pre><code class="language-bash">ollama pull llama3.2
+</code></pre>
+<ol>
+<li><strong>Exécuter le modèle :</strong></li>
+</ol>
+<pre><code class="language-bash">ollama run llama3.2
+</code></pre>
+<h2 id="bibliotheque-de-modeles">Bibliothèque de modèles</h2>
+<p>OLLaMA propose une bibliothèque de modèles préconstruits que vous pouvez facilement télécharger et utiliser. Les modèles à choisir se trouvent sur <a href="https://ollama.com/library?sort=popular">la bibliothèque Ollama</a>.</p>
+<p>🧐 <strong>Note :</strong> Assurez-vous que votre GPU dispose de suffisamment de RAM pour exécuter le modèle choisi. Par exemple, vous aurez besoin d'au moins 8 Go de RAM pour les modèles 7B, 16 Go pour les modèles 13B, et 32 Go pour les modèles 33B. Pour savoir quel modèle exécuter sur votre carte graphique, consultez les <a href="https://github.com/ollama/ollama/blob/main/docs/gpu.md">spécifications GPU</a>.</p>
+<h2 id="utilisation-dollama-en-python">Utilisation d'OLLaMA en Python</h2>
+<p>Voici un exemple d'utilisation d'OLLaMA en Python :</p>
+<pre><code class="language-python">import ollama
+
+# Générer du texte
+response = ollama.generate(model='llama3.2', prompt='Quelle est la capitale de la France ?')
+print(response['response'])
+</code></pre>
+<p>Dans cet exemple, nous importons la classe OLLaMA, initialisons le modèle avec le modèle préconstruit souhaité (par exemple, "llama3.2"), et générons du texte à partir d'une invite donnée.</p>
+<h2 id="commandes-supplementaires">Commandes supplémentaires</h2>
+<ul>
+<li><code>ollama rm llama3.2</code> : Supprimer un modèle téléchargé</li>
+<li><code>ollama cp llama3.2 my-model</code> : Copier un modèle</li>
+<li><code>ollama list</code> : Lister les modèles téléchargés sur votre ordinateur</li>
+<li><code>ollama ps</code> : Lister les modèles actuellement chargés</li>
+<li><code>ollama stop llama3.2</code> : Arrêter un modèle en cours d'exécution</li>
+</ul>
+<h2 id="utilisation-via-docker">Utilisation via Docker</h2>
+<p>Pour utiliser OLLaMA via Docker, suivez ces étapes :</p>
+<ol>
+<li>
+<p><strong>Télécharger l'image Docker :</strong></p>
+<p>Vous pouvez tirer l'image Docker officielle d'OLLaMA depuis Docker Hub en utilisant la commande suivante :</p>
+<p><code>docker pull ollama/ollama</code></p>
+</li>
+<li>
+<p><strong>Exécuter un conteneur Docker :</strong></p>
+<p>Une fois l'image téléchargée, vous pouvez exécuter un conteneur Docker avec OLLaMA. Par exemple, pour exécuter le modèle <code>llama3.2</code> :</p>
+<p><code>docker run -it --gpus all ollama/ollama ollama run llama3.2</code></p>
+<p>Assurez-vous que Docker est configuré pour utiliser votre GPU, car les modèles de langage nécessitent souvent des ressources GPU pour fonctionner efficacement.</p>
+</li>
+<li>
+<p><strong>Utiliser des volumes pour les modèles :</strong></p>
+<p>Si vous souhaitez persister les modèles téléchargés entre les exécutions de conteneurs, vous pouvez monter un volume Docker. Cela permet de stocker les modèles sur votre machine hôte :</p>
+<p><code>docker run -it --gpus all -v /path/to/models:/root/.ollama ollama/ollama ollama run llama3.2</code></p>
+<p>Remplacez <code>/path/to/models</code> par le chemin où vous souhaitez stocker les modèles sur votre machine hôte.</p>
+</li>
+</ol>
+<p>En utilisant Docker, vous pouvez facilement gérer les dépendances et les environnements pour OLLaMA, ce qui est particulièrement utile pour les déploiements sur différentes machines ou dans des environnements de développement isolés.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../concepts-fondamentaux/" class="btn btn-neutral float-left" title="Concepts fondamentaux de l'IA générative"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../prompt-engineering/" class="btn btn-neutral float-right" title="Prompt Engineering">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../concepts-fondamentaux/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../prompt-engineering/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

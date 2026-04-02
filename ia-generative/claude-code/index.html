@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Claude Code — Protocoles &amp; méthodes avancées - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Claude Code \u2014 Protocoles \u0026amp; m\u00e9thodes avanc\u00e9es";
+        var mkdocs_page_input_path = "ia-generative/claude-code.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Claude Code — Protocoles &amp; méthodes avancées</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#claudemd-fichier-dinstructions-persistant">CLAUDE.md — Fichier d'instructions persistant</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#commandes-slash-integrees">Commandes slash intégrées</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#flags-cli-mode-non-interactif">Flags CLI — Mode non-interactif</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mcp-model-context-protocol">MCP — Model Context Protocol</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#skills-instructions-metier-reutilisables">Skills — Instructions métier réutilisables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#plugins-bundles-extensibles">Plugins — Bundles extensibles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hooks-automatisation-lifecycle">Hooks — Automatisation lifecycle</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#loops-boucles-agentiques">Loops — Boucles agentiques</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#methodes-avancees">Méthodes avancées</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resume-des-emplacements-cles">Résumé des emplacements clés</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Ia generative</li>
+      <li class="breadcrumb-item active">Claude Code — Protocoles &amp; méthodes avancées</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="claude-code-protocoles-methodes-avancees">Claude Code — Protocoles &amp; méthodes avancées</h1>
+<p>Claude Code est le CLI officiel d'Anthropic. Il dépasse le simple chat : il lit le code, exécute des commandes, gère Git, et peut opérer de manière autonome via un écosystème de protocoles extensibles.</p>
+<hr />
+<h2 id="claudemd-fichier-dinstructions-persistant">CLAUDE.md — Fichier d'instructions persistant</h2>
+<p>Fichier Markdown lu automatiquement à chaque session. Sert à donner du contexte permanent à Claude.</p>
+<table>
+<thead>
+<tr>
+<th>Emplacement</th>
+<th>Portée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/.claude/CLAUDE.md</code></td>
+<td>Global (tous les projets)</td>
+</tr>
+<tr>
+<td><code>./CLAUDE.md</code></td>
+<td>Projet courant</td>
+</tr>
+<tr>
+<td><code>./src/CLAUDE.md</code></td>
+<td>Sous-dossier spécifique</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown"># Mon projet
+
+## Stack
+- Backend : Python / FastAPI
+- Frontend : React + TypeScript
+
+## Conventions
+- Tests obligatoires pour chaque nouvelle fonction
+- Ne jamais commiter sur main directement
+</code></pre>
+<p>Les fichiers <code>CLAUDE.md</code> imbriqués sont tous chargés : global → racine projet → sous-dossiers.</p>
+<hr />
+<h2 id="commandes-slash-integrees">Commandes slash intégrées</h2>
+<p>Disponibles dans la session interactive en tapant <code>/</code>.</p>
+<h3 id="navigation-session">Navigation &amp; session</h3>
+<table>
+<thead>
+<tr>
+<th>Commande</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/help</code></td>
+<td>Affiche l'aide</td>
+</tr>
+<tr>
+<td><code>/clear</code></td>
+<td>Efface l'historique de conversation</td>
+</tr>
+<tr>
+<td><code>/compact</code></td>
+<td>Compresse l'historique avec un résumé</td>
+</tr>
+<tr>
+<td><code>/exit</code> ou <code>/quit</code></td>
+<td>Quitte Claude Code</td>
+</tr>
+<tr>
+<td><code>/status</code></td>
+<td>Statut du compte et du système</td>
+</tr>
+<tr>
+<td><code>/cost</code></td>
+<td>Affiche la consommation de tokens</td>
+</tr>
+</tbody>
+</table>
+<h3 id="configuration">Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Commande</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/config</code></td>
+<td>Voir et modifier les paramètres</td>
+</tr>
+<tr>
+<td><code>/model</code></td>
+<td>Changer de modèle IA</td>
+</tr>
+<tr>
+<td><code>/fast</code></td>
+<td>Activer/désactiver le mode rapide (Opus 4.6)</td>
+</tr>
+<tr>
+<td><code>/vim</code></td>
+<td>Activer/désactiver le mode Vim</td>
+</tr>
+<tr>
+<td><code>/memory</code></td>
+<td>Éditer les fichiers mémoire</td>
+</tr>
+<tr>
+<td><code>/permissions</code></td>
+<td>Gérer les permissions des outils</td>
+</tr>
+</tbody>
+</table>
+<h3 id="projet-outils">Projet &amp; outils</h3>
+<table>
+<thead>
+<tr>
+<th>Commande</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/init</code></td>
+<td>Initialise un fichier <code>CLAUDE.md</code> dans le projet</td>
+</tr>
+<tr>
+<td><code>/mcp</code></td>
+<td>Gérer les serveurs MCP</td>
+</tr>
+<tr>
+<td><code>/doctor</code></td>
+<td>Diagnostiquer l'installation Claude Code</td>
+</tr>
+<tr>
+<td><code>/review</code></td>
+<td>Demander une revue de code</td>
+</tr>
+<tr>
+<td><code>/pr_comments</code></td>
+<td>Voir les commentaires d'une PR GitHub</td>
+</tr>
+<tr>
+<td><code>/terminal-setup</code></td>
+<td>Configurer l'intégration terminal</td>
+</tr>
+<tr>
+<td><code>/release-notes</code></td>
+<td>Voir les notes de version</td>
+</tr>
+</tbody>
+</table>
+<h3 id="raccourci-pratique-en-session">Raccourci pratique en session</h3>
+<pre><code class="language-bash">! git status     # Exécute une commande shell directement dans la session
+</code></pre>
+<hr />
+<h2 id="flags-cli-mode-non-interactif">Flags CLI — Mode non-interactif</h2>
+<p>Utile pour l'automatisation, les scripts CI/CD et les pipelines.</p>
+<pre><code class="language-bash"># Mode one-shot (réponse puis fermeture)
+claude -p &quot;Explique la fonction auth() dans auth.py&quot;
+
+# Limiter les outils autorisés
+claude -p &quot;Corrige le bug dans auth.py&quot; --allowedTools &quot;Read,Edit,Bash&quot;
+
+# Sortie en JSON (pour parsing programmatique)
+claude -p &quot;Liste les fonctions principales&quot; --output-format json
+
+# Spécifier un modèle
+claude -p &quot;Analyse ce code&quot; --model claude-opus-4-6
+
+# Interdire certains outils
+claude --disallowedTools &quot;Bash,Write&quot;
+</code></pre>
+<pre><code class="language-bash"># Exemple batch sur plusieurs fichiers
+for file in $(cat files.txt); do
+  claude -p &quot;Migre $file de React vers Vue. Réponds OK ou FAIL.&quot; \
+    --allowedTools &quot;Edit,Bash(git commit *)&quot;
+done
+</code></pre>
+<hr />
+<h2 id="mcp-model-context-protocol">MCP — Model Context Protocol</h2>
+<p>Protocole standard d'Anthropic pour connecter des outils et services externes à Claude. Un serveur MCP expose des <strong>outils</strong>, des <strong>ressources</strong> et des <strong>prompts</strong> que Claude peut utiliser.</p>
+<h3 id="configuration_1">Configuration</h3>
+<pre><code class="language-json">// ~/.claude/mcp.json (global) ou .mcp.json (projet)
+{
+  &quot;mcpServers&quot;: {
+    &quot;github&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-github&quot;],
+      &quot;env&quot;: {
+        &quot;GITHUB_TOKEN&quot;: &quot;ghp_xxxx&quot;
+      }
+    },
+    &quot;filesystem&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-filesystem&quot;, &quot;/chemin/autorisé&quot;]
+    },
+    &quot;postgres&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-postgres&quot;],
+      &quot;env&quot;: {
+        &quot;POSTGRES_URL&quot;: &quot;postgresql://user:pass@localhost/db&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="commandes-de-gestion">Commandes de gestion</h3>
+<pre><code class="language-bash">claude mcp list                          # Lister les serveurs configurés
+claude mcp add monserveur -- npx -y @org/mon-serveur-mcp
+claude mcp remove monserveur             # Supprimer un serveur
+claude mcp get monserveur                # Détails d'un serveur
+</code></pre>
+<h3 id="permissions-mcp-dans-settingsjson">Permissions MCP dans settings.json</h3>
+<pre><code class="language-json">{
+  &quot;enableAllProjectMcpServers&quot;: true,
+  &quot;enabledMcpjsonServers&quot;: [&quot;github&quot;, &quot;memory&quot;],
+  &quot;disabledMcpjsonServers&quot;: [&quot;filesystem&quot;]
+}
+</code></pre>
+<h3 id="types-de-transport">Types de transport</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stdio</code></td>
+<td>Processus local (le plus courant)</td>
+</tr>
+<tr>
+<td><code>sse</code></td>
+<td>Server-Sent Events (serveur HTTP distant)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="skills-instructions-metier-reutilisables">Skills — Instructions métier réutilisables</h2>
+<p>Les skills sont des fichiers Markdown qui encapsulent un processus ou une méthode de travail. Claude les suit comme une procédure.</p>
+<h3 id="structure-dun-skill">Structure d'un skill</h3>
+<pre><code class="language-markdown">---
+name: mon-skill
+description: Décrit quand ce skill doit être utilisé
+---
+
+## Instructions
+
+1. Lire les fichiers concernés avant toute modification
+2. Écrire les tests avant le code (TDD)
+3. Vérifier que les tests passent avant de conclure
+</code></pre>
+<h3 id="emplacement">Emplacement</h3>
+<pre><code>~/.claude/skills/           ← Skills globaux
+.claude/skills/             ← Skills du projet
+~/.claude/plugins/&lt;nom&gt;/skills/  ← Skills d'un plugin
+</code></pre>
+<h3 id="invocation">Invocation</h3>
+<p>Les skills s'invoquent via la commande <code>/nom-du-skill</code> ou en mentionnant leur nom dans la conversation. Claude Code charge automatiquement les skills disponibles au démarrage de session.</p>
+<hr />
+<h2 id="plugins-bundles-extensibles">Plugins — Bundles extensibles</h2>
+<p>Un plugin regroupe skills, commandes, hooks et serveurs MCP dans un package réutilisable et distribuable.</p>
+<h3 id="structure-dun-plugin">Structure d'un plugin</h3>
+<pre><code>mon-plugin/
+├── plugin.json          ← Manifeste
+├── commands/            ← Commandes slash personnalisées
+├── skills/              ← Skills inclus
+├── agents/              ← Agents spécialisés
+├── hooks/               ← Hooks lifecycle
+│   └── hooks.json
+└── servers/             ← Serveurs MCP embarqués
+    └── .mcp.json
+</code></pre>
+<h3 id="manifeste-pluginjson">Manifeste plugin.json</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;mon-plugin&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;Description du plugin&quot;,
+  &quot;commands&quot;: [&quot;./commands/&quot;],
+  &quot;agents&quot;: [&quot;./agents/&quot;],
+  &quot;hooks&quot;: &quot;./hooks/hooks.json&quot;,
+  &quot;mcpServers&quot;: &quot;./.mcp.json&quot;
+}
+</code></pre>
+<h3 id="utiliser-claude_plugin_root-pour-les-chemins-portables">Utiliser <code>${CLAUDE_PLUGIN_ROOT}</code> pour les chemins portables</h3>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;mon-serveur&quot;: {
+      &quot;command&quot;: &quot;${CLAUDE_PLUGIN_ROOT}/servers/mon-serveur&quot;,
+      &quot;args&quot;: [&quot;--config&quot;, &quot;${CLAUDE_PLUGIN_ROOT}/config.json&quot;]
+    }
+  }
+}
+</code></pre>
+<h3 id="commandes-de-gestion_1">Commandes de gestion</h3>
+<pre><code class="language-bash">claude plugin install github:org/mon-plugin
+claude plugin list
+claude plugin remove mon-plugin
+</code></pre>
+<hr />
+<h2 id="hooks-automatisation-lifecycle">Hooks — Automatisation lifecycle</h2>
+<p>Les hooks exécutent des scripts ou des prompts automatiquement en réponse à des événements Claude Code.</p>
+<h3 id="evenements-disponibles">Événements disponibles</h3>
+<table>
+<thead>
+<tr>
+<th>Événement</th>
+<th>Déclenchement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SessionStart</code></td>
+<td>Au démarrage d'une session</td>
+</tr>
+<tr>
+<td><code>UserPromptSubmit</code></td>
+<td>Avant chaque message utilisateur</td>
+</tr>
+<tr>
+<td><code>PreToolUse</code></td>
+<td>Avant l'exécution d'un outil</td>
+</tr>
+<tr>
+<td><code>PostToolUse</code></td>
+<td>Après l'exécution d'un outil</td>
+</tr>
+<tr>
+<td><code>Stop</code></td>
+<td>Quand Claude termine sa réponse</td>
+</tr>
+</tbody>
+</table>
+<h3 id="configuration-dans-settingsjson">Configuration dans settings.json</h3>
+<pre><code class="language-json">{
+  &quot;hooks&quot;: {
+    &quot;PreToolUse&quot;: [
+      {
+        &quot;matcher&quot;: &quot;Write|Edit&quot;,
+        &quot;hooks&quot;: [
+          {
+            &quot;type&quot;: &quot;command&quot;,
+            &quot;command&quot;: &quot;bash ~/.claude/hooks/scan-secrets.sh&quot;,
+            &quot;timeout&quot;: 30
+          }
+        ]
+      },
+      {
+        &quot;matcher&quot;: &quot;Bash&quot;,
+        &quot;hooks&quot;: [
+          {
+            &quot;type&quot;: &quot;prompt&quot;,
+            &quot;prompt&quot;: &quot;Cette commande bash est-elle sûre pour la production ? Vérifie les opérations destructives. Réponds 'approve' ou 'deny' avec une explication.&quot;,
+            &quot;timeout&quot;: 15
+          }
+        ]
+      }
+    ],
+    &quot;SessionStart&quot;: [
+      {
+        &quot;matcher&quot;: &quot;.*&quot;,
+        &quot;hooks&quot;: [
+          {
+            &quot;type&quot;: &quot;command&quot;,
+            &quot;command&quot;: &quot;bash ~/.claude/hooks/check-env.sh&quot;,
+            &quot;timeout&quot;: 20
+          }
+        ]
+      }
+    ],
+    &quot;Stop&quot;: [
+      {
+        &quot;matcher&quot;: &quot;.*&quot;,
+        &quot;hooks&quot;: [
+          {
+            &quot;type&quot;: &quot;command&quot;,
+            &quot;command&quot;: &quot;bash ~/.claude/hooks/notify.sh&quot;,
+            &quot;timeout&quot;: 30
+          }
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="types-de-hooks">Types de hooks</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>command</code></td>
+<td>Exécute un script shell. Si exit code ≠ 0, bloque l'action.</td>
+</tr>
+<tr>
+<td><code>prompt</code></td>
+<td>Soumet un prompt à Claude pour approbation dynamique.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="loops-boucles-agentiques">Loops — Boucles agentiques</h2>
+<p>Les loops permettent de faire tourner Claude en continu sur une tâche répétitive ou en vagues d'agents parallèles.</p>
+<h3 id="loop-periodique-skill-loop">Loop périodique (skill <code>/loop</code>)</h3>
+<p>Exécute une commande ou un prompt à intervalle régulier.</p>
+<pre><code class="language-bash">/loop 5m /review          # Relance /review toutes les 5 minutes
+/loop 10m &quot;vérifie les logs d'erreur et résume&quot;
+</code></pre>
+<h3 id="loop-autonomous-avec-agents-paralleles">Loop autonomous avec agents parallèles</h3>
+<p>Pattern pour générer des itérations multiples en parallèle via des sous-agents :</p>
+<pre><code class="language-markdown">PHASE 1 : Lire la spécification source
+PHASE 2 : Détecter le numéro de la dernière itération dans output_dir/
+PHASE 3 : Planifier N directions créatives différentes
+PHASE 4 : Déployer N sous-agents en parallèle (Task tool), chacun avec :
+  - La spec complète
+  - Son numéro d'itération unique
+  - Sa direction créative assignée
+PHASE 5 (mode infini) : Relancer en vagues de 3-5 jusqu'à saturation du contexte
+</code></pre>
+<h3 id="loop-cicd-avec-continuous-claude">Loop CI/CD avec <code>continuous-claude</code></h3>
+<pre><code class="language-bash"># Boucle avec revue de code à chaque itération
+continuous-claude \
+  --prompt &quot;Ajoute la feature d'authentification&quot; \
+  --max-runs 10 \
+  --review-prompt &quot;Lance npm test &amp;&amp; npm run lint, corrige les échecs&quot;
+
+# Agents parallèles sur worktrees séparés
+continuous-claude --prompt &quot;Ajoute des tests&quot; --max-runs 5 --worktree tests-worker &amp;
+continuous-claude --prompt &quot;Refactore le code&quot; --max-runs 5 --worktree refactor-worker &amp;
+wait
+</code></pre>
+<hr />
+<h2 id="methodes-avancees">Méthodes avancées</h2>
+<h3 id="agent-teams-experimental">Agent Teams (expérimental)</h3>
+<p>Permet plusieurs fenêtres de contexte indépendantes en parallèle.</p>
+<pre><code class="language-bash"># Dans ~/.claude/settings.json ou variable d'environnement
+CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+</code></pre>
+<h3 id="sous-agents-avec-outils-et-mcp-specifiques">Sous-agents avec outils et MCP spécifiques</h3>
+<pre><code class="language-yaml"># .claude/agents/browser-tester.md
+---
+name: browser-tester
+description: Teste les features dans un vrai navigateur via Playwright
+mcpServers:
+  - playwright:
+      type: stdio
+      command: npx
+      args: [&quot;-y&quot;, &quot;@playwright/mcp@latest&quot;]
+---
+
+Teste l'interface en conditions réelles avec Playwright.
+</code></pre>
+<h3 id="desactiver-des-sous-agents-specifiques">Désactiver des sous-agents spécifiques</h3>
+<pre><code class="language-json">{
+  &quot;permissions&quot;: {
+    &quot;deny&quot;: [&quot;Agent(Explore)&quot;, &quot;Agent(mon-agent-dangereux)&quot;]
+  }
+}
+</code></pre>
+<pre><code class="language-bash">claude --disallowedTools &quot;Agent(Explore)&quot;
+</code></pre>
+<h3 id="git-worktrees-pour-lisolation">Git Worktrees pour l'isolation</h3>
+<p>Permet de travailler sur plusieurs branches simultanément sans conflits.</p>
+<pre><code class="language-bash"># Créer un worktree isolé
+git worktree add ../feature-auth feature/auth
+
+# Claude Code opère dans son propre worktree
+cd ../feature-auth &amp;&amp; claude
+</code></pre>
+<h3 id="raccourcis-clavier-personnalises">Raccourcis clavier personnalisés</h3>
+<pre><code class="language-json">// ~/.claude/keybindings.json
+{
+  &quot;$schema&quot;: &quot;https://www.schemastore.org/claude-code-keybindings.json&quot;,
+  &quot;bindings&quot;: [
+    {
+      &quot;context&quot;: &quot;Chat&quot;,
+      &quot;bindings&quot;: {
+        &quot;ctrl+e&quot;: &quot;chat:externalEditor&quot;,
+        &quot;ctrl+s&quot;: null
+      }
+    }
+  ]
+}
+</code></pre>
+<h3 id="commandes-slash-personnalisees">Commandes slash personnalisées</h3>
+<p>Créer un fichier <code>.md</code> dans <code>~/.claude/commands/</code> ou <code>.claude/commands/</code> pour définir une commande slash.</p>
+<pre><code class="language-markdown">&lt;!-- ~/.claude/commands/deploy.md --&gt;
+Vérifie que tous les tests passent avec `npm test`, puis crée un commit
+de déploiement et pousse sur la branche `release`.
+</code></pre>
+<pre><code class="language-bash">/deploy    # Invoque la commande custom
+</code></pre>
+<p>Les arguments sont accessibles via <code>$ARGUMENTS</code> dans le fichier de commande.</p>
+<hr />
+<h2 id="resume-des-emplacements-cles">Résumé des emplacements clés</h2>
+<table>
+<thead>
+<tr>
+<th>Fichier / Dossier</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/.claude/CLAUDE.md</code></td>
+<td>Instructions globales persistantes</td>
+</tr>
+<tr>
+<td><code>~/.claude/settings.json</code></td>
+<td>Configuration globale (hooks, permissions, MCP)</td>
+</tr>
+<tr>
+<td><code>~/.claude/mcp.json</code></td>
+<td>Serveurs MCP globaux</td>
+</tr>
+<tr>
+<td><code>~/.claude/commands/</code></td>
+<td>Commandes slash globales</td>
+</tr>
+<tr>
+<td><code>~/.claude/skills/</code></td>
+<td>Skills globaux</td>
+</tr>
+<tr>
+<td><code>~/.claude/keybindings.json</code></td>
+<td>Raccourcis clavier</td>
+</tr>
+<tr>
+<td><code>.claude/CLAUDE.md</code></td>
+<td>Instructions du projet</td>
+</tr>
+<tr>
+<td><code>.mcp.json</code></td>
+<td>Serveurs MCP du projet</td>
+</tr>
+<tr>
+<td><code>.claude/commands/</code></td>
+<td>Commandes slash du projet</td>
+</tr>
+<tr>
+<td><code>.claude/agents/</code></td>
+<td>Sous-agents du projet</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../gestion-de-projet/guide-scrum/" class="btn btn-neutral float-left" title="Le guide de Référence de Scrum : Les règles du jeu"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../concepts-fondamentaux/" class="btn btn-neutral float-right" title="Concepts fondamentaux de l'IA générative">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../gestion-de-projet/guide-scrum/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../concepts-fondamentaux/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
