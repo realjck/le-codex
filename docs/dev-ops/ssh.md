@@ -2,7 +2,7 @@
 
 SSH (Secure Shell) est un protocole de communication chiffré permettant d'accéder à distance à des machines, de transférer des fichiers et de créer des tunnels réseau sécurisés. Il remplace les protocoles non chiffrés comme Telnet ou FTP.
 
-> **Clés SSH pour GitHub/GitLab** : la génération de clés et l'ajout à `ssh-agent` sont couverts dans la fiche [Git](git.md).
+> **Clés SSH pour GitHub/GitLab** : la génération de clés et l'ajout à `ssh-agent` sont couverts dans la fiche [Git](../dev-langages/git.md).
 
 ---
 
