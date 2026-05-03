@@ -14,6 +14,37 @@ Fichier Markdown lu automatiquement à chaque session. Sert à donner du context
 | `./CLAUDE.md` | Projet courant |
 | `./src/CLAUDE.md` | Sous-dossier spécifique |
 
+Exemple de CLAUDE.md Global (auteur Ed.Donner) :
+
+```markdown
+## VERY IMPORTANT
+
+- Be simple. Approach tasks in a simple, incremental way.
+- Work incrementally ALWAYS. Small, simple steps. Validate and check each increment before moving on.
+- Use LATEST apis as of NOW
+
+## MANDATORY Code style
+
+- Do not overengineer. Do not program defensively. Use exception managers only when needed.
+- Identify root cause before fixing issues. Prove with evidence, then fix.
+- Work incrementally with smalt steps. Validate each increment.
+- Use latest library APIs.
+- Favor clear, concise docstring comments. Be sparing with comments outside docstrings.
+- Favor short modules, short methods and functions. Name things clearly.
+- Never use emojis in code or in print statements or logging
+- Keep README.md concise
+
+## Important - debugging and fixing
+
+- When troubleshooting problems, ALWAYS identify root cause BEFORE fixing
+- Reproduce consistently
+- PROVE THE PROBLEM FIRST - don't guess.
+- Try one test at a time. Be methodical.
+- Don't jump to conclusions. Don't apply workarounds.
+```
+
+Exemple de CLAUDE.md Projet :
+
 ```markdown
 # Mon projet
 
