@@ -2,9 +2,7 @@
 
 Bienvenue sur Le Codex
 
-Un espace personnel dédié au développement informatique, construit au fil des projets et des apprentissages depuis 2024.
-
-Le Codex rassemble des aide-mémoires, des synthèses claires et des exemples pratiques autour du développement logiciel, du DevOps et des outils IA.
+Un espace qui rassemble des aide-mémoires et des exemples pratiques couvrant l'ensemble du développement web, de la configuration serveur aux interfaces utilisateur.
 
 ### Carte de visite de l'auteur
 
