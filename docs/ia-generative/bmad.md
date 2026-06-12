@@ -1,6 +1,6 @@
 # La méthode BMAD
 
-> **B**uild **M**ore **A**rchitect **D**reams
+> Breakthrough Method for Agile Ai Driven Development
 
 La **méthode BMAD** (BMAD-METHOD) est un framework open-source de développement logiciel piloté par l'IA (AI-Driven Development). Elle a pour objectif de structurer l'utilisation d'assistants IA (comme Claude Code, Cursor ou Codex CLI) en remplaçant les prompts chaotiques par des **flux de travail rigoureux**, une **gestion de contexte stricte** et des **agents spécialisés**.
 
