@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Java - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Java";
+        var mkdocs_page_input_path = "dev-langages/java.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Java</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#jdk-jre-jvm">JDK, JRE, JVM</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fondamentaux-oop-rapide">Fondamentaux OOP (rapide)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#essentiel-du-langage-moderne">Essentiel du langage moderne</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outillage-build">Outillage &amp; build</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#spring-boot-les-bases">Spring Boot — les bases</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#api-rest">API REST</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#persistance-spring-data-jpa-hibernate">Persistance — Spring Data JPA / Hibernate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#authentification-securite">Authentification &amp; sécurité</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tests">Tests</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#checklist-backend-javaspring">Checklist — backend Java/Spring</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-securite/secrets/">Gestion des secrets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/bmad/">La méthode BMAD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev langages</li>
+      <li class="breadcrumb-item active">Java</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="java">Java</h1>
+<p>Java est un langage orienté objet, à typage statique, compilé en <strong>bytecode</strong> exécuté par la <strong>JVM</strong> (Java Virtual Machine). Sa devise historique — <em>« write once, run anywhere »</em> — tient au fait que le même bytecode tourne sur toute plateforme disposant d'une JVM.</p>
+<p>Cet aide-mémoire survole rapidement les fondamentaux orientés objet, puis se concentre sur l'usage réel en <strong>web full-stack</strong> : API REST, persistance et authentification avec <strong>Spring Boot</strong>, le standard de fait de l'écosystème.</p>
+<h2 id="jdk-jre-jvm">JDK, JRE, JVM</h2>
+<table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>JVM</strong></td>
+<td>Machine virtuelle qui exécute le bytecode <code>.class</code></td>
+</tr>
+<tr>
+<td><strong>JRE</strong></td>
+<td>JVM + bibliothèques standard (pour <em>exécuter</em> une application)</td>
+</tr>
+<tr>
+<td><strong>JDK</strong></td>
+<td>JRE + outils de compilation (<code>javac</code>, <code>jar</code>, <code>javadoc</code>…) — nécessaire pour <em>développer</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="versions-lts">Versions LTS</h3>
+<p>Java suit un rythme de deux versions par an, avec une version <strong>LTS</strong> (Long Term Support) tous les 2-3 ans. En 2026, les LTS de référence sont <strong>Java 21</strong> (2023, très répandue en production) et <strong>Java 25</strong> (2025, la plus récente). Spring Boot 4.x exige au minimum <strong>Java 17</strong>.</p>
+<pre><code class="language-bash">java --version     # version d'exécution
+javac --version    # version du compilateur
+</code></pre>
+<blockquote>
+<p>Pour gérer plusieurs JDK sur une machine, utiliser <a href="https://sdkman.io/">SDKMAN!</a> (Linux/macOS) ou des distributions comme Temurin (Eclipse Adoptium), Amazon Corretto, Azul Zulu.</p>
+</blockquote>
+<hr />
+<h2 id="fondamentaux-oop-rapide">Fondamentaux OOP (rapide)</h2>
+<p>La programmation orientée objet consiste à modéliser le domaine sous forme d'<strong>objets</strong> qui regroupent des données (attributs) et les comportements qui les manipulent (méthodes). En Java, tout code vit dans une <strong>classe</strong> : la classe est le plan (le modèle), l'objet en est une instance concrète créée avec <code>new</code>.</p>
+<pre><code class="language-java">// Fichier Personne.java — le nom du fichier doit correspondre à la classe publique
+public class Personne {
+    // Attributs (encapsulés : private)
+    private String nom;
+    private int age;
+
+    // Constructeur
+    public Personne(String nom, int age) {
+        this.nom = nom;
+        this.age = age;
+    }
+
+    // Getters / setters (accès contrôlé)
+    public String getNom() { return nom; }
+    public void setAge(int age) { this.age = age; }
+
+    // Méthode
+    public String saluer() {
+        return &quot;Bonjour, je suis &quot; + nom;
+    }
+}
+</code></pre>
+<h3 id="les-4-piliers">Les 4 piliers</h3>
+<table>
+<thead>
+<tr>
+<th>Pilier</th>
+<th>Principe</th>
+<th>Mécanisme Java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Encapsulation</strong></td>
+<td>Cacher l'état interne, exposer un contrat</td>
+<td><code>private</code> + getters/setters</td>
+</tr>
+<tr>
+<td><strong>Héritage</strong></td>
+<td>Réutiliser et spécialiser une classe</td>
+<td><code>extends</code></td>
+</tr>
+<tr>
+<td><strong>Polymorphisme</strong></td>
+<td>Un même appel, plusieurs comportements</td>
+<td><code>@Override</code>, surcharge</td>
+</tr>
+<tr>
+<td><strong>Abstraction</strong></td>
+<td>Définir un contrat sans implémentation</td>
+<td><code>abstract</code>, <code>interface</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="heritage-et-polymorphisme">Héritage et polymorphisme</h3>
+<p>L'<strong>héritage</strong> (<code>extends</code>) permet à une classe fille de réutiliser les attributs et méthodes de sa classe mère, puis de les compléter ou de les redéfinir. Le <strong>polymorphisme</strong> est la conséquence : une variable de type <code>Personne</code> peut référencer un <code>Employe</code>, et l'appel de <code>saluer()</code> exécutera la version la plus spécifique (celle de <code>Employe</code>). C'est ce qui permet d'écrire du code générique qui s'adapte au type réel de l'objet à l'exécution.</p>
+<pre><code class="language-java">public class Employe extends Personne {
+    private double salaire;
+
+    public Employe(String nom, int age, double salaire) {
+        super(nom, age);        // appel du constructeur parent
+        this.salaire = salaire;
+    }
+
+    @Override
+    public String saluer() {    // redéfinition (polymorphisme)
+        return super.saluer() + &quot;, employé&quot;;
+    }
+}
+</code></pre>
+<h3 id="interfaces">Interfaces</h3>
+<p>Une interface définit un contrat. Une classe peut en implémenter plusieurs (là où l'héritage de classe est unique).</p>
+<pre><code class="language-java">public interface Notifiable {
+    void notifier(String message);           // méthode abstraite
+
+    default void notifierUrgent(String m) {  // méthode par défaut (Java 8+)
+        notifier(&quot;[URGENT] &quot; + m);
+    }
+}
+
+public class Utilisateur extends Personne implements Notifiable {
+    @Override
+    public void notifier(String message) {
+        System.out.println(message);
+    }
+}
+</code></pre>
+<h3 id="record-classes-de-donnees-immuables-java-16"><code>record</code> — classes de données immuables (Java 16+)</h3>
+<p>Idéal pour les <strong>DTO</strong> : génère automatiquement constructeur, getters, <code>equals</code>, <code>hashCode</code> et <code>toString</code>.</p>
+<pre><code class="language-java">public record ArticleDTO(Long id, String titre, double prix) {}
+
+var dto = new ArticleDTO(1L, &quot;Clavier&quot;, 49.9);
+dto.titre();   // &quot;Clavier&quot; — accesseur généré (sans préfixe get)
+</code></pre>
+<h3 id="enum"><code>enum</code></h3>
+<p>Une énumération définit un ensemble fermé et fini de valeurs constantes nommées. Elle remplace avantageusement les chaînes ou les entiers « magiques » : le compilateur garantit qu'on ne peut utiliser qu'une des valeurs prévues, ce qui élimine toute une classe d'erreurs.</p>
+<pre><code class="language-java">public enum Role {
+    USER, ADMIN, MODERATOR;
+}
+
+Role r = Role.ADMIN;
+if (r == Role.ADMIN) { /* ... */ }
+</code></pre>
+<hr />
+<h2 id="essentiel-du-langage-moderne">Essentiel du langage moderne</h2>
+<p>Ce que l'on croise réellement dans un backend Java.</p>
+<h3 id="types">Types</h3>
+<p>Java distingue deux familles de types. Les <strong>primitifs</strong> (<code>int</code>, <code>double</code>, <code>boolean</code>…) stockent directement leur valeur et ne peuvent pas être <code>null</code>. Les <strong>objets</strong> (toute classe, dont <code>String</code> et les wrappers comme <code>Integer</code>) sont manipulés par référence et peuvent valoir <code>null</code>. Le typage étant statique, le type de chaque variable est fixé et vérifié à la compilation.</p>
+<pre><code class="language-java">// Primitifs (minuscule) : stockés par valeur
+int n = 42;
+long grand = 10_000_000_000L;
+double prix = 19.99;
+boolean actif = true;
+char c = 'A';
+
+// Objets (majuscule) : références, peuvent être null
+String texte = &quot;Bonjour&quot;;
+Integer boxed = 42;            // wrapper autour de int
+
+// Inférence de type (Java 10+)
+var liste = new ArrayList&lt;String&gt;();  // type déduit
+</code></pre>
+<h3 id="collections">Collections</h3>
+<p>Le <em>framework</em> Collections fournit les structures de données courantes, chacune avec ses garanties. <code>List</code> conserve l'ordre d'insertion et autorise les doublons ; <code>Set</code> interdit les doublons ; <code>Map</code> associe des clés à des valeurs. On programme contre l'<strong>interface</strong> (<code>List</code>, <code>Set</code>, <code>Map</code>) et on choisit l'<strong>implémentation</strong> (<code>ArrayList</code>, <code>HashSet</code>, <code>HashMap</code>) selon les besoins de performance.</p>
+<pre><code class="language-java">import java.util.*;
+
+List&lt;String&gt; liste = new ArrayList&lt;&gt;();       // liste ordonnée, doublons OK
+liste.add(&quot;a&quot;); liste.add(&quot;b&quot;);
+
+Set&lt;String&gt; ensemble = new HashSet&lt;&gt;();       // pas de doublons
+Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();   // clé -&gt; valeur
+map.put(&quot;age&quot;, 30);
+map.getOrDefault(&quot;taille&quot;, 0);                // valeur par défaut si absente
+
+// Collections immuables (Java 9+)
+List&lt;String&gt; fixe = List.of(&quot;x&quot;, &quot;y&quot;, &quot;z&quot;);
+Map&lt;String, Integer&gt; config = Map.of(&quot;port&quot;, 8080);
+</code></pre>
+<h3 id="generics">Generics</h3>
+<p>Les generics permettent de paramétrer une classe ou une méthode par un type (<code>&lt;T&gt;</code>) fixé au moment de l'utilisation. Le bénéfice : le compilateur vérifie la cohérence des types et l'on évite les transtypages (<code>cast</code>) manuels et leurs erreurs à l'exécution. C'est ce qui fait qu'une <code>List&lt;String&gt;</code> n'accepte que des chaînes.</p>
+<pre><code class="language-java">public class Boite&lt;T&gt; {
+    private T contenu;
+    public void ranger(T item) { this.contenu = item; }
+    public T recuperer() { return contenu; }
+}
+
+Boite&lt;String&gt; b = new Boite&lt;&gt;();
+b.ranger(&quot;secret&quot;);   // n'accepte que des String
+</code></pre>
+<h3 id="streams-et-lambdas">Streams et lambdas</h3>
+<p>Une <strong>lambda</strong> est une fonction anonyme écrite de façon concise (<code>e -&gt; e.getNom()</code>), que l'on passe en argument comme une valeur. L'<strong>API Stream</strong> enchaîne des opérations sur une collection de manière déclarative : on décrit <em>quoi</em> faire (filtrer, transformer, agréger) plutôt que <em>comment</em> le faire avec des boucles. Les opérations intermédiaires (<code>filter</code>, <code>map</code>, <code>sorted</code>) sont paresseuses et ne s'exécutent qu'au déclenchement d'une opération terminale (<code>collect</code>, <code>sum</code>, <code>toList</code>).</p>
+<pre><code class="language-java">import java.util.stream.*;
+
+List&lt;Employe&gt; employes = /* ... */;
+
+// Filtrer, transformer, collecter
+List&lt;String&gt; nomsCadres = employes.stream()
+    .filter(e -&gt; e.getSalaire() &gt; 50000)     // lambda
+    .map(Employe::getNom)                     // référence de méthode
+    .sorted()
+    .collect(Collectors.toList());
+
+// Agrégations
+double masseSalariale = employes.stream()
+    .mapToDouble(Employe::getSalaire)
+    .sum();
+
+// Regrouper
+Map&lt;Role, List&lt;Employe&gt;&gt; parRole = employes.stream()
+    .collect(Collectors.groupingBy(Employe::getRole));
+</code></pre>
+<h3 id="optional-eviter-les-nullpointerexception"><code>Optional</code> — éviter les <code>NullPointerException</code></h3>
+<p><code>Optional&lt;T&gt;</code> est un conteneur qui représente explicitement « une valeur ou son absence ». Plutôt que de renvoyer <code>null</code> (qu'un appelant risque d'oublier de tester, provoquant une <code>NullPointerException</code>), une méthode renvoie un <code>Optional</code> : le type force alors à traiter le cas « absent » de façon visible.</p>
+<pre><code class="language-java">Optional&lt;Utilisateur&gt; resultat = repository.findByEmail(email);
+
+Utilisateur u = resultat.orElseThrow(
+    () -&gt; new UtilisateurIntrouvableException(email)
+);
+
+// Ou une valeur par défaut
+String nom = resultat.map(Utilisateur::getNom).orElse(&quot;Anonyme&quot;);
+</code></pre>
+<h3 id="gestion-des-exceptions">Gestion des exceptions</h3>
+<p>Une exception est un objet signalant une erreur qui interrompt le flux normal ; elle « remonte » la pile d'appels jusqu'à un bloc <code>catch</code> capable de la traiter. Java distingue deux familles : les exceptions <strong>vérifiées</strong> (checked), que le compilateur oblige à gérer ou à déclarer, et les <strong>non vérifiées</strong> (unchecked, issues de <code>RuntimeException</code>), qui traduisent le plus souvent un bug de programmation.</p>
+<pre><code class="language-java">try {
+    var contenu = Files.readString(Path.of(&quot;config.txt&quot;));
+} catch (IOException e) {
+    log.error(&quot;Lecture impossible&quot;, e);
+    throw new RuntimeException(e);
+} finally {
+    // toujours exécuté
+}
+
+// try-with-resources : ferme automatiquement les ressources
+try (var reader = Files.newBufferedReader(path)) {
+    return reader.readLine();
+}   // reader.close() appelé automatiquement
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Type d'exception</th>
+<th>Vérifiée à la compilation ?</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Checked</strong> (<code>Exception</code>)</td>
+<td>Oui — <code>throws</code> ou <code>try/catch</code> obligatoire</td>
+<td><code>IOException</code>, <code>SQLException</code></td>
+</tr>
+<tr>
+<td><strong>Unchecked</strong> (<code>RuntimeException</code>)</td>
+<td>Non</td>
+<td><code>NullPointerException</code>, <code>IllegalArgumentException</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="outillage-build">Outillage &amp; build</h2>
+<p>Un projet Java repose sur un <strong>outil de build</strong> qui compile le code, télécharge les dépendances depuis un dépôt central, exécute les tests et produit un artefact livrable (un <code>.jar</code>). Les deux standards sont <strong>Maven</strong> (configuration XML déclarative) et <strong>Gradle</strong> (scripts plus concis). Tous deux suivent une convention d'arborescence identique.</p>
+<h3 id="structure-dun-projet-maven">Structure d'un projet Maven</h3>
+<pre><code>mon-projet/
+├── pom.xml                          # configuration du build
+└── src/
+    ├── main/
+    │   ├── java/                    # code source
+    │   │   └── com/exemple/app/
+    │   │       ├── Application.java
+    │   │       ├── controller/
+    │   │       ├── service/
+    │   │       ├── repository/
+    │   │       └── model/
+    │   └── resources/               # config, templates
+    │       └── application.yml
+    └── test/
+        └── java/                    # tests
+</code></pre>
+<h3 id="maven-pomxml-annote">Maven — <code>pom.xml</code> annoté</h3>
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; ...&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+  &lt;!-- Hérite des versions gérées par Spring Boot --&gt;
+  &lt;!-- Ligne courante en 2026 : 4.x (baseline Java 17). 3.x reste très répandue ;
+       le code de cette fiche s'applique aux deux (namespace jakarta.*). --&gt;
+  &lt;parent&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+    &lt;version&gt;3.4.0&lt;/version&gt;
+  &lt;/parent&gt;
+
+  &lt;!-- Coordonnées du projet --&gt;
+  &lt;groupId&gt;com.exemple&lt;/groupId&gt;
+  &lt;artifactId&gt;app&lt;/artifactId&gt;
+  &lt;version&gt;1.0.0&lt;/version&gt;
+
+  &lt;properties&gt;
+    &lt;java.version&gt;21&lt;/java.version&gt;
+  &lt;/properties&gt;
+
+  &lt;dependencies&gt;
+    &lt;!-- Un &quot;starter&quot; tire toutes les dépendances cohérentes d'un besoin --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+      &lt;scope&gt;test&lt;/scope&gt;          &lt;!-- disponible en test uniquement --&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<h3 id="commandes-maven-essentielles">Commandes Maven essentielles</h3>
+<pre><code class="language-bash">mvn clean            # supprime le dossier target/
+mvn compile          # compile le code
+mvn test             # exécute les tests
+mvn package          # produit le .jar (dans target/)
+mvn install          # installe le .jar dans le dépôt local
+mvn spring-boot:run  # lance l'application (dev)
+</code></pre>
+<h3 id="maven-vs-gradle">Maven vs Gradle</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Maven (<code>pom.xml</code>)</th>
+<th>Gradle (<code>build.gradle</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Format</strong></td>
+<td>XML déclaratif</td>
+<td>Groovy / Kotlin DSL</td>
+</tr>
+<tr>
+<td><strong>Verbosité</strong></td>
+<td>Élevée</td>
+<td>Concise</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Correcte</td>
+<td>Meilleure (cache, build incrémental)</td>
+</tr>
+<tr>
+<td><strong>Déclarer une dépendance</strong></td>
+<td><code>&lt;dependency&gt;…&lt;/dependency&gt;</code></td>
+<td><code>implementation 'groupe:artefact:version'</code></td>
+</tr>
+<tr>
+<td><strong>Lancer</strong></td>
+<td><code>mvn spring-boot:run</code></td>
+<td><code>./gradlew bootRun</code></td>
+</tr>
+<tr>
+<td><strong>Écosystème</strong></td>
+<td>Majoritaire, très stable</td>
+<td>Populaire (Android, gros projets)</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-groovy">// build.gradle — équivalent Gradle du pom.xml ci-dessus
+plugins {
+    id 'org.springframework.boot' version '3.4.0'
+    id 'io.spring.dependency-management' version '1.1.6'
+    id 'java'
+}
+
+java { sourceCompatibility = '21' }
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+</code></pre>
+<hr />
+<h2 id="spring-boot-les-bases">Spring Boot — les bases</h2>
+<p>Spring Boot simplifie radicalement la configuration de Spring via l'<strong>auto-configuration</strong> (configure automatiquement selon les dépendances présentes) et les <strong>starters</strong> (regroupements de dépendances cohérentes).</p>
+<h3 id="point-dentree">Point d'entrée</h3>
+<p>Une application Spring Boot est une classe Java classique avec un <code>main</code>. Au démarrage, <code>SpringApplication.run(...)</code> lance le <strong>conteneur Spring</strong> (l'<em>ApplicationContext</em>), scanne le projet à la recherche des composants, les instancie et démarre un serveur web embarqué (Tomcat par défaut) — aucun serveur externe à installer.</p>
+<pre><code class="language-java">package com.exemple.app;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication   // = @Configuration + @EnableAutoConfiguration + @ComponentScan
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+</code></pre>
+<h3 id="injection-de-dependances-ioc">Injection de dépendances (IoC)</h3>
+<p>Le principe d'<strong>inversion de contrôle</strong> (IoC) consiste à confier à Spring la création et l'assemblage des objets plutôt que de les instancier soi-même avec <code>new</code>. Chaque classe annotée devient un <strong>bean</strong> géré par le conteneur ; quand une classe déclare avoir besoin d'une autre, Spring la lui <strong>injecte</strong> automatiquement. Résultat : les composants sont faiblement couplés, remplaçables et testables isolément.</p>
+<p>On annote les classes selon leur rôle, et on injecte les dépendances via le <strong>constructeur</strong> (méthode recommandée).</p>
+<table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Couche</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@RestController</code></td>
+<td>Exposition HTTP (API REST)</td>
+</tr>
+<tr>
+<td><code>@Service</code></td>
+<td>Logique métier</td>
+</tr>
+<tr>
+<td><code>@Repository</code></td>
+<td>Accès aux données</td>
+</tr>
+<tr>
+<td><code>@Component</code></td>
+<td>Composant générique</td>
+</tr>
+<tr>
+<td><code>@Configuration</code></td>
+<td>Classe de configuration / beans</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-java">@Service
+public class ArticleService {
+    private final ArticleRepository repository;   // dépendance
+
+    // Injection par constructeur : pas besoin de @Autowired si un seul constructeur
+    public ArticleService(ArticleRepository repository) {
+        this.repository = repository;
+    }
+
+    public List&lt;Article&gt; lister() {
+        return repository.findAll();
+    }
+}
+</code></pre>
+<blockquote>
+<p><strong>Pourquoi le constructeur plutôt que <code>@Autowired</code> sur le champ ?</strong> Il rend les dépendances explicites, permet de les déclarer <code>final</code> (immuables) et facilite les tests unitaires (on passe des mocks directement).</p>
+</blockquote>
+<h3 id="configuration-applicationyml">Configuration — <code>application.yml</code></h3>
+<p>Toute la configuration externe de l'application (port, base de données, secrets…) se déclare dans <code>application.yml</code> (ou <code>.properties</code>), au lieu d'être codée en dur. La syntaxe <code>${VARIABLE}</code> récupère une variable d'environnement : les valeurs sensibles restent ainsi hors du code source et du dépôt Git.</p>
+<pre><code class="language-yaml">server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/madb
+    username: ${DB_USER}          # variable d'environnement
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update            # validate | update | create | create-drop
+    show-sql: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration: 900000            # 15 min en ms
+</code></pre>
+<h3 id="profils-environnements">Profils (environnements)</h3>
+<pre><code class="language-yaml"># application.yml — profil actif
+spring:
+  profiles:
+    active: dev
+</code></pre>
+<p>Chaque profil a son fichier : <code>application-dev.yml</code>, <code>application-prod.yml</code>. Activation au lancement :</p>
+<pre><code class="language-bash">java -jar app.jar --spring.profiles.active=prod
+</code></pre>
+<pre><code class="language-java">// Lire une valeur de config dans le code
+@Value(&quot;${app.jwt.expiration}&quot;)
+private long expiration;
+</code></pre>
+<hr />
+<h2 id="api-rest">API REST</h2>
+<p>Une API REST expose les ressources de l'application (articles, utilisateurs…) via des URL et les verbes HTTP standard (GET, POST, PUT, DELETE). Dans Spring, un <strong>contrôleur</strong> reçoit la requête, délègue le traitement à un service, et renvoie un objet que Spring sérialise automatiquement en JSON.</p>
+<h3 id="controleur-rest">Contrôleur REST</h3>
+<p>Annoté <code>@RestController</code>, chaque méthode est associée à une route et à un verbe. Les valeurs de retour sont converties en JSON (via Jackson), et les paramètres de la requête sont désérialisés en objets Java par les annotations <code>@PathVariable</code>, <code>@RequestParam</code> et <code>@RequestBody</code>.</p>
+<pre><code class="language-java">@RestController
+@RequestMapping(&quot;/api/articles&quot;)    // préfixe commun à toutes les routes
+public class ArticleController {
+
+    private final ArticleService service;
+
+    public ArticleController(ArticleService service) {
+        this.service = service;
+    }
+
+    @GetMapping                                   // GET /api/articles
+    public List&lt;ArticleDTO&gt; lister() {
+        return service.lister();
+    }
+
+    @GetMapping(&quot;/{id}&quot;)                          // GET /api/articles/42
+    public ArticleDTO obtenir(@PathVariable Long id) {
+        return service.obtenir(id);
+    }
+
+    @PostMapping                                  // POST /api/articles
+    @ResponseStatus(HttpStatus.CREATED)           // 201
+    public ArticleDTO creer(@Valid @RequestBody CreerArticleDTO dto) {
+        return service.creer(dto);
+    }
+
+    @PutMapping(&quot;/{id}&quot;)                          // PUT /api/articles/42
+    public ArticleDTO modifier(@PathVariable Long id,
+                               @Valid @RequestBody CreerArticleDTO dto) {
+        return service.modifier(id, dto);
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)                       // DELETE /api/articles/42
+    @ResponseStatus(HttpStatus.NO_CONTENT)        // 204
+    public void supprimer(@PathVariable Long id) {
+        service.supprimer(id);
+    }
+
+    // Paramètres de requête : GET /api/articles/recherche?q=clavier&amp;page=0
+    @GetMapping(&quot;/recherche&quot;)
+    public List&lt;ArticleDTO&gt; rechercher(@RequestParam String q,
+                                       @RequestParam(defaultValue = &quot;0&quot;) int page) {
+        return service.rechercher(q, page);
+    }
+}
+</code></pre>
+<h3 id="mapping-des-annotations-http">Mapping des annotations HTTP</h3>
+<table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Verbe HTTP</th>
+<th>Usage typique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@GetMapping</code></td>
+<td>GET</td>
+<td>Lire</td>
+</tr>
+<tr>
+<td><code>@PostMapping</code></td>
+<td>POST</td>
+<td>Créer</td>
+</tr>
+<tr>
+<td><code>@PutMapping</code></td>
+<td>PUT</td>
+<td>Remplacer</td>
+</tr>
+<tr>
+<td><code>@PatchMapping</code></td>
+<td>PATCH</td>
+<td>Modifier partiellement</td>
+</tr>
+<tr>
+<td><code>@DeleteMapping</code></td>
+<td>DELETE</td>
+<td>Supprimer</td>
+</tr>
+<tr>
+<td><code>@PathVariable</code></td>
+<td>—</td>
+<td>Variable dans l'URL (<code>/{id}</code>)</td>
+</tr>
+<tr>
+<td><code>@RequestParam</code></td>
+<td>—</td>
+<td>Paramètre de requête (<code>?q=</code>)</td>
+</tr>
+<tr>
+<td><code>@RequestBody</code></td>
+<td>—</td>
+<td>Corps JSON désérialisé en objet</td>
+</tr>
+</tbody>
+</table>
+<h3 id="validation-des-entrees">Validation des entrées</h3>
+<p>Spring intègre <strong>Jakarta Bean Validation</strong>. On annote le DTO, et <code>@Valid</code> déclenche la vérification.</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<pre><code class="language-java">public record CreerArticleDTO(
+    @NotBlank(message = &quot;Le titre est obligatoire&quot;)
+    String titre,
+
+    @Positive(message = &quot;Le prix doit être positif&quot;)
+    double prix,
+
+    @Email(message = &quot;Email invalide&quot;)
+    String contactEmail
+) {}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Vérifie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@NotNull</code> / <code>@NotBlank</code> / <code>@NotEmpty</code></td>
+<td>Non nul / chaîne non vide / collection non vide</td>
+</tr>
+<tr>
+<td><code>@Size(min=, max=)</code></td>
+<td>Longueur d'une chaîne ou collection</td>
+</tr>
+<tr>
+<td><code>@Min</code> / <code>@Max</code> / <code>@Positive</code></td>
+<td>Bornes numériques</td>
+</tr>
+<tr>
+<td><code>@Email</code></td>
+<td>Format e-mail</td>
+</tr>
+<tr>
+<td><code>@Pattern(regexp=)</code></td>
+<td>Expression régulière</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gestion-centralisee-des-erreurs">Gestion centralisée des erreurs</h3>
+<p>Plutôt que de répéter des <code>try/catch</code> dans chaque contrôleur, on centralise le traitement des exceptions dans une classe <code>@RestControllerAdvice</code>. Elle intercepte les exceptions levées par n'importe quel contrôleur et les traduit en réponses HTTP cohérentes (bon code de statut, corps d'erreur uniforme). La logique métier peut ainsi lever une exception « métier » sans se soucier du format de la réponse.</p>
+<pre><code class="language-java">@RestControllerAdvice
+public class GestionnaireErreurs {
+
+    // Exception métier -&gt; 404
+    @ExceptionHandler(RessourceIntrouvableException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErreurReponse introuvable(RessourceIntrouvableException e) {
+        return new ErreurReponse(&quot;NOT_FOUND&quot;, e.getMessage());
+    }
+
+    // Échec de validation -&gt; 400 avec le détail des champs
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map&lt;String, String&gt; validation(MethodArgumentNotValidException e) {
+        Map&lt;String, String&gt; erreurs = new HashMap&lt;&gt;();
+        e.getBindingResult().getFieldErrors().forEach(err -&gt;
+            erreurs.put(err.getField(), err.getDefaultMessage()));
+        return erreurs;
+    }
+}
+
+public record ErreurReponse(String code, String message) {}
+</code></pre>
+<h3 id="codes-http-courants">Codes HTTP courants</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Signification</th>
+<th>Quand</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>200 OK</code></td>
+<td>Succès</td>
+<td>GET, PUT réussis</td>
+</tr>
+<tr>
+<td><code>201 Created</code></td>
+<td>Créé</td>
+<td>POST réussi</td>
+</tr>
+<tr>
+<td><code>204 No Content</code></td>
+<td>Succès sans corps</td>
+<td>DELETE réussi</td>
+</tr>
+<tr>
+<td><code>400 Bad Request</code></td>
+<td>Requête invalide</td>
+<td>Validation échouée</td>
+</tr>
+<tr>
+<td><code>401 Unauthorized</code></td>
+<td>Non authentifié</td>
+<td>Token absent/invalide</td>
+</tr>
+<tr>
+<td><code>403 Forbidden</code></td>
+<td>Non autorisé</td>
+<td>Droits insuffisants</td>
+</tr>
+<tr>
+<td><code>404 Not Found</code></td>
+<td>Introuvable</td>
+<td>Ressource inexistante</td>
+</tr>
+<tr>
+<td><code>500 Internal Server Error</code></td>
+<td>Erreur serveur</td>
+<td>Exception non gérée</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="persistance-spring-data-jpa-hibernate">Persistance — Spring Data JPA / Hibernate</h2>
+<p><strong>JPA</strong> (Jakarta Persistence API) est la spécification de mapping objet-relationnel (ORM) ; <strong>Hibernate</strong> en est l'implémentation par défaut ; <strong>Spring Data JPA</strong> ajoute une couche qui génère les repositories automatiquement.</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.postgresql&lt;/groupId&gt;
+  &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
+  &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="entite">Entité</h3>
+<p>Une <strong>entité</strong> est une classe Java dont chaque instance correspond à une ligne d'une table. Les annotations décrivent le mapping : <code>@Entity</code> marque la classe comme persistante, <code>@Id</code> désigne la clé primaire, <code>@Column</code> règle les détails de colonne. Hibernate se charge alors de traduire les opérations sur ces objets en SQL.</p>
+<pre><code class="language-java">import jakarta.persistence.*;
+
+@Entity
+@Table(name = &quot;articles&quot;)
+public class Article {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)   // auto-incrément
+    private Long id;
+
+    @Column(nullable = false, length = 200)
+    private String titre;
+
+    private double prix;
+
+    @Enumerated(EnumType.STRING)     // stocke &quot;DISPONIBLE&quot; plutôt que 0
+    private Statut statut;
+
+    @Column(name = &quot;cree_le&quot;, updatable = false)
+    private Instant creeLe = Instant.now();
+
+    // JPA exige un constructeur sans argument
+    protected Article() {}
+
+    // + constructeur, getters, setters
+}
+</code></pre>
+<h3 id="relations">Relations</h3>
+<p>Les associations entre tables (clés étrangères) se traduisent par des références entre entités. Les annotations <code>@ManyToOne</code>, <code>@OneToMany</code> et <code>@ManyToMany</code> décrivent la cardinalité ; <code>cascade</code> propage les opérations aux entités liées (ex. sauvegarder une commande sauvegarde ses lignes), et <code>orphanRemoval</code> supprime les enfants détachés de leur parent.</p>
+<pre><code class="language-java">@Entity
+public class Commande {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    // Plusieurs commandes -&gt; un client
+    @ManyToOne(fetch = FetchType.LAZY)     // LAZY : chargé à la demande
+    @JoinColumn(name = &quot;client_id&quot;)
+    private Client client;
+
+    // Une commande -&gt; plusieurs lignes
+    @OneToMany(mappedBy = &quot;commande&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List&lt;LigneCommande&gt; lignes = new ArrayList&lt;&gt;();
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Cardinalité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@OneToOne</code></td>
+<td>1 ↔ 1</td>
+</tr>
+<tr>
+<td><code>@OneToMany</code> / <code>@ManyToOne</code></td>
+<td>1 ↔ N</td>
+</tr>
+<tr>
+<td><code>@ManyToMany</code></td>
+<td>N ↔ N (table de jointure)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ Préférer <code>FetchType.LAZY</code> par défaut pour ne charger une relation qu'au moment où on y accède réellement. Le chargement <code>EAGER</code> non maîtrisé cause le problème classique des <strong>N+1 requêtes</strong> : parcourir une liste de N entités déclenche 1 requête pour la liste, puis 1 requête par entité pour charger sa relation. On le résout avec une jointure explicite (<code>JOIN FETCH</code> ou <code>@EntityGraph</code>).</p>
+</blockquote>
+<h3 id="repository">Repository</h3>
+<p>Un repository est la couche d'accès aux données. Avec Spring Data JPA, il suffit de déclarer une <strong>interface</strong> étendant <code>JpaRepository</code> : Spring en génère l'implémentation au démarrage. Mieux, il déduit la requête du <strong>nom de la méthode</strong> (<code>findByStatut</code>, <code>existsByTitre</code>…) selon une convention de nommage — aucune ligne de SQL pour les cas courants.</p>
+<pre><code class="language-java">public interface ArticleRepository extends JpaRepository&lt;Article, Long&gt; {
+
+    // Requêtes DÉRIVÉES : Spring déduit le SQL du nom de la méthode
+    List&lt;Article&gt; findByStatut(Statut statut);
+    List&lt;Article&gt; findByTitreContainingIgnoreCase(String fragment);
+    Optional&lt;Article&gt; findByTitre(String titre);
+    boolean existsByTitre(String titre);
+    long countByStatut(Statut statut);
+
+    // Requête explicite (JPQL) quand la dérivation ne suffit pas
+    @Query(&quot;SELECT a FROM Article a WHERE a.prix BETWEEN :min AND :max&quot;)
+    List&lt;Article&gt; trouverParFourchette(double min, double max);
+
+    // SQL natif si besoin
+    @Query(value = &quot;SELECT * FROM articles WHERE prix &gt; ?1&quot;, nativeQuery = true)
+    List&lt;Article&gt; plusChersQue(double prix);
+}
+</code></pre>
+<p><code>JpaRepository</code> fournit déjà : <code>findAll()</code>, <code>findById()</code>, <code>save()</code>, <code>deleteById()</code>, <code>count()</code>, la pagination et le tri.</p>
+<h3 id="dto-et-mapping">DTO et mapping</h3>
+<p>Ne jamais exposer directement les entités JPA dans l'API (fuite de structure, cycles de sérialisation, couplage). On convertit vers des DTO.</p>
+<pre><code class="language-java">@Service
+public class ArticleService {
+    private final ArticleRepository repository;
+
+    public ArticleService(ArticleRepository repository) {
+        this.repository = repository;
+    }
+
+    @Transactional(readOnly = true)
+    public List&lt;ArticleDTO&gt; lister() {
+        return repository.findAll().stream()
+            .map(this::versDTO)
+            .toList();
+    }
+
+    @Transactional
+    public ArticleDTO creer(CreerArticleDTO dto) {
+        Article a = new Article(dto.titre(), dto.prix());
+        return versDTO(repository.save(a));
+    }
+
+    private ArticleDTO versDTO(Article a) {
+        return new ArticleDTO(a.getId(), a.getTitre(), a.getPrix());
+    }
+}
+</code></pre>
+<blockquote>
+<p><code>@Transactional</code> délimite la transaction : tout réussit, ou tout est annulé (rollback). Utiliser <code>readOnly = true</code> pour les lectures (optimisation).</p>
+</blockquote>
+<hr />
+<h2 id="authentification-securite">Authentification &amp; sécurité</h2>
+<p>Spring Security intercepte les requêtes via une <strong>chaîne de filtres</strong> (filter chain) avant qu'elles n'atteignent les contrôleurs. On l'utilise ici pour une authentification <strong>JWT stateless</strong>, adaptée aux API et aux SPA.</p>
+<blockquote>
+<p>Cette section applique les concepts JWT (structure du token, access/refresh, stockage) détaillés dans la fiche <a href="../../dev-securite/jwt-auth/">JWT — Authentification</a>. On se concentre ici sur l'intégration Spring.</p>
+</blockquote>
+<pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="hachage-des-mots-de-passe-bcrypt">Hachage des mots de passe (BCrypt)</h3>
+<p>On ne stocke jamais un mot de passe en clair : on en conserve une <strong>empreinte</strong> produite par une fonction de hachage à sens unique, impossible à inverser. BCrypt est conçu spécifiquement pour cela — il est volontairement lent (pour résister aux attaques par force brute) et intègre un <strong>sel</strong> aléatoire, de sorte que deux mots de passe identiques donnent des empreintes différentes. La vérification se fait par <code>matches</code>, sans jamais reconstituer le mot de passe.</p>
+<pre><code class="language-java">@Bean
+public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+}
+</code></pre>
+<pre><code class="language-java">// À l'inscription : hacher avant de sauvegarder
+String hash = passwordEncoder.encode(motDePasseEnClair);
+
+// À la connexion : comparer
+boolean ok = passwordEncoder.matches(motDePasseEnClair, hashStocke);
+</code></pre>
+<h3 id="configuration-de-la-securite">Configuration de la sécurité</h3>
+<p>La <code>SecurityFilterChain</code> définit les règles appliquées à chaque requête entrante : quelles routes sont publiques, lesquelles exigent une authentification, lesquelles réclament un rôle précis. Pour une API JWT, on désactive les sessions (<code>STATELESS</code>) — chaque requête se ré-authentifie via son token, le serveur ne conserve aucun état — et on désactive la protection CSRF, inutile en l'absence de cookies de session.</p>
+<pre><code class="language-java">@Configuration
+@EnableWebSecurity
+@EnableMethodSecurity        // active @PreAuthorize sur les méthodes
+public class SecurityConfig {
+
+    private final JwtAuthFilter jwtAuthFilter;
+
+    public SecurityConfig(JwtAuthFilter jwtAuthFilter) {
+        this.jwtAuthFilter = jwtAuthFilter;
+    }
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            // API stateless : pas de session, pas besoin de CSRF
+            .csrf(csrf -&gt; csrf.disable())
+            .sessionManagement(s -&gt; s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authorizeHttpRequests(auth -&gt; auth
+                .requestMatchers(&quot;/api/auth/**&quot;).permitAll()      // login/register publics
+                .requestMatchers(HttpMethod.GET, &quot;/api/articles/**&quot;).permitAll()
+                .requestMatchers(&quot;/api/admin/**&quot;).hasRole(&quot;ADMIN&quot;) // réservé aux admins
+                .anyRequest().authenticated()                      // le reste : authentifié
+            )
+            // Insérer notre filtre JWT avant le filtre d'authentification standard
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
+}
+</code></pre>
+<h3 id="generation-du-token-service-jwt">Génération du token (service JWT)</h3>
+<p>Ce service encapsule la création et la vérification des JWT avec la bibliothèque <code>jjwt</code>. À la connexion, il signe un token contenant l'identité de l'utilisateur et ses claims (rôle, expiration) ; à chaque requête suivante, il vérifie la signature avec le secret pour garantir que le token n'a pas été falsifié.</p>
+<pre><code class="language-java">@Service
+public class JwtService {
+
+    @Value(&quot;${app.jwt.secret}&quot;)
+    private String secret;
+
+    @Value(&quot;${app.jwt.expiration}&quot;)
+    private long expiration;
+
+    public String genererToken(Utilisateur u) {
+        return Jwts.builder()
+            .subject(u.getEmail())
+            .claim(&quot;role&quot;, u.getRole().name())
+            .issuedAt(new Date())
+            .expiration(new Date(System.currentTimeMillis() + expiration))
+            .signWith(cle())
+            .compact();
+    }
+
+    public String extraireEmail(String token) {
+        return parser(token).getSubject();
+    }
+
+    public boolean estValide(String token) {
+        try {
+            parser(token);
+            return true;
+        } catch (JwtException e) {
+            return false;
+        }
+    }
+
+    private Claims parser(String token) {
+        return Jwts.parser().verifyWith(cle()).build()
+            .parseSignedClaims(token).getPayload();
+    }
+
+    private SecretKey cle() {
+        return Keys.hmacShaKeyFor(secret.getBytes());
+    }
+}
+</code></pre>
+<h3 id="endpoint-de-connexion">Endpoint de connexion</h3>
+<p>La route de login est publique. Elle vérifie l'e-mail et compare le mot de passe fourni au hash stocké (via <code>matches</code>, sans jamais déchiffrer). Si les identifiants sont valides, elle renvoie un JWT que le client joindra à ses requêtes suivantes.</p>
+<pre><code class="language-java">@RestController
+@RequestMapping(&quot;/api/auth&quot;)
+public class AuthController {
+
+    private final UtilisateurRepository repository;
+    private final PasswordEncoder encoder;
+    private final JwtService jwtService;
+
+    // + constructeur
+
+    @PostMapping(&quot;/login&quot;)
+    public TokenDTO login(@Valid @RequestBody LoginDTO dto) {
+        Utilisateur u = repository.findByEmail(dto.email())
+            .orElseThrow(() -&gt; new ResponseStatusException(HttpStatus.UNAUTHORIZED));
+
+        if (!encoder.matches(dto.motDePasse(), u.getMotDePasse())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, &quot;Identifiants invalides&quot;);
+        }
+
+        return new TokenDTO(jwtService.genererToken(u), &quot;Bearer&quot;);
+    }
+}
+
+public record LoginDTO(@Email String email, @NotBlank String motDePasse) {}
+public record TokenDTO(String accessToken, String tokenType) {}
+</code></pre>
+<h3 id="filtre-de-validation-jwt">Filtre de validation JWT</h3>
+<p>Ce filtre s'exécute à chaque requête : il lit le header <code>Authorization</code>, valide le token et place l'utilisateur dans le contexte de sécurité.</p>
+<pre><code class="language-java">@Component
+public class JwtAuthFilter extends OncePerRequestFilter {
+
+    private final JwtService jwtService;
+
+    public JwtAuthFilter(JwtService jwtService) {
+        this.jwtService = jwtService;
+    }
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain chain)
+            throws ServletException, IOException {
+
+        String header = request.getHeader(&quot;Authorization&quot;);
+
+        if (header != null &amp;&amp; header.startsWith(&quot;Bearer &quot;)) {
+            String token = header.substring(7);
+
+            if (jwtService.estValide(token)) {
+                String email = jwtService.extraireEmail(token);
+                var auth = new UsernamePasswordAuthenticationToken(
+                    email, null, List.of());   // + autorités/rôles
+                SecurityContextHolder.getContext().setAuthentication(auth);
+            }
+        }
+
+        chain.doFilter(request, response);   // laisser passer la requête
+    }
+}
+</code></pre>
+<h3 id="autorisation-fine-par-methode">Autorisation fine par méthode</h3>
+<p>Là où la <code>SecurityFilterChain</code> filtre par URL, <code>@PreAuthorize</code> sécurise au niveau de la méthode. Son expression (langage SpEL) est évaluée avant l'exécution : elle peut vérifier un rôle, mais aussi une condition dynamique — par exemple qu'un utilisateur n'accède qu'à sa propre ressource.</p>
+<pre><code class="language-java">@RestController
+@RequestMapping(&quot;/api/admin&quot;)
+public class AdminController {
+
+    @GetMapping(&quot;/stats&quot;)
+    @PreAuthorize(&quot;hasRole('ADMIN')&quot;)        // vérifié avant l'appel
+    public StatsDTO stats() { /* ... */ }
+
+    // Accès à sa propre ressource uniquement
+    @GetMapping(&quot;/users/{id}&quot;)
+    @PreAuthorize(&quot;#id == authentication.principal.id or hasRole('ADMIN')&quot;)
+    public UserDTO utilisateur(@PathVariable Long id) { /* ... */ }
+}
+</code></pre>
+<h3 id="cors-appels-depuis-un-front-sur-un-autre-domaine">CORS (appels depuis un front sur un autre domaine)</h3>
+<p>Par sécurité, un navigateur bloque par défaut les requêtes JavaScript vers une origine (domaine, port ou protocole) différente de celle de la page. Le <strong>CORS</strong> (Cross-Origin Resource Sharing) est le mécanisme par lequel le serveur autorise explicitement certaines origines — indispensable quand le front (ex. <code>localhost:5173</code>) et l'API (ex. <code>localhost:8080</code>) sont sur des origines distinctes.</p>
+<pre><code class="language-java">@Bean
+public CorsConfigurationSource corsConfigurationSource() {
+    var config = new CorsConfiguration();
+    config.setAllowedOrigins(List.of(&quot;https://mon-front.fr&quot;));  // pas &quot;*&quot; en prod
+    config.setAllowedMethods(List.of(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;));
+    config.setAllowedHeaders(List.of(&quot;Authorization&quot;, &quot;Content-Type&quot;));
+    config.setAllowCredentials(true);
+
+    var source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration(&quot;/**&quot;, config);
+    return source;
+}
+</code></pre>
+<h3 id="flux-dune-requete-authentifiee">Flux d'une requête authentifiée</h3>
+<pre><code>Client                          Serveur (Spring Security)
+  │── POST /api/auth/login ───────→│  vérifie identifiants (BCrypt)
+  │←── { accessToken } ────────────│  génère le JWT
+  │                                │
+  │── GET /api/articles ───────────→│  ┌─ JwtAuthFilter
+  │   Authorization: Bearer &lt;jwt&gt;  │  │   valide le token
+  │                                │  │   place l'user dans le contexte
+  │                                │  └─ authorizeHttpRequests / @PreAuthorize
+  │←── 200 { données } ────────────│  contrôleur exécuté si autorisé
+  │                                │
+  │── GET /api/admin/stats ────────→│  403 si rôle insuffisant
+</code></pre>
+<hr />
+<h2 id="tests">Tests</h2>
+<p>Spring Boot fournit un starter de test complet (JUnit 5, Mockito, AssertJ, MockMvc).</p>
+<h3 id="test-unitaire-service-isole-avec-mockito">Test unitaire (service isolé avec Mockito)</h3>
+<p>Un test unitaire vérifie une classe isolée de ses dépendances. <strong>Mockito</strong> fournit des <strong>mocks</strong> : de fausses implémentations dont on programme le comportement (<code>when(...).thenReturn(...)</code>) pour tester la logique de la classe sans base de données ni contexte Spring. Le patron <strong>given / when / then</strong> structure le test : contexte, action, vérification.</p>
+<pre><code class="language-java">@ExtendWith(MockitoExtension.class)
+class ArticleServiceTest {
+
+    @Mock
+    private ArticleRepository repository;     // dépendance simulée
+
+    @InjectMocks
+    private ArticleService service;           // classe testée
+
+    @Test
+    void lister_retourne_les_articles() {
+        // given
+        when(repository.findAll()).thenReturn(List.of(
+            new Article(&quot;Clavier&quot;, 49.9)
+        ));
+
+        // when
+        var resultat = service.lister();
+
+        // then
+        assertThat(resultat).hasSize(1);
+        assertThat(resultat.get(0).titre()).isEqualTo(&quot;Clavier&quot;);
+    }
+}
+</code></pre>
+<h3 id="test-de-controleur-couche-web-isolee">Test de contrôleur (couche web isolée)</h3>
+<p><code>@WebMvcTest</code> ne charge que la couche web (le contrôleur ciblé, la sérialisation, la sécurité), en simulant les services sous-jacents. <code>MockMvc</code> envoie des requêtes HTTP simulées sans démarrer de vrai serveur, ce qui rend ces tests rapides tout en vérifiant routes, codes de statut et JSON produit.</p>
+<pre><code class="language-java">@WebMvcTest(ArticleController.class)     // charge seulement la couche web
+class ArticleControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockitoBean                          // remplace le service par un mock
+    private ArticleService service;
+
+    @Test
+    void obtenir_retourne_200() throws Exception {
+        when(service.obtenir(1L)).thenReturn(new ArticleDTO(1L, &quot;Clavier&quot;, 49.9));
+
+        mockMvc.perform(get(&quot;/api/articles/1&quot;))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath(&quot;$.titre&quot;).value(&quot;Clavier&quot;));
+    }
+}
+</code></pre>
+<h3 id="test-dintegration-contexte-complet">Test d'intégration (contexte complet)</h3>
+<pre><code class="language-java">@SpringBootTest                          // charge tout le contexte Spring
+@AutoConfigureMockMvc
+class ApplicationIT {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    void endpoint_protege_refuse_sans_token() throws Exception {
+        mockMvc.perform(get(&quot;/api/admin/stats&quot;))
+            .andExpect(status().isUnauthorized());
+    }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Portée</th>
+<th>Vitesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@ExtendWith(MockitoExtension.class)</code></td>
+<td>Unitaire, sans Spring</td>
+<td>Très rapide</td>
+</tr>
+<tr>
+<td><code>@WebMvcTest</code></td>
+<td>Couche web seule</td>
+<td>Rapide</td>
+</tr>
+<tr>
+<td><code>@DataJpaTest</code></td>
+<td>Couche persistance seule</td>
+<td>Rapide</td>
+</tr>
+<tr>
+<td><code>@SpringBootTest</code></td>
+<td>Application complète</td>
+<td>Lente</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="checklist-backend-javaspring">Checklist — backend Java/Spring</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Injection par constructeur, dépendances <code>final</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Entités JPA jamais exposées dans l'API — passer par des DTO (<code>record</code>)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Validation des entrées avec <code>@Valid</code> + annotations Jakarta</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Gestion des erreurs centralisée (<code>@RestControllerAdvice</code>)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Relations JPA en <code>FetchType.LAZY</code> par défaut — attention au N+1</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>@Transactional(readOnly = true)</code> sur les lectures</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Mots de passe hachés avec BCrypt — jamais en clair</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Secrets (JWT, BDD) dans des variables d'environnement, pas dans le code</td>
+</tr>
+<tr>
+<td>9</td>
+<td>API stateless : sessions désactivées, JWT dans le header <code>Authorization</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>CORS restreint aux origines connues (pas <code>*</code> en production)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Codes HTTP corrects (201 à la création, 204 sur DELETE, 401 vs 403)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Tests par couche : unitaire (Mockito) + web (<code>@WebMvcTest</code>) + intégration</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../html/" class="btn btn-neutral float-left" title="HTML5"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../javascript/" class="btn btn-neutral float-right" title="JavaScript">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../html/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../javascript/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
