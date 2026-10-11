@@ -14,33 +14,36 @@ Fichier Markdown lu automatiquement à chaque session. Sert à donner du context
 | `./CLAUDE.md` | Projet courant |
 | `./src/CLAUDE.md` | Sous-dossier spécifique |
 
-Exemple de CLAUDE.md Global (auteur Ed.Donner) :
+Exemple de CLAUDE.md Global :
 
 ```markdown
-## VERY IMPORTANT
+# Langue
+- Toujours me répondre en français.
+- Par défaut, commentaires de code, README et documentation en anglais.
+- Certains projets sont entièrement en français : avant d'écrire des commentaires
+  ou de la doc dans un projet, vérifier la langue indiquée dans le CLAUDE.md du
+  projet ou celle du code existant. Si rien ne permet de trancher, me demander.
 
-- Be simple. Approach tasks in a simple, incremental way.
-- Work incrementally ALWAYS. Small, simple steps. Validate and check each increment before moving on.
-- Use LATEST apis as of NOW
+# Façon de travailler
+- Avancer par petits incréments : un changement logique, puis lancer tests et lint,
+  puis passer au suivant. Ne pas regrouper des changements sans rapport.
+- Rester simple. Pas d'abstraction spéculative. Valider les entrées aux frontières
+  du système (saisies utilisateur, API externes, fichiers) ; pas de vérifications
+  défensives dans le code interne.
+- Utiliser les versions de bibliothèques réellement installées (voir package.json /
+  lockfile). En cas de doute sur une API, consulter la doc officielle plutôt que deviner.
 
-## MANDATORY Code style
+# Style de code
+- Fonctions et modules courts, noms explicites.
+- Docstrings/JSDoc concises ; peu de commentaires en ligne (expliquer le pourquoi,
+  pas le quoi).
+- Aucun emoji dans le code, les logs ou les sorties.
+- README.md concis.
 
-- Do not overengineer. Do not program defensively. Use exception managers only when needed.
-- Identify root cause before fixing issues. Prove with evidence, then fix.
-- Work incrementally with smalt steps. Validate each increment.
-- Use latest library APIs.
-- Favor clear, concise docstring comments. Be sparing with comments outside docstrings.
-- Favor short modules, short methods and functions. Name things clearly.
-- Never use emojis in code or in print statements or logging
-- Keep README.md concise
-
-## Important - debugging and fixing
-
-- When troubleshooting problems, ALWAYS identify root cause BEFORE fixing
-- Reproduce consistently
-- PROVE THE PROBLEM FIRST - don't guess.
-- Try one test at a time. Be methodical.
-- Don't jump to conclusions. Don't apply workarounds.
+# Débogage
+- Reproduire d'abord, idéalement avec un test qui échoue : ce test est la preuve.
+- Tester une seule hypothèse à la fois, et l'énoncer avant de modifier le code.
+- Corriger la cause racine. Si un contournement semble nécessaire, me demander d'abord.
 ```
 
 Exemple de CLAUDE.md Projet :
