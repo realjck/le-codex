@@ -14,3 +14,6 @@ Testez vos API en ligne (alternative à Postman)
 
 ### [readme.so](https://readme.so/editor)  
 Créez un fichier README rapidement avec cet éditeur en ligne
+
+### [starship.rs](https://starship.rs/)
+Une invite de commande personnalisable pour votre terminal
