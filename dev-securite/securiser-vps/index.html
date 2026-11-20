@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Sécuriser un VPS Linux - Le Codex</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "S\u00e9curiser un VPS Linux";
+        var mkdocs_page_input_path = "dev-securite/securiser-vps.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ACCUEIL</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/">Site avec MkDocs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev langages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/angular/">Angular</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/bash/">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/css/">CSS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/html/">HTML5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/java/">Java</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/javascript/">JavaScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/node/">Node.js</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/php/">PHP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/pwa/">PWA</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/react/">React</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/regex/">RegEx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/sql/">SQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/typescript/">TypeScript</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-langages/yaml/">YAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev ops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ci-cd/">CI/CD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/concept-reseau/">Concepts de réseau essentiels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/linux-file-system/">Système de fichiers Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/nginx-ssl/">Configuration d'un serveur web Nginx avec SSL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/ssh/">SSH</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-ops/winscp/">Mise en ligne avec WinSCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev securite</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../jwt-auth/">JWT — Authentification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../owasp/">OWASP Top 10</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../secrets/">Gestion des secrets</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Sécuriser un VPS Linux</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-mettre-a-jour-le-serveur">1) Mettre à jour le serveur</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-securiser-ssh">2) Sécuriser SSH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-configurer-le-pare-feu-ufw">3) Configurer le pare-feu (UFW)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-restreindre-lexposition-internet">4) Restreindre l'exposition Internet</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-separer-les-privileges">5) Séparer les privilèges</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-bloquer-les-tentatives-dintrusion-fail2ban">6) Bloquer les tentatives d'intrusion (Fail2ban)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-mettre-en-place-des-sauvegardes">7) Mettre en place des sauvegardes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-configurer-des-alertes-et-la-supervision">8) Configurer des alertes et la supervision</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#complements">Compléments</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#checklist-finale">Checklist finale</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dev tests</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/concepts/">Concepts de tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/jest/">Jest</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dev-tests/playwright/">Playwright</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gestion de projet</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/gitflow/">Gitflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/guide-scrum/">Le guide de Référence de Scrum : Les règles du jeu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gestion-de-projet/kanban/">Kanban</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ia generative</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/bmad/">La méthode BMAD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/claude-code/">Claude Code — Protocoles &amp; méthodes avancées</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/concepts-fondamentaux/">Concepts fondamentaux de l'IA générative</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/n8n/">n8n</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/ollama/">Configurer Ollama</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ia-generative/prompt-engineering/">Prompt Engineering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Liens utiles</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/low-code-no-code/">Low-code &amp; no-code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-design/">Outils pour le design</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../liens-utiles/outils-dev/">Outils pour le développement</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Le Codex</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dev securite</li>
+      <li class="breadcrumb-item active">Sécuriser un VPS Linux</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="securiser-un-vps-linux">Sécuriser un VPS Linux</h1>
+<p>Checklist des vérifications à faire avant de mettre un VPS en production, avec les commandes associées. Les exemples sont donnés pour <strong>Debian / Ubuntu</strong>.</p>
+<blockquote>
+<p>Les robots ne se fatiguent jamais : un VPS fraîchement exposé reçoit des tentatives de connexion SSH dans les minutes qui suivent sa mise en ligne.</p>
+</blockquote>
+<hr />
+<h2 id="1-mettre-a-jour-le-serveur">1) Mettre à jour le serveur</h2>
+<h3 id="mise-a-jour-manuelle">Mise à jour manuelle</h3>
+<pre><code class="language-bash">sudo apt update                 # rafraîchir la liste des paquets
+sudo apt full-upgrade -y        # installer les mises à jour (y compris changements de dépendances)
+sudo apt autoremove --purge -y  # supprimer les paquets devenus inutiles
+
+# Un redémarrage est-il nécessaire (nouveau noyau, libc...) ?
+[ -f /var/run/reboot-required ] &amp;&amp; cat /var/run/reboot-required.pkgs
+sudo reboot
+</code></pre>
+<h3 id="automatiser-les-mises-a-jour-de-securite">Automatiser les mises à jour de sécurité</h3>
+<pre><code class="language-bash">sudo apt install unattended-upgrades apt-listchanges
+sudo dpkg-reconfigure -plow unattended-upgrades   # répondre &quot;Oui&quot;
+</code></pre>
+<p>Cela crée <code>/etc/apt/apt.conf.d/20auto-upgrades</code> :</p>
+<pre><code>APT::Periodic::Update-Package-Lists &quot;1&quot;;
+APT::Periodic::Unattended-Upgrade &quot;1&quot;;
+</code></pre>
+<p>Options utiles dans <code>/etc/apt/apt.conf.d/50unattended-upgrades</code> :</p>
+<pre><code>Unattended-Upgrade::Remove-Unused-Dependencies &quot;true&quot;;
+Unattended-Upgrade::Automatic-Reboot &quot;true&quot;;          // redémarre si nécessaire...
+Unattended-Upgrade::Automatic-Reboot-Time &quot;04:00&quot;;    // ...à une heure creuse
+Unattended-Upgrade::Mail &quot;admin@exemple.com&quot;;         // nécessite un MTA configuré
+</code></pre>
+<pre><code class="language-bash"># Tester la configuration sans rien installer
+sudo unattended-upgrade --dry-run --debug
+
+# Consulter l'historique
+cat /var/log/unattended-upgrades/unattended-upgrades.log
+</code></pre>
+<hr />
+<h2 id="2-securiser-ssh">2) Sécuriser SSH</h2>
+<blockquote>
+<p>Le détail de la configuration SSH (clés, <code>~/.ssh/config</code>, tunnels) est dans la fiche <a href="../../dev-ops/ssh/">SSH</a>.</p>
+</blockquote>
+<h3 id="creer-un-utilisateur-dadministration">Créer un utilisateur d'administration</h3>
+<p>Ne pas travailler en <code>root</code> au quotidien :</p>
+<pre><code class="language-bash"># Sur le serveur (en root)
+adduser admin
+usermod -aG sudo admin
+</code></pre>
+<h3 id="se-connecter-par-cle">Se connecter par clé</h3>
+<pre><code class="language-bash"># Sur le poste local
+ssh-keygen -t ed25519 -f ~/.ssh/vps_prod -C &quot;vps-prod&quot;
+ssh-copy-id -i ~/.ssh/vps_prod.pub admin@mon-vps.com
+
+# Vérifier que la connexion par clé fonctionne AVANT de désactiver les mots de passe
+ssh -i ~/.ssh/vps_prod admin@mon-vps.com
+</code></pre>
+<h3 id="durcir-la-configuration-du-demon">Durcir la configuration du démon</h3>
+<p>Plutôt que de modifier <code>/etc/ssh/sshd_config</code>, créer un fichier dédié (lu en priorité grâce à la directive <code>Include</code> présente par défaut) :</p>
+<pre><code class="language-bash">sudo nano /etc/ssh/sshd_config.d/99-hardening.conf
+</code></pre>
+<pre><code>PermitRootLogin no
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PubkeyAuthentication yes
+MaxAuthTries 3
+LoginGraceTime 30
+X11Forwarding no
+AllowUsers admin
+</code></pre>
+<pre><code class="language-bash">sudo sshd -t                     # vérifier la syntaxe (aucune sortie = OK)
+sudo systemctl restart ssh       # &quot;ssh&quot; sur Debian/Ubuntu, &quot;sshd&quot; sur RHEL/Fedora
+sudo sshd -T | grep -Ei 'permitrootlogin|passwordauthentication|allowusers'  # config effective
+</code></pre>
+<p>⚠️ <strong>Garder la session actuelle ouverte</strong> et tester depuis un <strong>nouveau</strong> terminal avant de se déconnecter.</p>
+<blockquote>
+<p><strong>Changer le port SSH</strong> (ex. <code>Port 2222</code>) réduit le bruit dans les logs mais n'est pas une sécurité en soi. Sur Ubuntu 24.04+ (activation par socket), il faut ensuite <code>sudo systemctl daemon-reload &amp;&amp; sudo systemctl restart ssh.socket</code>. Penser à ouvrir le nouveau port dans le pare-feu <strong>avant</strong> de redémarrer.</p>
+</blockquote>
+<hr />
+<h2 id="3-configurer-le-pare-feu-ufw">3) Configurer le pare-feu (UFW)</h2>
+<p>Principe : tout bloquer en entrée, n'ouvrir que le nécessaire.</p>
+<pre><code class="language-bash">sudo apt install ufw
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# SSH d'abord, sinon on se coupe l'accès
+sudo ufw allow OpenSSH                 # ou : sudo ufw allow 2222/tcp si port personnalisé
+sudo ufw limit OpenSSH                 # limite le débit de connexions (anti brute-force basique)
+
+# Web
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+
+sudo ufw enable
+sudo ufw status verbose
+</code></pre>
+<p>Commandes utiles :</p>
+<pre><code class="language-bash">sudo ufw status numbered               # lister les règles avec leur numéro
+sudo ufw delete 3                      # supprimer la règle n°3
+sudo ufw allow from 203.0.113.10 to any port 22 proto tcp   # SSH réservé à une IP fixe
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Docker contourne UFW</strong> : un conteneur lancé avec <code>-p 5432:5432</code> est exposé sur Internet même si UFW bloque le port. Publier les ports sur la boucle locale (<code>-p 127.0.0.1:5432:5432</code>) ou ne pas les publier du tout et passer par un reverse proxy. Voir la fiche <a href="../../dev-ops/docker/">Docker</a>.</p>
+<p>Penser aussi au pare-feu de l'hébergeur (OVH, Scaleway, Hetzner...) qui offre une seconde barrière en amont du VPS.</p>
+</blockquote>
+<hr />
+<h2 id="4-restreindre-lexposition-internet">4) Restreindre l'exposition Internet</h2>
+<h3 id="lister-les-ports-en-ecoute">Lister les ports en écoute</h3>
+<pre><code class="language-bash">sudo ss -tulpn
+# -t TCP, -u UDP, -l en écoute, -p processus, -n sans résolution de noms
+</code></pre>
+<p>À lire dans la colonne <code>Local Address</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Adresse</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>127.0.0.1:5432</code></td>
+<td>accessible uniquement depuis le serveur (OK)</td>
+</tr>
+<tr>
+<td><code>0.0.0.0:5432</code> ou <code>*:5432</code></td>
+<td>accessible depuis toutes les interfaces (à vérifier)</td>
+</tr>
+<tr>
+<td><code>[::]:5432</code></td>
+<td>idem en IPv6</td>
+</tr>
+</tbody>
+</table>
+<h3 id="verifier-depuis-lexterieur">Vérifier depuis l'extérieur</h3>
+<p>Depuis le <strong>poste local</strong> (pas depuis le serveur) :</p>
+<pre><code class="language-bash">nmap -Pn mon-vps.com              # 1000 ports les plus courants
+nmap -Pn -p- mon-vps.com          # tous les ports (plus long)
+</code></pre>
+<p>Idéalement, seuls <code>22</code> (ou le port SSH choisi), <code>80</code> et <code>443</code> apparaissent <code>open</code>.</p>
+<h3 id="rediriger-http-vers-https">Rediriger HTTP vers HTTPS</h3>
+<p>Le port 80 ne sert qu'à rediriger vers 443 (et au challenge Let's Encrypt) :</p>
+<pre><code class="language-nginx">server {
+    listen 80;
+    listen [::]:80;
+    server_name mon-site.fr;
+    return 301 https://$host$request_uri;
+}
+</code></pre>
+<blockquote>
+<p>Configuration complète Nginx + Certbot : voir la fiche <a href="../../dev-ops/nginx-ssl/">Nginx SSL</a>.</p>
+</blockquote>
+<h3 id="desactiver-les-services-inutiles">Désactiver les services inutiles</h3>
+<pre><code class="language-bash">systemctl list-units --type=service --state=running
+sudo systemctl disable --now nom-du-service
+</code></pre>
+<hr />
+<h2 id="5-separer-les-privileges">5) Séparer les privilèges</h2>
+<h3 id="creer-un-utilisateur-systeme-dedie-a-lapplication">Créer un utilisateur système dédié à l'application</h3>
+<pre><code class="language-bash">sudo useradd --system --create-home --home-dir /opt/monapp --shell /usr/sbin/nologin monapp
+sudo chown -R monapp:monapp /opt/monapp
+sudo chmod 750 /opt/monapp
+</code></pre>
+<p>L'utilisateur n'a ni mot de passe, ni shell, ni droits <code>sudo</code>.</p>
+<h3 id="lancer-lapplication-avec-ce-compte-systemd">Lancer l'application avec ce compte (systemd)</h3>
+<pre><code class="language-ini"># /etc/systemd/system/monapp.service
+[Unit]
+Description=Mon application
+After=network.target
+
+[Service]
+User=monapp
+Group=monapp
+WorkingDirectory=/opt/monapp
+ExecStart=/usr/bin/node /opt/monapp/server.js
+EnvironmentFile=/etc/monapp/monapp.env
+Restart=on-failure
+
+# Durcissement
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/opt/monapp/data
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<pre><code class="language-bash">sudo systemctl daemon-reload
+sudo systemctl enable --now monapp
+ps -o user,pid,cmd -C node              # vérifier que le processus ne tourne pas en root
+systemd-analyze security monapp         # score d'exposition du service
+</code></pre>
+<blockquote>
+<p>L'application écoute sur un port &gt; 1024 (ex. <code>127.0.0.1:3000</code>) et Nginx fait reverse proxy : pas besoin de <code>root</code> pour se lier au port 443.</p>
+</blockquote>
+<h3 id="ne-pas-exposer-la-base-de-donnees">Ne pas exposer la base de données</h3>
+<pre><code class="language-bash"># PostgreSQL : /etc/postgresql/&lt;version&gt;/main/postgresql.conf
+listen_addresses = 'localhost'
+
+# MySQL / MariaDB : /etc/mysql/mariadb.conf.d/50-server.cnf
+bind-address = 127.0.0.1
+
+# Redis : /etc/redis/redis.conf
+bind 127.0.0.1 ::1
+protected-mode yes
+</code></pre>
+<pre><code class="language-bash">sudo systemctl restart postgresql       # ou mariadb / redis-server
+sudo ss -tlpn | grep -E '5432|3306|6379'   # doit afficher 127.0.0.1
+</code></pre>
+<p>Créer un utilisateur de base de données par application, avec uniquement les droits sur sa propre base :</p>
+<pre><code class="language-sql">-- PostgreSQL
+CREATE ROLE monapp LOGIN PASSWORD 'mot-de-passe-fort';
+CREATE DATABASE monapp OWNER monapp;
+</code></pre>
+<p>Pour administrer la base à distance, passer par un tunnel SSH plutôt que d'ouvrir le port :</p>
+<pre><code class="language-bash">ssh -L 5432:localhost:5432 admin@mon-vps.com
+</code></pre>
+<h3 id="auditer-les-droits">Auditer les droits</h3>
+<pre><code class="language-bash">getent group sudo                       # qui est sudoer ?
+sudo -l -U admin                        # droits sudo d'un utilisateur
+awk -F: '$3 == 0 {print $1}' /etc/passwd   # comptes avec UID 0 (seul root attendu)
+sudo find / -xdev -perm -0002 -type f 2&gt;/dev/null   # fichiers modifiables par tout le monde
+</code></pre>
+<hr />
+<h2 id="6-bloquer-les-tentatives-dintrusion-fail2ban">6) Bloquer les tentatives d'intrusion (Fail2ban)</h2>
+<p>Fail2ban surveille les logs et bannit temporairement (via le pare-feu) les IP qui échouent trop souvent.</p>
+<pre><code class="language-bash">sudo apt install fail2ban
+</code></pre>
+<p>Ne jamais modifier <code>jail.conf</code> (écrasé lors des mises à jour) : créer <code>/etc/fail2ban/jail.local</code> :</p>
+<pre><code class="language-ini">[DEFAULT]
+bantime  = 1h
+findtime = 10m
+maxretry = 5
+bantime.increment = true        # durée de bannissement croissante pour les récidivistes
+ignoreip = 127.0.0.1/8 ::1      # ajouter son IP fixe si on en a une
+banaction = ufw
+
+[sshd]
+enabled = true
+port    = ssh                   # ou 2222 si port personnalisé
+backend = systemd               # Debian 12+ / Ubuntu 24.04+ : pas de /var/log/auth.log par défaut
+</code></pre>
+<pre><code class="language-bash">sudo systemctl enable --now fail2ban
+sudo fail2ban-client status              # jails actives
+sudo fail2ban-client status sshd         # IP bannies et compteurs
+sudo fail2ban-client set sshd unbanip 203.0.113.10   # débannir une IP
+sudo tail -f /var/log/fail2ban.log
+</code></pre>
+<blockquote>
+<p>Des jails existent aussi pour Nginx (<code>nginx-http-auth</code>, <code>nginx-botsearch</code>...) : voir <code>ls /etc/fail2ban/filter.d/</code>.</p>
+</blockquote>
+<hr />
+<h2 id="7-mettre-en-place-des-sauvegardes">7) Mettre en place des sauvegardes</h2>
+<p>Règle <strong>3-2-1</strong> : 3 copies, sur 2 supports différents, dont 1 hors du VPS. Un snapshot chez l'hébergeur est un plus, pas une sauvegarde suffisante (même fournisseur, même compte).</p>
+<h3 id="sauvegarder-la-base-de-donnees">Sauvegarder la base de données</h3>
+<pre><code class="language-bash"># PostgreSQL
+sudo -u postgres pg_dump -Fc monapp &gt; /var/backups/monapp_$(date +%F).dump
+
+# MySQL / MariaDB
+sudo mysqldump --single-transaction monapp | gzip &gt; /var/backups/monapp_$(date +%F).sql.gz
+</code></pre>
+<h3 id="envoyer-les-sauvegardes-ailleurs-avec-restic">Envoyer les sauvegardes ailleurs avec restic</h3>
+<p><code>restic</code> chiffre, déduplique et gère la rétention. Il supporte SFTP, S3, Backblaze B2...</p>
+<pre><code class="language-bash">sudo apt install restic
+
+# Initialiser un dépôt distant (ici via SFTP)
+export RESTIC_REPOSITORY=&quot;sftp:backup@serveur-backup.com:/srv/restic/vps-prod&quot;
+export RESTIC_PASSWORD_FILE=/root/.restic-password      # chmod 600
+restic init
+
+# Sauvegarder
+restic backup /opt/monapp /etc /var/backups
+
+# Rétention : 7 jours, 4 semaines, 6 mois
+restic forget --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune
+
+restic snapshots                         # lister les sauvegardes
+restic check                             # vérifier l'intégrité du dépôt
+</code></pre>
+<h3 id="planifier">Planifier</h3>
+<pre><code class="language-bash">sudo crontab -e
+</code></pre>
+<pre><code># Tous les jours à 3h
+0 3 * * * /usr/local/bin/backup.sh &gt;&gt; /var/log/backup.log 2&gt;&amp;1
+</code></pre>
+<h3 id="tester-la-restauration">Tester la restauration</h3>
+<blockquote>
+<p>Une sauvegarde qui n'a jamais été restaurée n'est pas une garantie de récupération.</p>
+</blockquote>
+<pre><code class="language-bash">restic restore latest --target /tmp/restore-test
+ls -la /tmp/restore-test/opt/monapp
+
+# Restaurer la base dans une base de test
+sudo -u postgres createdb monapp_test
+sudo -u postgres pg_restore -d monapp_test /tmp/restore-test/var/backups/monapp_2026-11-20.dump
+</code></pre>
+<p>Planifier ce test régulièrement (par exemple une fois par mois).</p>
+<hr />
+<h2 id="8-configurer-des-alertes-et-la-supervision">8) Configurer des alertes et la supervision</h2>
+<h3 id="commandes-de-verification-rapide">Commandes de vérification rapide</h3>
+<pre><code class="language-bash">df -h                                    # espace disque
+free -h                                  # mémoire
+uptime                                   # charge
+systemctl --failed                       # services en échec
+journalctl -p err -b                     # erreurs depuis le dernier démarrage
+journalctl -u ssh --since &quot;1 hour ago&quot;   # logs d'un service
+last -n 20                               # dernières connexions réussies
+sudo lastb -n 20                         # dernières tentatives échouées
+</code></pre>
+<h3 id="alerte-simple-sur-lespace-disque">Alerte simple sur l'espace disque</h3>
+<pre><code class="language-bash">#!/bin/bash
+# /usr/local/bin/check-disk.sh
+THRESHOLD=85
+USAGE=$(df / --output=pcent | tail -1 | tr -dc '0-9')
+if [ &quot;$USAGE&quot; -ge &quot;$THRESHOLD&quot; ]; then
+    echo &quot;Disque / plein a ${USAGE}% sur $(hostname)&quot; | mail -s &quot;[ALERTE] Disque&quot; admin@exemple.com
+fi
+</code></pre>
+<pre><code># crontab : toutes les heures
+0 * * * * /usr/local/bin/check-disk.sh
+</code></pre>
+<h3 id="supervision-externe">Supervision externe</h3>
+<p>La surveillance doit tourner <strong>hors du VPS</strong>, sinon elle tombe avec lui :</p>
+<ul>
+<li><strong>Disponibilité</strong> : <a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a> (auto-hébergé ailleurs), UptimeRobot... interrogent le site à intervalles réguliers.</li>
+<li><strong>Tâches planifiées</strong> : <a href="https://healthchecks.io">healthchecks.io</a> alerte si un cron ne s'est pas exécuté (utile pour les sauvegardes) :</li>
+</ul>
+<pre><code class="language-bash"># À la fin du script de sauvegarde
+restic backup /opt/monapp /etc /var/backups &amp;&amp; curl -fsS -m 10 --retry 3 https://hc-ping.com/&lt;uuid&gt;
+</code></pre>
+<ul>
+<li><strong>Métriques</strong> : Netdata, ou Prometheus + Grafana pour une infrastructure plus large.</li>
+</ul>
+<hr />
+<h2 id="complements">Compléments</h2>
+<h3 id="dependances-applicatives">Dépendances applicatives</h3>
+<p>Le système à jour ne protège pas d'une faille dans le code ou ses dépendances :</p>
+<pre><code class="language-bash">npm audit                     # Node.js
+pip-audit                     # Python (pip install pip-audit)
+composer audit                # PHP
+</code></pre>
+<p>Activer Dependabot ou Renovate sur le dépôt pour être notifié automatiquement.</p>
+<h3 id="secrets">Secrets</h3>
+<p>Jamais de clé API ou de mot de passe dans le code source ni dans Git (voir la fiche <a href="../secrets/">Gestion des secrets</a>) :</p>
+<pre><code class="language-bash">sudo mkdir -p /etc/monapp
+sudo nano /etc/monapp/monapp.env         # DATABASE_URL=..., API_KEY=...
+sudo chown root:monapp /etc/monapp/monapp.env
+sudo chmod 640 /etc/monapp/monapp.env
+</code></pre>
+<p>Le fichier est chargé par systemd via <code>EnvironmentFile=</code> (voir section 5). Ajouter <code>.env</code> au <code>.gitignore</code> côté projet.</p>
+<h3 id="logs">Logs</h3>
+<pre><code class="language-bash">sudo journalctl -f                       # suivre tous les logs en direct
+sudo tail -f /var/log/nginx/error.log
+sudo apt install logwatch                # rapport quotidien par mail des événements système
+</code></pre>
+<hr />
+<h2 id="checklist-finale">Checklist finale</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Vérification</th>
+<th>Commande de contrôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Système à jour</td>
+<td><code>apt list --upgradable</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mises à jour de sécurité automatiques</td>
+<td><code>systemctl status unattended-upgrades</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Connexion SSH par clé</td>
+<td><code>ssh -i ~/.ssh/vps_prod admin@mon-vps.com</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Mot de passe SSH désactivé</td>
+<td><code>sudo sshd -T \| grep passwordauthentication</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Connexion root SSH interdite</td>
+<td><code>sudo sshd -T \| grep permitrootlogin</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Pare-feu actif</td>
+<td><code>sudo ufw status verbose</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Seuls SSH, 80 et 443 exposés</td>
+<td><code>nmap -Pn mon-vps.com</code> (depuis l'extérieur)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Application lancée avec un utilisateur dédié</td>
+<td><code>ps -o user,cmd -C node</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Base de données non exposée</td>
+<td><code>sudo ss -tlpn</code> (écoute sur 127.0.0.1)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Fail2ban actif</td>
+<td><code>sudo fail2ban-client status sshd</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Sauvegardes externalisées</td>
+<td><code>restic snapshots</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Restauration testée</td>
+<td><code>restic restore latest --target /tmp/restore-test</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Alertes et supervision configurées</td>
+<td>ping healthchecks.io / Uptime Kuma</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>En résumé</strong> : sécuriser un VPS, ce n'est pas seulement installer un pare-feu. C'est appliquer le moindre privilège, limiter l'exposition, prévoir la récupération après incident et surveiller le serveur en continu.</p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../secrets/" class="btn btn-neutral float-left" title="Gestion des secrets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../dev-tests/concepts/" class="btn btn-neutral float-right" title="Concepts de tests">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../secrets/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../dev-tests/concepts/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
